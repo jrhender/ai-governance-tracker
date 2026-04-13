@@ -1,0 +1,15 @@
+# organizations/cigi-global-ai-risks-initiative.yaml
+
+id: cigi-global-ai-risks-initiative
+type: Organization
+schema_type: Organization
+
+name: "Global AI Risks Initiative, Centre for International Governance Innovation"
+short_name: "CIGI"
+url: https://www.cigionline.org
+wikipedia: https://en.wikipedia.org/wiki/Centre_for_International_Governance_Innovation
+
+tags:
+  - think-tank
+  - canadian
+  - ai-safety

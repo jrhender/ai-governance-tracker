@@ -1,0 +1,40 @@
+# artifacts/2026-02-06-cigi-pco-ai-national-security-report.yaml
+
+id: cigi-pco-ai-national-security-report-2026
+type: Report
+schema_type: CreativeWork
+
+title: "AI and National Security: Scenarios Workshop Summary Report"
+published_date: 2026-02-06
+
+organizations:
+  - id: cigi-global-ai-risks-initiative
+    role: author
+  - id: cigi-global-ai-risks-initiative
+    role: publisher
+
+description: >
+  Summary report containing policy recommendations intended to stimulate
+  discussion among policy makers and the broader public on national security
+  implications of next-generation AI systems.
+
+derives_from:
+  - id: cigi-pco-ai-national-security-workshop-2025
+    relationship: summary_of
+
+links:
+  - label: "Full Report"
+    url: https://example.com/report
+    icon: document
+
+policy_recommendations:
+  - id: rec-001
+    summary: ""
+    status: untracked  # untracked | under_review | adopted | rejected
+
+tags:
+  - national-security
+  - policy-recommendations
+  - federal-government
+  - cigi
+  - privy-council-office

@@ -1,0 +1,14 @@
+# organizations/privy-council-office-canada.yaml
+
+id: privy-council-office-canada
+type: GovernmentOrganization
+schema_type: GovernmentOrganization
+
+name: "Privy Council Office of Canada"
+short_name: "PCO"
+url: https://www.canada.ca/en/privy-council.html
+wikipedia: https://en.wikipedia.org/wiki/Privy_Council_Office_(Canada)
+
+tags:
+  - federal-government
+  - canadian

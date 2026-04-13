@@ -1,0 +1,39 @@
+# events/2025-03-26-cigi-pco-ai-national-security-workshop.yaml
+
+id: cigi-pco-ai-national-security-workshop-2025
+type: Workshop
+schema_type: Event
+
+title: "AI National Security Scenarios Workshop"
+date: 2025-03-26
+location:
+  name: "Ottawa, Ontario, Canada"
+  schema_type: Place
+
+status: completed  # upcoming | completed | cancelled
+
+description: >
+  A full-day, in-person scenarios workshop co-hosted by the Global AI Risks
+  Initiative at CIGI and the Privy Council Office of Canada, exploring existing
+  and emerging national security implications of next-generation AI systems.
+
+organizations:
+  - id: cigi-global-ai-risks-initiative
+    role: co-host
+  - id: privy-council-office-canada
+    role: co-host
+
+tags:
+  - national-security
+  - scenarios
+  - federal-government
+  - cigi
+  - privy-council-office
+
+links:
+  - label: "Summary Report"
+    url: https://example.com/report
+    icon: document
+
+related_artifacts:
+  - id: cigi-pco-ai-national-security-report-2026

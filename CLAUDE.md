@@ -14,10 +14,9 @@ A Canadian AI governance and policy timeline — tracking AI safety events such 
 - Track implementation status of policy recommendations
 - Explore whether an open standard for timeline data already exists
 
-## Tech Approach
+## Architecture Decisions
 
-- Static site with a flat-file CMS
-- Flat YAML files as the data layer (see `data/` directory)
+Significant architectural choices are recorded as ADRs in `docs/adr/`. Read these before making changes that touch framework, data layer, or deployment concerns.
 
 ## Data Model
 

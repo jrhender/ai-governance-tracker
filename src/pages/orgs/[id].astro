@@ -1,0 +1,100 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const orgs = await getCollection("organizations");
+  return orgs.map((org) => ({
+    params: { id: org.id },
+    props: { org },
+  }));
+}
+
+const { org } = Astro.props;
+const { data } = org;
+
+const allEvents = await getCollection("events");
+const allArtifacts = await getCollection("artifacts");
+
+const events = allEvents.filter((e) =>
+  e.data.organizations.some((o) => o.id.id === org.id),
+);
+const artifacts = allArtifacts.filter((a) =>
+  a.data.organizations.some((o) => o.id.id === org.id),
+);
+---
+
+<BaseLayout title={data.name} description={`Organization: ${data.name}`}>
+  <p class="text-sm text-slate-500 dark:text-slate-400">
+    <a href="/" class="hover:underline">← Timeline</a>
+  </p>
+  <h1 class="mt-4 text-3xl font-bold tracking-tight">{data.name}</h1>
+  {data.short_name && (
+    <p class="mt-1 text-slate-500 dark:text-slate-400">{data.short_name}</p>
+  )}
+
+  <div class="mt-4 flex flex-wrap gap-4 text-sm">
+    {data.url && (
+      <a
+        href={data.url}
+        class="text-blue-700 hover:underline dark:text-blue-400"
+        rel="noopener noreferrer"
+      >
+        Website
+      </a>
+    )}
+    {data.wikipedia && (
+      <a
+        href={data.wikipedia}
+        class="text-blue-700 hover:underline dark:text-blue-400"
+        rel="noopener noreferrer"
+      >
+        Wikipedia
+      </a>
+    )}
+  </div>
+
+  {events.length > 0 && (
+    <section class="mt-8">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+        Events
+      </h2>
+      <ul class="mt-2 space-y-1">
+        {events.map((e) => (
+          <li>
+            <a href={`/events/${e.id}/`} class="hover:underline">
+              {e.data.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {artifacts.length > 0 && (
+    <section class="mt-8">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+        Artifacts
+      </h2>
+      <ul class="mt-2 space-y-1">
+        {artifacts.map((a) => (
+          <li>
+            <a href={`/artifacts/${a.id}/`} class="hover:underline">
+              {a.data.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {data.tags.length > 0 && (
+    <section class="mt-8 flex flex-wrap gap-2 text-xs">
+      {data.tags.map((t) => (
+        <span class="rounded bg-slate-100 px-2 py-0.5 text-slate-700 dark:bg-slate-800 dark:text-slate-300">
+          #{t}
+        </span>
+      ))}
+    </section>
+  )}
+</BaseLayout>

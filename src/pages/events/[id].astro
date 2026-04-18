@@ -1,0 +1,131 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const events = await getCollection("events");
+  return events.map((event) => ({
+    params: { id: event.id },
+    props: { event },
+  }));
+}
+
+const { event } = Astro.props;
+const { data } = event;
+
+const orgs = await Promise.all(
+  data.organizations.map(async (o) => {
+    const org = await getEntry("organizations", o.id.id);
+    return { role: o.role, org };
+  }),
+);
+
+const relatedArtifacts = await Promise.all(
+  data.related_artifacts.map((a) => getEntry("artifacts", a.id.id)),
+);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-CA", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+---
+
+<BaseLayout title={data.title} description={data.description}>
+  <p class="text-sm text-slate-500 dark:text-slate-400">
+    <a href="/" class="hover:underline">← Timeline</a>
+  </p>
+  <h1 class="mt-4 text-3xl font-bold tracking-tight">{data.title}</h1>
+  <div class="mt-2 flex flex-wrap gap-3 text-sm text-slate-600 dark:text-slate-400">
+    <time datetime={data.date.toISOString()}>{fmt(data.date)}</time>
+    <span>·</span>
+    <span>{data.type}</span>
+    {data.location && (
+      <>
+        <span>·</span>
+        <span>{data.location.name}</span>
+      </>
+    )}
+    {data.status && (
+      <>
+        <span>·</span>
+        <span>{data.status}</span>
+      </>
+    )}
+  </div>
+
+  {data.description && (
+    <p class="mt-6 text-slate-800 dark:text-slate-200">{data.description}</p>
+  )}
+
+  {orgs.length > 0 && (
+    <section class="mt-8">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+        Organizations
+      </h2>
+      <ul class="mt-2 space-y-1">
+        {orgs.map(({ role, org }) =>
+          org ? (
+            <li>
+              <a href={`/orgs/${org.id}/`} class="font-medium hover:underline">
+                {org.data.short_name ?? org.data.name}
+              </a>
+              <span class="text-slate-500 dark:text-slate-400"> — {role}</span>
+            </li>
+          ) : null,
+        )}
+      </ul>
+    </section>
+  )}
+
+  {data.links.length > 0 && (
+    <section class="mt-8">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+        Links
+      </h2>
+      <ul class="mt-2 space-y-1">
+        {data.links.map((l) => (
+          <li>
+            <a
+              href={l.url}
+              class="text-blue-700 hover:underline dark:text-blue-400"
+              rel="noopener noreferrer"
+            >
+              {l.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {relatedArtifacts.length > 0 && (
+    <section class="mt-8">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+        Related artifacts
+      </h2>
+      <ul class="mt-2 space-y-1">
+        {relatedArtifacts.map((a) =>
+          a ? (
+            <li>
+              <a href={`/artifacts/${a.id}/`} class="hover:underline">
+                {a.data.title}
+              </a>
+            </li>
+          ) : null,
+        )}
+      </ul>
+    </section>
+  )}
+
+  {data.tags.length > 0 && (
+    <section class="mt-8 flex flex-wrap gap-2 text-xs">
+      {data.tags.map((t) => (
+        <span class="rounded bg-slate-100 px-2 py-0.5 text-slate-700 dark:bg-slate-800 dark:text-slate-300">
+          #{t}
+        </span>
+      ))}
+    </section>
+  )}
+</BaseLayout>

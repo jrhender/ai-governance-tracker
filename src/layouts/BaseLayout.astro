@@ -1,0 +1,56 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const siteTitle = "AI Safety Gov Tracker";
+const fullTitle = title === siteTitle ? title : `${title} — ${siteTitle}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <script is:inline>
+      const t =
+        localStorage.getItem("theme") ??
+        (matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light");
+      document.documentElement.classList.toggle("dark", t === "dark");
+    </script>
+  </head>
+  <body
+    class="min-h-screen bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100"
+  >
+    <header class="border-b border-slate-200 dark:border-slate-800">
+      <div
+        class="mx-auto flex max-w-4xl items-center justify-between px-6 py-4"
+      >
+        <a href="/" class="text-lg font-semibold tracking-tight">
+          {siteTitle}
+        </a>
+        <nav class="text-sm text-slate-600 dark:text-slate-400">
+          <a href="/" class="hover:text-slate-900 dark:hover:text-slate-100">
+            Timeline
+          </a>
+        </nav>
+      </div>
+    </header>
+    <main class="mx-auto max-w-4xl px-6 py-10">
+      <slot />
+    </main>
+    <footer
+      class="mx-auto max-w-4xl px-6 py-10 text-sm text-slate-500 dark:text-slate-400"
+    >
+      A Canadian AI governance and policy timeline.
+    </footer>
+  </body>
+</html>

@@ -14,6 +14,10 @@ A Canadian AI governance and policy timeline — tracking AI safety events such 
 - Track implementation status of policy recommendations
 - Explore whether an open standard for timeline data already exists
 
+## Workflow
+
+After every change, commit and push to `main`.
+
 ## Architecture Decisions
 
 Significant architectural choices are recorded as ADRs in `docs/adr/`. Read these before making changes that touch framework, data layer, or deployment concerns.

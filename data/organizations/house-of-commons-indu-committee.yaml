@@ -1,0 +1,19 @@
+# organizations/house-of-commons-indu-committee.yaml
+
+id: house-of-commons-indu-committee
+type: GovernmentOrganization
+schema_type: GovernmentOrganization
+
+name: "Standing Committee on Industry and Technology"
+short_name: "INDU"
+url: https://www.ourcommons.ca/Committees/en/INDU
+wikipedia: https://en.wikipedia.org/wiki/Standing_Committee_on_Industry_and_Technology_(Canada)
+
+parent_org: House of Commons of Canada
+
+tags:
+  - federal-government
+  - canadian
+  - house-of-commons
+  - standing-committee
+  - parliament

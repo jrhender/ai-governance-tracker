@@ -5,29 +5,45 @@ type: Report
 schema_type: CreativeWork
 
 title: "AI and National Security: Scenarios Workshop Summary Report"
-published_date: 2026-02-06
+published_date: 2026-02-06  # confirmed
+
+authors:
+  # Individual authors — no people files created yet
+  - name: "Duncan Cass-Beggs"
+    role: author
+  - name: "Matthew da Mota"
+    role: author
 
 organizations:
-  - id: cigi-global-ai-risks-initiative
-    role: author
   - id: cigi-global-ai-risks-initiative
     role: publisher
 
 description: >
-  Summary report containing policy recommendations intended to stimulate
-  discussion among policy makers and the broader public on national security
-  implications of next-generation AI systems.
+  Summary report from the AI National Security Scenarios Workshop co-hosted
+  by the Global AI Risks Initiative at CIGI and the Privy Council Office of
+  Canada. Contains policy recommendations intended to stimulate discussion
+  among policy makers and the broader public on national security implications
+  of next-generation AI systems. The report covers five possible future AI
+  scenarios (to 2030), an executive summary of key messages drawn from workshop
+  discussions and background literature, and an appendix summarizing key points
+  from the workshop discussion.
 
 derives_from:
   - id: cigi-pco-ai-national-security-workshop-2025
     relationship: summary_of
 
 links:
-  - label: "Full Report"
-    url: https://example.com/report
+  - label: "Publication Page"
+    url: https://www.cigionline.org/publications/ai-national-security-scenarios/
+    icon: document
+  - label: "PDF"
+    url: https://www.cigionline.org/static/documents/AI_National_Security.pdf
     icon: document
 
 policy_recommendations:
+  # TODO: Policy recommendations could not be extracted — the CIGI site and PDF
+  # are behind Cloudflare. Fetch https://www.cigionline.org/static/documents/AI_National_Security.pdf
+  # manually to fill these in.
   - id: rec-001
     summary: ""
     status: untracked  # untracked | under_review | adopted | rejected

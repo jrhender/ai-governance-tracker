@@ -32,7 +32,10 @@ tags:
 
 links:
   - label: "Summary Report"
-    url: https://example.com/report
+    url: https://www.cigionline.org/publications/ai-national-security-scenarios/
+    icon: document
+  - label: "Summary Report PDF"
+    url: https://www.cigionline.org/static/documents/AI_National_Security.pdf
     icon: document
 
 related_artifacts:

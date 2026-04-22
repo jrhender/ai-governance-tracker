@@ -15,8 +15,14 @@ export default function OrgFilter({ orgs, selected, onSelect }: Props) {
     "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700";
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div
+      role="group"
+      aria-label="Filter by organization"
+      className="flex flex-wrap gap-2"
+    >
       <button
+        type="button"
+        aria-pressed={selected === null}
         className={`${pillBase} ${selected === null ? active : inactive}`}
         onClick={() => onSelect(null)}
       >
@@ -25,6 +31,8 @@ export default function OrgFilter({ orgs, selected, onSelect }: Props) {
       {orgs.map((org) => (
         <button
           key={org.id}
+          type="button"
+          aria-pressed={selected === org.id}
           className={`${pillBase} ${selected === org.id ? active : inactive}`}
           onClick={() => onSelect(org.id)}
         >

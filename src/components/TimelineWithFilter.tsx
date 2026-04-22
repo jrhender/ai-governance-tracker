@@ -12,22 +12,31 @@ type Props = {
 export default function TimelineWithFilter({ items, orgs }: Props) {
   const [selectedOrgId, setSelectedOrgId] = useState<string | null>(null);
 
-  // Read ?org= from URL on mount
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const org = params.get("org");
-    if (org) {
-      setSelectedOrgId(org);
+    function resolveOrg(): string | null {
+      const params = new URLSearchParams(window.location.search);
+      const org = params.get("org");
+      return org && orgs.some((o) => o.id === org) ? org : null;
     }
-  }, []);
+
+    const initial = resolveOrg();
+    setSelectedOrgId(initial);
+    const raw = new URLSearchParams(window.location.search).get("org");
+    if (raw && !initial) {
+      history.replaceState({}, "", window.location.pathname);
+    }
+
+    function onPopState() {
+      setSelectedOrgId(resolveOrg());
+    }
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, [orgs]);
 
   function handleSelect(orgId: string | null) {
     setSelectedOrgId(orgId);
-    if (orgId !== null) {
-      history.replaceState({}, "", "?org=" + orgId);
-    } else {
-      history.replaceState({}, "", window.location.pathname);
-    }
+    const url = orgId !== null ? "?org=" + orgId : window.location.pathname;
+    history.pushState({}, "", url);
   }
 
   const filteredItems = useMemo(

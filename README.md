@@ -17,6 +17,17 @@ pnpm install
 pnpm dev
 ```
 
+## Running tests
+
+Unit and component tests run with [Vitest](https://vitest.dev/).
+
+```bash
+pnpm test          # run once
+pnpm test:watch    # re-run on file changes
+```
+
+Tests live alongside the source files they cover (`foo.test.ts` next to `foo.ts`).
+
 ## License
 
 This project uses a dual license:

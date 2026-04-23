@@ -39,6 +39,19 @@ pnpm exec playwright test  # skip the build (assumes dist/ is fresh)
 
 The HTML report lands in `playwright-report/` (gitignored). Specs live in `e2e/`.
 
+### Analytics
+
+The site uses [Cloudflare Web Analytics](https://www.cloudflare.com/web-analytics/) — cookieless, no PII, no consent banner. The beacon only renders in production builds (`import.meta.env.PROD`) and only when `PUBLIC_CF_ANALYTICS_TOKEN` is set. Contributors don't need a token to work on the site.
+
+To test the beacon locally, copy `.env.example` to `.env`, set a dummy token, then run:
+
+```bash
+pnpm build
+pnpm preview
+```
+
+The production site's token is set in Cloudflare Pages' build environment, not in the repo.
+
 ## License
 
 This project uses a dual license:

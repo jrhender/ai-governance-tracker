@@ -28,6 +28,17 @@ pnpm test:watch    # re-run on file changes
 
 Tests live alongside the source files they cover (`foo.test.ts` next to `foo.ts`).
 
+### End-to-end tests
+
+Browser tests run with [Playwright](https://playwright.dev/) against the production build.
+
+```bash
+pnpm test:e2e              # build + run all e2e tests
+pnpm exec playwright test  # skip the build (assumes dist/ is fresh)
+```
+
+The HTML report lands in `playwright-report/` (gitignored). Specs live in `e2e/`.
+
 ## License
 
 This project uses a dual license:

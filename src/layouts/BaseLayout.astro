@@ -9,9 +9,6 @@ interface Props {
 const { title, description } = Astro.props;
 const siteTitle = "AI Safety Gov Tracker";
 const fullTitle = title === siteTitle ? title : `${title} — ${siteTitle}`;
-
-const cfToken = import.meta.env.PUBLIC_CF_ANALYTICS_TOKEN;
-const showBeacon = import.meta.env.PROD && cfToken;
 ---
 
 <!doctype html>
@@ -29,13 +26,6 @@ const showBeacon = import.meta.env.PROD && cfToken;
           : "light");
       document.documentElement.classList.toggle("dark", t === "dark");
     </script>
-    {showBeacon && (
-      <script
-        defer
-        src="https://static.cloudflareinsights.com/beacon.min.js"
-        data-cf-beacon={JSON.stringify({ token: cfToken })}
-      ></script>
-    )}
   </head>
   <body
     class="min-h-screen bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100"

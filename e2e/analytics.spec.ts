@@ -11,12 +11,4 @@ test.describe("analytics", () => {
       footer.getByRole("link", { name: /Cloudflare Web Analytics/i }),
     ).toBeVisible();
   });
-
-  test("cloudflare web analytics beacon is present in prod HTML", async ({
-    page,
-  }) => {
-    const response = await page.goto("/");
-    const html = await response!.text();
-    expect(html).toMatch(/data-cf-beacon=/);
-  });
 });

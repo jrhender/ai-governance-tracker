@@ -39,6 +39,10 @@ pnpm exec playwright test  # skip the build (assumes dist/ is fresh)
 
 The HTML report lands in `playwright-report/` (gitignored). Specs live in `e2e/`.
 
+### Analytics
+
+The site uses [Cloudflare Web Analytics](https://www.cloudflare.com/web-analytics/). The beacon is injected at Cloudflare's edge with EU visitors excluded, so there is nothing analytics-related in this repo's source or build output. A footer disclosure links to Cloudflare's privacy docs.
+
 ## License
 
 This project uses a dual license:

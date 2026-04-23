@@ -1,0 +1,31 @@
+# events/2022-06-16-bill-c27-introduced.yaml
+
+id: bill-c27-introduced-2022
+type: LegislativeAction
+schema_type: Event
+
+title: "Bill C-27 introduced in the House of Commons (first reading)"
+date: 2022-06-16
+
+status: completed
+
+description: >
+  The Digital Charter Implementation Act, 2022 (Bill C-27) is introduced and
+  receives first reading in the House of Commons. The bill bundles three
+  components: the Consumer Privacy Protection Act, the Personal Information
+  and Data Protection Tribunal Act, and the Artificial Intelligence and Data
+  Act (AIDA) — the first proposed federal AI-specific legislation in Canada.
+
+related_artifacts:
+  - id: bill-c27-aida
+
+tags:
+  - bill-c-27
+  - aida
+  - federal-government
+  - house-of-commons
+
+links:
+  - label: "LEGISinfo — Bill C-27"
+    url: https://www.parl.ca/legisinfo/en/bill/44-1/c-27
+    icon: document

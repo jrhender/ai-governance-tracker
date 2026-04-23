@@ -50,6 +50,29 @@ const artifacts = defineCollection({
     title: z.string(),
     published_date: z.coerce.date(),
     description: z.string().optional(),
+    lifecycle_status: z
+      .enum(["active", "enacted", "died", "withdrawn"])
+      .optional(),
+    current_stage: z.string().optional(),
+    stages: z
+      .array(
+        z.object({
+          date: z.coerce.date(),
+          stage: z.string(),
+          note: z.string().optional(),
+          links: z.array(linkSchema).default([]),
+        }),
+      )
+      .default([]),
+    provisions: z
+      .array(
+        z.object({
+          id: z.string(),
+          title: z.string(),
+          summary: z.string(),
+        }),
+      )
+      .default([]),
     organizations: z.array(orgRoleSchema).default([]),
     derives_from: z
       .array(

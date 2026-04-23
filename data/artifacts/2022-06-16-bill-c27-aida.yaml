@@ -1,0 +1,145 @@
+# artifacts/2022-06-16-bill-c27-aida.yaml
+
+id: bill-c27-aida
+type: Legislation
+schema_type: CreativeWork
+
+title: "Bill C-27 — Digital Charter Implementation Act, 2022 (including AIDA)"
+published_date: 2022-06-16  # introduction / first reading date
+
+lifecycle_status: died
+current_stage: "Died on the Order Paper at committee stage (INDU) on prorogation, 6 January 2025"
+
+organizations:
+  - id: house-of-commons-indu-committee
+    role: reviewed_by
+
+description: >
+  The Digital Charter Implementation Act, 2022 bundled three components: the
+  Consumer Privacy Protection Act, the Personal Information and Data Protection
+  Tribunal Act, and the Artificial Intelligence and Data Act (AIDA) — Canada's
+  first proposed federal AI-specific legislation.
+
+  AIDA would have regulated "high-impact" AI systems used in interprovincial
+  and international trade, created an AI and Data Commissioner within ISED,
+  and imposed obligations across the AI lifecycle. High-impact systems were
+  to be defined by risk factors including potential for health/safety harm,
+  human rights impacts, scale of use, severity of potential harms, and the
+  extent to which users could opt out. Examples cited in the ISED companion
+  document included hiring systems, biometric identification tools, behavioural
+  influence systems, and autonomous vehicles.
+
+  The bill was referred to the Standing Committee on Industry and Technology
+  (INDU) after second reading in April 2023 and remained there through the
+  end of the 44th Parliament. The committee paused clause-by-clause
+  consideration on 29 May 2024, met once more on 26 September 2024, and on
+  21 November 2024 confirmed the study would remain paused until at least
+  February 2025. Parliament was prorogued on 6 January 2025, killing the
+  bill before it reached report stage, third reading, or the Senate.
+
+stages:
+  - date: 2022-06-16
+    stage: "Introduction and first reading"
+    note: "Bill C-27 introduced in the House of Commons."
+  - date: 2022-11-04
+    stage: "Second reading debate begins"
+  - date: 2023-04-24
+    stage: "Second reading passed; referred to INDU"
+    note: "Passed on two separate votes (300: 205–109; 301: 203–112)."
+  - date: 2023-09-26
+    stage: "INDU study begins"
+    links:
+      - label: "Michael Geist — Why Minister Champagne broke the Bill C-27 hearings on privacy and AI regulation in only 12 minutes"
+        url: https://www.michaelgeist.ca/2023/09/why-industry-minister-champagne-broke-the-bill-c-27-hearings-on-privacy-and-ai-regulation-in-only-12-minutes/
+        icon: document
+  - date: 2023-11-28
+    stage: "Minister tables proposed AIDA amendments"
+    note: "Minister Champagne submits a letter to INDU with proposed amendments to AIDA."
+  - date: 2024-05-29
+    stage: "Clause-by-clause consideration pauses"
+    note: "Meeting 126 — last clause-by-clause session before a summer pause."
+  - date: 2024-09-26
+    stage: "Last INDU meeting on C-27"
+    note: "Meeting 136 — committee study not completed."
+  - date: 2024-11-21
+    stage: "INDU confirms study will remain paused"
+    note: "Committee confirms the study will remain paused until at least February 2025."
+  - date: 2025-01-06
+    stage: "Died on the Order Paper"
+    note: "Parliament prorogued; Bill C-27 dies along with all other legislation on the Order Paper."
+
+provisions:
+  - id: high-impact-scope
+    title: "Scope: high-impact AI systems"
+    summary: >
+      Apply obligations to "high-impact" AI systems used in interprovincial
+      or international trade, defined by risk factors including potential for
+      health/safety harm, human rights impacts, scale of use, severity of
+      potential harms, and the extent to which users cannot opt out.
+  - id: human-oversight
+    title: "Human oversight and monitoring"
+    summary: >
+      Require mechanisms for meaningful human oversight of high-impact AI
+      systems across their lifecycle.
+  - id: transparency
+    title: "Transparency"
+    summary: >
+      Require plain-language disclosures about the AI system's purpose,
+      intended use, content it generates, and its limitations.
+  - id: fairness
+    title: "Fairness and non-discrimination"
+    summary: >
+      Require measures to identify and mitigate biased outputs and
+      discriminatory impacts.
+  - id: safety
+    title: "Safety"
+    summary: >
+      Require risk identification and mitigation so that reasonably
+      foreseeable uses do not create unreasonable risks of harm.
+  - id: accountability
+    title: "Accountability"
+    summary: >
+      Require governance mechanisms (policies, processes, documentation)
+      ensuring legal obligations are met across the AI lifecycle.
+  - id: robustness
+    title: "Validity and robustness"
+    summary: >
+      Require systems to perform consistently as intended under a range of
+      conditions.
+  - id: ai-data-commissioner
+    title: "AI and Data Commissioner"
+    summary: >
+      Establish an AI and Data Commissioner within ISED to administer and
+      enforce AIDA, separate from criminal prosecution handled by the Public
+      Prosecution Service.
+  - id: enforcement-tiers
+    title: "Tiered enforcement"
+    summary: >
+      Education and voluntary compliance first; administrative monetary
+      penalties and regulatory offences for non-compliance; criminal offences
+      for knowing or reckless conduct causing serious harm.
+
+links:
+  - label: "LEGISinfo — Bill C-27"
+    url: https://www.parl.ca/legisinfo/en/bill/44-1/c-27
+    icon: document
+  - label: "AIDA companion document (ISED)"
+    url: https://ised-isde.canada.ca/site/innovation-better-canada/en/artificial-intelligence-and-data-act-aida-companion-document
+    icon: document
+  - label: "ISED — Artificial Intelligence and Data Act page"
+    url: https://ised-isde.canada.ca/site/innovation-better-canada/en/artificial-intelligence-and-data-act
+    icon: document
+  - label: "INDU — Bill C-27 study activity"
+    url: https://www.ourcommons.ca/committees/en/INDU/StudyActivity?studyActivityId=12157763
+    icon: document
+  - label: "Charter Statement (Justice Canada)"
+    url: https://www.justice.gc.ca/eng/csj-sjc/pl/charter-charte/c27_1.html
+    icon: document
+
+tags:
+  - bill-c-27
+  - aida
+  - digital-charter-implementation-act
+  - federal-government
+  - high-impact-ai-systems
+  - ai-data-commissioner

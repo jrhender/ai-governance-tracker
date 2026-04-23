@@ -1,0 +1,31 @@
+# events/2025-01-06-parliament-prorogued-44-1.yaml
+
+id: parliament-prorogued-44-1-2025
+type: PoliticalEvent
+schema_type: Event
+
+title: "Parliament prorogued — Bill C-27 dies on the Order Paper"
+date: 2025-01-06
+
+status: completed
+
+description: >
+  Prime Minister Justin Trudeau announces his resignation and Parliament is
+  prorogued by proclamation of the Governor General. All legislation on the
+  Order Paper, including Bill C-27 (and with it AIDA), dies. INDU's
+  clause-by-clause study of the bill ceases.
+
+related_artifacts:
+  - id: bill-c27-aida
+
+tags:
+  - prorogation
+  - parliament
+  - bill-c-27
+  - aida
+  - federal-government
+
+links:
+  - label: "LEGISinfo — Bill C-27 (final status)"
+    url: https://www.parl.ca/legisinfo/en/bill/44-1/c-27
+    icon: document

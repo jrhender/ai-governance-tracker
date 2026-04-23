@@ -70,6 +70,10 @@ stages:
     note: "Passed on two separate votes (300: 205–109; 301: 203–112)."
   - date: 2023-09-26
     stage: "INDU study begins"
+    links:
+      - label: "Michael Geist — Why Minister Champagne broke the Bill C-27 hearings on privacy and AI regulation in only 12 minutes"
+        url: https://www.michaelgeist.ca/2023/09/why-industry-minister-champagne-broke-the-bill-c-27-hearings-on-privacy-and-ai-regulation-in-only-12-minutes/
+        icon: document
   - date: 2023-11-28
     stage: "Minister tables proposed AIDA amendments"
     note: "Minister Champagne submits a letter to INDU with proposed amendments to AIDA."
@@ -246,7 +250,7 @@ stages: z
       date: z.coerce.date(),
       stage: z.string(),
       note: z.string().optional(),
-      link: linkSchema.optional(),
+      links: z.array(linkSchema).default([]),
     }),
   )
   .default([]),

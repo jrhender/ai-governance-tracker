@@ -16,7 +16,25 @@ A Canadian AI governance and policy timeline — tracking AI safety events such 
 
 ## Workflow
 
-After every change, commit and push to `main`.
+### Branching and PRs
+
+Non-trivial changes land on `main` via pull request, not direct pushes.
+
+1. Start from an up-to-date `main`: `git checkout main && git pull`.
+2. Create a feature branch: `git checkout -b feature/<short-topic>` (e.g. `feature/vitest-unit-tests`). Use `fix/<topic>` for bug fixes, `docs/<topic>` for documentation-only changes.
+3. Commit in small, reviewable chunks — typically one commit per task in the implementation plan.
+4. Push and open a PR against `main` (via GitHub API + `$GITHUB_TOKEN`). PR description links the spec, plan, and any tracking issue, and includes a Test plan checklist.
+5. CI (`Test / unit` and `Test / e2e`) must pass before merge.
+6. Merge via squash-merge on GitHub. Keep the squash commit message descriptive.
+7. After merge: `git checkout main && git pull && git branch -D feature/<topic>`.
+
+Small doc-only or data-only edits to `main` directly are fine when there is nothing to test and no architectural choice to review.
+
+### Commits
+
+- Commit messages describe the change in the imperative mood and explain *why* on the subject line when possible (e.g. "Exclude e2e/ from Vitest so Playwright specs don't clash").
+- Include a body when the reasoning isn't obvious from the diff.
+- Never commit `.env*`, `CLAUDE.local.md`, or anything in `.claude/settings.local.json` — these are gitignored for a reason.
 
 ## Architecture Decisions
 

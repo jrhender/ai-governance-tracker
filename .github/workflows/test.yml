@@ -30,6 +30,8 @@ jobs:
   e2e:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      PUBLIC_CF_ANALYTICS_TOKEN: test-token-not-real
     steps:
       - uses: actions/checkout@v4
 

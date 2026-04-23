@@ -13,6 +13,6 @@ test.describe("analytics", () => {
   }) => {
     const response = await page.goto("/");
     const html = await response!.text();
-    expect(html).toMatch(/static\.cloudflareinsights\.com\/beacon\.min\.js/);
+    expect(html).toMatch(/data-cf-beacon=/);
   });
 });

@@ -23,7 +23,10 @@ export default function TimelineList({ items }: Props) {
   }
 
   return (
-    <ol className="mt-10 space-y-8 border-l border-slate-200 dark:border-slate-800">
+    <ol
+      aria-label="Timeline"
+      className="mt-10 space-y-8 border-l border-slate-200 dark:border-slate-800"
+    >
       {items.map((item) => (
         <li key={item.id} className="relative pl-6">
           <span className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-slate-400 dark:bg-slate-600" />

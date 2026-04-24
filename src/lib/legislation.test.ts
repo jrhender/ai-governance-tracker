@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { badgeClass } from "./legislation";
+import { badgeClass, statusLabel } from "./legislation";
 
 describe("badgeClass", () => {
   it("returns blue for active", () => {
@@ -20,5 +20,13 @@ describe("badgeClass", () => {
 
   it("returns grey for undefined", () => {
     expect(badgeClass(undefined)).toBe("bg-slate-500 text-white");
+  });
+});
+
+describe("statusLabel", () => {
+  it("capitalizes first letter", () => {
+    expect(statusLabel("died")).toBe("Died");
+    expect(statusLabel("active")).toBe("Active");
+    expect(statusLabel("enacted")).toBe("Enacted");
   });
 });

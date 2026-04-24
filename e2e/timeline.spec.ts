@@ -69,9 +69,9 @@ test.describe("timeline", () => {
     const items = timelineItems(page);
     const count = await items.count();
     for (let i = 0; i < count; i++) {
-      const badge = items.nth(i).locator("span").first();
-      await expect(badge).not.toHaveText("Legislation");
-      await expect(badge).not.toHaveText("Report");
+      const badges = items.nth(i).locator("div.flex > span").first();
+      await expect(badges).not.toHaveText("Legislation");
+      await expect(badges).not.toHaveText("Report");
     }
   });
 });

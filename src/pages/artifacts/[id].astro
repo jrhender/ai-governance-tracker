@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { fmtDate } from "../../lib/format";
 
 export async function getStaticPaths() {
   const artifacts = await getCollection("artifacts");
@@ -34,12 +35,6 @@ const statusLabels: Record<string, string> = {
   rejected: "Rejected",
 };
 
-const fmt = (d: Date) =>
-  d.toLocaleDateString("en-CA", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
 ---
 
 <BaseLayout title={data.title} description={data.description}>
@@ -53,7 +48,7 @@ const fmt = (d: Date) =>
   <h1 class="mt-4 text-3xl font-bold tracking-tight">{data.title}</h1>
   <div class="mt-2 flex flex-wrap gap-3 text-sm text-slate-600 dark:text-slate-400">
     <time datetime={data.published_date.toISOString()}>
-      Published {fmt(data.published_date)}
+      Published {fmtDate(data.published_date)}
     </time>
     <span>·</span>
     <span>{data.type}</span>

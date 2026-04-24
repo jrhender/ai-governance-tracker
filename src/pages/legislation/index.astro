@@ -1,7 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { badgeClass } from "../../lib/legislation";
+import { badgeClass, statusLabel } from "../../lib/legislation";
+import { fmtDate } from "../../lib/format";
 
 const artifacts = await getCollection("artifacts");
 const legislation = artifacts
@@ -10,16 +11,6 @@ const legislation = artifacts
     (a, b) =>
       b.data.published_date.getTime() - a.data.published_date.getTime(),
   );
-
-const fmt = (d: Date) =>
-  d.toLocaleDateString("en-CA", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    timeZone: "UTC",
-  });
-
-const statusLabel = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 ---
 
 <BaseLayout
@@ -58,7 +49,7 @@ const statusLabel = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
             </p>
           )}
           <p class="mt-2 text-xs text-slate-500 dark:text-slate-500">
-            Introduced: {fmt(bill.data.published_date)}
+            Introduced: {fmtDate(bill.data.published_date)}
           </p>
         </a>
       ))}

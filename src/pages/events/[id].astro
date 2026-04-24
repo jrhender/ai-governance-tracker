@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { fmtDate } from "../../lib/format";
 
 export async function getStaticPaths() {
   const events = await getCollection("events");
@@ -24,12 +25,6 @@ const relatedArtifacts = await Promise.all(
   data.related_artifacts.map((a) => getEntry("artifacts", a.id.id)),
 );
 
-const fmt = (d: Date) =>
-  d.toLocaleDateString("en-CA", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
 ---
 
 <BaseLayout title={data.title} description={data.description}>
@@ -38,7 +33,7 @@ const fmt = (d: Date) =>
   </p>
   <h1 class="mt-4 text-3xl font-bold tracking-tight">{data.title}</h1>
   <div class="mt-2 flex flex-wrap gap-3 text-sm text-slate-600 dark:text-slate-400">
-    <time datetime={data.date.toISOString()}>{fmt(data.date)}</time>
+    <time datetime={data.date.toISOString()}>{fmtDate(data.date)}</time>
     <span>·</span>
     <span>{data.type}</span>
     {data.location && (

@@ -1,17 +1,9 @@
 import type { TimelineItem } from "../lib/timeline";
+import { fmtDate } from "../lib/format";
 
 type Props = {
   items: TimelineItem[];
 };
-
-function fmt(isoDate: string): string {
-  return new Date(isoDate).toLocaleDateString("en-CA", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    timeZone: "UTC",
-  });
-}
 
 export default function TimelineList({ items }: Props) {
   if (items.length === 0) {
@@ -34,7 +26,7 @@ export default function TimelineList({ items }: Props) {
             dateTime={item.date}
             className="text-sm text-slate-500 dark:text-slate-400"
           >
-            {fmt(item.date)}
+            {fmtDate(item.date)}
           </time>
           <h2 className="mt-1 text-lg font-semibold">
             <a href={item.href} className="hover:underline">

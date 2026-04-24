@@ -1,0 +1,67 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { badgeClass } from "../../lib/legislation";
+
+const artifacts = await getCollection("artifacts");
+const legislation = artifacts
+  .filter((a) => a.data.type === "Legislation")
+  .sort(
+    (a, b) =>
+      b.data.published_date.getTime() - a.data.published_date.getTime(),
+  );
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-CA", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  });
+
+const statusLabel = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+---
+
+<BaseLayout
+  title="Legislation"
+  description="Canadian AI-related bills and acts."
+>
+  <h1 class="text-3xl font-bold tracking-tight">Legislation</h1>
+  <p class="mt-2 max-w-2xl text-slate-600 dark:text-slate-400">
+    Canadian AI-related bills and acts.
+  </p>
+
+  {legislation.length === 0 ? (
+    <p class="mt-10 text-slate-500 dark:text-slate-400">
+      No legislation tracked yet.
+    </p>
+  ) : (
+    <div class="mt-10 space-y-4">
+      {legislation.map((bill) => (
+        <a
+          href={`/artifacts/${bill.id}/`}
+          class="block rounded-lg border border-slate-200 p-5 transition-colors hover:border-slate-300 dark:border-slate-800 dark:hover:border-slate-700"
+        >
+          <div class="flex items-start justify-between gap-3">
+            <h2 class="text-lg font-semibold">{bill.data.title}</h2>
+            {bill.data.lifecycle_status && (
+              <span
+                class={`shrink-0 rounded-full px-3 py-0.5 text-xs font-semibold ${badgeClass(bill.data.lifecycle_status)}`}
+              >
+                {statusLabel(bill.data.lifecycle_status)}
+              </span>
+            )}
+          </div>
+          {bill.data.current_stage && (
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">
+              {bill.data.current_stage}
+            </p>
+          )}
+          <p class="mt-2 text-xs text-slate-500 dark:text-slate-500">
+            Introduced: {fmt(bill.data.published_date)}
+          </p>
+        </a>
+      ))}
+    </div>
+  )}
+</BaseLayout>

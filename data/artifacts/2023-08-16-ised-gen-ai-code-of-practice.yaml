@@ -1,0 +1,81 @@
+# artifacts/2023-08-16-ised-gen-ai-code-of-practice.yaml
+
+id: ised-gen-ai-code-of-practice
+type: PolicyDocument
+schema_type: CreativeWork
+
+title: "Canadian Guardrails for Generative AI – Code of Practice"
+published_date: 2023-08-16
+
+organizations:
+  - id: ised-canada
+    role: publisher
+
+lifecycle_status: active
+current_stage: "Published; consultation closed September 2023"
+
+description: >
+  The substantive principles framework underlying Canada's voluntary approach
+  to generative AI governance. Defines six outcomes that developers and
+  deployers of advanced generative AI systems should achieve: Safety,
+  Fairness and Equity, Transparency, Human Oversight and Monitoring,
+  Validity and Robustness, and Accountability. Developed as an interim
+  measure ahead of binding regulation under AIDA; following AIDA's death
+  on prorogation in January 2025, the code remains the primary federal
+  framework for AI governance.
+
+stages:
+  - date: 2023-08-16
+    stage: "Code of Practice elements published for consultation"
+  - date: 2023-09-14
+    stage: "Consultation closes"
+  - date: 2023-09-27
+    stage: "Voluntary Code of Conduct launched based on this framework"
+    note: "See artifact: ised-voluntary-code-of-conduct-gen-ai"
+  # TODO: Page last modified 2026-03-20 — cause unknown; likely CMS update
+
+provisions:
+  - id: safety
+    title: "Safety"
+    summary: >
+      Identify and prevent malicious, harmful, and inappropriate uses.
+      Includes red-teaming and risk assessment across the AI lifecycle.
+  - id: fairness-equity
+    title: "Fairness and Equity"
+    summary: >
+      Assess training datasets and mitigate biased outputs to prevent
+      discriminatory impacts.
+  - id: transparency
+    title: "Transparency"
+    summary: >
+      Detect and label AI-generated content; explain development processes
+      and system limitations to users.
+  - id: human-oversight
+    title: "Human Oversight and Monitoring"
+    summary: >
+      Maintain human supervision mechanisms and incident reporting
+      throughout the AI system lifecycle.
+  - id: validity-robustness
+    title: "Validity and Robustness"
+    summary: >
+      Conduct rigorous testing and apply cybersecurity measures to ensure
+      systems perform consistently as intended.
+  - id: accountability
+    title: "Accountability"
+    summary: >
+      Implement multi-layered governance, audits, and staff training to
+      ensure legal and ethical obligations are met.
+
+links:
+  - label: "ISED — Canadian Guardrails for Generative AI"
+    url: https://ised-isde.canada.ca/site/ised/en/canadian-guardrails-generative-ai-code-practice
+    icon: document
+  - label: "ISED — Consultation page"
+    url: https://ised-isde.canada.ca/site/ised/en/consultation-development-canadian-code-practice-generative-artificial-intelligence-systems
+    icon: document
+
+tags:
+  - ised
+  - voluntary-code
+  - generative-ai
+  - federal-government

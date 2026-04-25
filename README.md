@@ -1,4 +1,4 @@
-# AI Safety Gov Tracker
+# AI Governance Tracker
 
 A Canadian AI governance and policy timeline — tracking AI safety events such as Senate hearings, published reports, and significant government or ministerial changes.
 

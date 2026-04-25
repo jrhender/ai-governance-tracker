@@ -20,7 +20,13 @@ const events = defineCollection({
   loader: yamlGlob({ pattern: "*.yaml", base: dataDir("events") }),
   schema: z.object({
     id: z.string(),
-    type: z.string(),
+    type: z.enum([
+      "CommitteeHearing",
+      "LegislativeAction",
+      "PoliticalEvent",
+      "Publication",
+      "Workshop",
+    ]),
     schema_type: z.literal("Event"),
     title: z.string(),
     date: z.coerce.date(),

@@ -5,7 +5,6 @@ import TimelineWithFilter from "../components/TimelineWithFilter";
 import type { TimelineItem, OrgOption } from "../lib/timeline";
 
 const events = await getCollection("events");
-const artifacts = await getCollection("artifacts");
 const organizations = await getCollection("organizations");
 
 // Build org lookup map: id -> { name, short_name }
@@ -14,8 +13,8 @@ for (const org of organizations) {
   orgMap.set(org.id, { name: org.data.name, short_name: org.data.short_name });
 }
 
-const items: TimelineItem[] = [
-  ...events.map((e) => ({
+const items: TimelineItem[] = events
+  .map((e) => ({
     id: e.id,
     kind: "event" as const,
     title: e.data.title,
@@ -25,19 +24,8 @@ const items: TimelineItem[] = [
     href: `/events/${e.id}/`,
     badge: e.data.type,
     orgIds: e.data.organizations.map((o) => o.id.id),
-  })),
-  ...artifacts.map((a) => ({
-    id: a.id,
-    kind: "artifact" as const,
-    title: a.data.title,
-    date: a.data.published_date.toISOString(),
-    description: a.data.description,
-    tags: a.data.tags,
-    href: `/artifacts/${a.id}/`,
-    badge: a.data.type,
-    orgIds: a.data.organizations.map((o) => o.id.id),
-  })),
-].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  }))
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 // Build OrgOption list: only orgs that appear in at least one item
 const orgCounts = new Map<string, number>();

@@ -63,4 +63,15 @@ test.describe("timeline", () => {
       "true",
     );
   });
+
+  test("timeline does not contain artifact entries", async ({ page }) => {
+    await page.goto("/");
+    const items = timelineItems(page);
+    const count = await items.count();
+    for (let i = 0; i < count; i++) {
+      const badges = items.nth(i).locator("div.flex > span").first();
+      await expect(badges).not.toHaveText("Legislation");
+      await expect(badges).not.toHaveText("Report");
+    }
+  });
 });

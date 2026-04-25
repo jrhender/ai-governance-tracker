@@ -1,0 +1,31 @@
+# data/events/2026-02-06-cigi-pco-report-published.yaml
+
+id: cigi-pco-report-published-2026
+type: Publication
+schema_type: Event
+title: "CIGI publishes AI and National Security Scenarios Workshop Summary Report"
+date: 2026-02-06
+
+organizations:
+  - id: cigi-global-ai-risks-initiative
+    role: publisher
+
+description: >
+  The Global AI Risks Initiative at CIGI publishes the summary report
+  from the AI National Security Scenarios Workshop co-hosted with the
+  Privy Council Office of Canada.
+
+related_artifacts:
+  - id: cigi-pco-ai-national-security-report-2026
+
+tags:
+  - national-security
+  - policy-recommendations
+  - federal-government
+  - cigi
+  - privy-council-office
+
+links:
+  - label: "Publication Page"
+    url: https://www.cigionline.org/publications/ai-national-security-scenarios/
+    icon: document

@@ -1,6 +1,6 @@
 export type TimelineItem = {
   id: string;
-  kind: "event" | "artifact";
+  kind: "event";
   title: string;
   date: string; // ISO string — sorted in Astro before passing
   description?: string;

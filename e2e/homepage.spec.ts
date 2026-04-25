@@ -26,7 +26,11 @@ test.describe("homepage", () => {
 
   test("section cards link to /timeline/ and /legislation/", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByRole("link", { name: /Timeline/i }).first()).toHaveAttribute("href", "/timeline/");
-    await expect(page.getByRole("link", { name: /Legislation/i }).first()).toHaveAttribute("href", "/legislation/");
+    await expect(
+      page.locator("main").getByRole("link", { name: /Timeline/i }).first()
+    ).toHaveAttribute("href", "/timeline/");
+    await expect(
+      page.locator("main").getByRole("link", { name: /Legislation/i }).first()
+    ).toHaveAttribute("href", "/legislation/");
   });
 });

@@ -1,4 +1,4 @@
-# AI Safety Gov Tracker
+# AI Governance Tracker
 
 ## Project Goal
 

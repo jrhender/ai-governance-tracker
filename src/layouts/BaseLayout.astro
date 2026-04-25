@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-const siteTitle = "AI Safety Gov Tracker";
+const siteTitle = "AI Governance Tracker";
 const fullTitle = title === siteTitle ? title : `${title} — ${siteTitle}`;
 ---
 
@@ -39,6 +39,9 @@ const fullTitle = title === siteTitle ? title : `${title} — ${siteTitle}`;
         </a>
         <nav class="flex gap-4 text-sm text-slate-600 dark:text-slate-400">
           <a href="/" class="hover:text-slate-900 dark:hover:text-slate-100">
+            Home
+          </a>
+          <a href="/timeline/" class="hover:text-slate-900 dark:hover:text-slate-100">
             Timeline
           </a>
           <a href="/legislation/" class="hover:text-slate-900 dark:hover:text-slate-100">

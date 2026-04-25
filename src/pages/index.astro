@@ -1,62 +1,60 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import TimelineWithFilter from "../components/TimelineWithFilter";
-import type { TimelineItem, OrgOption } from "../lib/timeline";
-
-const events = await getCollection("events");
-const organizations = await getCollection("organizations");
-
-// Build org lookup map: id -> { name, short_name }
-const orgMap = new Map<string, { name: string; short_name?: string }>();
-for (const org of organizations) {
-  orgMap.set(org.id, { name: org.data.name, short_name: org.data.short_name });
-}
-
-const items: TimelineItem[] = events
-  .map((e) => ({
-    id: e.id,
-    kind: "event" as const,
-    title: e.data.title,
-    date: e.data.date.toISOString(),
-    description: e.data.description,
-    tags: e.data.tags,
-    href: `/events/${e.id}/`,
-    badge: e.data.type,
-    orgIds: e.data.organizations.map((o) => o.id.id),
-  }))
-  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-
-// Build OrgOption list: only orgs that appear in at least one item
-const orgCounts = new Map<string, number>();
-for (const item of items) {
-  for (const orgId of item.orgIds) {
-    orgCounts.set(orgId, (orgCounts.get(orgId) ?? 0) + 1);
-  }
-}
-
-const orgs: OrgOption[] = [];
-for (const [orgId, count] of orgCounts.entries()) {
-  const org = orgMap.get(orgId);
-  if (!org) continue;
-  orgs.push({
-    id: orgId,
-    label: org.short_name ?? org.name,
-    count,
-  });
-}
-// Sort orgs by count descending, then label ascending
-orgs.sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
 ---
 
 <BaseLayout
-  title="AI Safety Gov Tracker"
-  description="A Canadian AI governance and policy timeline tracking AI safety events, reports, and government action."
+  title="AI Governance Tracker"
+  description="Tracking Canadian AI governance and policy — Senate hearings, legislation, and government action."
 >
-  <h1 class="text-3xl font-bold tracking-tight">Timeline</h1>
-  <p class="mt-2 max-w-2xl text-slate-600 dark:text-slate-400">
-    Canadian AI governance and policy events, reports, and government action.
-  </p>
+  <div class="py-8">
+    <h1 class="text-4xl font-bold tracking-tight">AI Governance Tracker</h1>
+    <p class="mt-3 text-lg text-slate-600 dark:text-slate-400">
+      Tracking Canadian AI governance and policy
+    </p>
 
-  <TimelineWithFilter client:load items={items} orgs={orgs} />
+    <p class="mt-6 max-w-2xl text-slate-700 dark:text-slate-300">
+      AI is one of the most consequential technologies in human history. AI safety in
+      particular deserves serious attention. This tracker follows Canada's policy
+      response — Senate hearings, legislation, and government action — so that anyone
+      who cares can stay informed.
+    </p>
+
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a
+        href="/timeline/"
+        class="rounded-md bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+      >
+        Browse the Timeline →
+      </a>
+      <a
+        href="https://github.com/jrhender/ai-governance-tracker/issues/new"
+        class="rounded-md border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:text-slate-100"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Contribute via GitHub
+      </a>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <a
+        href="/timeline/"
+        class="rounded-lg border border-slate-200 p-5 hover:border-slate-300 dark:border-slate-800 dark:hover:border-slate-700"
+      >
+        <h2 class="font-semibold">Timeline</h2>
+        <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">
+          Senate hearings, reports, and government announcements.
+        </p>
+      </a>
+      <a
+        href="/legislation/"
+        class="rounded-lg border border-slate-200 p-5 hover:border-slate-300 dark:border-slate-800 dark:hover:border-slate-700"
+      >
+        <h2 class="font-semibold">Legislation</h2>
+        <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">
+          Bills and acts tracked through Parliament.
+        </p>
+      </a>
+    </div>
+  </div>
 </BaseLayout>

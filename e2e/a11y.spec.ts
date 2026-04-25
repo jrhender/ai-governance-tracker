@@ -6,3 +6,9 @@ test("homepage has no axe-detectable a11y violations", async ({ page }) => {
   const results = await new AxeBuilder({ page }).analyze();
   expect(results.violations).toEqual([]);
 });
+
+test("timeline page has no axe-detectable a11y violations", async ({ page }) => {
+  await page.goto("/timeline/");
+  const results = await new AxeBuilder({ page }).analyze();
+  expect(results.violations).toEqual([]);
+});

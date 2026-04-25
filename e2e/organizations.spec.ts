@@ -7,14 +7,14 @@ test.describe("organizations page", () => {
       page.getByRole("heading", { name: "Organizations", level: 1 }),
     ).toBeVisible();
 
-    // At least one org card is visible
-    const cards = page.locator("a[href^='/orgs/']");
+    // At least one org card is visible (scoped to main to exclude the nav link)
+    const cards = page.locator("main a[href^='/orgs/']");
     await expect(cards.first()).toBeVisible();
   });
 
   test("org card links to detail page", async ({ page }) => {
     await page.goto("/orgs/");
-    await page.locator("a[href^='/orgs/']").first().click();
+    await page.locator("main a[href^='/orgs/']").first().click();
     await expect(page).toHaveURL(/\/orgs\/.+\//);
   });
 

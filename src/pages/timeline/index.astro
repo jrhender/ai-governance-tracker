@@ -1,0 +1,59 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import TimelineWithFilter from "../../components/TimelineWithFilter";
+import type { TimelineItem, OrgOption } from "../../lib/timeline";
+
+const events = await getCollection("events");
+const organizations = await getCollection("organizations");
+
+const orgMap = new Map<string, { name: string; short_name?: string }>();
+for (const org of organizations) {
+  orgMap.set(org.id, { name: org.data.name, short_name: org.data.short_name });
+}
+
+const items: TimelineItem[] = events
+  .map((e) => ({
+    id: e.id,
+    kind: "event" as const,
+    title: e.data.title,
+    date: e.data.date.toISOString(),
+    description: e.data.description,
+    tags: e.data.tags,
+    href: `/events/${e.id}/`,
+    badge: e.data.type,
+    orgIds: e.data.organizations.map((o) => o.id.id),
+  }))
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+const orgCounts = new Map<string, number>();
+for (const item of items) {
+  for (const orgId of item.orgIds) {
+    orgCounts.set(orgId, (orgCounts.get(orgId) ?? 0) + 1);
+  }
+}
+
+const orgs: OrgOption[] = [];
+for (const [orgId, count] of orgCounts.entries()) {
+  const org = orgMap.get(orgId);
+  if (!org) continue;
+  orgs.push({
+    id: orgId,
+    label: org.short_name ?? org.name,
+    count,
+  });
+}
+orgs.sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+---
+
+<BaseLayout
+  title="Timeline"
+  description="Canadian AI governance and policy events, reports, and government action."
+>
+  <h1 class="text-3xl font-bold tracking-tight">Timeline</h1>
+  <p class="mt-2 max-w-2xl text-slate-600 dark:text-slate-400">
+    Canadian AI governance and policy events, reports, and government action.
+  </p>
+
+  <TimelineWithFilter client:load items={items} orgs={orgs} />
+</BaseLayout>

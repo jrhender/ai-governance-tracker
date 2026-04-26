@@ -12,7 +12,7 @@ organizations:
     role: publisher
 
 lifecycle_status: active
-current_stage: "Active; 51 signatories as of mid-2025"
+current_stage: "Active; 51 signatories as of March 2025"
 
 description: >
   The commitment instrument that Canadian organizations voluntarily sign to
@@ -20,7 +20,7 @@ description: >
   Code of Practice. Launched September 27, 2023 by Minister François-Philippe
   Champagne as an interim measure while AIDA was before Parliament. Following
   AIDA's death on prorogation in January 2025, the code remains the primary
-  federal mechanism for AI accountability. As of mid-2025, 51 organizations
+  federal mechanism for AI accountability. As of March 2025, 51 organizations
   have signed, including CIBC, Cohere, IBM, CGI, Mila, Vector Institute,
   Mastercard, and Salesforce.
 
@@ -59,6 +59,9 @@ stages:
       - label: "Announcement"
         url: https://www.canada.ca/en/innovation-science-economic-development/news/2025/03/canada-moves-toward-safe-and-responsible-artificial-intelligence.html
         icon: document
+  - date: 2025-03-21
+    stage: "5 more organizations sign individually (51 total)"
+    note: "Ada, AlayaCare, Appen, Ranovus, Responsible Artificial Intelligence Institute — signed without a dedicated press release; ISED page updated to reflect 51 signatories."
 
 links:
   - label: "ISED — Voluntary Code of Conduct"

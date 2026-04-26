@@ -180,13 +180,13 @@ stages:
       - label: "Announcement"
         url: https://www.canada.ca/en/innovation-science-economic-development/news/2024/05/eight-organizations-to-join-canadas-voluntary-ai-code-of-conduct.html
         icon: document
-  - date: 2024-11-01  # TODO: confirm exact date
+  - date: 2024-11-08
     stage: "10 more organizations sign (40 total)"
     links:
       - label: "Announcement"
         url: https://www.canada.ca/en/innovation-science-economic-development/news/2024/11/even-more-organizations-adopting-canadas-voluntary-code-of-conduct-on-artificial-intelligence-development.html
         icon: document
-  - date: 2025-03-01  # TODO: confirm exact date
+  - date: 2025-03-06
     stage: "6 more organizations sign (46 total)"
     note: "CIBC, Clir, Cofomo, Intel, Jolera, PaymentEvolution"
     links:
@@ -212,7 +212,7 @@ tags:
 
 ```yaml
 id: ised-gen-ai-code-of-practice-consultation-2023
-type: GovernmentAction
+type: Publication
 schema_type: Event
 status: completed
 title: "ISED launches consultation on Canadian Guardrails for Generative AI"
@@ -235,7 +235,7 @@ tags:
 
 ```yaml
 id: ised-voluntary-code-of-conduct-launched-2023
-type: GovernmentAction
+type: Publication
 schema_type: Event
 status: completed
 title: "Minister Champagne launches Voluntary Code of Conduct for Advanced Generative AI"
@@ -254,7 +254,5 @@ tags:
 
 ## Open TODOs
 
-- Confirm exact date for November 2024 signatory wave (currently `2024-11-01`)
-- Confirm exact date for March 2025 signatory wave (currently `2025-03-01`)
 - Determine what changed on the Code of Practice page on 2026-03-20
 - Confirm initial signatory count at September 2023 launch

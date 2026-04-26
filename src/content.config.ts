@@ -22,6 +22,7 @@ const events = defineCollection({
     id: z.string(),
     type: z.enum([
       "CommitteeHearing",
+      "GovernmentAnnouncement",
       "LegislativeAction",
       "PoliticalEvent",
       "Publication",

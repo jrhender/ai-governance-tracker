@@ -1,0 +1,33 @@
+# events/2026-02-05-ai-strategy-summary-of-inputs-published.yaml
+
+id: ai-strategy-summary-of-inputs-published-2026
+type: Publication
+schema_type: Event
+
+title: "ISED publishes summary of inputs from 30-day AI Sprint"
+date: 2026-02-05
+status: completed
+
+organizations:
+  - id: ised-canada
+    role: publisher
+
+description: >
+  ISED publishes "Engagements on Canada's next AI Strategy: Summary of
+  inputs," synthesizing over 11,300 public responses, 28 AI Strategy Task
+  Force reports, and nearly 300 policy submissions gathered during the
+  October 2025 30-day national sprint.
+
+related_artifacts:
+  - id: ai-strategy-summary-of-inputs-2026
+
+tags:
+  - ised
+  - public-consultation
+  - ai-strategy
+  - federal-government
+
+links:
+  - label: "ISED — Summary of Inputs"
+    url: https://ised-isde.canada.ca/site/ised/en/public-consultations/engagements-canadas-next-ai-strategy-summary-inputs
+    icon: document

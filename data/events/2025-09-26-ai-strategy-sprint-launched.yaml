@@ -1,0 +1,44 @@
+# events/2025-09-26-ai-strategy-sprint-launched.yaml
+
+id: ai-strategy-sprint-launched-2025
+type: GovernmentAnnouncement
+schema_type: Event
+
+title: "Government of Canada launches 30-day AI Sprint and AI Strategy Task Force"
+date: 2025-09-26
+status: completed
+
+organizations:
+  - id: ised-canada
+    role: organizer
+
+description: >
+  Minister Evan Solomon (Minister of Artificial Intelligence and Digital
+  Innovation) announces a 30-day national sprint (October 1–31, 2025) inviting
+  Canadians to share views on Canada's next national AI strategy via the
+  Consulting Canadians portal. Simultaneously, an AI Strategy Task Force of
+  40 leaders from academia, industry, civil society, and government is
+  constituted to provide actionable insights and recommendations across nine
+  thematic areas. Over 11,300 Canadians participate and the Task Force
+  produces 28 reports.
+
+related_artifacts:
+  - id: ai-strategy-summary-of-inputs-2026
+
+tags:
+  - ised
+  - public-consultation
+  - ai-strategy
+  - federal-government
+  - evan-solomon
+
+links:
+  - label: "Canada.ca — Announcement"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2025/09/government-of-canada-launches-ai-strategy-task-force-and-public-engagement-on-the-development-of-the-next-ai-strategy.html
+    icon: document
+  - label: "ISED — Consultation page"
+    url: https://ised-isde.canada.ca/site/ised/en/public-consultations/next-chapter-canadas-ai-leadership
+    icon: document
+  - label: "ISED — AI Strategy Task Force"
+    url: https://ised-isde.canada.ca/site/ised/en/advisory-council-artificial-intelligence/ai-strategy-task-force
+    icon: document

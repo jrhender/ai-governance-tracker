@@ -1,0 +1,41 @@
+# artifacts/2026-02-05-ai-strategy-summary-of-inputs.yaml
+
+id: ai-strategy-summary-of-inputs-2026
+type: Report
+schema_type: CreativeWork
+
+title: "Engagements on Canada's next AI Strategy: Summary of inputs"
+published_date: 2026-02-05
+
+organizations:
+  - id: ised-canada
+    role: publisher
+
+derives_from:
+  - id: ai-strategy-sprint-launched-2025
+    relationship: summary_of
+
+description: >
+  Synthesizes feedback from Canada's largest public consultation on AI policy.
+  The report draws on over 11,300 responses from a 30-day online consultation
+  (October 1–31, 2025), 28 thematic reports from the AI Strategy Task Force,
+  and nearly 300 supplementary policy submissions from businesses, government
+  organizations, and NGOs. Eight priority areas emerged: talent attraction and
+  retention, industry and government AI adoption, commercialization,
+  scaling domestic champions, building public trust, education and skills
+  development, infrastructure sovereignty, and cybersecurity. ISED used these
+  inputs to inform a renewed national AI strategy expected in 2026.
+
+links:
+  - label: "ISED — Summary of Inputs"
+    url: https://ised-isde.canada.ca/site/ised/en/public-consultations/engagements-canadas-next-ai-strategy-summary-inputs
+    icon: document
+  - label: "PDF — Full Report"
+    url: https://ised-isde.canada.ca/site/ised/sites/default/files/documents/AiStrategyReport_EN.pdf
+    icon: document
+
+tags:
+  - ised
+  - public-consultation
+  - ai-strategy
+  - federal-government

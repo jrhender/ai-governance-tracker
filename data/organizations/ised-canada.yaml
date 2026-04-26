@@ -1,0 +1,14 @@
+# organizations/ised-canada.yaml
+
+id: ised-canada
+type: GovernmentOrganization
+schema_type: GovernmentOrganization
+
+name: "Innovation, Science and Economic Development Canada"
+short_name: "ISED"
+url: https://ised-isde.canada.ca
+wikipedia: https://en.wikipedia.org/wiki/Innovation,_Science_and_Economic_Development_Canada
+
+tags:
+  - federal-government
+  - canadian

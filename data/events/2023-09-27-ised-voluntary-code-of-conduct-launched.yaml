@@ -1,0 +1,27 @@
+# events/2023-09-27-ised-voluntary-code-of-conduct-launched.yaml
+
+id: ised-voluntary-code-of-conduct-launched-2023
+type: Publication
+schema_type: Event
+
+title: "Minister Champagne launches Voluntary Code of Conduct for Advanced Generative AI"
+date: 2023-09-27
+status: completed
+
+organizations:
+  - id: ised-canada
+    role: organizer
+
+related_artifacts:
+  - id: ised-voluntary-code-of-conduct-gen-ai
+
+links:
+  - label: "Minister Champagne announcement"
+    url: https://www.newswire.ca/news-releases/minister-champagne-launches-voluntary-code-of-conduct-relating-to-advanced-generative-ai-systems-825731533.html
+    icon: document
+
+tags:
+  - ised
+  - voluntary-code
+  - generative-ai
+  - federal-government

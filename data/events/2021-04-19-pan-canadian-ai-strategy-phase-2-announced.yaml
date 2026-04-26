@@ -1,0 +1,35 @@
+# events/2021-04-19-pan-canadian-ai-strategy-phase-2-announced.yaml
+
+id: pan-canadian-ai-strategy-phase-2-2021
+type: GovernmentAnnouncement
+schema_type: Event
+
+title: "Federal Budget 2021 renews Pan-Canadian AI Strategy with $443.8M Phase 2"
+date: 2021-04-19
+status: completed
+
+organizations:
+  - id: ised-canada
+    role: organizer
+
+description: >
+  Budget 2021 committed $443.8 million over ten years to launch Phase 2 of
+  the Pan-Canadian Artificial Intelligence Strategy. The renewal significantly
+  expanded the strategy's scope beyond the Phase 1 focus on research and
+  talent, adding pillars for responsible AI development and commercialisation.
+  CIFAR continued as administrator, with the three national institutes
+  (Vector, Mila, Amii) each eligible for up to $20 million over five years
+  from the new envelope. Additional funding supported the Standards Council
+  of Canada ($8.6M) and the Digital Research Alliance ($40M) as part of
+  the broader package.
+
+related_artifacts:
+  - id: pan-canadian-ai-strategy
+
+tags:
+  - cifar
+  - pan-canadian-ai-strategy
+  - federal-budget
+  - federal-government
+  - national-ai-strategy
+  - responsible-ai

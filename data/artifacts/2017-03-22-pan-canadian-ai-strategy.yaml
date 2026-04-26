@@ -1,0 +1,69 @@
+# artifacts/2017-03-22-pan-canadian-ai-strategy.yaml
+
+id: pan-canadian-ai-strategy
+type: GovernmentProgram
+schema_type: CreativeWork
+
+title: "Pan-Canadian Artificial Intelligence Strategy"
+published_date: 2017-03-22
+
+organizations:
+  - id: ised-canada
+    role: sponsor
+
+lifecycle_status: active
+current_stage: "Phase 2 underway (2021–2031)"
+
+description: >
+  The Pan-Canadian Artificial Intelligence Strategy (PCAIS) is a federal
+  government funding program, first announced in Budget 2017, that established
+  Canada as an early mover in national AI strategy. The strategy is administered
+  by CIFAR (Canadian Institute for Advanced Research) and funds three national
+  AI institutes: the Vector Institute (Toronto), Mila – Quebec AI Institute
+  (Montréal), and the Alberta Machine Intelligence Institute (Amii, Edmonton).
+
+  Phase 1 (2017–2022) committed $125 million over five years to attract and
+  retain world-leading AI researchers, increase the number of AI-skilled
+  graduates, and support a national research community. The three institutes
+  were designated as national centres under the strategy in 2017.
+
+  Phase 2 was announced in Budget 2021 with a significantly larger commitment
+  of $443.8 million over ten years. It expanded the strategy's mandate beyond
+  research and talent to include responsible AI development and
+  commercialisation, with CIFAR continuing as administrator.
+
+stages:
+  - date: 2017-03-22
+    stage: "Phase 1 announced in Budget 2017"
+    note: "$125M over 5 years; CIFAR named as administrator"
+  - date: 2017-03-01
+    stage: "Vector Institute launched (Toronto)"
+    note: "Exact date within March 2017 not confirmed from public sources; uses month-start as placeholder — verify against Vector Institute incorporation records"
+  - date: 2017-01-01
+    stage: "Mila and Amii designated as national AI institutes"
+    note: "Exact dates in 2017 not confirmed from public sources; uses year-start as placeholder — verify against CIFAR/institute announcements"
+  - date: 2021-04-19
+    stage: "Phase 2 announced in Budget 2021"
+    note: "$443.8M over 10 years; expanded mandate to include responsible AI and commercialisation"
+
+links:
+  - label: "ISED — Pan-Canadian Artificial Intelligence Strategy"
+    url: https://ised-isde.canada.ca/site/ai-strategy/en
+    icon: document
+  - label: "CIFAR — AI Strategy"
+    url: https://cifar.ca/ai-and-society/ai-strategy/
+    icon: document
+  - label: "Budget 2017 — Chapter 1 (Science and Technology)"
+    url: https://www.budget.canada.ca/2017/docs/plan/chap-01-en.html
+    icon: document
+  - label: "Budget 2021 — Pan-Canadian AI Strategy (CBC summary)"
+    url: https://www.cbc.ca/news/politics/federal-budget-2021-pan-canadian-ai-strategy-1.5997732
+    icon: document
+
+tags:
+  - cifar
+  - pan-canadian-ai-strategy
+  - federal-budget
+  - federal-government
+  - ai-research
+  - national-ai-strategy

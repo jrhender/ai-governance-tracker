@@ -41,12 +41,311 @@ links:
     icon: document
 
 policy_recommendations:
-  # TODO: Policy recommendations could not be extracted — the CIGI site and PDF
-  # are behind Cloudflare. Fetch https://www.cigionline.org/static/documents/AI_National_Security.pdf
-  # manually to fill these in.
-  - id: rec-001
-    summary: ""
-    status: untracked  # untracked | under_review | adopted | rejected
+  # "No regrets" — useful in all or multiple scenarios
+  - id: rec-nr-001
+    title: "Encourage reliable AI diffusion and adoption"
+    summary: >
+      Promote widespread diffusion and adoption of reliable AI tools to advance
+      productivity and prosperity, while preventing adoption of unreliable AI in
+      critical systems.
+    robustness: robust
+    status: untracked
+
+  - id: rec-nr-002
+    title: "Invest in skills, data, and compute"
+    summary: >
+      Invest in widespread skills development and broad access to data and
+      computing power.
+    robustness: robust
+    status: untracked
+
+  - id: rec-nr-003
+    title: "Support AI-displaced workers"
+    summary: >
+      Strengthen measures to support workers displaced by AI-enabled automation,
+      including retraining, income support, and AI-enabled learning tools.
+    robustness: robust
+    status: untracked
+
+  - id: rec-nr-004
+    title: "Strengthen information-sharing protocols"
+    summary: >
+      Strengthen information-sharing protocols to facilitate research cooperation
+      without unintended information flows.
+    robustness: robust
+    status: untracked
+
+  - id: rec-nr-005
+    title: "Expand international AI safety cooperation"
+    summary: >
+      Expand international cooperation and research on AI safety and security,
+      including risks, technical safety, and governance mechanisms.
+    robustness: robust
+    status: untracked
+
+  - id: rec-nr-006
+    title: "Build shared understanding of global AI risks"
+    summary: >
+      Build shared international understanding about global-scale AI risks and
+      mitigations, including with rival powers, as a foundation for future
+      cooperation if needed.
+    robustness: robust
+    status: untracked
+
+  - id: rec-nr-007
+    title: "Limit AI in military decisions; regulate autonomous weapons"
+    summary: >
+      Limit use of AI systems in key military decisions and strengthen national
+      and international rules on the use of autonomous weapons.
+    robustness: robust
+    status: untracked
+
+  - id: rec-nr-008
+    title: "Strengthen AI incident monitoring and emergency protocols"
+    summary: >
+      Strengthen national and international AI incident monitoring and build
+      protocols for coordinated emergency response.
+    robustness: robust
+    status: untracked
+
+  - id: rec-nr-009
+    title: "Develop redundant knowledge repositories"
+    summary: >
+      Develop redundant physical and digital repositories of information for
+      knowledge preservation in the event of an accidental or necessary internet
+      shutdown.
+    robustness: robust
+    status: untracked
+
+  - id: rec-nr-010
+    title: "Implement AI transparency and whistleblower protections"
+    summary: >
+      Implement transparency requirements and whistleblower protections for
+      disclosures about dangerous AI systems or practices.
+    robustness: robust
+    status: untracked
+
+  - id: rec-nr-011
+    title: "Harden digital systems and biosecurity defences"
+    summary: >
+      Harden digital systems from cyberattacks, limit access to bio-synthesis
+      tools, and improve detection and response to novel pathogens — essential
+      at all levels of AI development.
+    robustness: robust
+    status: untracked
+
+  # Scenario 1: AI Stall — necessary bets
+  - id: rec-s1-001
+    title: "Remove regulatory impediments to AI adoption"
+    summary: >
+      Promote rapid AI adoption by removing regulatory impediments, while
+      strengthening incentives for the development and deployment of reliable
+      AI systems and tools.
+    robustness: contingent
+    scenarios: [scenario-ai-stall]
+    status: untracked
+
+  - id: rec-s1-002
+    title: "Prepare for moderate-to-high AI-driven job losses"
+    summary: >
+      Prepare for the possibility of moderate-to-high job losses and economic
+      disruption by enhancing policy measures for retraining, income support,
+      business development, and cost-of-living reduction.
+    robustness: contingent
+    scenarios: [scenario-ai-stall]
+    status: untracked
+
+  - id: rec-s1-003
+    title: "Monitor AI adoption risks in critical domains"
+    summary: >
+      Monitor and mitigate AI adoption risks in key domains such as nuclear
+      missile launch, critical infrastructure, and personal companionship, to
+      avoid critical failures.
+    robustness: contingent
+    scenarios: [scenario-ai-stall]
+    status: untracked
+
+  # Scenario 2: Precarious Precipice — necessary bets
+  - id: rec-s2-001
+    title: "Prepare for extreme AI-driven job losses"
+    summary: >
+      Prepare for the possibility of extreme job losses and economic disruption,
+      including by developing new income distribution infrastructure.
+    robustness: contingent
+    scenarios: [scenario-precarious-precipice]
+    status: untracked
+
+  - id: rec-s2-002
+    title: "Develop systems to address widening international income inequality"
+    summary: >
+      Develop international systems to address severely widening income
+      inequalities among countries driven by uneven AI adoption.
+    robustness: contingent
+    scenarios: [scenario-precarious-precipice]
+    status: untracked
+
+  - id: rec-s2-003
+    title: "Establish joint international limits on AI in critical domains"
+    summary: >
+      Establish joint international limits on AI adoption in key domains such as
+      nuclear missile launch and critical infrastructure to avoid critical
+      failures.
+    robustness: contingent
+    scenarios: [scenario-precarious-precipice]
+    status: untracked
+
+  - id: rec-s2-004
+    title: "Limit overall societal automation to preserve human agency"
+    summary: >
+      Establish joint international limits on the overall level of AI adoption
+      and societal automation, if needed, to prevent excessive displacement of
+      humans in decision making.
+    robustness: contingent
+    scenarios: [scenario-precarious-precipice]
+    status: untracked
+
+  - id: rec-s2-005
+    title: "Build trust to limit military AI race escalation"
+    summary: >
+      Build trust and defuse tension between rival powers to limit a military AI
+      race that could result in rapid, unintended escalation and global conflict.
+    robustness: contingent
+    scenarios: [scenario-precarious-precipice]
+    status: untracked
+
+  - id: rec-s2-006
+    title: "Develop protocols for predictable AI-enabled military escalation"
+    summary: >
+      Limit use of AI systems in key military decisions and develop protocols for
+      scaled and predictable sabotage and retaliation to reduce the risk of
+      sudden destabilizing shifts in the balance of power.
+    robustness: contingent
+    scenarios: [scenario-precarious-precipice]
+    status: untracked
+
+  - id: rec-s2-007
+    title: "Implement international AI transparency and monitoring regime"
+    summary: >
+      Implement a robust international AI transparency and monitoring regime to
+      provide timely alerts of emerging global AI risks, such as from imminent
+      breakthroughs in AI capabilities.
+    robustness: contingent
+    scenarios: [scenario-precarious-precipice]
+    status: untracked
+
+  - id: rec-s2-008
+    title: "Ensure emergency protocols for sudden AI capability jumps"
+    summary: >
+      Ensure that national and coordinated emergency response protocols are
+      adequate to handle risks posed by the potential sudden emergence of much
+      more capable AI systems.
+    robustness: contingent
+    scenarios: [scenario-precarious-precipice]
+    status: untracked
+
+  # Scenario 3a: Hypercompetition — necessary bets
+  - id: rec-s3a-001
+    title: "Coordinate ASI use across countries to avoid conflict"
+    summary: >
+      Develop mechanisms to coordinate use of ASIs across countries to avoid
+      ASI-enabled conflict among multiple controllable ASI powers.
+    robustness: contingent
+    scenarios: [scenario-hypercompetition]
+    status: untracked
+
+  - id: rec-s3a-002
+    title: "Prevent ASI takeover by a faction"
+    summary: >
+      Develop national or international mechanisms to prevent any single faction
+      from gaining control of an ASI.
+    robustness: contingent
+    scenarios: [scenario-hypercompetition, scenario-hyperpower]
+    status: untracked
+
+  - id: rec-s3a-003
+    title: "Develop technical verification to prevent ASI weaponization"
+    summary: >
+      Develop technical verification and compliance measures to prevent malicious
+      use and weaponization of ASI systems.
+    robustness: contingent
+    scenarios: [scenario-hypercompetition]
+    status: untracked
+
+  - id: rec-s3a-004
+    title: "Prepare moratorium agreement on ASI development"
+    summary: >
+      Prepare an international agreement with the ability to enforce a moratorium
+      on ASI development if required.
+    robustness: contingent
+    scenarios: [scenario-hypercompetition]
+    status: untracked
+
+  - id: rec-s3a-005
+    title: "Prepare mechanisms for safe international ASI cooperation"
+    summary: >
+      Prepare an international agreement with mechanisms to coordinate use of
+      ASIs across countries if safe ASI cooperation is seen as possible.
+    robustness: contingent
+    scenarios: [scenario-hypercompetition]
+    status: untracked
+
+  # Scenario 3b: Hyperpower — necessary bets
+  - id: rec-s3b-001
+    title: "Adopt antitrust measures against ASI monopoly"
+    summary: >
+      Adopt antitrust measures to prevent monopoly and singleton control of ASI
+      in the market or politically.
+    robustness: contingent
+    scenarios: [scenario-hyperpower]
+    status: untracked
+
+  - id: rec-s3b-002
+    title: "Ensure inclusive international ASI governance"
+    summary: >
+      Implement international agreement and cooperation to ensure inclusive and
+      legitimate decision making around the development and use of ASI.
+    robustness: contingent
+    scenarios: [scenario-hyperpower]
+    status: untracked
+
+  # Scenario 4: Rogue ASI — necessary bets
+  - id: rec-s4-001
+    title: "Develop international ability to prevent uncontrolled ASI"
+    summary: >
+      Develop the ability, via international cooperation if necessary, to prevent
+      creation of ASI anywhere in the world until there is sufficient evidence
+      that it can be controlled and aligned.
+    robustness: contingent
+    scenarios: [scenario-rogue-asi]
+    status: untracked
+
+  - id: rec-s4-002
+    title: "Prepare ASI emergency response and kill switches"
+    summary: >
+      Prepare emergency response strategies including kill switches for ASI and
+      protocols for rapid containment of a nascent rogue ASI.
+    robustness: contingent
+    scenarios: [scenario-rogue-asi]
+    status: untracked
+
+  - id: rec-s4-003
+    title: "Ensure air-gapped networks and cyber defence for critical systems"
+    summary: >
+      Ensure air-gapped networks and robust cyber defence for critical systems
+      to limit a rogue ASI's ability to propagate or gain control.
+    robustness: contingent
+    scenarios: [scenario-rogue-asi]
+    status: untracked
+
+  - id: rec-s4-004
+    title: "Prepare analogue contingency systems for continuity of authority"
+    summary: >
+      Prepare resource stockpiles, citizen defence brigades, training programs,
+      and analogue contingency systems to ensure continuity of authority in the
+      event of loss of control to a rogue ASI.
+    robustness: contingent
+    scenarios: [scenario-rogue-asi]
+    status: untracked
 
 tags:
   - national-security

@@ -22,6 +22,9 @@ Michael Nygard.
 Conventions:
 
 - ADRs live in `docs/adr/`.
+- Data model decisions (schema fields, cross-reference conventions, YAML
+  structure, schema.org mappings, data directory layout) are recorded separately
+  in `docs/data-adr/` using the same format and numbering conventions.
 - Files are named `NNNN-kebab-case-title.md`, numbered sequentially starting
   at `0001`.
 - Each ADR has the sections: **Status**, **Context**, **Decision**,

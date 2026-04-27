@@ -18,7 +18,7 @@ A Canadian AI governance and policy timeline — tracking AI safety events such 
 
 ### Branching and PRs
 
-Non-trivial changes land on `main` via pull request, not direct pushes.
+Non-trivial changes land on `main` via pull request, not direct pushes. **`main` has branch protection enabled — direct pushes are rejected.** Always create a PR, even for small changes that seem mergeable directly.
 
 1. Start from an up-to-date `main`: `git checkout main && git pull`.
 2. Create a feature branch: `git checkout -b feature/<short-topic>` (e.g. `feature/vitest-unit-tests`). Use `fix/<topic>` for bug fixes, `docs/<topic>` for documentation-only changes.

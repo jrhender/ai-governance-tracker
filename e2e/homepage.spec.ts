@@ -24,13 +24,13 @@ test.describe("homepage", () => {
     );
   });
 
-  test("section cards link to /timeline/ and /legislation/", async ({ page }) => {
+  test("section cards link to /timeline/ and /policy/", async ({ page }) => {
     await page.goto("/");
     await expect(
       page.locator("main").getByRole("link", { name: /Timeline/i }).first()
     ).toHaveAttribute("href", "/timeline/");
     await expect(
-      page.locator("main").getByRole("link", { name: /Legislation/i }).first()
-    ).toHaveAttribute("href", "/legislation/");
+      page.locator("main").getByRole("link", { name: /Policy/i }).first()
+    ).toHaveAttribute("href", "/policy/");
   });
 });

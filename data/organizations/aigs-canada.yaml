@@ -1,0 +1,17 @@
+# organizations/aigs-canada.yaml
+
+id: aigs-canada
+type: Organization
+schema_type: Organization
+
+name: "AI Governance and Safety Canada"
+short_name: "AIGS"
+url: https://aigs.ca/
+founded: 2022
+
+tags:
+  - think-tank
+  - canadian
+  - ai-safety
+  - ai-governance
+  - non-profit

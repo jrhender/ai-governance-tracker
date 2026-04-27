@@ -1,0 +1,63 @@
+# artifacts/2026-04-14-canada-finland-joint-statement.yaml
+
+id: canada-finland-joint-statement-2026
+type: JointStatement
+schema_type: CreativeWork
+
+title: "Canada-Finland Joint Statement on Sovereign Technology and AI Cooperation"
+published_date: 2026-04-14
+
+organizations:
+  - id: ised-canada
+    role: publisher
+
+description: >
+  Joint statement issued by Prime Minister Mark Carney and President of Finland
+  Alexander Stubb following meetings in Ottawa on April 14, 2026. The statement
+  sets out a new phase of bilateral cooperation covering sovereign technology,
+  artificial intelligence, high-performance computing, quantum research, Arctic
+  and maritime issues, and defence. The two countries noted their existing
+  cooperation through multilateral fora including the Organisation for Economic
+  Co-operation and Development (OECD) and the Global Partnership on Artificial
+  Intelligence (GPAI), and committed to deepen direct bilateral collaboration.
+
+  On the technology side, Canada and Finland agreed to: expand AI compute
+  capacity and promote sustainable digital infrastructure; explore collaboration
+  on frontier AI models with safety and responsibility as foundational design
+  principles; foster AI and technology adoption across industry and government;
+  advance quantum research, innovation, commercialization, and workforce
+  development; and cooperate on telecommunications technologies. Finland's
+  participation in the Sovereign Technology Alliance — a partnership framework
+  launched by Canada and Germany in February 2026 to strengthen sovereign AI
+  capacity and reduce reliance on external technology providers — is also to be
+  explored. A memorandum of understanding between Export Development Canada and
+  Nokia to support AI gigafactory development was noted.
+
+  The broader bilateral statement also covers: establishing a Canada–Finland
+  Maritime Memorandum of Understanding; launching negotiations on a General
+  Security of Information Agreement; cooperating under the ICE Pact
+  (Icebreaker Collaboration Effort); and linking technology cooperation to
+  critical minerals and trusted supply chains.
+
+links:
+  - label: "ISED — Joint Statement"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/04/canada-finland-joint-statement-on-sovereign-technology-and-ai-cooperation.html
+    icon: document
+  - label: "PM's Office — Joint Statement (Carney & Stubb)"
+    url: https://www.pm.gc.ca/en/news/statements/2026/04/14/joint-statement-prime-minister-canada-mark-carney-and-president-republic
+    icon: document
+  - label: "Background: Sovereign Technology Alliance (Canada–Germany launch, Feb 2026)"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/02/canada-and-germany-sign-ai-joint-declaration-and-launch-sovereign-technology-alliance.html
+    icon: document
+
+tags:
+  - international-cooperation
+  - sovereign-technology
+  - high-performance-computing
+  - quantum-computing
+  - oecd
+  - gpai
+  - ised
+  - federal-government
+  - finland
+  - sovereign-technology-alliance

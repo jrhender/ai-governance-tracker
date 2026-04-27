@@ -1,0 +1,43 @@
+# data/events/2026-04-14-canada-finland-joint-statement-signed.yaml
+
+id: canada-finland-joint-statement-signed-2026
+type: GovernmentAnnouncement
+schema_type: Event
+title: "Canada and Finland sign Joint Statement on Sovereign Technology and AI Cooperation"
+date: 2026-04-14
+
+organizations:
+  - id: ised-canada
+    role: participant
+
+description: >
+  Prime Minister Mark Carney and President of Finland Alexander Stubb sign
+  a joint statement in Ottawa setting out expanded bilateral cooperation on
+  sovereign technology, artificial intelligence, quantum computing, Arctic
+  and maritime issues, and defence. The statement commits both countries to
+  deepen AI collaboration, including exploring frontier AI models with
+  safety and responsibility as foundational design principles, and exploring
+  Finland's participation in the Sovereign Technology Alliance (launched with
+  Germany in February 2026). OECD and GPAI are cited as existing multilateral
+  channels through which the two countries already cooperate on AI.
+
+related_artifacts:
+  - id: canada-finland-joint-statement-2026
+
+links:
+  - label: "ISED — Joint Statement"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/04/canada-finland-joint-statement-on-sovereign-technology-and-ai-cooperation.html
+    icon: document
+  - label: "PM's Office — Joint Statement"
+    url: https://www.pm.gc.ca/en/news/statements/2026/04/14/joint-statement-prime-minister-canada-mark-carney-and-president-republic
+    icon: document
+
+tags:
+  - international-cooperation
+  - sovereign-technology
+  - oecd
+  - gpai
+  - ised
+  - federal-government
+  - finland
+  - sovereign-technology-alliance

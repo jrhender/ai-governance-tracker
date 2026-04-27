@@ -1,0 +1,88 @@
+# artifacts/2023-10-18-aigs-governing-ai-2023.yaml
+
+id: aigs-governing-ai-2023
+type: WhitePaper
+schema_type: CreativeWork
+
+title: "Governing AI: A Plan for Canada"
+subtitle: "Five high-impact actions needed in 2023/2024"
+published_date: 2023-10-18
+
+authors:
+  - name: "Wyatt Tessari L'Allié"
+    role: author
+  - name: "Gabrielle Tran"
+    role: author
+
+organizations:
+  - id: aigs-canada
+    role: publisher
+
+description: >
+  White paper by AI Governance and Safety Canada (AIGS) outlining five
+  high-impact actions for the Canadian government to significantly advance
+  AI governance by end of Q2 2024. The paper covers the evolving AI risk
+  landscape from narrow AI through to potential AGI, key considerations for
+  AI governance, and concrete recommendations for Canada.
+
+links:
+  - label: "White Paper (PDF)"
+    url: https://aigs.ca/2023-white-paper.pdf
+    icon: document
+  - label: "Announcement"
+    url: https://aigs.ca/news/231018-aigs-unveils-governing-ai-a-plan-for-canada/
+    icon: document
+
+policy_recommendations:
+  - id: rec-2023-001
+    title: "Establish a central AI agency for the Government of Canada"
+    summary: >
+      Create an expert team based within the Privy Council Office to monitor
+      and inform leadership about AI developments, communicate with the
+      provinces, and coordinate federal action. ISED and other departments
+      lack the institutional incentives or mandate to navigate and balance
+      the full range of issues.
+    status: untracked
+
+  - id: rec-2023-002
+    title: "Invest >$500M in AI governance and safety research"
+    summary: >
+      More than double the existing CIFAR Pan-Canadian AI Strategy funding,
+      earmarking the extra funds to developing better policy and technical AI
+      safety solutions. Governance and safety research must rapidly catch up
+      to the hundreds of billions invested annually in capabilities.
+    status: untracked
+
+  - id: rec-2023-003
+    title: "Champion and fund global AI governance efforts"
+    summary: >
+      Support global initiatives such as at the UN, G7, UK safety summit,
+      and OECD. Lead the conversation about CERN, IPCC, and IAEA models for
+      global AI governance. Without global coordination, domestic regulation
+      will simply push AI development to other jurisdictions.
+    status: untracked
+
+  - id: rec-2023-004
+    title: "Improve and pass the AI & Data Act"
+    summary: >
+      Accelerate consultations and drafting of legislation as the best
+      mechanism for enacting policies on audits, transparency, and liability.
+      Establish a Canadian AI Commission to regulate high-risk models.
+    status: untracked
+
+  - id: rec-2023-005
+    title: "Launch a national conversation on AI"
+    summary: >
+      Hold nationwide open public consultations to inform policy decisions
+      on AI in relation to the jobs transition, wealth concentration, and
+      the right balance between pursuing rewards and limiting risks. Canada's
+      relative stability and strong AI ecosystem make it well placed to lead
+      this conversation.
+    status: untracked
+
+tags:
+  - ai-governance
+  - ai-safety
+  - policy-recommendations
+  - aigs
+  - white-paper

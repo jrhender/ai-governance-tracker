@@ -1,0 +1,31 @@
+# data/events/2023-10-18-aigs-governing-ai-2023-published.yaml
+
+id: aigs-governing-ai-2023-published
+type: Publication
+schema_type: Event
+title: "AIGS publishes \"Governing AI: A Plan for Canada\" (2023)"
+date: 2023-10-18
+
+organizations:
+  - id: aigs-canada
+    role: publisher
+
+description: >
+  AI Governance and Safety Canada (AIGS) publishes its inaugural white paper
+  outlining five high-impact actions for the Canadian government to advance
+  AI governance by end of Q2 2024.
+
+related_artifacts:
+  - id: aigs-governing-ai-2023
+
+tags:
+  - ai-governance
+  - ai-safety
+  - policy-recommendations
+  - aigs
+  - white-paper
+
+links:
+  - label: "Announcement"
+    url: https://aigs.ca/news/231018-aigs-unveils-governing-ai-a-plan-for-canada/
+    icon: document

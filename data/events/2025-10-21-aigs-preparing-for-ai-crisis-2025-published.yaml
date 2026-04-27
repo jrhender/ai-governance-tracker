@@ -1,0 +1,35 @@
+# data/events/2025-10-21-aigs-preparing-for-ai-crisis-2025-published.yaml
+
+id: aigs-preparing-for-ai-crisis-2025-published
+type: Publication
+schema_type: Event
+title: "AIGS publishes \"Preparing for the AI Crisis: A Plan for Canada\" (2025)"
+date: 2025-10-21
+
+organizations:
+  - id: aigs-canada
+    role: publisher
+
+description: >
+  AI Governance and Safety Canada (AIGS) publishes its 2025 white paper,
+  warning that leading AI labs may develop smarter-than-human AI within
+  18 months and urging urgent federal action. Canada's G7 position and stable
+  society make it well placed to lead global talks while building resilience
+  at home.
+
+related_artifacts:
+  - id: aigs-preparing-for-ai-crisis-2025
+
+tags:
+  - ai-governance
+  - ai-safety
+  - policy-recommendations
+  - aigs
+  - white-paper
+  - agi
+  - national-security
+
+links:
+  - label: "Announcement"
+    url: https://aigs.ca/news/251021-aigs-canada-releases-2025-white-paper/
+    icon: document

@@ -1,0 +1,98 @@
+# artifacts/2024-06-26-aigs-governing-ai-2024.yaml
+
+id: aigs-governing-ai-2024
+type: WhitePaper
+schema_type: CreativeWork
+
+title: "Governing AI: A Plan for Canada"
+subtitle: "Five high-impact actions needed in 2024/2025"
+published_date: 2024-06-26
+
+authors:
+  - name: "Wyatt Tessari L'Allié"
+    role: author
+    affiliation: "Founder, AIGS Canada"
+  - name: "Kathrin Gardhouse"
+    role: author
+    affiliation: "Policy Lead, AIGS Canada"
+
+organizations:
+  - id: aigs-canada
+    role: publisher
+
+description: >
+  Updated white paper by AI Governance and Safety Canada (AIGS) outlining
+  five high-impact actions for the Canadian government to significantly advance
+  AI governance by end of Q2 2025. The paper updates the 2023 edition with
+  the latest developments in AI capabilities and governance, including Canada's
+  $2.4B budget investment in compute access and the creation of the AI Safety
+  Institute (AISI). Recommends a Ministry of AI, improved legislation, and
+  increased safety research investment.
+
+links:
+  - label: "White Paper (PDF)"
+    url: https://aigs.ca/2024-white-paper.pdf
+    icon: document
+  - label: "Announcement"
+    url: https://aigs.ca/news/240626-aigs-unveils-2024-white-paper/
+    icon: document
+
+policy_recommendations:
+  - id: rec-2024-001
+    title: "Establish a Ministry of AI"
+    summary: >
+      Create a dedicated Ministry of AI to ensure a direct voice at Cabinet
+      and awareness of AI's impact on other top portfolios. The ministry
+      would house AI regulatory bodies, monitor and inform leadership about
+      AI developments, communicate with the provinces, and coordinate federal
+      action. Avoids ISED's conflicting mandate of boosting development while
+      also regulating it.
+    status: untracked
+
+  - id: rec-2024-002
+    title: "Champion and fund global AI governance efforts"
+    summary: >
+      Support global efforts addressing frontier AI race dynamics and host
+      talks on global AI governance during Canada's 2025 G7 leadership.
+      Without global coordination, domestic regulation will simply push AI
+      development to other jurisdictions, and frontier AI development is
+      mostly happening abroad.
+    status: untracked
+
+  - id: rec-2024-003
+    title: "Improve and pass the AI & Data Act and supporting regulations"
+    summary: >
+      Provide a legal framework to address a range of ethics and safety
+      concerns. Improve the Canadian AI Data Commissioner's (AIDC) independence
+      by moving its administration to the new Ministry of AI to avoid
+      conflict with ISED's mandate. There is no time to drop the AIDA and
+      reintroduce it later.
+    status: untracked
+
+  - id: rec-2024-004
+    title: "Increase and focus Budget 2024 investments on safety and governance"
+    summary: >
+      Dedicate more than $500M for research on technical AI and governance
+      policy research, coordinated by Canada's new AI Safety Institute. Allocate
+      more than 20% of the proposed AI Compute Access Fund for research on
+      frontier AI safety. The AISI's $50M in funding is insufficient given
+      the scale of AI safety needs.
+    status: untracked
+
+  - id: rec-2024-005
+    title: "Launch a national conversation on AI"
+    summary: >
+      Hold nationwide open public consultations to inform policy decisions
+      on AI in relation to the jobs transition, wealth concentration, and
+      the right balance between pursuing rewards and limiting risks. AI will
+      radically transform society, and managing this transition needs to start
+      early with Canada's relative stability and strong AI ecosystem making
+      it well placed to lead.
+    status: untracked
+
+tags:
+  - ai-governance
+  - ai-safety
+  - policy-recommendations
+  - aigs
+  - white-paper

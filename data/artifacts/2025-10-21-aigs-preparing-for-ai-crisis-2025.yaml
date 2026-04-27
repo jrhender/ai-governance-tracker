@@ -1,0 +1,82 @@
+# artifacts/2025-10-21-aigs-preparing-for-ai-crisis-2025.yaml
+
+id: aigs-preparing-for-ai-crisis-2025
+type: WhitePaper
+schema_type: CreativeWork
+
+title: "Preparing for the AI Crisis: A Plan for Canada"
+published_date: 2025-10-21
+
+authors:
+  - name: "Wyatt Tessari L'Allié"
+    role: author
+    affiliation: "Founder and Executive Director, AIGS Canada"
+
+organizations:
+  - id: aigs-canada
+    role: publisher
+
+description: >
+  White paper by AI Governance and Safety Canada (AIGS) warning that leading
+  AI labs may develop smarter-than-human AI within 18 months and urging
+  urgent federal action to prepare for the resulting crises. The paper offers
+  a concise overview of where AI is headed, the likely crisis points, and
+  why Canada is well placed to lead a global solution. Argues that Canada's
+  best contribution is leadership — to spearhead global talks while building
+  resilience at home.
+
+links:
+  - label: "White Paper (PDF)"
+    url: https://aigs.ca/preparing-for-the-ai-crisis.pdf
+    icon: document
+  - label: "Announcement"
+    url: https://aigs.ca/news/251021-aigs-canada-releases-2025-white-paper/
+    icon: document
+
+policy_recommendations:
+  - id: rec-2025-001
+    title: "Pivot to meet the AI crisis"
+    summary: >
+      The federal government should act urgently, as leading AI labs may
+      develop smarter-than-human AI within 18 months. This could trigger
+      multiple crises including accidents, geopolitical tensions, employment
+      disruption, economic shocks, and social unrest. Government must treat
+      AI development as a strategic emergency.
+    status: untracked
+
+  - id: rec-2025-002
+    title: "Spearhead the global response"
+    summary: >
+      Establish international agreements to minimize conflict, enhance safety
+      protocols, and distribute AI benefits equitably across nations. Canada
+      is well placed to lead global talks given its stable society, educated
+      population, and reputation on the world stage.
+    status: untracked
+
+  - id: rec-2025-003
+    title: "Build Canada's resilience"
+    summary: >
+      Implement domestic measures to address the secondary impacts of the AI
+      crisis, including AI-powered cyberattacks on critical infrastructure,
+      supply chain disruptions from accidents or conflict, fiscal shocks from
+      sustained job losses, and potential loss of access to foreign compute.
+    status: untracked
+
+  - id: rec-2025-004
+    title: "Engage Canadians in a national conversation on AI"
+    summary: >
+      Foster informed public dialogue about AI's transformative impact on
+      Canadian society. Canadians deserve to be informed and consulted on a
+      technology that will reshape their lives. Canada's relative stability
+      and strong AI ecosystem make it a good position to pilot such a
+      conversation.
+    status: untracked
+
+tags:
+  - ai-governance
+  - ai-safety
+  - policy-recommendations
+  - aigs
+  - white-paper
+  - agi
+  - national-security

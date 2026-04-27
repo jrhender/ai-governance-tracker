@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("policy page", () => {
-  test("renders page heading and all four sections", async ({ page }) => {
+  test("renders page heading and all four section headings (requires current seed data)", async ({ page }) => {
     await page.goto("/policy/");
     await expect(page.getByRole("heading", { name: "Policy", level: 1 })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Legislation", level: 2 })).toBeVisible();

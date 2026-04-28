@@ -23,6 +23,11 @@ const items: TimelineItem[] = events
     href: `/events/${e.id}/`,
     badge: e.data.type,
     orgIds: e.data.organizations.map((o) => o.id.id),
+    orgs: e.data.organizations.map((o) => {
+      const org = orgMap.get(o.id.id);
+      return { id: o.id.id, label: org?.short_name ?? org?.name ?? o.id.id };
+    }),
+    links: e.data.links,
   }))
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 

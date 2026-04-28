@@ -1,11 +1,53 @@
 @import "tailwindcss";
 
-@variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Fonts */
+  --font-sans:    'DM Sans', system-ui, sans-serif;
+  --font-serif:   'Source Serif 4', Georgia, serif;
+  --font-display: 'DM Serif Display', Georgia, serif;
+
+  /* Colours */
+  --color-header:    #0f3040;
+  --color-accent:    #4ecdc4;
+  --color-accent-dk: #2aada4;
+  --color-body:      #f7f8f8;
+  --color-surface:   #ffffff;
+  --color-border:    #d0dce0;
+  --color-border-lt: #e8f0f4;
+  --color-ink:       #0f2a38;
+  --color-muted:     #5a7a88;
+  --color-faint:     #8aa0aa;
+}
 
 :root {
   color-scheme: light;
 }
 
-:root.dark {
-  color-scheme: dark;
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-body);
+    color: var(--color-ink);
+  }
+}
+
+@layer components {
+  .chip-type {
+    @apply inline-block text-xs px-2 py-0.5 rounded-full font-semibold;
+    background: #e0f4f4;
+    color: #0a5858;
+    border: 1px solid #a8dcdc;
+  }
+
+  .chip-org {
+    @apply inline-block text-xs px-2 py-0.5 rounded-full font-semibold no-underline;
+    background: white;
+    color: #1a5878;
+    border: 1px solid #b0d4e4;
+  }
+
+  .chip-org:hover {
+    background: #e8f4f8;
+    border-color: #7ab8d0;
+  }
 }

@@ -20,12 +20,12 @@ const govPrograms = artifacts.filter((a) => a.data.type === "GovernmentProgram")
   title="Policy"
   description="Canadian AI legislation, reports, policy documents, and government programs."
 >
-  <h1 class="text-3xl font-bold tracking-tight">Policy</h1>
+  <h1 class="font-display text-4xl text-header">Policy</h1>
 
   {legislation.length > 0 && (
     <section class="mt-10">
-      <h2 class="text-xl font-semibold">Legislation</h2>
-      <p class="mt-2 max-w-2xl text-slate-600 dark:text-slate-400">
+      <h2 class="font-display text-2xl text-header">Legislation</h2>
+      <p class="mt-2 max-w-2xl text-muted">
         Canadian federal bills and acts related to artificial intelligence. Each entry tracks
         the bill's lifecycle — from introduction through readings, committee study, and royal
         assent (or death on the order paper).
@@ -34,10 +34,10 @@ const govPrograms = artifacts.filter((a) => a.data.type === "GovernmentProgram")
         {legislation.map((bill) => (
           <a
             href={`/artifacts/${bill.id}/`}
-            class="block rounded-lg border border-slate-200 p-5 transition-colors hover:border-slate-300 dark:border-slate-800 dark:hover:border-slate-700"
+            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
           >
             <div class="flex items-start justify-between gap-3">
-              <h3 class="text-lg font-semibold">{bill.data.title}</h3>
+              <h3 class="text-base font-semibold text-header">{bill.data.title}</h3>
               {bill.data.lifecycle_status && (
                 <span
                   class={`shrink-0 rounded-full px-3 py-0.5 text-xs font-semibold ${badgeClass(bill.data.lifecycle_status)}`}
@@ -47,11 +47,9 @@ const govPrograms = artifacts.filter((a) => a.data.type === "GovernmentProgram")
               )}
             </div>
             {bill.data.current_stage && (
-              <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">
-                {bill.data.current_stage}
-              </p>
+              <p class="mt-2 text-sm text-muted">{bill.data.current_stage}</p>
             )}
-            <p class="mt-2 text-xs text-slate-500 dark:text-slate-500">
+            <p class="mt-2 text-xs text-faint">
               Introduced: {fmtDate(bill.data.published_date)}
             </p>
           </a>
@@ -62,25 +60,22 @@ const govPrograms = artifacts.filter((a) => a.data.type === "GovernmentProgram")
 
   {reports.length > 0 && (
     <section class="mt-10">
-      <h2 class="text-xl font-semibold">Reports</h2>
-      <p class="mt-2 max-w-2xl text-slate-600 dark:text-slate-400">
+      <h2 class="font-display text-2xl text-header">Reports</h2>
+      <p class="mt-2 max-w-2xl text-muted">
         Research reports and analytical summaries published by think tanks, government
-        agencies, and advisory bodies. These documents examine AI risks, policy options,
-        and strategic considerations for Canada.
+        agencies, and advisory bodies.
       </p>
       <div class="mt-6 space-y-4">
         {reports.map((r) => (
           <a
             href={`/artifacts/${r.id}/`}
-            class="block rounded-lg border border-slate-200 p-5 transition-colors hover:border-slate-300 dark:border-slate-800 dark:hover:border-slate-700"
+            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
           >
-            <h3 class="text-lg font-semibold">{r.data.title}</h3>
+            <h3 class="text-base font-semibold text-header">{r.data.title}</h3>
             {r.data.description && (
-              <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">
-                {r.data.description}
-              </p>
+              <p class="mt-2 text-sm text-muted">{r.data.description}</p>
             )}
-            <p class="mt-2 text-xs text-slate-500 dark:text-slate-500">
+            <p class="mt-2 text-xs text-faint">
               Published: {fmtDate(r.data.published_date)}
             </p>
           </a>
@@ -91,25 +86,22 @@ const govPrograms = artifacts.filter((a) => a.data.type === "GovernmentProgram")
 
   {policyDocs.length > 0 && (
     <section class="mt-10">
-      <h2 class="text-xl font-semibold">Policy Documents</h2>
-      <p class="mt-2 max-w-2xl text-slate-600 dark:text-slate-400">
+      <h2 class="font-display text-2xl text-header">Policy Documents</h2>
+      <p class="mt-2 max-w-2xl text-muted">
         Voluntary codes of conduct, frameworks, and guidelines issued by government or
-        industry bodies. These set expectations for responsible AI development and
-        deployment without carrying the force of law.
+        industry bodies.
       </p>
       <div class="mt-6 space-y-4">
         {policyDocs.map((d) => (
           <a
             href={`/artifacts/${d.id}/`}
-            class="block rounded-lg border border-slate-200 p-5 transition-colors hover:border-slate-300 dark:border-slate-800 dark:hover:border-slate-700"
+            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
           >
-            <h3 class="text-lg font-semibold">{d.data.title}</h3>
+            <h3 class="text-base font-semibold text-header">{d.data.title}</h3>
             {d.data.description && (
-              <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">
-                {d.data.description}
-              </p>
+              <p class="mt-2 text-sm text-muted">{d.data.description}</p>
             )}
-            <p class="mt-2 text-xs text-slate-500 dark:text-slate-500">
+            <p class="mt-2 text-xs text-faint">
               Published: {fmtDate(d.data.published_date)}
             </p>
           </a>
@@ -120,25 +112,21 @@ const govPrograms = artifacts.filter((a) => a.data.type === "GovernmentProgram")
 
   {govPrograms.length > 0 && (
     <section class="mt-10">
-      <h2 class="text-xl font-semibold">Government Programs</h2>
-      <p class="mt-2 max-w-2xl text-slate-600 dark:text-slate-400">
+      <h2 class="font-display text-2xl text-header">Government Programs</h2>
+      <p class="mt-2 max-w-2xl text-muted">
         Ongoing federal programs and national strategies related to artificial intelligence.
-        These represent long-term government commitments and investments rather than
-        one-off publications.
       </p>
       <div class="mt-6 space-y-4">
         {govPrograms.map((p) => (
           <a
             href={`/artifacts/${p.id}/`}
-            class="block rounded-lg border border-slate-200 p-5 transition-colors hover:border-slate-300 dark:border-slate-800 dark:hover:border-slate-700"
+            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
           >
-            <h3 class="text-lg font-semibold">{p.data.title}</h3>
+            <h3 class="text-base font-semibold text-header">{p.data.title}</h3>
             {p.data.description && (
-              <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">
-                {p.data.description}
-              </p>
+              <p class="mt-2 text-sm text-muted">{p.data.description}</p>
             )}
-            <p class="mt-2 text-xs text-slate-500 dark:text-slate-500">
+            <p class="mt-2 text-xs text-faint">
               Published: {fmtDate(p.data.published_date)}
             </p>
           </a>

@@ -104,7 +104,7 @@ export default function TimelineList({ items }: Props) {
             <div className="flex flex-wrap gap-4">
               {item.links.map((link) => (
                 <a
-                  key={link.url}
+                  key={`${link.url}-${link.label}`}
                   href={link.url}
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs text-accent-dark hover:text-header font-medium no-underline"

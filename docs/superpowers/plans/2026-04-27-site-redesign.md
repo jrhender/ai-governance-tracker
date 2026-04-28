@@ -29,7 +29,7 @@
 | `src/pages/index.astro` | Modify | Hero with eyebrow + DM Serif Display headline, teal-left-border feature cards |
 | `src/pages/policy/index.astro` | Modify | DM Serif Display headings, teal-left-border artifact cards, remove dark: |
 | `src/pages/orgs/index.astro` | Modify | Unified teal-left-border card treatment, remove dark: |
-| `src/pages/orgs/[id].astro` | Modify | New palette, accent-dk links, remove dark: |
+| `src/pages/orgs/[id].astro` | Modify | New palette, accent-dark links, remove dark: |
 | `src/pages/events/[id].astro` | Modify | New palette, remove dark: |
 | `src/pages/artifacts/[id].astro` | Modify | New palette, remove dark: |
 
@@ -55,7 +55,7 @@
   /* Colours */
   --color-header:    #0f3040;
   --color-accent:    #4ecdc4;
-  --color-accent-dk: #2aada4;
+  --color-accent-dark: #2aada4;
   --color-body:      #f7f8f8;
   --color-surface:   #ffffff;
   --color-border:    #d0dce0;
@@ -483,7 +483,7 @@ export default function TimelineList({ items }: Props) {
           </time>
           <a
             href={item.href}
-            className="block font-serif text-base font-semibold text-header leading-snug hover:text-accent-dk mb-2 no-underline"
+            className="block font-serif text-base font-semibold text-header leading-snug hover:text-accent-dark mb-2 no-underline"
           >
             {item.title}
           </a>
@@ -507,7 +507,7 @@ export default function TimelineList({ items }: Props) {
                   key={link.url}
                   href={link.url}
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-accent-dk hover:text-header font-medium no-underline"
+                  className="inline-flex items-center gap-1.5 text-xs text-accent-dark hover:text-header font-medium no-underline"
                 >
                   <LinkIcon icon={link.icon} />
                   {link.label}
@@ -608,7 +608,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   description="Tracking Canadian AI governance and policy — Senate hearings, legislation, and government action."
 >
   <div class="py-8">
-    <p class="text-xs font-semibold uppercase tracking-widest text-accent-dk mb-3">
+    <p class="text-xs font-semibold uppercase tracking-widest text-accent-dark mb-3">
       AI Policy · Governance · Safety
     </p>
     <h1 class="font-display text-5xl leading-tight text-header tracking-tight">
@@ -639,7 +639,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <div class="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2">
       <a
         href="/timeline/"
-        class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dk hover:shadow-sm transition-all no-underline"
+        class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
       >
         <h2 class="font-display text-lg text-header">Timeline</h2>
         <p class="mt-1 text-sm text-muted">
@@ -648,7 +648,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </a>
       <a
         href="/policy/"
-        class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dk hover:shadow-sm transition-all no-underline"
+        class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
       >
         <h2 class="font-display text-lg text-header">Policy</h2>
         <p class="mt-1 text-sm text-muted">
@@ -755,7 +755,7 @@ const govPrograms = artifacts.filter((a) => a.data.type === "GovernmentProgram")
         {legislation.map((bill) => (
           <a
             href={`/artifacts/${bill.id}/`}
-            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dk hover:shadow-sm transition-all no-underline"
+            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
           >
             <div class="flex items-start justify-between gap-3">
               <h3 class="text-base font-semibold text-header">{bill.data.title}</h3>
@@ -790,7 +790,7 @@ const govPrograms = artifacts.filter((a) => a.data.type === "GovernmentProgram")
         {reports.map((r) => (
           <a
             href={`/artifacts/${r.id}/`}
-            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dk hover:shadow-sm transition-all no-underline"
+            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
           >
             <h3 class="text-base font-semibold text-header">{r.data.title}</h3>
             {r.data.description && (
@@ -816,7 +816,7 @@ const govPrograms = artifacts.filter((a) => a.data.type === "GovernmentProgram")
         {policyDocs.map((d) => (
           <a
             href={`/artifacts/${d.id}/`}
-            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dk hover:shadow-sm transition-all no-underline"
+            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
           >
             <h3 class="text-base font-semibold text-header">{d.data.title}</h3>
             {d.data.description && (
@@ -841,7 +841,7 @@ const govPrograms = artifacts.filter((a) => a.data.type === "GovernmentProgram")
         {govPrograms.map((p) => (
           <a
             href={`/artifacts/${p.id}/`}
-            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dk hover:shadow-sm transition-all no-underline"
+            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
           >
             <h3 class="text-base font-semibold text-header">{p.data.title}</h3>
             {p.data.description && (
@@ -904,7 +904,7 @@ const sorted = [...orgs].sort((a, b) => a.data.name.localeCompare(b.data.name));
         return (
           <a
             href={`/orgs/${org.id}/`}
-            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dk hover:shadow-sm transition-all no-underline"
+            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
           >
             {org.data.short_name && (
               <div class="text-base font-bold text-header">{org.data.short_name}</div>
@@ -968,7 +968,7 @@ const artifacts = allArtifacts.filter((a) =>
 
 <BaseLayout title={data.name} description={`Organization: ${data.name}`}>
   <p class="text-sm text-faint">
-    <a href="/orgs/" class="hover:underline text-accent-dk">← Organizations</a>
+    <a href="/orgs/" class="hover:underline text-accent-dark">← Organizations</a>
   </p>
   <h1 class="mt-4 font-display text-3xl text-header">{data.name}</h1>
   {data.short_name && (
@@ -979,7 +979,7 @@ const artifacts = allArtifacts.filter((a) =>
     {data.url && (
       <a
         href={data.url}
-        class="text-accent-dk hover:underline"
+        class="text-accent-dark hover:underline"
         rel="noopener noreferrer"
       >
         Website ↗
@@ -988,7 +988,7 @@ const artifacts = allArtifacts.filter((a) =>
     {data.wikipedia && (
       <a
         href={data.wikipedia}
-        class="text-accent-dk hover:underline"
+        class="text-accent-dark hover:underline"
         rel="noopener noreferrer"
       >
         Wikipedia ↗
@@ -1004,7 +1004,7 @@ const artifacts = allArtifacts.filter((a) =>
       <ul class="space-y-1">
         {events.map((e) => (
           <li>
-            <a href={`/events/${e.id}/`} class="text-sm text-ink hover:text-accent-dk hover:underline">
+            <a href={`/events/${e.id}/`} class="text-sm text-ink hover:text-accent-dark hover:underline">
               {e.data.title}
             </a>
           </li>
@@ -1021,7 +1021,7 @@ const artifacts = allArtifacts.filter((a) =>
       <ul class="space-y-1">
         {artifacts.map((a) => (
           <li>
-            <a href={`/artifacts/${a.id}/`} class="text-sm text-ink hover:text-accent-dk hover:underline">
+            <a href={`/artifacts/${a.id}/`} class="text-sm text-ink hover:text-accent-dark hover:underline">
               {a.data.title}
             </a>
           </li>
@@ -1098,7 +1098,7 @@ const relatedArtifacts = await Promise.all(
 
 <BaseLayout title={data.title} description={data.description}>
   <p class="text-sm text-faint">
-    <a href="/timeline/" class="text-accent-dk hover:underline">← Timeline</a>
+    <a href="/timeline/" class="text-accent-dark hover:underline">← Timeline</a>
   </p>
   <h1 class="mt-4 font-display text-3xl text-header">{data.title}</h1>
   <div class="mt-2 flex flex-wrap gap-3 text-sm text-faint">
@@ -1132,7 +1132,7 @@ const relatedArtifacts = await Promise.all(
         {orgs.map(({ role, org }) =>
           org ? (
             <li>
-              <a href={`/orgs/${org.id}/`} class="font-medium text-ink hover:text-accent-dk hover:underline">
+              <a href={`/orgs/${org.id}/`} class="font-medium text-ink hover:text-accent-dark hover:underline">
                 {org.data.short_name ?? org.data.name}
               </a>
               <span class="text-faint"> — {role}</span>
@@ -1153,7 +1153,7 @@ const relatedArtifacts = await Promise.all(
           <li>
             <a
               href={l.url}
-              class="text-accent-dk hover:underline"
+              class="text-accent-dark hover:underline"
               rel="noopener noreferrer"
             >
               {l.label} ↗
@@ -1173,7 +1173,7 @@ const relatedArtifacts = await Promise.all(
         {relatedArtifacts.map((a) =>
           a ? (
             <li>
-              <a href={`/artifacts/${a.id}/`} class="text-ink hover:text-accent-dk hover:underline">
+              <a href={`/artifacts/${a.id}/`} class="text-ink hover:text-accent-dark hover:underline">
                 {a.data.title}
               </a>
             </li>
@@ -1238,7 +1238,7 @@ const statusLabels: Record<string, string> = {
 
 <BaseLayout title={data.title} description={data.description}>
   <p class="text-sm text-faint">
-    <a href="/policy/" class="text-accent-dk hover:underline">← Policy</a>
+    <a href="/policy/" class="text-accent-dark hover:underline">← Policy</a>
   </p>
   <h1 class="mt-4 font-display text-3xl text-header">{data.title}</h1>
   <div class="mt-2 flex flex-wrap gap-3 text-sm text-faint">
@@ -1262,7 +1262,7 @@ const statusLabels: Record<string, string> = {
         {orgs.map(({ role, org }) =>
           org ? (
             <li>
-              <a href={`/orgs/${org.id}/`} class="font-medium text-ink hover:text-accent-dk hover:underline">
+              <a href={`/orgs/${org.id}/`} class="font-medium text-ink hover:text-accent-dark hover:underline">
                 {org.data.short_name ?? org.data.name}
               </a>
               <span class="text-faint"> — {role}</span>
@@ -1282,7 +1282,7 @@ const statusLabels: Record<string, string> = {
         {sources.map(({ relationship, event }) =>
           event ? (
             <li>
-              <a href={`/events/${event.id}/`} class="text-ink hover:text-accent-dk hover:underline">
+              <a href={`/events/${event.id}/`} class="text-ink hover:text-accent-dark hover:underline">
                 {event.data.title}
               </a>
               <span class="text-faint"> — {relationship}</span>
@@ -1303,7 +1303,7 @@ const statusLabels: Record<string, string> = {
           <li>
             <a
               href={l.url}
-              class="text-accent-dk hover:underline"
+              class="text-accent-dark hover:underline"
               rel="noopener noreferrer"
             >
               {l.label} ↗

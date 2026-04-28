@@ -19,7 +19,7 @@ Replace the current monochromatic slate/grey design with a polished, internation
 |-------------------|-----------|--------------------------------------------|
 | `--col-header`    | `#0f3040` | Site header and footer background          |
 | `--col-accent`    | `#4ecdc4` | Timeline spine, dots, active states        |
-| `--col-accent-dk` | `#2aada4` | Hover states, source link text             |
+| `--color-accent-dark` | `#2aada4` | Hover states, source link text             |
 | `--col-body`      | `#f7f8f8` | Page background                            |
 | `--col-surface`   | `#ffffff` | Cards, filter bar                          |
 | `--col-border`    | `#d0dce0` | Borders on cards and inputs                |
@@ -66,7 +66,7 @@ Removed entirely. The `dark:` variant classes are stripped from all components. 
 
 ### `src/pages/index.astro` (Homepage)
 
-- **Eyebrow:** small caps, `--col-accent-dk`, text "AI Policy · Governance · Safety"
+- **Eyebrow:** small caps, `--color-accent-dark`, text "AI Policy · Governance · Safety"
 - **H1:** DM Serif Display, 42px, `--col-header`
 - **Body copy:** DM Sans, `--col-muted`
 - **CTA buttons:** primary = petrol blue fill; secondary = ghost with `--col-border`
@@ -85,7 +85,7 @@ Removed entirely. The `dark:` variant classes are stripped from all components. 
    - Type badge: `chip-type` — teal-tinted background, dark teal text
    - Org chips: `chip-org` — white surface, blue-teal border, link to `/orgs/<id>/`
 4. **Description:** DM Sans 13px, `--col-muted`
-5. **Source links:** rendered from `event.links[]`. Each link = small SVG icon + label text in `--col-accent-dk`. Icon is chosen by `link.icon` field: `document` → document SVG, `video` → play-circle SVG, anything else → external-link SVG.
+5. **Source links:** rendered from `event.links[]`. Each link = small SVG icon + label text in `--color-accent-dark`. Icon is chosen by `link.icon` field: `document` → document SVG, `video` → play-circle SVG, anything else → external-link SVG.
 
 **Data plumbing:** `TimelineItem` type gains a `links` field (`{label: string; url: string; icon?: string}[]`). The Astro page passes `e.data.links` through. Events with no links render no source-link row.
 
@@ -106,7 +106,7 @@ No logic changes. Style updates inherited from `TimelineList` and `BaseLayout`.
 ### `src/pages/orgs/index.astro` and `[id].astro`
 
 - Org list: consistent card treatment with the rest of the site
-- Org detail: links ("Website", "Wikipedia") use `--col-accent-dk` with underline on hover
+- Org detail: links ("Website", "Wikipedia") use `--color-accent-dark` with underline on hover
 
 ### Event and artifact detail pages (`src/pages/events/[id].astro`, `src/pages/artifacts/[id].astro`)
 

@@ -81,12 +81,11 @@ export default function TimelineList({ items }: Props) {
           >
             {fmtDate(item.date)}
           </time>
-          <a
-            href={item.href}
-            className="block font-serif text-base font-semibold text-header leading-snug hover:text-accent-dark mb-2 no-underline"
-          >
-            {item.title}
-          </a>
+          <h3 className="font-serif text-base font-semibold text-header leading-snug mb-2">
+            <a href={item.href} className="hover:text-accent-dark no-underline">
+              {item.title}
+            </a>
+          </h3>
           <div className="flex flex-wrap gap-1.5 mb-2">
             <span className="chip-type">{item.badge}</span>
             {item.orgs.map((org) => (

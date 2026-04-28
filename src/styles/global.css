@@ -7,9 +7,10 @@
   --font-display: 'DM Serif Display', Georgia, serif;
 
   /* Colours */
-  --color-header:    #0f3040;
-  --color-accent:    #4ecdc4;
-  --color-accent-dark: #2aada4;
+  --color-header:       #0f3040;
+  --color-header-hover: #1a4a60;
+  --color-accent:       #4ecdc4;
+  --color-accent-dark:  #2aada4;
   --color-body:      #f7f8f8;
   --color-surface:   #ffffff;
   --color-border:    #d0dce0;

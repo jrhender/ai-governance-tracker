@@ -25,44 +25,46 @@ const artifacts = allArtifacts.filter((a) =>
 ---
 
 <BaseLayout title={data.name} description={`Organization: ${data.name}`}>
-  <p class="text-sm text-slate-500 dark:text-slate-400">
-    <a href="/orgs/" class="hover:underline">← Organizations</a>
+  <p class="text-sm text-faint">
+    <a href="/orgs/" class="hover:underline text-accent-dark">← Organizations</a>
   </p>
-  <h1 class="mt-4 text-3xl font-bold tracking-tight">{data.name}</h1>
+  <h1 class="mt-4 font-display text-3xl text-header">{data.name}</h1>
   {data.short_name && (
-    <p class="mt-1 text-slate-500 dark:text-slate-400">{data.short_name}</p>
+    <p class="mt-1 text-faint">{data.short_name}</p>
   )}
 
   <div class="mt-4 flex flex-wrap gap-4 text-sm">
     {data.url && (
       <a
         href={data.url}
-        class="text-blue-700 hover:underline dark:text-blue-400"
+        class="text-accent-dark hover:underline"
+        target="_blank"
         rel="noopener noreferrer"
       >
-        Website
+        Website ↗
       </a>
     )}
     {data.wikipedia && (
       <a
         href={data.wikipedia}
-        class="text-blue-700 hover:underline dark:text-blue-400"
+        class="text-accent-dark hover:underline"
+        target="_blank"
         rel="noopener noreferrer"
       >
-        Wikipedia
+        Wikipedia ↗
       </a>
     )}
   </div>
 
   {events.length > 0 && (
     <section class="mt-8">
-      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+      <h2 class="text-xs font-semibold uppercase tracking-wide text-faint mb-2">
         Events
       </h2>
-      <ul class="mt-2 space-y-1">
+      <ul class="space-y-1">
         {events.map((e) => (
           <li>
-            <a href={`/events/${e.id}/`} class="hover:underline">
+            <a href={`/events/${e.id}/`} class="text-sm text-ink hover:text-accent-dark hover:underline">
               {e.data.title}
             </a>
           </li>
@@ -73,13 +75,13 @@ const artifacts = allArtifacts.filter((a) =>
 
   {artifacts.length > 0 && (
     <section class="mt-8">
-      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+      <h2 class="text-xs font-semibold uppercase tracking-wide text-faint mb-2">
         Artifacts
       </h2>
-      <ul class="mt-2 space-y-1">
+      <ul class="space-y-1">
         {artifacts.map((a) => (
           <li>
-            <a href={`/artifacts/${a.id}/`} class="hover:underline">
+            <a href={`/artifacts/${a.id}/`} class="text-sm text-ink hover:text-accent-dark hover:underline">
               {a.data.title}
             </a>
           </li>
@@ -89,9 +91,9 @@ const artifacts = allArtifacts.filter((a) =>
   )}
 
   {data.tags.length > 0 && (
-    <section class="mt-8 flex flex-wrap gap-2 text-xs">
+    <section class="mt-8 flex flex-wrap gap-2">
       {data.tags.map((t) => (
-        <span class="rounded bg-slate-100 px-2 py-0.5 text-slate-700 dark:bg-slate-800 dark:text-slate-300">
+        <span class="rounded bg-body px-2 py-0.5 text-xs text-muted border border-border-lt">
           #{t}
         </span>
       ))}

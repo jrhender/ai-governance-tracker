@@ -7,28 +7,27 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   description="Tracking Canadian AI governance and policy — Senate hearings, legislation, and government action."
 >
   <div class="py-8">
-    <h1 class="text-4xl font-bold tracking-tight">AI Governance Tracker</h1>
-    <p class="mt-3 text-lg text-slate-600 dark:text-slate-400">
-      Tracking Canadian AI governance and policy
+    <p class="text-xs font-semibold uppercase tracking-widest text-accent-dark mb-3">
+      AI Policy · Governance · Safety
     </p>
-
-    <p class="mt-6 max-w-2xl text-slate-700 dark:text-slate-300">
-      AI is one of the most consequential technologies in human history. AI safety in
-      particular deserves serious attention. This tracker follows Canada's policy
-      response — Senate hearings, legislation, and government action — so that anyone
-      who cares can stay informed.
+    <h1 class="font-display text-5xl leading-tight text-header tracking-tight">
+      AI Governance Tracker
+    </h1>
+    <p class="mt-4 max-w-xl text-base text-muted leading-relaxed">
+      Tracking Canadian AI safety and governance — Senate hearings, legislation,
+      and policy action — so that anyone who cares can stay informed.
     </p>
 
     <div class="mt-8 flex flex-wrap gap-3">
       <a
         href="/timeline/"
-        class="rounded-md bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+        class="inline-flex items-center rounded bg-header px-5 py-2.5 text-sm font-semibold text-white hover:bg-header-hover no-underline transition-colors"
       >
         Browse the Timeline →
       </a>
       <a
         href="https://github.com/jrhender/ai-governance-tracker/issues/new"
-        class="rounded-md border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:text-slate-100"
+        class="inline-flex items-center rounded border border-border px-5 py-2.5 text-sm font-semibold text-muted hover:border-[#aabbcc] hover:text-ink no-underline transition-colors"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -39,19 +38,19 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <div class="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2">
       <a
         href="/timeline/"
-        class="rounded-lg border border-slate-200 p-5 hover:border-slate-300 dark:border-slate-800 dark:hover:border-slate-700"
+        class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
       >
-        <h2 class="font-semibold">Timeline</h2>
-        <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">
+        <h2 class="font-display text-lg text-header">Timeline</h2>
+        <p class="mt-1 text-sm text-muted">
           Senate hearings, reports, and government announcements.
         </p>
       </a>
       <a
         href="/policy/"
-        class="rounded-lg border border-slate-200 p-5 hover:border-slate-300 dark:border-slate-800 dark:hover:border-slate-700"
+        class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
       >
-        <h2 class="font-semibold">Policy</h2>
-        <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">
+        <h2 class="font-display text-lg text-header">Policy</h2>
+        <p class="mt-1 text-sm text-muted">
           Legislation, reports, and policy documents.
         </p>
       </a>

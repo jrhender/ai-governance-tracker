@@ -23,6 +23,11 @@ const items: TimelineItem[] = events
     href: `/events/${e.id}/`,
     badge: e.data.type,
     orgIds: e.data.organizations.map((o) => o.id.id),
+    orgs: e.data.organizations.map((o) => {
+      const org = orgMap.get(o.id.id);
+      return { id: o.id.id, label: org?.short_name ?? org?.name ?? o.id.id };
+    }),
+    links: e.data.links,
   }))
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
@@ -50,8 +55,8 @@ orgs.sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
   title="Timeline"
   description="Canadian AI governance and policy events, reports, and government action."
 >
-  <h1 class="text-3xl font-bold tracking-tight">Timeline</h1>
-  <p class="mt-2 max-w-2xl text-slate-600 dark:text-slate-400">
+  <h1 class="font-display text-4xl text-header">Timeline</h1>
+  <p class="mt-2 max-w-2xl text-muted">
     Canadian AI governance and policy events, reports, and government action.
   </p>
 

@@ -8,6 +8,8 @@ export type TimelineItem = {
   href: string;
   badge: string;
   orgIds: string[]; // flattened org IDs for filtering
+  orgs: { id: string; label: string }[]; // for displaying org chips
+  links: { label: string; url: string; icon?: string }[]; // source links
 };
 
 export type OrgOption = {

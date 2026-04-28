@@ -1,11 +1,62 @@
 @import "tailwindcss";
 
-@variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Fonts */
+  --font-sans:    'DM Sans', system-ui, sans-serif;
+  --font-serif:   'Source Serif 4', Georgia, serif;
+  --font-display: 'DM Serif Display', Georgia, serif;
+
+  /* Colours */
+  --color-header:       #0f3040;
+  --color-header-hover: #1a4a60;
+  --color-accent:       #4ecdc4;
+  --color-accent-dark:  #0a6e6a;
+  --color-body:      #f7f8f8;
+  --color-surface:   #ffffff;
+  --color-border:    #d0dce0;
+  --color-border-lt: #e8f0f4;
+  --color-ink:       #0f2a38;
+  --color-muted:     #4a5f6e;
+  --color-faint:     #5a6e78;
+
+  --color-chip-type-bg:          #e0f4f4;
+  --color-chip-type-fg:          #0a5858;
+  --color-chip-type-border:      #a8dcdc;
+  --color-chip-org-fg:           #1a5878;
+  --color-chip-org-border:       #b0d4e4;
+  --color-chip-org-hover-bg:     #e8f4f8;
+  --color-chip-org-hover-border: #7ab8d0;
+}
 
 :root {
   color-scheme: light;
 }
 
-:root.dark {
-  color-scheme: dark;
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-body);
+    color: var(--color-ink);
+  }
+}
+
+@layer components {
+  .chip-type {
+    @apply inline-block text-xs px-2 py-0.5 rounded-full font-semibold;
+    background: var(--color-chip-type-bg);
+    color: var(--color-chip-type-fg);
+    border: 1px solid var(--color-chip-type-border);
+  }
+
+  .chip-org {
+    @apply inline-block text-xs px-2 py-0.5 rounded-full font-semibold no-underline;
+    background: white;
+    color: var(--color-chip-org-fg);
+    border: 1px solid var(--color-chip-org-border);
+  }
+
+  .chip-org:hover {
+    background: var(--color-chip-org-hover-bg);
+    border-color: var(--color-chip-org-hover-border);
+  }
 }

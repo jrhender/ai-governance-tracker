@@ -8,11 +8,11 @@ type Props = {
 
 export default function OrgFilter({ orgs, selected, onSelect }: Props) {
   const pillBase =
-    "rounded-full px-3 py-1 text-sm font-medium transition-colors cursor-pointer";
+    "rounded-full px-3 py-1 text-sm font-medium transition-colors cursor-pointer border";
   const active =
-    "bg-slate-700 text-white dark:bg-slate-300 dark:text-slate-900";
+    "bg-header text-white border-header";
   const inactive =
-    "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700";
+    "bg-body text-muted border-border hover:bg-surface hover:text-ink";
 
   return (
     <div

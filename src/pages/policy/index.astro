@@ -3,6 +3,19 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { badgeClass, statusLabel } from "../../lib/legislation";
 import { fmtDate } from "../../lib/format";
+import type { ArtifactType } from "../../content.config";
+
+// Exhaustiveness guard: every ArtifactType must appear here.
+// Set to true (shown on this page) or false (intentionally omitted).
+// Adding a new type to the schema without updating this will be a compile error.
+const _policyVisibility: Record<ArtifactType, boolean> = {
+  GovernmentProgram: true,
+  JointStatement: true,
+  Legislation: true,
+  PolicyDocument: true,
+  Report: true,
+  WhitePaper: true,
+};
 
 const artifacts = await getCollection("artifacts");
 

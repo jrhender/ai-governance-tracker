@@ -48,7 +48,7 @@ export function buildCreativeWorkJsonLd(params: {
 
 export function buildOrgJsonLd(params: {
   name: string;
-  schemaType: string;
+  schemaType: "Organization" | "GovernmentOrganization";
   url?: string;
   sameAs?: string;
 }): Record<string, unknown> {

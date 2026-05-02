@@ -70,7 +70,22 @@ const navLinks = [
           </span>
           {siteTitle}
         </a>
-        <nav class="flex" aria-label="Main navigation">
+        <!-- hamburger: mobile only -->
+        <button
+          id="nav-toggle"
+          class="flex items-center py-4 text-[#8ab8c8] hover:text-white sm:hidden"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+        <!-- desktop nav -->
+        <nav class="hidden sm:flex" aria-label="Main navigation">
           {navLinks.map(({ href, label }) => {
             const active = path.startsWith(href);
             return (
@@ -90,7 +105,53 @@ const navLinks = [
           })}
         </nav>
       </div>
+      <!-- mobile nav: shown when hamburger is open -->
+      <nav
+        id="mobile-nav"
+        class="hidden border-t border-header-hover sm:hidden"
+        aria-label="Mobile navigation"
+      >
+        {navLinks.map(({ href, label }) => {
+          const active = path.startsWith(href);
+          return (
+            <a
+              href={href}
+              class={[
+                "block px-6 py-3 text-sm font-medium border-l-[3px] transition-colors no-underline",
+                active
+                  ? "text-white border-accent"
+                  : "text-[#8ab8c8] border-transparent hover:text-white",
+              ].join(" ")}
+              aria-current={active ? "page" : undefined}
+            >
+              {label}
+            </a>
+          );
+        })}
+      </nav>
     </header>
+    <script is:inline>
+      const toggle = document.getElementById('nav-toggle');
+      const menu = document.getElementById('mobile-nav');
+      if (toggle && menu) {
+        const close = () => {
+          menu.classList.add('hidden');
+          toggle.setAttribute('aria-expanded', 'false');
+        };
+        toggle.addEventListener('click', () => {
+          const isHidden = menu.classList.toggle('hidden');
+          toggle.setAttribute('aria-expanded', String(!isHidden));
+        });
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
+            close();
+            toggle.focus();
+          }
+        });
+        const mq = window.matchMedia('(min-width: 640px)');
+        mq.addEventListener('change', (e) => { if (e.matches) close(); });
+      }
+    </script>
     <main class="mx-auto max-w-4xl px-6 py-10">
       <slot />
     </main>

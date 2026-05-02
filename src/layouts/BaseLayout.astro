@@ -108,8 +108,8 @@ const navLinks = [
       <!-- mobile nav: shown when hamburger is open -->
       <nav
         id="mobile-nav"
-        class="hidden border-t border-[#1a4a60] sm:hidden"
-        aria-label="Main navigation"
+        class="hidden border-t border-header-hover sm:hidden"
+        aria-label="Mobile navigation"
       >
         {navLinks.map(({ href, label }) => {
           const active = path.startsWith(href);
@@ -133,10 +133,24 @@ const navLinks = [
     <script is:inline>
       const toggle = document.getElementById('nav-toggle');
       const menu = document.getElementById('mobile-nav');
-      toggle?.addEventListener('click', () => {
-        const isHidden = menu.classList.toggle('hidden');
-        toggle.setAttribute('aria-expanded', String(!isHidden));
-      });
+      if (toggle && menu) {
+        const close = () => {
+          menu.classList.add('hidden');
+          toggle.setAttribute('aria-expanded', 'false');
+        };
+        toggle.addEventListener('click', () => {
+          const isHidden = menu.classList.toggle('hidden');
+          toggle.setAttribute('aria-expanded', String(!isHidden));
+        });
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
+            close();
+            toggle.focus();
+          }
+        });
+        const mq = window.matchMedia('(min-width: 640px)');
+        mq.addEventListener('change', (e) => { if (e.matches) close(); });
+      }
     </script>
     <main class="mx-auto max-w-4xl px-6 py-10">
       <slot />

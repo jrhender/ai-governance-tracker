@@ -1,7 +1,7 @@
 # organizations/dsit-uk.yaml
 
 id: dsit-uk
-type: Organization
+type: GovernmentOrganization
 schema_type: GovernmentOrganization
 
 name: "Department for Science, Innovation and Technology"

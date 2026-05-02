@@ -36,7 +36,7 @@ test.describe("Open Graph and Twitter meta tags", () => {
   test("homepage has og:image pointing to /og-image.png", async ({ page }) => {
     await page.goto("/");
     const content = await page.locator('meta[property="og:image"]').getAttribute("content");
-    expect(content).toContain("/og-image.png");
+    expect(content).toMatch(/^https?:\/\/.+\/og-image\.png$/);
   });
 
   test("homepage has og:image dimensions", async ({ page }) => {

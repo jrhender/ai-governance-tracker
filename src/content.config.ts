@@ -48,11 +48,21 @@ const events = defineCollection({
   }),
 });
 
+export const artifactTypeSchema = z.enum([
+  "GovernmentProgram",
+  "JointStatement",
+  "Legislation",
+  "PolicyDocument",
+  "Report",
+  "WhitePaper",
+]);
+export type ArtifactType = z.infer<typeof artifactTypeSchema>;
+
 const artifacts = defineCollection({
   loader: yamlGlob({ pattern: "*.yaml", base: dataDir("artifacts") }),
   schema: z.object({
     id: z.string(),
-    type: z.string(),
+    type: artifactTypeSchema,
     schema_type: z.literal("CreativeWork"),
     title: z.string(),
     published_date: z.coerce.date(),

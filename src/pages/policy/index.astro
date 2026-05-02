@@ -73,58 +73,6 @@ const jointStatements = artifacts.filter((a) => a.data.type === "JointStatement"
     </section>
   )}
 
-  {reports.length > 0 && (
-    <section class="mt-10">
-      <h2 class="font-display text-2xl text-header">Reports</h2>
-      <p class="mt-2 max-w-2xl text-muted">
-        Research reports and analytical summaries published by think tanks, government
-        agencies, and advisory bodies.
-      </p>
-      <div class="mt-6 space-y-4">
-        {reports.map((r) => (
-          <a
-            href={`/artifacts/${r.id}/`}
-            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
-          >
-            <h3 class="text-base font-semibold text-header">{r.data.title}</h3>
-            {r.data.description && (
-              <p class="mt-2 text-sm text-muted">{r.data.description}</p>
-            )}
-            <p class="mt-2 text-xs text-faint">
-              Published: {fmtDate(r.data.published_date)}
-            </p>
-          </a>
-        ))}
-      </div>
-    </section>
-  )}
-
-  {whitePapers.length > 0 && (
-    <section class="mt-10">
-      <h2 class="font-display text-2xl text-header">White Papers</h2>
-      <p class="mt-2 max-w-2xl text-muted">
-        Position and advocacy papers published by think tanks and civil society organizations
-        making the case for specific AI policy approaches.
-      </p>
-      <div class="mt-6 space-y-4">
-        {whitePapers.map((w) => (
-          <a
-            href={`/artifacts/${w.id}/`}
-            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
-          >
-            <h3 class="text-base font-semibold text-header">{w.data.title}</h3>
-            {w.data.description && (
-              <p class="mt-2 text-sm text-muted">{w.data.description}</p>
-            )}
-            <p class="mt-2 text-xs text-faint">
-              Published: {fmtDate(w.data.published_date)}
-            </p>
-          </a>
-        ))}
-      </div>
-    </section>
-  )}
-
   {policyDocs.length > 0 && (
     <section class="mt-10">
       <h2 class="font-display text-2xl text-header">Policy Documents</h2>
@@ -194,6 +142,57 @@ const jointStatements = artifacts.filter((a) => a.data.type === "JointStatement"
             )}
             <p class="mt-2 text-xs text-faint">
               Published: {fmtDate(j.data.published_date)}
+            </p>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+  {reports.length > 0 && (
+    <section class="mt-10">
+      <h2 class="font-display text-2xl text-header">Reports</h2>
+      <p class="mt-2 max-w-2xl text-muted">
+        Research reports and analytical summaries published by think tanks, government
+        agencies, and advisory bodies.
+      </p>
+      <div class="mt-6 space-y-4">
+        {reports.map((r) => (
+          <a
+            href={`/artifacts/${r.id}/`}
+            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
+          >
+            <h3 class="text-base font-semibold text-header">{r.data.title}</h3>
+            {r.data.description && (
+              <p class="mt-2 text-sm text-muted">{r.data.description}</p>
+            )}
+            <p class="mt-2 text-xs text-faint">
+              Published: {fmtDate(r.data.published_date)}
+            </p>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {whitePapers.length > 0 && (
+    <section class="mt-10">
+      <h2 class="font-display text-2xl text-header">White Papers</h2>
+      <p class="mt-2 max-w-2xl text-muted">
+        Position and advocacy papers published by think tanks and civil society organizations
+        making the case for specific AI policy approaches.
+      </p>
+      <div class="mt-6 space-y-4">
+        {whitePapers.map((w) => (
+          <a
+            href={`/artifacts/${w.id}/`}
+            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
+          >
+            <h3 class="text-base font-semibold text-header">{w.data.title}</h3>
+            {w.data.description && (
+              <p class="mt-2 text-sm text-muted">{w.data.description}</p>
+            )}
+            <p class="mt-2 text-xs text-faint">
+              Published: {fmtDate(w.data.published_date)}
             </p>
           </a>
         ))}

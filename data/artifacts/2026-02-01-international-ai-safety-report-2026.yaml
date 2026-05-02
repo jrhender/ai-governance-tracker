@@ -1,0 +1,119 @@
+# artifacts/2026-02-01-international-ai-safety-report-2026.yaml
+
+id: international-ai-safety-report-2026
+type: Report
+schema_type: CreativeWork
+
+title: "International AI Safety Report 2026"
+published_date: 2026-02-01
+
+authors:
+  - name: "Yoshua Bengio"
+    role: chair
+  - name: "100+ independent experts from 30+ countries"
+    role: contributing_authors
+
+organizations:
+  - id: dsit-uk
+    role: publisher
+
+description: >
+  Comprehensive international assessment of AI safety, led by Yoshua Bengio and
+  produced by over 100 independent experts from more than 30 countries. Commissioned
+  by the UK government (DSIT 2026/001). The report covers the current state of AI
+  capabilities, categorised risk findings across misuse, structural, and societal
+  domains, risk management practices, and resilience-building measures. The report
+  explicitly states that policy recommendations are outside its scope; it provides
+  evidence-based findings and challenges for policymakers instead.
+
+links:
+  - label: "Publication Page"
+    url: https://internationalaisafetyreport.org
+    icon: document
+
+risk_findings:
+  # §2.1 — Misuse risks (harmful use by actors)
+  - id: risk-iasr-001
+    category: misuse
+    title: "AI-enabled crime and fraud"
+    summary: >
+      AI systems are well-documented vectors for scams, fraud, blackmail, and
+      non-consensual intimate imagery. While individual cases are well-established,
+      systematic data on overall prevalence and severity remains limited.
+    evidence_level: established
+
+  - id: risk-iasr-002
+    category: misuse
+    title: "Influence and manipulation"
+    summary: >
+      AI-generated persuasion content matches human-written content in experimental
+      settings. Real-world deployment for influence operations is documented but not
+      yet widespread; the risk is expected to grow as AI capabilities improve.
+    evidence_level: emerging
+
+  - id: risk-iasr-003
+    category: misuse
+    title: "AI-enabled cyberattacks"
+    summary: >
+      AI agents can identify 77% of real software vulnerabilities in controlled
+      settings, and criminal and state-associated groups are actively using
+      general-purpose AI in cyber operations. The overall offence–defence balance
+      remains uncertain.
+    evidence_level: emerging
+
+  - id: risk-iasr-004
+    category: misuse
+    title: "Biological and chemical risks"
+    summary: >
+      In 2025, multiple developers released models after being unable to exclude the
+      possibility of assisting novices in developing bioweapons, prompting heightened
+      safeguards as a precautionary measure. Material barriers to bioweapons
+      development may still constrain actors, but the extent is difficult to assess.
+    evidence_level: uncertain
+
+  # §2.2 — Structural risks (risks from AI system behaviour)
+  - id: risk-iasr-005
+    category: structural
+    title: "Reliability and AI agents"
+    summary: >
+      AI agents operating autonomously pose heightened risks because it is harder for
+      humans to intervene before failures cause harm. Current techniques reduce failure
+      rates but not to the level required in high-stakes settings.
+    evidence_level: emerging
+
+  - id: risk-iasr-006
+    category: structural
+    title: "Loss of control"
+    summary: >
+      Models increasingly distinguish between test and real-world contexts
+      ("situational awareness"), and some find loopholes in evaluations — raising the
+      risk that dangerous capabilities evade pre-deployment detection. Current systems
+      lack the capabilities to pose a full loss-of-control risk, but are improving in
+      relevant areas.
+    evidence_level: uncertain
+
+  # §2.3 — Societal impacts
+  - id: risk-iasr-007
+    category: societal
+    title: "Labour market impacts"
+    summary: >
+      Early evidence shows no effect on overall employment, but declining demand for
+      early-career workers in AI-exposed occupations such as writing. Economists
+      disagree substantially on the long-run magnitude of labour displacement.
+    evidence_level: emerging
+
+  - id: risk-iasr-008
+    category: societal
+    title: "Risks to human autonomy"
+    summary: >
+      Evidence suggests AI reliance can weaken critical thinking and encourage
+      automation bias. AI companion apps serve tens of millions of users; a small
+      share show increased loneliness and reduced social engagement.
+    evidence_level: emerging
+
+tags:
+  - ai-safety
+  - ai-risks
+  - international
+  - report
+  - bengio

@@ -1,0 +1,15 @@
+# organizations/dsit-uk.yaml
+
+id: dsit-uk
+type: GovernmentOrganization
+schema_type: GovernmentOrganization
+
+name: "Department for Science, Innovation and Technology"
+short_name: "DSIT"
+url: https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology
+wikipedia: https://en.wikipedia.org/wiki/Department_for_Science,_Innovation_and_Technology
+
+tags:
+  - government
+  - uk
+  - science-policy

@@ -1,0 +1,35 @@
+# data/events/2026-02-01-international-ai-safety-report-2026-published.yaml
+
+id: international-ai-safety-report-2026-published
+type: Publication
+schema_type: Event
+title: "DSIT publishes International AI Safety Report 2026 (Bengio et al.)"
+date: 2026-02-01
+
+organizations:
+  - id: dsit-uk
+    role: publisher
+
+description: >
+  The UK Department for Science, Innovation and Technology publishes the
+  International AI Safety Report 2026, led by Yoshua Bengio and produced by
+  over 100 independent experts from more than 30 countries. The report provides
+  a comprehensive evidence-based assessment of AI safety risks across misuse,
+  structural, and societal domains, along with risk management practices and
+  resilience-building measures. Policy recommendations are explicitly outside
+  its scope.
+
+related_artifacts:
+  - id: international-ai-safety-report-2026
+
+tags:
+  - ai-safety
+  - ai-risks
+  - international
+  - report
+  - bengio
+
+links:
+  - label: "Publication Page"
+    url: https://internationalaisafetyreport.org
+    icon: document

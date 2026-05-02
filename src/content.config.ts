@@ -114,6 +114,17 @@ const artifacts = defineCollection({
         }),
       )
       .default([]),
+    risk_findings: z
+      .array(
+        z.object({
+          id: z.string(),
+          category: z.enum(["misuse", "structural", "societal"]),
+          title: z.string(),
+          summary: z.string(),
+          evidence_level: z.enum(["established", "emerging", "uncertain"]),
+        }),
+      )
+      .default([]),
     tags: z.array(z.string()).default([]),
   }),
 });

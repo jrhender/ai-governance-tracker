@@ -14,7 +14,7 @@ authors:
     role: contributing_authors
 
 organizations:
-  - name: "UK Department for Science, Innovation and Technology (DSIT)"
+  - id: dsit-uk
     role: publisher
 
 description: >

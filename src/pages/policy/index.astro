@@ -10,10 +10,12 @@ function byDateDesc(a: { data: { published_date: Date } }, b: { data: { publishe
   return b.data.published_date.getTime() - a.data.published_date.getTime();
 }
 
-const legislation = artifacts.filter((a) => a.data.type === "Legislation").sort(byDateDesc);
-const reports     = artifacts.filter((a) => a.data.type === "Report").sort(byDateDesc);
-const policyDocs  = artifacts.filter((a) => a.data.type === "PolicyDocument").sort(byDateDesc);
-const govPrograms = artifacts.filter((a) => a.data.type === "GovernmentProgram").sort(byDateDesc);
+const legislation   = artifacts.filter((a) => a.data.type === "Legislation").sort(byDateDesc);
+const reports       = artifacts.filter((a) => a.data.type === "Report").sort(byDateDesc);
+const whitePapers   = artifacts.filter((a) => a.data.type === "WhitePaper").sort(byDateDesc);
+const policyDocs    = artifacts.filter((a) => a.data.type === "PolicyDocument").sort(byDateDesc);
+const govPrograms   = artifacts.filter((a) => a.data.type === "GovernmentProgram").sort(byDateDesc);
+const jointStatements = artifacts.filter((a) => a.data.type === "JointStatement").sort(byDateDesc);
 ---
 
 <BaseLayout
@@ -84,6 +86,32 @@ const govPrograms = artifacts.filter((a) => a.data.type === "GovernmentProgram")
     </section>
   )}
 
+  {whitePapers.length > 0 && (
+    <section class="mt-10">
+      <h2 class="font-display text-2xl text-header">White Papers</h2>
+      <p class="mt-2 max-w-2xl text-muted">
+        Position and advocacy papers published by think tanks and civil society organizations
+        making the case for specific AI policy approaches.
+      </p>
+      <div class="mt-6 space-y-4">
+        {whitePapers.map((w) => (
+          <a
+            href={`/artifacts/${w.id}/`}
+            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
+          >
+            <h3 class="text-base font-semibold text-header">{w.data.title}</h3>
+            {w.data.description && (
+              <p class="mt-2 text-sm text-muted">{w.data.description}</p>
+            )}
+            <p class="mt-2 text-xs text-faint">
+              Published: {fmtDate(w.data.published_date)}
+            </p>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+
   {policyDocs.length > 0 && (
     <section class="mt-10">
       <h2 class="font-display text-2xl text-header">Policy Documents</h2>
@@ -128,6 +156,31 @@ const govPrograms = artifacts.filter((a) => a.data.type === "GovernmentProgram")
             )}
             <p class="mt-2 text-xs text-faint">
               Published: {fmtDate(p.data.published_date)}
+            </p>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+  {jointStatements.length > 0 && (
+    <section class="mt-10">
+      <h2 class="font-display text-2xl text-header">Joint Statements</h2>
+      <p class="mt-2 max-w-2xl text-muted">
+        Bilateral and multilateral statements on AI governance issued jointly by Canada and
+        partner governments.
+      </p>
+      <div class="mt-6 space-y-4">
+        {jointStatements.map((j) => (
+          <a
+            href={`/artifacts/${j.id}/`}
+            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
+          >
+            <h3 class="text-base font-semibold text-header">{j.data.title}</h3>
+            {j.data.description && (
+              <p class="mt-2 text-sm text-muted">{j.data.description}</p>
+            )}
+            <p class="mt-2 text-xs text-faint">
+              Published: {fmtDate(j.data.published_date)}
             </p>
           </a>
         ))}

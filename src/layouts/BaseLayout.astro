@@ -33,7 +33,7 @@ const navLinks = [
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
     {jsonLd && (
-      <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+      <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/<\//g, '<\\/')} />
     )}
     <!-- Open Graph -->
     <meta property="og:title" content={fullTitle} />

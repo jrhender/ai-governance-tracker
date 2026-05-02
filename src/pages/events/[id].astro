@@ -2,6 +2,7 @@
 import { getCollection, getEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { fmtDate } from "../../lib/format";
+import { buildEventJsonLd, type OrgRef } from "../../lib/jsonld";
 
 export async function getStaticPaths() {
   const events = await getCollection("events");
@@ -24,9 +25,27 @@ const orgs = await Promise.all(
 const relatedArtifacts = await Promise.all(
   data.related_artifacts.map((a) => getEntry("artifacts", a.id.id)),
 );
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+const orgRefs: OrgRef[] = orgs
+  .filter(({ org }) => org !== undefined)
+  .map(({ org }) => ({
+    name: org!.data.short_name ?? org!.data.name,
+    ...(org!.data.url ? { url: org!.data.url } : {}),
+  }));
+
+const jsonLd = buildEventJsonLd({
+  title: data.title,
+  startDate: data.date.toISOString(),
+  description: data.description,
+  location: data.location?.name,
+  orgs: orgRefs,
+  url: canonicalURL,
+});
 ---
 
-<BaseLayout title={data.title} description={data.description}>
+<BaseLayout title={data.title} description={data.description} jsonLd={jsonLd}>
   <p class="text-sm text-faint">
     <a href="/timeline/" class="text-accent-dark hover:underline">← Timeline</a>
   </p>

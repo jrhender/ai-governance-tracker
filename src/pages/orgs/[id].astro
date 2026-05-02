@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { buildOrgJsonLd } from "../../lib/jsonld";
 
 export async function getStaticPaths() {
   const orgs = await getCollection("organizations");
@@ -22,9 +23,18 @@ const events = allEvents.filter((e) =>
 const artifacts = allArtifacts.filter((a) =>
   a.data.organizations.some((o) => o.id.id === org.id),
 );
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+const jsonLd = buildOrgJsonLd({
+  name: data.name,
+  schemaType: data.schema_type,
+  url: data.url,
+  sameAs: data.wikipedia,
+});
 ---
 
-<BaseLayout title={data.name} description={`Organization: ${data.name}`}>
+<BaseLayout title={data.name} description={`Organization: ${data.name}`} jsonLd={jsonLd}>
   <p class="text-sm text-faint">
     <a href="/orgs/" class="hover:underline text-accent-dark">← Organizations</a>
   </p>

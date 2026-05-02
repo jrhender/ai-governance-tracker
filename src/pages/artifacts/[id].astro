@@ -2,6 +2,7 @@
 import { getCollection, getEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { fmtDate } from "../../lib/format";
+import { buildCreativeWorkJsonLd, type OrgRef } from "../../lib/jsonld";
 
 export async function getStaticPaths() {
   const artifacts = await getCollection("artifacts");
@@ -34,9 +35,26 @@ const statusLabels: Record<string, string> = {
   adopted: "Adopted",
   rejected: "Rejected",
 };
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+const orgRefs: OrgRef[] = orgs
+  .filter(({ org }) => org !== undefined)
+  .map(({ org }) => ({
+    name: org!.data.short_name ?? org!.data.name,
+    ...(org!.data.url ? { url: org!.data.url } : {}),
+  }));
+
+const jsonLd = buildCreativeWorkJsonLd({
+  title: data.title,
+  datePublished: data.published_date.toISOString(),
+  description: data.description,
+  orgs: orgRefs,
+  url: canonicalURL,
+});
 ---
 
-<BaseLayout title={data.title} description={data.description}>
+<BaseLayout title={data.title} description={data.description} jsonLd={jsonLd}>
   <p class="text-sm text-faint">
     <a href="/policy/" class="text-accent-dark hover:underline">← Policy</a>
   </p>

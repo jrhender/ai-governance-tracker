@@ -5,9 +5,10 @@ interface Props {
   title: string;
   description: string;
   ogImage?: string;
+  jsonLd?: Record<string, unknown>;
 }
 
-const { title, description, ogImage } = Astro.props;
+const { title, description, ogImage, jsonLd } = Astro.props;
 const siteTitle = "AI Governance Tracker";
 const fullTitle = title === siteTitle ? title : `${title} — ${siteTitle}`;
 
@@ -31,6 +32,9 @@ const navLinks = [
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
+    {jsonLd && (
+      <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/<\//g, '<\\/')} />
+    )}
     <!-- Open Graph -->
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />

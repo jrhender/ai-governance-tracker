@@ -33,6 +33,12 @@ links:
   - label: "PDF — Full Report"
     url: https://ised-isde.canada.ca/site/ised/sites/default/files/documents/AiStrategyReport_EN.pdf
     icon: document
+  - label: "Open Canada — ISED AI Engagement Task Force Reports"
+    url: https://open.canada.ca/data/en/dataset/df68c04c-c156-44b1-8cf7-cdf532a2ce9b
+    icon: document
+  - label: "Open Canada — ISED AI Engagement Dataset"
+    url: https://open.canada.ca/data/en/dataset/bc8cdd54-19cf-4f62-a3d3-fa4b7371d49a
+    icon: document
 
 tags:
   - ised

@@ -4,7 +4,7 @@ test.describe("homepage", () => {
   test("renders site title and values statement", async ({ page }) => {
     await page.goto("/");
     await expect(page.getByRole("heading", { level: 1, name: /AI Governance Tracker/i })).toBeVisible();
-    await expect(page.getByText(/AI safety/i)).toBeVisible();
+    await expect(page.getByText(/transformational impact/i)).toBeVisible();
   });
 
   test("primary CTA links to /timeline/", async ({ page }) => {

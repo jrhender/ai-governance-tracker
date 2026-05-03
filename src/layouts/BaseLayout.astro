@@ -55,7 +55,7 @@ const navLinks = [
       rel="alternate"
       type="application/rss+xml"
       title="AI Governance Tracker"
-      href="/rss.xml"
+      href={new URL("/rss.xml", Astro.site).toString()}
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -114,6 +114,7 @@ const navLinks = [
           onsubmit={`window.open('https://buttondown.com/${BUTTONDOWN_USERNAME}', 'popupwindow')`}
           class="inline-flex gap-2 justify-center"
         >
+          <label for="bd-email" class="sr-only">Email address</label>
           <input
             type="email"
             name="email"

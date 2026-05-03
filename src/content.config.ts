@@ -104,7 +104,10 @@ const artifacts = defineCollection({
       .array(
         z.object({
           id: z.string(),
+          title: z.string().optional().default(""),
           summary: z.string().optional().default(""),
+          robustness: z.enum(["robust", "contingent"]).optional(),
+          scenarios: z.array(z.string()).optional().default([]),
           status: z.enum([
             "untracked",
             "under_review",

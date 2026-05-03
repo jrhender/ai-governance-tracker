@@ -36,6 +36,23 @@ const statusLabels: Record<string, string> = {
   rejected: "Rejected",
 };
 
+const robustnessLabels: Record<string, string> = {
+  robust: "No regrets",
+  contingent: "Conditional",
+};
+
+const evidenceLevelColors: Record<string, string> = {
+  established: "bg-green-100 text-green-800 border-green-200",
+  emerging: "bg-yellow-100 text-yellow-800 border-yellow-200",
+  uncertain: "bg-gray-100 text-gray-600 border-gray-200",
+};
+
+const categoryColors: Record<string, string> = {
+  misuse: "bg-red-100 text-red-800 border-red-200",
+  structural: "bg-orange-100 text-orange-800 border-orange-200",
+  societal: "bg-blue-100 text-blue-800 border-blue-200",
+};
+
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
 const orgRefs: OrgRef[] = orgs
@@ -141,15 +158,54 @@ const jsonLd = buildCreativeWorkJsonLd({
       <ul class="space-y-2">
         {data.policy_recommendations.map((r) => (
           <li class="rounded border border-border bg-surface p-3">
-            <div class="flex items-center justify-between gap-3">
-              <span class="font-mono text-xs text-faint">{r.id}</span>
-              <span class="rounded-full bg-body px-2 py-0.5 text-xs text-muted border border-border-lt">
-                {statusLabels[r.status] ?? r.status}
-              </span>
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex flex-col gap-1">
+                <span class="font-mono text-xs text-faint">{r.id}</span>
+                {r.title && (
+                  <span class="font-medium text-sm text-ink">{r.title}</span>
+                )}
+              </div>
+              <div class="flex flex-wrap gap-1 shrink-0">
+                {r.robustness && (
+                  <span class="rounded-full bg-body px-2 py-0.5 text-xs text-muted border border-border-lt">
+                    {robustnessLabels[r.robustness] ?? r.robustness}
+                  </span>
+                )}
+                <span class="rounded-full bg-body px-2 py-0.5 text-xs text-muted border border-border-lt">
+                  {statusLabels[r.status] ?? r.status}
+                </span>
+              </div>
             </div>
             {r.summary && (
               <p class="mt-2 text-sm text-ink">{r.summary}</p>
             )}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {data.risk_findings.length > 0 && (
+    <section class="mt-8">
+      <h2 class="text-xs font-semibold uppercase tracking-wide text-faint mb-2">
+        Risk findings
+      </h2>
+      <ul class="space-y-2">
+        {data.risk_findings.map((f) => (
+          <li class="rounded border border-border bg-surface p-3">
+            <div class="flex items-start justify-between gap-3">
+              <span class="font-medium text-sm text-ink">{f.title}</span>
+              <div class="flex flex-wrap gap-1 shrink-0">
+                <span class={`rounded-full px-2 py-0.5 text-xs border ${categoryColors[f.category] ?? "bg-body text-muted border-border-lt"}`}>
+                  {f.category}
+                </span>
+                <span class={`rounded-full px-2 py-0.5 text-xs border ${evidenceLevelColors[f.evidence_level] ?? "bg-body text-muted border-border-lt"}`}>
+                  {f.evidence_level}
+                </span>
+              </div>
+            </div>
+            <p class="mt-2 text-sm text-ink">{f.summary}</p>
+            <span class="mt-2 block font-mono text-xs text-faint">{f.id}</span>
           </li>
         ))}
       </ul>

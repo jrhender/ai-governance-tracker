@@ -17,7 +17,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const defaultOgImage = new URL("/og-image.png", Astro.site).toString();
 const resolvedOgImage = ogImage ?? defaultOgImage;
 
-const BUTTONDOWN_USERNAME = "your-username"; // update after creating Buttondown account
+const BUTTONDOWN_USERNAME = "jhenderson";
 
 const navLinks = [
   { href: "/timeline/", label: "Timeline" },
@@ -104,36 +104,30 @@ const navLinks = [
     </main>
     <footer class="bg-header">
       <div class="mx-auto max-w-4xl px-6 py-8 text-center text-sm text-[#8ab8c8]">
-        {BUTTONDOWN_USERNAME !== "your-username" && (
-          <>
-            <p class="mb-4">
-              Get weekly updates on Canadian AI governance delivered to your inbox.
-            </p>
-            <form
-              action={`https://buttondown.com/api/emails/embed-subscribe/${BUTTONDOWN_USERNAME}`}
-              method="post"
-              target="popupwindow"
-              onsubmit={`window.open('https://buttondown.com/${BUTTONDOWN_USERNAME}', 'popupwindow')`}
-              class="inline-flex gap-2 justify-center mb-6"
-            >
-              <label for="bd-email" class="sr-only">Email address</label>
-              <input
-                type="email"
-                name="email"
-                id="bd-email"
-                placeholder="you@example.com"
-                required
-                class="rounded px-3 py-1.5 text-sm text-ink bg-white border border-border focus:outline-none focus:ring-2 focus:ring-accent"
-              />
-              <button
-                type="submit"
-                class="rounded bg-accent px-4 py-1.5 text-sm font-semibold text-header hover:bg-accent-dark transition-colors"
-              >
-                Subscribe
-              </button>
-            </form>
-          </>
-        )}
+        <p class="mb-4">
+          Get weekly updates on Canadian AI governance delivered to your inbox.
+        </p>
+        <form
+          action={`https://buttondown.com/api/emails/embed-subscribe/${BUTTONDOWN_USERNAME}`}
+          method="post"
+          class="inline-flex gap-2 justify-center mb-6"
+        >
+          <label for="bd-email" class="sr-only">Email address</label>
+          <input
+            type="email"
+            name="email"
+            id="bd-email"
+            placeholder="you@example.com"
+            required
+            class="rounded px-3 py-1.5 text-sm text-ink bg-white border border-border focus:outline-none focus:ring-2 focus:ring-accent"
+          />
+          <button
+            type="submit"
+            class="rounded bg-accent px-4 py-1.5 text-sm font-semibold text-header hover:bg-accent-dark transition-colors"
+          >
+            Subscribe
+          </button>
+        </form>
         <p>
           A Canadian AI governance and policy timeline. &nbsp;·&nbsp;
           Anonymous usage statistics via&nbsp;

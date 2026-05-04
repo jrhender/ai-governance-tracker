@@ -17,6 +17,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const defaultOgImage = new URL("/og-image.png", Astro.site).toString();
 const resolvedOgImage = ogImage ?? defaultOgImage;
 
+const BUTTONDOWN_USERNAME = "jhenderson";
+
 const navLinks = [
   { href: "/timeline/", label: "Timeline" },
   { href: "/orgs/", label: "Organizations" },
@@ -49,6 +51,12 @@ const navLinks = [
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="AI Governance Tracker"
+      href={new URL("/rss.xml", Astro.site).toString()}
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -157,6 +165,30 @@ const navLinks = [
     </main>
     <footer class="bg-header">
       <div class="mx-auto max-w-4xl px-6 py-8 text-center text-sm text-[#8ab8c8]">
+        <p class="mb-4">
+          Get weekly updates on Canadian AI governance delivered to your inbox.
+        </p>
+        <form
+          action={`https://buttondown.com/api/emails/embed-subscribe/${BUTTONDOWN_USERNAME}`}
+          method="post"
+          class="inline-flex gap-2 justify-center mb-6"
+        >
+          <label for="bd-email" class="sr-only">Email address</label>
+          <input
+            type="email"
+            name="email"
+            id="bd-email"
+            placeholder="you@example.com"
+            required
+            class="rounded px-3 py-1.5 text-sm text-ink bg-white border border-border focus:outline-none focus:ring-2 focus:ring-accent"
+          />
+          <button
+            type="submit"
+            class="rounded bg-accent px-4 py-1.5 text-sm font-semibold text-header hover:bg-accent-dark transition-colors"
+          >
+            Subscribe
+          </button>
+        </form>
         <p>
           A Canadian AI governance and policy timeline. &nbsp;·&nbsp;
           Anonymous usage statistics via&nbsp;
@@ -166,6 +198,8 @@ const navLinks = [
           >
             Cloudflare Web Analytics
           </a>
+          &nbsp;·&nbsp;
+          <a href="/rss.xml" class="text-[#8ab8c8] hover:text-white underline">RSS</a>
         </p>
       </div>
     </footer>

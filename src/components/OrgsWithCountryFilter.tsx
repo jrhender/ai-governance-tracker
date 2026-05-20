@@ -6,6 +6,7 @@ export type OrgEntry = {
   id: string;
   name: string;
   short_name?: string;
+  url?: string;
   country: "ca" | "uk";
   tags: string[];
   events: number;

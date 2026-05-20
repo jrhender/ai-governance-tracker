@@ -27,6 +27,7 @@ const orgEntries: OrgEntry[] = [...orgs]
     id: org.id,
     name: org.data.name,
     short_name: org.data.short_name,
+    url: org.data.url,
     country: org.data.country,
     tags: org.data.tags,
     events: eventCounts.get(org.id) ?? 0,

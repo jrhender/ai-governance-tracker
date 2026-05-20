@@ -84,4 +84,21 @@ describe("OrgsWithCountryFilter", () => {
     // Two CA orgs visible by default; both should show "Canada"
     expect(screen.getAllByText("Canada").length).toBeGreaterThanOrEqual(2);
   });
+
+  it("auto-adds a pill when a new country appears in props", () => {
+    const orgsWithUs = [
+      ...orgs,
+      {
+        id: "nist-us",
+        name: "National Institute of Standards and Technology",
+        short_name: "NIST",
+        country: "us" as unknown as "ca" | "uk",
+        tags: ["government"],
+        events: 0,
+        artifacts: 0,
+      },
+    ];
+    render(<OrgsWithCountryFilter orgs={orgsWithUs} />);
+    expect(screen.getByRole("button", { name: "US" })).toBeInTheDocument();
+  });
 });

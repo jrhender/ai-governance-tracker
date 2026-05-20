@@ -23,7 +23,9 @@ Source category is **derived at build time** from the linked organization's `sch
 | `GovernmentOrganization` | `government` |
 | `Organization` | `civil_society` |
 
-**Rule:** if an artifact or event has at least one `GovernmentOrganization` in its `organizations` array, it is classified as `government`. Otherwise `civil_society` — including the edge case of an artifact with no linked organizations at all.
+**Rule:** if an artifact or event has at least one `GovernmentOrganization` in its `organizations` array, it is classified as `government`. Otherwise `civil_society`.
+
+The artifact schema is updated to `organizations.min(1)`, so the empty-array case cannot arise for artifacts. Events do not yet enforce this constraint — two events (`bill-c27-introduced-2022`, `parliament-prorogued-44-1-2025`) currently have no linked orgs and will fall through to `civil_society` until fixed.
 
 This logic is encapsulated in a single `getSourceCategory(orgSchemaTypes: string[]): "government" | "civil_society"` helper in `src/lib/sourceCategory.ts`.
 

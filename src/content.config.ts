@@ -90,7 +90,7 @@ const artifacts = defineCollection({
         }),
       )
       .default([]),
-    organizations: z.array(orgRoleSchema).default([]),
+    organizations: z.array(orgRoleSchema).min(1),
     derives_from: z
       .array(
         z.object({

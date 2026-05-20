@@ -3,6 +3,7 @@
 id: ised-canada
 type: GovernmentOrganization
 schema_type: GovernmentOrganization
+country: ca
 
 name: "Innovation, Science and Economic Development Canada"
 short_name: "ISED"

@@ -1,6 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import OrgsWithCountryFilter from "../../components/OrgsWithCountryFilter";
+import type { OrgEntry } from "../../components/OrgsWithCountryFilter";
 
 const orgs = await getCollection("organizations");
 const allEvents = await getCollection("events");
@@ -19,7 +21,18 @@ for (const a of allArtifacts) {
   }
 }
 
-const sorted = [...orgs].sort((a, b) => a.data.name.localeCompare(b.data.name));
+const orgEntries: OrgEntry[] = [...orgs]
+  .sort((a, b) => a.data.name.localeCompare(b.data.name))
+  .map((org) => ({
+    id: org.id,
+    name: org.data.name,
+    short_name: org.data.short_name,
+    url: org.data.url,
+    country: org.data.country,
+    tags: org.data.tags,
+    events: eventCounts.get(org.id) ?? 0,
+    artifacts: artifactCounts.get(org.id) ?? 0,
+  }));
 ---
 
 <BaseLayout
@@ -31,44 +44,11 @@ const sorted = [...orgs].sort((a, b) => a.data.name.localeCompare(b.data.name));
     Think tanks, government bodies, and advocacy groups tracked in this database.
   </p>
 
-  {sorted.length === 0 ? (
+  {orgEntries.length === 0 ? (
     <p class="mt-10 text-faint">No organizations tracked yet.</p>
   ) : (
-    <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
-      {sorted.map((org) => {
-        const events = eventCounts.get(org.id) ?? 0;
-        const artifacts = artifactCounts.get(org.id) ?? 0;
-        return (
-          <a
-            href={`/orgs/${org.id}/`}
-            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
-          >
-            {org.data.short_name && (
-              <div class="text-base font-bold text-header">{org.data.short_name}</div>
-            )}
-            <div class={`text-sm text-muted ${org.data.short_name ? "mt-0.5" : "font-semibold text-base text-header"}`}>
-              {org.data.name}
-            </div>
-            <div class="mt-3 text-xs text-faint">
-              {[
-                events > 0 && `${events} event${events === 1 ? "" : "s"}`,
-                artifacts > 0 && `${artifacts} artifact${artifacts === 1 ? "" : "s"}`,
-              ]
-                .filter(Boolean)
-                .join(" · ") || "No events yet"}
-            </div>
-            {org.data.tags.length > 0 && (
-              <div class="mt-3 flex flex-wrap gap-1">
-                {org.data.tags.map((t) => (
-                  <span class="rounded bg-body px-2 py-0.5 text-xs text-muted border border-border-lt">
-                    #{t}
-                  </span>
-                ))}
-              </div>
-            )}
-          </a>
-        );
-      })}
+    <div class="mt-10">
+      <OrgsWithCountryFilter client:load orgs={orgEntries} />
     </div>
   )}
 </BaseLayout>

@@ -3,6 +3,7 @@
 id: aigs-canada
 type: Organization
 schema_type: Organization
+country: ca
 
 name: "AI Governance and Safety Canada"
 short_name: "AIGS"

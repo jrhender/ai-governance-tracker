@@ -3,6 +3,7 @@
 id: privy-council-office-canada
 type: GovernmentOrganization
 schema_type: GovernmentOrganization
+country: ca
 
 name: "Privy Council Office of Canada"
 short_name: "PCO"

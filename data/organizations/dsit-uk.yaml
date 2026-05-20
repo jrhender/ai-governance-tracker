@@ -3,6 +3,7 @@
 id: dsit-uk
 type: GovernmentOrganization
 schema_type: GovernmentOrganization
+country: uk
 
 name: "Department for Science, Innovation and Technology"
 short_name: "DSIT"

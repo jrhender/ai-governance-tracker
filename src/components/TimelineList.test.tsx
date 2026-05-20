@@ -14,6 +14,7 @@ const baseItem: TimelineItem = {
   orgIds: ["senate"],
   orgs: [{ id: "senate", label: "Senate SOCI" }],
   links: [],
+  sourceCategory: "government",
 };
 
 describe("TimelineList", () => {

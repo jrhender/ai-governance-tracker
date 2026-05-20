@@ -1,7 +1,8 @@
 import { describe, it, expect } from "vitest";
-import { filterByOrg, type TimelineItem } from "./timeline";
+import { filterByOrg, filterBySource, type TimelineItem } from "./timeline";
+import type { SourceCategory } from "./sourceCategory";
 
-function make(id: string, orgIds: string[]): TimelineItem {
+function make(id: string, orgIds: string[], sourceCategory: SourceCategory = "government"): TimelineItem {
   return {
     id,
     kind: "event",
@@ -11,6 +12,9 @@ function make(id: string, orgIds: string[]): TimelineItem {
     href: "#",
     badge: "Event",
     orgIds,
+    orgs: [],
+    links: [],
+    sourceCategory,
   };
 }
 
@@ -37,5 +41,31 @@ describe("filterByOrg", () => {
 
   it("returns [] for empty input", () => {
     expect(filterByOrg([], "senate")).toEqual([]);
+  });
+});
+
+describe("filterBySource", () => {
+  const items: TimelineItem[] = [
+    make("a", [], "government"),
+    make("b", [], "civil_society"),
+    make("c", [], "government"),
+  ];
+
+  it("returns all items when 'all' is selected", () => {
+    expect(filterBySource(items, "all")).toEqual(items);
+  });
+
+  it("returns only government items", () => {
+    const result = filterBySource(items, "government");
+    expect(result.map((i) => i.id)).toEqual(["a", "c"]);
+  });
+
+  it("returns only civil_society items", () => {
+    const result = filterBySource(items, "civil_society");
+    expect(result.map((i) => i.id)).toEqual(["b"]);
+  });
+
+  it("returns [] for empty input", () => {
+    expect(filterBySource([], "government")).toEqual([]);
   });
 });

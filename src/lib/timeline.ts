@@ -1,3 +1,5 @@
+import type { SourceCategory } from "./sourceCategory";
+
 export type TimelineItem = {
   id: string;
   kind: "event";
@@ -10,6 +12,7 @@ export type TimelineItem = {
   orgIds: string[]; // flattened org IDs for filtering
   orgs: { id: string; label: string }[]; // for displaying org chips
   links: { label: string; url: string; icon?: string }[]; // source links
+  sourceCategory: SourceCategory;
 };
 
 export type OrgOption = {
@@ -24,4 +27,12 @@ export function filterByOrg(
 ): TimelineItem[] {
   if (!orgId) return items;
   return items.filter((i) => i.orgIds.includes(orgId));
+}
+
+export function filterBySource(
+  items: TimelineItem[],
+  sourceCategory: SourceCategory | "all",
+): TimelineItem[] {
+  if (sourceCategory === "all") return items;
+  return items.filter((i) => i.sourceCategory === sourceCategory);
 }

@@ -19,6 +19,18 @@
   --color-muted:     #4a5f6e;
   --color-faint:     #5a6e78;
 
+  /* Source category colours */
+  --color-gov-border:       #2d5060;
+  --color-gov-bg:           #f2f6f8;
+  --color-gov-badge-bg:     #dce8ed;
+  --color-gov-badge-text:   #1a3a4a;
+  --color-gov-badge-border: #b0c8d4;
+  --color-civil-border:     #4a6070;
+  --color-civil-bg:         #f0f4f7;
+  --color-civil-badge-bg:   #e8f0f4;
+  --color-civil-badge-text: #2d4a5a;
+  --color-civil-badge-border: #b0ccd8;
+
   --color-chip-type-bg:          #e0f4f4;
   --color-chip-type-fg:          #0a5858;
   --color-chip-type-border:      #a8dcdc;

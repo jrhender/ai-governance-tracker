@@ -1,7 +1,10 @@
+// src/components/TimelineWithFilter.tsx
 import { useState, useEffect, useMemo } from "react";
 import type { TimelineItem, OrgOption } from "../lib/timeline";
-import { filterByOrg } from "../lib/timeline";
+import { filterByOrg, filterBySource } from "../lib/timeline";
+import type { SourceCategory } from "../lib/sourceCategory";
 import OrgFilter from "./OrgFilter";
+import SourceFilter from "./SourceFilter";
 import TimelineList from "./TimelineList";
 
 type Props = {
@@ -11,6 +14,7 @@ type Props = {
 
 export default function TimelineWithFilter({ items, orgs }: Props) {
   const [selectedOrgId, setSelectedOrgId] = useState<string | null>(null);
+  const [selectedSource, setSelectedSource] = useState<SourceCategory | "all">("all");
 
   useEffect(() => {
     function resolveOrg(): string | null {
@@ -33,20 +37,29 @@ export default function TimelineWithFilter({ items, orgs }: Props) {
     return () => window.removeEventListener("popstate", onPopState);
   }, [orgs]);
 
-  function handleSelect(orgId: string | null) {
+  function handleSelectOrg(orgId: string | null) {
     setSelectedOrgId(orgId);
     const url = orgId !== null ? "?org=" + orgId : window.location.pathname;
     history.pushState({}, "", url);
   }
 
   const filteredItems = useMemo(
-    () => filterByOrg(items, selectedOrgId),
-    [items, selectedOrgId],
+    () => filterBySource(filterByOrg(items, selectedOrgId), selectedSource),
+    [items, selectedOrgId, selectedSource],
   );
 
   return (
     <>
-      <OrgFilter orgs={orgs} selected={selectedOrgId} onSelect={handleSelect} />
+      <div className="mt-6 space-y-3">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wide text-faint mb-2">Source</p>
+          <SourceFilter selected={selectedSource} onSelect={setSelectedSource} />
+        </div>
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wide text-faint mb-2">Organization</p>
+          <OrgFilter orgs={orgs} selected={selectedOrgId} onSelect={handleSelectOrg} />
+        </div>
+      </div>
       <TimelineList items={filteredItems} />
     </>
   );

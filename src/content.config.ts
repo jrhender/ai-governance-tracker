@@ -142,6 +142,7 @@ const organizations = defineCollection({
     short_name: z.string().optional(),
     url: z.string().url().optional(),
     wikipedia: z.string().url().optional(),
+    country: z.enum(["ca", "uk"]),
     tags: z.array(z.string()).default([]),
   }),
 });

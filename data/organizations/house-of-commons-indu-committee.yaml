@@ -3,6 +3,7 @@
 id: house-of-commons-indu-committee
 type: GovernmentOrganization
 schema_type: GovernmentOrganization
+country: ca
 
 name: "Standing Committee on Industry and Technology"
 short_name: "INDU"

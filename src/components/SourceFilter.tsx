@@ -1,5 +1,13 @@
 import type { SourceCategory } from "../lib/sourceCategory";
 
+type Option = { value: SourceCategory | "all"; label: string };
+
+const OPTIONS: Option[] = [
+  { value: "all", label: "All" },
+  { value: "government", label: "Government" },
+  { value: "civil_society", label: "Civil Society" },
+];
+
 type Props = {
   selected: SourceCategory | "all";
   onSelect: (cat: SourceCategory | "all") => void;
@@ -14,30 +22,17 @@ export default function SourceFilter({ selected, onSelect }: Props) {
 
   return (
     <div role="group" aria-label="Filter by source" className="flex flex-wrap gap-2">
-      <button
-        type="button"
-        aria-pressed={selected === "all"}
-        className={`${pillBase} ${selected === "all" ? active : inactive}`}
-        onClick={() => onSelect("all")}
-      >
-        All
-      </button>
-      <button
-        type="button"
-        aria-pressed={selected === "government"}
-        className={`${pillBase} ${selected === "government" ? active : inactive}`}
-        onClick={() => onSelect("government")}
-      >
-        Government
-      </button>
-      <button
-        type="button"
-        aria-pressed={selected === "civil_society"}
-        className={`${pillBase} ${selected === "civil_society" ? active : inactive}`}
-        onClick={() => onSelect("civil_society")}
-      >
-        Civil Society
-      </button>
+      {OPTIONS.map(({ value, label }) => (
+        <button
+          key={value}
+          type="button"
+          aria-pressed={selected === value}
+          className={`${pillBase} ${selected === value ? active : inactive}`}
+          onClick={() => onSelect(value)}
+        >
+          {label}
+        </button>
+      ))}
     </div>
   );
 }

@@ -8,14 +8,13 @@ import { getSourceCategory } from "../../lib/sourceCategory";
 const events = await getCollection("events");
 const organizations = await getCollection("organizations");
 
-const orgMap = new Map<string, { name: string; short_name?: string }>();
+const orgMap = new Map<string, { name: string; short_name?: string; schema_type: string }>();
 for (const org of organizations) {
-  orgMap.set(org.id, { name: org.data.name, short_name: org.data.short_name });
-}
-
-const orgSchemaTypeMap = new Map<string, string>();
-for (const org of organizations) {
-  orgSchemaTypeMap.set(org.id, org.data.schema_type);
+  orgMap.set(org.id, {
+    name: org.data.name,
+    short_name: org.data.short_name,
+    schema_type: org.data.schema_type,
+  });
 }
 
 const items: TimelineItem[] = events
@@ -35,7 +34,7 @@ const items: TimelineItem[] = events
     }),
     links: e.data.links,
     sourceCategory: getSourceCategory(
-      e.data.organizations.map((o) => orgSchemaTypeMap.get(o.id.id) ?? "Organization")
+      e.data.organizations.map((o) => orgMap.get(o.id.id)?.schema_type ?? "Organization"),
     ),
   }))
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());

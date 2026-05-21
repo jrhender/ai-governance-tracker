@@ -57,4 +57,16 @@ describe("PolicyWithSourceFilter", () => {
     expect(screen.queryByText("White Papers")).not.toBeInTheDocument();
     expect(screen.getByText("Legislation")).toBeInTheDocument();
   });
+
+  it("renders lifecycle status badge alongside source badge for Legislation", () => {
+    const bill: ArtifactEntry = {
+      ...govArtifact,
+      lifecycleStatus: "died",
+      currentStage: "Died on the Order Paper",
+    };
+    render(<PolicyWithSourceFilter artifacts={[bill]} />);
+    expect(screen.getByText("Died")).toBeInTheDocument();
+    expect(screen.getByText("GOVERNMENT")).toBeInTheDocument();
+    expect(screen.getByText("Died on the Order Paper")).toBeInTheDocument();
+  });
 });

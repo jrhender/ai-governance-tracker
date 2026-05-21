@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import type { SourceCategory } from "../lib/sourceCategory";
+import { sourceBadge, sourceCardStyle } from "../lib/sourceCategory";
 import SourceFilter from "./SourceFilter";
 import { fmtDate } from "../lib/format";
 import { badgeClass, statusLabel } from "../lib/legislation";
@@ -68,37 +69,6 @@ const SECTIONS: {
   },
 ];
 
-const cardStyle = {
-  government: {
-    border: "1px solid var(--color-border)",
-    borderLeft: "4px solid var(--color-gov-border)",
-    background: "var(--color-gov-bg)",
-  },
-  civil_society: {
-    border: "1px solid var(--color-border)",
-    borderLeft: "4px solid var(--color-civil-border)",
-    background: "var(--color-civil-bg)",
-  },
-} as const;
-
-const badgeStyle = {
-  government: {
-    label: "GOVERNMENT",
-    style: {
-      background: "var(--color-gov-badge-bg)",
-      color: "var(--color-gov-badge-text)",
-      border: "1px solid var(--color-gov-badge-border)",
-    },
-  },
-  civil_society: {
-    label: "CIVIL SOCIETY",
-    style: {
-      background: "var(--color-civil-badge-bg)",
-      color: "var(--color-civil-badge-text)",
-      border: "1px solid var(--color-civil-badge-border)",
-    },
-  },
-} as const;
 
 export default function PolicyWithSourceFilter({ artifacts }: Props) {
   const [selectedSource, setSelectedSource] = useState<SourceCategory | "all">("all");
@@ -126,13 +96,13 @@ export default function PolicyWithSourceFilter({ artifacts }: Props) {
             <p className="mt-2 max-w-2xl text-muted">{description}</p>
             <div className="mt-6 space-y-4">
               {items.map((artifact) => {
-                const src = badgeStyle[artifact.sourceCategory];
+                const src = sourceBadge[artifact.sourceCategory];
                 return (
                   <a
                     key={artifact.id}
                     href={`/artifacts/${artifact.id}/`}
                     className="block rounded-r-lg p-5 hover:shadow-sm transition-all no-underline"
-                    style={cardStyle[artifact.sourceCategory]}
+                    style={sourceCardStyle[artifact.sourceCategory]}
                   >
                     <div className="flex items-start justify-between gap-3">
                       <h3 className="text-base font-semibold text-header">{artifact.title}</h3>

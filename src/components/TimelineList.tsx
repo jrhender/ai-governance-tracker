@@ -1,4 +1,5 @@
 import type { TimelineItem } from "../lib/timeline";
+import { sourceBadge, sourceDotColor } from "../lib/sourceCategory";
 import { fmtDate } from "../lib/format";
 
 type Props = {
@@ -39,29 +40,6 @@ function LinkIcon({ icon }: { icon?: string }) {
   return <ExternalIcon />;
 }
 
-const sourceBadge = {
-  government: {
-    label: "GOVERNMENT",
-    style: {
-      background: "var(--color-gov-badge-bg)",
-      color: "var(--color-gov-badge-text)",
-      border: "1px solid var(--color-gov-badge-border)",
-    },
-  },
-  civil_society: {
-    label: "CIVIL SOCIETY",
-    style: {
-      background: "var(--color-civil-badge-bg)",
-      color: "var(--color-civil-badge-text)",
-      border: "1px solid var(--color-civil-badge-border)",
-    },
-  },
-} as const;
-
-const dotColor = {
-  government: "var(--color-gov-border)",
-  civil_society: "var(--color-civil-border)",
-} as const;
 
 export default function TimelineList({ items }: Props) {
   if (items.length === 0) {
@@ -76,7 +54,7 @@ export default function TimelineList({ items }: Props) {
           <li key={item.id} className="relative pl-7 pb-8">
             <span
               className="absolute -left-[5px] top-[7px] h-2.5 w-2.5 rounded-full ring-2 ring-body"
-              style={{ background: dotColor[item.sourceCategory] }}
+              style={{ background: sourceDotColor[item.sourceCategory] }}
             />
             <time
               dateTime={item.date}

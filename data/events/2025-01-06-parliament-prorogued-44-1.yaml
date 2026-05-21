@@ -17,7 +17,7 @@ description: >
 
 organizations:
   - id: privy-council-office-canada
-    role: government
+    role: administering_body
 
 related_artifacts:
   - id: bill-c27-aida

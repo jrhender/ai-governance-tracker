@@ -14,6 +14,7 @@ const baseItem: TimelineItem = {
   orgIds: ["senate"],
   orgs: [{ id: "senate", label: "Senate SOCI" }],
   links: [],
+  sourceCategory: "government",
 };
 
 describe("TimelineList", () => {
@@ -52,5 +53,15 @@ describe("TimelineList", () => {
   it("renders an empty-state message when items list is empty", () => {
     render(<TimelineList items={[]} />);
     expect(screen.getByText("No items match this filter.")).toBeInTheDocument();
+  });
+
+  it("renders GOVERNMENT badge for government items", () => {
+    render(<TimelineList items={[{ ...baseItem, sourceCategory: "government" }]} />);
+    expect(screen.getByText("GOVERNMENT")).toBeInTheDocument();
+  });
+
+  it("renders CIVIL SOCIETY badge for civil_society items", () => {
+    render(<TimelineList items={[{ ...baseItem, sourceCategory: "civil_society" }]} />);
+    expect(screen.getByText("CIVIL SOCIETY")).toBeInTheDocument();
   });
 });

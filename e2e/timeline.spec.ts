@@ -46,10 +46,8 @@ test.describe("timeline", () => {
     await page.goBack();
 
     await expect(page).toHaveURL(/\/timeline\/$/);
-    await expect(page.getByRole("button", { name: "All" })).toHaveAttribute(
-      "aria-pressed",
-      "true",
-    );
+    const orgFilterAll = page.getByLabel("Filter by organization").getByRole("button", { name: "All" });
+    await expect(orgFilterAll).toHaveAttribute("aria-pressed", "true");
     expect(await timelineItems(page).count()).toBe(initialCount);
   });
 
@@ -58,10 +56,8 @@ test.describe("timeline", () => {
 
     await expect(page).toHaveURL(/\/timeline\/$/);
     expect(await timelineItems(page).count()).toBeGreaterThan(0);
-    await expect(page.getByRole("button", { name: "All" })).toHaveAttribute(
-      "aria-pressed",
-      "true",
-    );
+    const orgFilterAll = page.getByLabel("Filter by organization").getByRole("button", { name: "All" });
+    await expect(orgFilterAll).toHaveAttribute("aria-pressed", "true");
   });
 
   test("timeline does not contain artifact entries", async ({ page }) => {

@@ -16,6 +16,10 @@ description: >
   and Data Protection Tribunal Act, and the Artificial Intelligence and Data
   Act (AIDA) — the first proposed federal AI-specific legislation in Canada.
 
+organizations:
+  - id: ised-canada
+    role: introduced_by
+
 related_artifacts:
   - id: bill-c27-aida
 

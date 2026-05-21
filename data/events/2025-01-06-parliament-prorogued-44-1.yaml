@@ -15,6 +15,10 @@ description: >
   Order Paper, including Bill C-27 (and with it AIDA), dies. INDU's
   clause-by-clause study of the bill ceases.
 
+organizations:
+  - id: privy-council-office-canada
+    role: administering_body
+
 related_artifacts:
   - id: bill-c27-aida
 

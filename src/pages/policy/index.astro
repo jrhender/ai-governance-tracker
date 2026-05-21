@@ -1,13 +1,12 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { badgeClass, statusLabel } from "../../lib/legislation";
-import { fmtDate } from "../../lib/format";
+import PolicyWithSourceFilter from "../../components/PolicyWithSourceFilter";
+import type { ArtifactEntry } from "../../components/PolicyWithSourceFilter";
+import { getSourceCategory } from "../../lib/sourceCategory";
 import type { ArtifactType } from "../../content.config";
 
-// Exhaustiveness guard: every ArtifactType must appear here.
-// Set to true (shown on this page) or false (intentionally omitted).
-// Adding a new type to the schema without updating this will be a compile error.
+// Exhaustiveness guard: every ArtifactType must appear in PolicyWithSourceFilter's SECTIONS.
 const _policyVisibility: Record<ArtifactType, boolean> = {
   GovernmentProgram: true,
   JointStatement: true,
@@ -17,18 +16,31 @@ const _policyVisibility: Record<ArtifactType, boolean> = {
   WhitePaper: true,
 };
 
-const artifacts = await getCollection("artifacts");
+const artifactCollection = await getCollection("artifacts");
+const organizations = await getCollection("organizations");
 
-function byDateDesc(a: { data: { published_date: Date } }, b: { data: { published_date: Date } }) {
-  return b.data.published_date.getTime() - a.data.published_date.getTime();
+const orgSchemaTypeMap = new Map<string, string>();
+for (const org of organizations) {
+  orgSchemaTypeMap.set(org.id, org.data.schema_type);
 }
 
-const legislation   = artifacts.filter((a) => a.data.type === "Legislation").sort(byDateDesc);
-const reports       = artifacts.filter((a) => a.data.type === "Report").sort(byDateDesc);
-const whitePapers   = artifacts.filter((a) => a.data.type === "WhitePaper").sort(byDateDesc);
-const policyDocs    = artifacts.filter((a) => a.data.type === "PolicyDocument").sort(byDateDesc);
-const govPrograms   = artifacts.filter((a) => a.data.type === "GovernmentProgram").sort(byDateDesc);
-const jointStatements = artifacts.filter((a) => a.data.type === "JointStatement").sort(byDateDesc);
+const artifacts: ArtifactEntry[] = artifactCollection
+  .map((a) => {
+    const orgSchemaTypes = a.data.organizations.map(
+      (o) => orgSchemaTypeMap.get(o.id.id) ?? "Organization",
+    );
+    return {
+      id: a.id,
+      type: a.data.type,
+      title: a.data.title,
+      publishedDate: a.data.published_date.toISOString(),
+      description: a.data.description,
+      lifecycleStatus: a.data.lifecycle_status,
+      currentStage: a.data.current_stage,
+      sourceCategory: getSourceCategory(orgSchemaTypes),
+    };
+  })
+  .sort((a, b) => new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime());
 ---
 
 <BaseLayout
@@ -36,167 +48,5 @@ const jointStatements = artifacts.filter((a) => a.data.type === "JointStatement"
   description="Canadian AI legislation, reports, policy documents, and government programs."
 >
   <h1 class="font-display text-4xl text-header">Policy</h1>
-
-  {legislation.length > 0 && (
-    <section class="mt-10">
-      <h2 class="font-display text-2xl text-header">Legislation</h2>
-      <p class="mt-2 max-w-2xl text-muted">
-        Canadian federal bills and acts related to artificial intelligence. Each entry tracks
-        the bill's lifecycle — from introduction through readings, committee study, and royal
-        assent (or death on the order paper).
-      </p>
-      <div class="mt-6 space-y-4">
-        {legislation.map((bill) => (
-          <a
-            href={`/artifacts/${bill.id}/`}
-            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
-          >
-            <div class="flex items-start justify-between gap-3">
-              <h3 class="text-base font-semibold text-header">{bill.data.title}</h3>
-              {bill.data.lifecycle_status && (
-                <span
-                  class={`shrink-0 rounded-full px-3 py-0.5 text-xs font-semibold ${badgeClass(bill.data.lifecycle_status)}`}
-                >
-                  {statusLabel(bill.data.lifecycle_status)}
-                </span>
-              )}
-            </div>
-            {bill.data.current_stage && (
-              <p class="mt-2 text-sm text-muted">{bill.data.current_stage}</p>
-            )}
-            <p class="mt-2 text-xs text-faint">
-              Introduced: {fmtDate(bill.data.published_date)}
-            </p>
-          </a>
-        ))}
-      </div>
-    </section>
-  )}
-
-  {policyDocs.length > 0 && (
-    <section class="mt-10">
-      <h2 class="font-display text-2xl text-header">Policy Documents</h2>
-      <p class="mt-2 max-w-2xl text-muted">
-        Voluntary codes of conduct, frameworks, and guidelines issued by government or
-        industry bodies.
-      </p>
-      <div class="mt-6 space-y-4">
-        {policyDocs.map((d) => (
-          <a
-            href={`/artifacts/${d.id}/`}
-            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
-          >
-            <h3 class="text-base font-semibold text-header">{d.data.title}</h3>
-            {d.data.description && (
-              <p class="mt-2 text-sm text-muted">{d.data.description}</p>
-            )}
-            <p class="mt-2 text-xs text-faint">
-              Published: {fmtDate(d.data.published_date)}
-            </p>
-          </a>
-        ))}
-      </div>
-    </section>
-  )}
-
-  {govPrograms.length > 0 && (
-    <section class="mt-10">
-      <h2 class="font-display text-2xl text-header">Government Programs</h2>
-      <p class="mt-2 max-w-2xl text-muted">
-        Ongoing federal programs and national strategies related to artificial intelligence.
-      </p>
-      <div class="mt-6 space-y-4">
-        {govPrograms.map((p) => (
-          <a
-            href={`/artifacts/${p.id}/`}
-            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
-          >
-            <h3 class="text-base font-semibold text-header">{p.data.title}</h3>
-            {p.data.description && (
-              <p class="mt-2 text-sm text-muted">{p.data.description}</p>
-            )}
-            <p class="mt-2 text-xs text-faint">
-              Published: {fmtDate(p.data.published_date)}
-            </p>
-          </a>
-        ))}
-      </div>
-    </section>
-  )}
-  {jointStatements.length > 0 && (
-    <section class="mt-10">
-      <h2 class="font-display text-2xl text-header">Joint Statements</h2>
-      <p class="mt-2 max-w-2xl text-muted">
-        Bilateral and multilateral statements on AI governance issued jointly by Canada and
-        partner governments.
-      </p>
-      <div class="mt-6 space-y-4">
-        {jointStatements.map((j) => (
-          <a
-            href={`/artifacts/${j.id}/`}
-            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
-          >
-            <h3 class="text-base font-semibold text-header">{j.data.title}</h3>
-            {j.data.description && (
-              <p class="mt-2 text-sm text-muted">{j.data.description}</p>
-            )}
-            <p class="mt-2 text-xs text-faint">
-              Published: {fmtDate(j.data.published_date)}
-            </p>
-          </a>
-        ))}
-      </div>
-    </section>
-  )}
-  {reports.length > 0 && (
-    <section class="mt-10">
-      <h2 class="font-display text-2xl text-header">Reports</h2>
-      <p class="mt-2 max-w-2xl text-muted">
-        Research reports and analytical summaries published by think tanks, government
-        agencies, and advisory bodies.
-      </p>
-      <div class="mt-6 space-y-4">
-        {reports.map((r) => (
-          <a
-            href={`/artifacts/${r.id}/`}
-            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
-          >
-            <h3 class="text-base font-semibold text-header">{r.data.title}</h3>
-            {r.data.description && (
-              <p class="mt-2 text-sm text-muted">{r.data.description}</p>
-            )}
-            <p class="mt-2 text-xs text-faint">
-              Published: {fmtDate(r.data.published_date)}
-            </p>
-          </a>
-        ))}
-      </div>
-    </section>
-  )}
-
-  {whitePapers.length > 0 && (
-    <section class="mt-10">
-      <h2 class="font-display text-2xl text-header">White Papers</h2>
-      <p class="mt-2 max-w-2xl text-muted">
-        Position and advocacy papers published by think tanks and civil society organizations
-        making the case for specific AI policy approaches.
-      </p>
-      <div class="mt-6 space-y-4">
-        {whitePapers.map((w) => (
-          <a
-            href={`/artifacts/${w.id}/`}
-            class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
-          >
-            <h3 class="text-base font-semibold text-header">{w.data.title}</h3>
-            {w.data.description && (
-              <p class="mt-2 text-sm text-muted">{w.data.description}</p>
-            )}
-            <p class="mt-2 text-xs text-faint">
-              Published: {fmtDate(w.data.published_date)}
-            </p>
-          </a>
-        ))}
-      </div>
-    </section>
-  )}
+  <PolicyWithSourceFilter client:load artifacts={artifacts} />
 </BaseLayout>

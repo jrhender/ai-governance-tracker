@@ -23,6 +23,7 @@ description: >
 
 related_artifacts:
   - id: canada-national-ai-strategy-ai-for-all
+  - id: scc-ai-program
 
 tags:
   - ai-for-all

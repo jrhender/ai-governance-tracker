@@ -1,0 +1,17 @@
+# organizations/standards-council-of-canada.yaml
+
+id: standards-council-canada
+type: GovernmentOrganization
+schema_type: GovernmentOrganization
+country: ca
+
+name: "Standards Council of Canada"
+short_name: "SCC"
+url: https://scc-ccn.ca
+wikipedia: https://en.wikipedia.org/wiki/Standards_Council_of_Canada
+
+tags:
+  - federal-government
+  - canadian
+  - crown-corporation
+  - standards

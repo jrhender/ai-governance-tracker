@@ -1,0 +1,102 @@
+# artifacts/2021-04-19-scc-ai-program.yaml
+
+id: scc-ai-program
+type: GovernmentProgram
+schema_type: CreativeWork
+
+title: "Standards Council of Canada's AI Program (AI and Data Governance Standardization)"
+published_date: 2021-04-19
+
+organizations:
+  - id: standards-council-canada
+    role: lead
+  - id: ised-canada
+    role: sponsor
+
+lifecycle_status: active
+current_stage: "Funding renewal committed in Canada's National AI Strategy (June 2026)"
+
+derives_from:
+  - id: pan-canadian-ai-strategy-phase-2-2021
+    relationship: funded_by
+
+description: |
+  The Standards Council of Canada (SCC) runs the federal program to advance
+  the development and adoption of standards and conformity assessment for
+  artificial intelligence — the standards-and-certification layer of Canada's
+  AI governance toolkit, complementing legislation and voluntary codes.
+
+  The program's roots are in the **Canadian Data Governance Standardization
+  Collaborative**, convened by SCC in 2019 with roughly 220 experts from
+  government, industry, civil society, Indigenous organizations, academia,
+  and standards development organizations. Its *Canadian Data Governance
+  Standardization Roadmap* (2021) mapped gaps in data governance
+  standardization and made recommendations that continue to guide the work.
+
+  **Budget 2021** provided $8.6 million over five years (2021–22 to 2025–26)
+  for SCC to advance AI standardization as part of Phase 2 of the
+  Pan-Canadian AI Strategy, whose commercialization pillar treated standards
+  as essential to responsible development and market implementation.
+
+  In 2023, SCC extended the earlier collaborative into the **AI and Data
+  Governance (AIDG) Standardization Collaborative**, chaired by Chief
+  Statistician of Canada Anil Arora alongside AI policy experts Philip Dawson
+  and Ashley Casovan. It develops standardization strategies aligned with
+  Canadian priorities — including Indigenous leadership in the digital
+  economy and consistency between domestic and international standards — and
+  builds on the roadmap and the Schwartz Reisman Institute white paper
+  *Discerning Signal from Noise: The State of Global AI Standardization*.
+
+  In May 2025, SCC and Statistics Canada launched the **AIDG Standardization
+  Hub**, an online one-stop shop for standardization education that helps
+  users — particularly micro, small, and medium enterprises — navigate AI and
+  data governance standards, supporting interoperability and access to
+  international markets.
+
+  **Canada's National AI Strategy ("AI for All", June 2026)** committed to
+  renew the program's funding under its first pillar (protecting Canadians
+  and safeguarding democracy): "Canada will renew funding for the Standards
+  Council of Canada's AI Program to support our standardization ecosystem,
+  shape global AI standards, and grow a robust AI quality assurance
+  ecosystem. This work will enable standards-based AI testing, certification,
+  interoperability, and global market access."
+
+stages:
+  - date: 2021-04-19
+    stage: "Budget 2021 funds SCC's AI standardization program"
+    note: "$8.6M over five years (2021–22 to 2025–26) under Phase 2 of the Pan-Canadian AI Strategy to advance AI standards and conformity assessment; builds on the Data Governance Standardization Collaborative convened in 2019 and extended to AI in 2023"
+  - date: 2025-05-29
+    stage: "AIDG Standardization Hub launched with Statistics Canada"
+    note: "Online platform helping businesses — especially MSMEs — navigate AI and data governance standardization"
+  - date: 2026-06-04
+    stage: "Funding renewal committed in AI for All strategy"
+    note: "Renewal to support the standardization ecosystem, shape global AI standards, and grow an AI quality assurance ecosystem enabling standards-based testing and certification"
+
+links:
+  - label: "SCC — AI and Data Governance Standardization Collaborative"
+    url: https://scc-ccn.ca/areas-work/digital-technology/ai-and-data-governance-standardization-collaborative
+    icon: document
+  - label: "SCC — Canadian Data Governance Standardization Roadmap"
+    url: https://scc-ccn.ca/resources/publications/canadian-data-governance-standardization-roadmap
+    icon: document
+  - label: "SCC & Statistics Canada — AIDG Standardization Hub launch"
+    url: https://scc-ccn.ca/resources/news/standards-council-canada-and-statistics-canada-launch-ai-and-data-governance
+    icon: document
+  - label: "ISED — Pan-Canadian AI Strategy (SCC funding)"
+    url: https://ised-isde.canada.ca/site/ised/en/pan-canadian-artificial-intelligence-strategy
+    icon: document
+  - label: "ISED — Canada's National AI Strategy: AI for All (renewal commitment)"
+    url: https://ised-isde.canada.ca/site/ised/en/canadas-national-artificial-intelligence-strategy-ai-all
+    icon: document
+
+tags:
+  - scc
+  - standards
+  - ai-standards
+  - conformity-assessment
+  - quality-assurance
+  - responsible-ai
+  - pan-canadian-ai-strategy
+  - ai-for-all
+  - national-ai-strategy
+  - federal-government

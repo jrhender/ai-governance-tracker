@@ -7,3 +7,7 @@ export function fmtDate(date: Date | string): string {
     timeZone: "UTC",
   });
 }
+
+export function humanizeType(type: string): string {
+  return type.replace(/([a-z])([A-Z])/g, "$1 $2");
+}

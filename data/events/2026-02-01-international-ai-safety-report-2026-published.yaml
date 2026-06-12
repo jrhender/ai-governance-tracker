@@ -13,11 +13,7 @@ organizations:
 description: >
   The UK Department for Science, Innovation and Technology publishes the
   International AI Safety Report 2026, led by Yoshua Bengio and produced by
-  over 100 independent experts from more than 30 countries. The report provides
-  a comprehensive evidence-based assessment of AI safety risks across misuse,
-  structural, and societal domains, along with risk management practices and
-  resilience-building measures. Policy recommendations are explicitly outside
-  its scope.
+  over 100 independent experts from more than 30 countries.
 
 related_artifacts:
   - id: international-ai-safety-report-2026

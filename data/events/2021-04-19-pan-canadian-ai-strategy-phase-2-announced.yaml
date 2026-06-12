@@ -25,6 +25,7 @@ description: >
 
 related_artifacts:
   - id: pan-canadian-ai-strategy
+  - id: scc-ai-program
 
 tags:
   - cifar

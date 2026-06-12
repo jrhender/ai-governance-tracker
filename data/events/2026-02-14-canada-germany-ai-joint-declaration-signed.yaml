@@ -14,20 +14,10 @@ organizations:
     role: participant
 
 description: >
-  On the margins of the Munich Security Conference, the Honourable Evan Solomon,
-  Minister of Artificial Intelligence and Digital Innovation, and Karsten
-  Wildberger, Germany's Minister for Digital Transformation and Government
-  Modernization, sign the Joint Declaration of Intent on Artificial Intelligence
-  and announce the launch of the Sovereign Technology Alliance. Building on the
-  Canada-Germany Digital Alliance announced in December 2025, the declaration
-  creates a practical framework to expand bilateral AI cooperation on secure
-  compute infrastructure, AI research and commercialization, and talent
-  development. The Sovereign Technology Alliance is launched as a platform for
-  practical cooperation among trusted partners to strengthen sovereign AI
-  capacity and reduce strategic technology dependencies. The ministers also
-  identify collaboration with safe-by-design AI research organizations —
-  including Canada's LawZero, founded by Turing Award winner Yoshua Bengio — as
-  a potential area for future cooperation.
+  On the margins of the Munich Security Conference, Minister Evan Solomon and
+  Germany's Minister Karsten Wildberger sign the Joint Declaration of Intent
+  on Artificial Intelligence and announce the launch of the Sovereign
+  Technology Alliance.
 
 related_artifacts:
   - id: canada-germany-ai-joint-declaration-2026

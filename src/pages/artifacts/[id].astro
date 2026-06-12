@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { marked } from "marked";
 import { fmtDate } from "../../lib/format";
 import { buildCreativeWorkJsonLd, type OrgRef } from "../../lib/jsonld";
 
@@ -53,6 +54,19 @@ const categoryColors: Record<string, string> = {
   societal: "bg-blue-100 text-blue-800 border-blue-200",
 };
 
+// Descriptions are authored as Markdown in trusted repo YAML, so rendering the
+// parsed HTML with set:html is safe here.
+const descriptionHtml = data.description
+  ? await marked.parse(data.description)
+  : "";
+
+// Plain-text lead for <meta> and JSON-LD: the first paragraph, with inline
+// Markdown stripped. Folded descriptions without a blank-line break are left
+// whole (unchanged behaviour); Markdown descriptions use just the lead para.
+const metaDescription = data.description
+  ? data.description.split(/\n\s*\n/)[0].replace(/\*\*/g, "")
+  : undefined;
+
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
 const orgRefs: OrgRef[] = orgs
@@ -65,13 +79,13 @@ const orgRefs: OrgRef[] = orgs
 const jsonLd = buildCreativeWorkJsonLd({
   title: data.title,
   datePublished: data.published_date.toISOString(),
-  description: data.description,
+  description: metaDescription,
   orgs: orgRefs,
   url: canonicalURL,
 });
 ---
 
-<BaseLayout title={data.title} description={data.description} jsonLd={jsonLd}>
+<BaseLayout title={data.title} description={metaDescription} jsonLd={jsonLd}>
   <p class="text-sm text-faint">
     <a href="/policy/" class="text-accent-dark hover:underline">← Policy</a>
   </p>
@@ -84,8 +98,11 @@ const jsonLd = buildCreativeWorkJsonLd({
     <span>{data.type}</span>
   </div>
 
-  {data.description && (
-    <p class="mt-6 text-ink leading-relaxed">{data.description}</p>
+  {descriptionHtml && (
+    <div
+      class="prose prose-slate mt-6 max-w-none text-ink prose-headings:text-header prose-a:text-accent-dark"
+      set:html={descriptionHtml}
+    />
   )}
 
   {orgs.length > 0 && (

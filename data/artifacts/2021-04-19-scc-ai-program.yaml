@@ -8,7 +8,7 @@ title: "Standards Council of Canada's AI Program (AI and Data Governance Standar
 published_date: 2021-04-19
 
 organizations:
-  - id: standards-council-canada
+  - id: standards-council-of-canada
     role: lead
   - id: ised-canada
     role: sponsor
@@ -19,6 +19,8 @@ current_stage: "Funding renewal committed in Canada's National AI Strategy (June
 derives_from:
   - id: pan-canadian-ai-strategy-phase-2-2021
     relationship: funded_by
+  - id: canada-national-ai-strategy-launched-2026
+    relationship: renewed_by
 
 description: |
   The Standards Council of Canada (SCC) runs the federal program to advance
@@ -35,8 +37,9 @@ description: |
 
   **Budget 2021** provided $8.6 million over five years (2021–22 to 2025–26)
   for SCC to advance AI standardization as part of Phase 2 of the
-  Pan-Canadian AI Strategy, whose commercialization pillar treated standards
-  as essential to responsible development and market implementation.
+  Pan-Canadian AI Strategy, whose dedicated standards pillar supports the
+  development and adoption of standards and conformity assessment related
+  to AI.
 
   In 2023, SCC extended the earlier collaborative into the **AI and Data
   Governance (AIDG) Standardization Collaborative**, chaired by Chief
@@ -45,7 +48,8 @@ description: |
   Canadian priorities — including Indigenous leadership in the digital
   economy and consistency between domestic and international standards — and
   builds on the roadmap and the Schwartz Reisman Institute white paper
-  *Discerning Signal from Noise: The State of Global AI Standardization*.
+  *Discerning signal from noise: The state of global AI standardization and
+  what it means for Canada*.
 
   In May 2025, SCC and Statistics Canada launched the **AIDG Standardization
   Hub**, an online one-stop shop for standardization education that helps
@@ -91,8 +95,8 @@ links:
 
 tags:
   - scc
+  - ised
   - standards
-  - ai-standards
   - conformity-assessment
   - quality-assurance
   - responsible-ai

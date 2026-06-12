@@ -2,7 +2,7 @@
 import { getCollection, getEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { marked } from "marked";
-import { fmtDate } from "../../lib/format";
+import { fmtDate, leadText } from "../../lib/format";
 import { buildCreativeWorkJsonLd, type OrgRef } from "../../lib/jsonld";
 
 export async function getStaticPaths() {
@@ -60,11 +60,9 @@ const descriptionHtml = data.description
   ? await marked.parse(data.description)
   : "";
 
-// Plain-text lead for <meta> and JSON-LD: the first paragraph, with inline
-// Markdown stripped. Folded descriptions without a blank-line break are left
-// whole (unchanged behaviour); Markdown descriptions use just the lead para.
+// Plain-text lead for <meta> and JSON-LD.
 const metaDescription = data.description
-  ? data.description.split(/\n\s*\n/)[0].replace(/\*\*/g, "")
+  ? leadText(data.description)
   : undefined;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();

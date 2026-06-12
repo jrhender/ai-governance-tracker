@@ -1,7 +1,7 @@
 ---
 import { getCollection, getEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { fmtDate, humanizeType } from "../../lib/format";
+import { fmtDate, humanizeType, leadText } from "../../lib/format";
 import { buildEventJsonLd, type OrgRef } from "../../lib/jsonld";
 
 export async function getStaticPaths() {
@@ -88,7 +88,7 @@ const jsonLd = buildEventJsonLd({
             </div>
             {a.data.description && (
               <p class="mt-1 text-sm text-muted line-clamp-3">
-                {a.data.description}
+                {leadText(a.data.description)}
               </p>
             )}
             <div class="mt-2 text-sm font-semibold text-gold-dark">

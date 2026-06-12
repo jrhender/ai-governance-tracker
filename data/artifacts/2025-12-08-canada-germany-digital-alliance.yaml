@@ -1,0 +1,65 @@
+# artifacts/2025-12-08-canada-germany-digital-alliance.yaml
+
+id: canada-germany-digital-alliance-2025
+type: JointStatement
+schema_type: CreativeWork
+
+title: "Joint Statement Announcing the Canada-Germany Digital Alliance"
+published_date: 2025-12-08
+
+organizations:
+  - id: ised-canada
+    role: publisher
+
+description: >
+  Joint statement issued by Canada's Minister of Artificial Intelligence and
+  Digital Innovation, the Honourable Evan Solomon, and Germany's Minister for
+  Digital Transformation and Government Modernization, Karsten Wildberger,
+  following their meeting on the margins of the G7 Industry, Digital and
+  Technology Ministers' Meeting in Montréal, Quebec, on December 8, 2025.
+
+  The ministers reaffirmed the longstanding partnership between Canada and
+  Germany — including collaboration through multilateral fora such as the
+  Organisation for Economic Co-operation and Development (OECD), the Global
+  Partnership on Artificial Intelligence (GPAI), and the G7 — and agreed to
+  advance a Canada-Germany Digital Alliance, a joint partnership focused on
+  concrete collaboration in areas of mutual interest: artificial intelligence,
+  digital sovereignty, digital infrastructure, quantum, and cooperation on
+  startups and the digital economy.
+
+  Among the Alliance's first deliverables, both sides agreed to finalize a
+  Joint Declaration of Intent (JDoI) on AI in the coming months. Potential areas
+  of cooperation identified under the JDoI include: building and deploying
+  compute infrastructure; exchange on policy development and interoperability;
+  research and commercialization; AI adoption with a focus on physical and
+  industrial AI; AI safety; development and adoption of generative and frontier
+  AI; talent attraction and mobility; and business engagement and
+  entrepreneurship. Both sides agreed to assign key contacts to develop a
+  workplan under the Alliance.
+
+  The Digital Alliance is the foundation on which Canada and Germany subsequently
+  signed the Joint Declaration of Intent on AI and launched the Sovereign
+  Technology Alliance at the Munich Security Conference in February 2026.
+
+derives_from:
+  - id: canada-germany-digital-alliance-announced-2025
+    relationship: announced_at
+
+links:
+  - label: "ISED — Joint Statement (Solomon & Wildberger)"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2025/12/joint-statement-by-canadas-minister-solomon-and-germanys-minister-wildberger-announcing-the-canada-germany-digital-alliance.html
+    icon: document
+
+tags:
+  - international-cooperation
+  - sovereign-technology
+  - sovereign-technology-alliance
+  - ai-safety
+  - generative-ai
+  - quantum-computing
+  - oecd
+  - gpai
+  - ised
+  - federal-government
+  - evan-solomon
+  - germany

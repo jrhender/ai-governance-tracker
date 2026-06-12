@@ -20,6 +20,10 @@
   --color-muted:     #4a5f6e;
   --color-faint:     #5a6e78;
 
+  /* Artifact card accent */
+  --color-gold:      #b08d2e;
+  --color-gold-dark: #7a5f1a;
+
   /* Source category colours */
   --color-gov-border:       #2d5060;
   --color-gov-bg:           #f2f6f8;

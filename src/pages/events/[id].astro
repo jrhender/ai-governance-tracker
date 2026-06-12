@@ -1,7 +1,7 @@
 ---
 import { getCollection, getEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { fmtDate } from "../../lib/format";
+import { fmtDate, humanizeType, leadText } from "../../lib/format";
 import { buildEventJsonLd, type OrgRef } from "../../lib/jsonld";
 
 export async function getStaticPaths() {
@@ -72,6 +72,34 @@ const jsonLd = buildEventJsonLd({
     <p class="mt-6 text-ink leading-relaxed">{data.description}</p>
   )}
 
+  {relatedArtifacts.length > 0 && (
+    <section class="mt-6 space-y-4" aria-label="Related artifacts">
+      {relatedArtifacts.map((a) =>
+        a ? (
+          <a
+            href={`/artifacts/${a.id}/`}
+            class="group block rounded-lg border border-border border-l-4 border-l-gold bg-surface p-4 shadow-[0_2px_8px_rgba(15,42,56,0.08)]"
+          >
+            <div class="text-[0.65rem] font-bold uppercase tracking-widest text-gold-dark">
+              {humanizeType(a.data.type)}
+            </div>
+            <div class="mt-1 font-semibold text-ink group-hover:underline">
+              {a.data.title}
+            </div>
+            {a.data.description && (
+              <p class="mt-1 text-sm text-muted line-clamp-3">
+                {leadText(a.data.description)}
+              </p>
+            )}
+            <div class="mt-2 text-sm font-semibold text-gold-dark">
+              Read the artifact →
+            </div>
+          </a>
+        ) : null,
+      )}
+    </section>
+  )}
+
   {orgs.length > 0 && (
     <section class="mt-8">
       <h2 class="text-xs font-semibold uppercase tracking-wide text-faint mb-2">
@@ -110,25 +138,6 @@ const jsonLd = buildEventJsonLd({
             </a>
           </li>
         ))}
-      </ul>
-    </section>
-  )}
-
-  {relatedArtifacts.length > 0 && (
-    <section class="mt-8">
-      <h2 class="text-xs font-semibold uppercase tracking-wide text-faint mb-2">
-        Related artifacts
-      </h2>
-      <ul class="space-y-1">
-        {relatedArtifacts.map((a) =>
-          a ? (
-            <li>
-              <a href={`/artifacts/${a.id}/`} class="text-ink hover:text-accent-dark hover:underline">
-                {a.data.title}
-              </a>
-            </li>
-          ) : null,
-        )}
       </ul>
     </section>
   )}

@@ -1,0 +1,92 @@
+# artifacts/2026-06-04-canada-national-ai-strategy-ai-for-all.yaml
+
+id: canada-national-ai-strategy-ai-for-all
+type: GovernmentProgram
+schema_type: CreativeWork
+
+title: "Canada's National Artificial Intelligence Strategy: AI for All"
+published_date: 2026-06-04
+
+organizations:
+  - id: ised-canada
+    role: sponsor
+
+lifecycle_status: active
+current_stage: "Launched 4 June 2026; implementation underway"
+
+derives_from:
+  - id: ai-strategy-summary-of-inputs-published-2026
+    relationship: informed_by
+
+description: |
+  "AI for All" is Canada's renewed national AI strategy, launched by Prime
+  Minister Mark Carney in Toronto on 4 June 2026 and led by Innovation,
+  Science and Economic Development Canada (ISED) under Evan Solomon, Minister
+  of Artificial Intelligence and Digital Innovation. It emerged from the
+  30-day AI Sprint and AI Strategy Task Force engagement of late 2025 and the
+  February 2026 summary of inputs.
+
+  Rather than replacing the 2017 Pan-Canadian AI Strategy, the strategy builds
+  on it. The strategy document names CIFAR and the three National AI
+  Institutes (Amii, Mila, and Vector) — the research-and-talent foundation the
+  earlier strategy created — as continuing Canadian strengths, and shifts the
+  national focus from research and talent toward adoption, sovereignty, and
+  infrastructure.
+
+  It is anchored in three fundamental priorities — **building public trust**,
+  **creating new opportunities**, and **reinforcing Canadian sovereignty** —
+  which ISED elaborates into six pillars: protecting Canadians and
+  safeguarding democracy; empowering Canadians; powering AI adoption for
+  shared prosperity; building a sovereign AI foundation; scaling Canadian
+  champions; and building trusted partnerships.
+
+  Backed by roughly $2 billion in new federal investment over five years, its
+  headline measures include:
+
+  - a national public AI supercomputer and sovereign compute and cloud infrastructure;
+  - an expanded Canadian AI Safety Institute to conduct transparent evaluations of AI models;
+  - a National AI Literacy Initiative reaching one million entry-level post-secondary students and training more than 3,000 educators;
+  - an AI Missions Program led by a flagship health mission;
+  - a Canadian Tech Growth Fund to scale domestic AI companies;
+  - a Sovereign Technology Alliance of international partners.
+
+  The government projects the strategy could unlock nearly $200 billion in
+  economic growth over five years, create 250,000 new AI-related jobs, deliver
+  90,000 AI-related job placements for young Canadians, and raise business AI
+  adoption from roughly 12% to 60% by 2034.
+
+stages:
+  - date: 2025-09-26
+    stage: "30-day AI Sprint and AI Strategy Task Force launched"
+    note: "Public engagement (October 1–31, 2025) drawing over 11,300 responses; 40-member Task Force producing 28 thematic reports"
+  - date: 2026-02-05
+    stage: "Summary of inputs published"
+    note: "ISED synthesizes consultation responses, Task Force reports, and policy submissions into eight priority areas to inform the renewed strategy"
+  - date: 2026-06-04
+    stage: "Strategy launched by Prime Minister Carney"
+    note: "Released in Toronto; ~$2B in new federal investment over five years"
+
+links:
+  - label: "ISED — Canada's National AI Strategy: AI for All"
+    url: https://ised-isde.canada.ca/site/ised/en/canadas-national-artificial-intelligence-strategy-ai-all
+    icon: document
+  - label: "ISED — Overview of Canada's National AI Strategy"
+    url: https://ised-isde.canada.ca/site/ised/en/artificial-intelligence-ecosystem/overview-canadas-national-artificial-intelligence-strategy
+    icon: document
+  - label: "PMO — Prime Minister Carney launches AI for All"
+    url: https://www.pm.gc.ca/en/news/news-releases/2026/06/04/prime-minister-carney-launches-ai-all-canadas-new-national-artificial
+    icon: document
+  - label: "Canada.ca — Minister Solomon highlights Canada's National AI Strategy"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/06/minister-solomon-highlights-canadas-national-artificial-intelligence.html
+    icon: document
+
+tags:
+  - ai-for-all
+  - national-ai-strategy
+  - ai-strategy
+  - ised
+  - evan-solomon
+  - mark-carney
+  - sovereign-ai
+  - ai-safety-institute
+  - federal-government

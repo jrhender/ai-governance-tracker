@@ -1,0 +1,52 @@
+# events/2026-06-04-canada-national-ai-strategy-launched.yaml
+
+id: canada-national-ai-strategy-launched-2026
+type: GovernmentAnnouncement
+schema_type: Event
+
+title: "Prime Minister Carney launches AI for All: Canada's new national AI strategy"
+date: 2026-06-04
+status: completed
+
+location:
+  name: "Toronto, Ontario"
+  schema_type: Place
+
+organizations:
+  - id: ised-canada
+    role: organizer
+
+description: >
+  In Toronto, Prime Minister Mark Carney launches "AI for All," Canada's
+  renewed national artificial intelligence strategy, alongside Evan Solomon,
+  Minister of Artificial Intelligence and Digital Innovation. Anchored in
+  three priorities — building public trust, creating opportunities, and
+  reinforcing Canadian sovereignty — the strategy commits roughly $2 billion
+  in new federal investment over five years, including a national public AI
+  supercomputer, an expanded Canadian AI Safety Institute, a National AI
+  Literacy Initiative, and an AI Missions Program led by a health mission. The
+  strategy is the culmination of the 2025 AI Sprint and AI Strategy Task Force
+  engagement and the February 2026 summary of inputs.
+
+related_artifacts:
+  - id: canada-national-ai-strategy-ai-for-all
+
+tags:
+  - ai-for-all
+  - national-ai-strategy
+  - ai-strategy
+  - ised
+  - evan-solomon
+  - mark-carney
+  - federal-government
+
+links:
+  - label: "PMO — Prime Minister Carney launches AI for All"
+    url: https://www.pm.gc.ca/en/news/news-releases/2026/06/04/prime-minister-carney-launches-ai-all-canadas-new-national-artificial
+    icon: document
+  - label: "Canada.ca — Minister Solomon highlights Canada's National AI Strategy"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/06/minister-solomon-highlights-canadas-national-artificial-intelligence.html
+    icon: document
+  - label: "ISED — Canada's National AI Strategy: AI for All"
+    url: https://ised-isde.canada.ca/site/ised/en/canadas-national-artificial-intelligence-strategy-ai-all
+    icon: document

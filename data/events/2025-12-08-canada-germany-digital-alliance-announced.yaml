@@ -1,0 +1,48 @@
+# data/events/2025-12-08-canada-germany-digital-alliance-announced.yaml
+
+id: canada-germany-digital-alliance-announced-2025
+type: GovernmentAnnouncement
+schema_type: Event
+title: "Canada and Germany announce the Canada-Germany Digital Alliance"
+date: 2025-12-08
+
+location:
+  name: "Montréal, Quebec"
+
+organizations:
+  - id: ised-canada
+    role: participant
+
+description: >
+  On the margins of the G7 Industry, Digital and Technology Ministers' Meeting
+  in Montréal, the Honourable Evan Solomon, Minister of Artificial Intelligence
+  and Digital Innovation, and Karsten Wildberger, Germany's Minister for Digital
+  Transformation and Government Modernization, announce a joint statement
+  agreeing to advance a Canada-Germany Digital Alliance — a partnership focused
+  on concrete collaboration in AI, digital sovereignty, digital infrastructure,
+  quantum, and the startup and digital economy. The ministers agree that, among
+  the Alliance's first deliverables, both sides will finalize a Joint Declaration
+  of Intent on AI in the coming months, with potential cooperation spanning
+  compute infrastructure, research and commercialization, AI safety, frontier
+  AI, and talent mobility. This Alliance is the foundation on which the Sovereign
+  Technology Alliance is launched in February 2026.
+
+related_artifacts:
+  - id: canada-germany-digital-alliance-2025
+
+links:
+  - label: "ISED — Joint Statement (Solomon & Wildberger)"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2025/12/joint-statement-by-canadas-minister-solomon-and-germanys-minister-wildberger-announcing-the-canada-germany-digital-alliance.html
+    icon: document
+
+tags:
+  - international-cooperation
+  - sovereign-technology
+  - sovereign-technology-alliance
+  - ai-safety
+  - oecd
+  - gpai
+  - ised
+  - federal-government
+  - evan-solomon
+  - germany

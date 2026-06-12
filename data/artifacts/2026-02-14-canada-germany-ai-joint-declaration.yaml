@@ -1,0 +1,67 @@
+# artifacts/2026-02-14-canada-germany-ai-joint-declaration.yaml
+
+id: canada-germany-ai-joint-declaration-2026
+type: JointStatement
+schema_type: CreativeWork
+
+title: "Canada-Germany Joint Declaration of Intent on Artificial Intelligence"
+published_date: 2026-02-14
+
+organizations:
+  - id: ised-canada
+    role: publisher
+
+description: >
+  Joint Declaration of Intent on Artificial Intelligence signed by Canada's
+  Minister of Artificial Intelligence and Digital Innovation, the Honourable
+  Evan Solomon, and Germany's Minister for Digital Transformation and Government
+  Modernization, Karsten Wildberger, on the margins of the Munich Security
+  Conference on February 14, 2026. Building on the Canada-Germany Digital
+  Alliance announced in December 2025, the declaration creates a practical
+  framework to expand bilateral cooperation on artificial intelligence,
+  reflecting both countries' commitment to advancing secure, resilient and
+  sovereign AI capabilities.
+
+  Cooperation under the declaration focuses on expanding secure compute
+  infrastructure, accelerating AI research and commercialization, and
+  strengthening talent development to address critical skills gaps — supporting
+  researchers, startups and industry in both countries to scale and compete
+  globally. The declaration identifies collaboration with research organizations
+  advancing safe-by-design AI systems — including Canada's LawZero, the nonprofit
+  founded by Turing Award winner Professor Yoshua Bengio and incubated within
+  the Quebec AI institute Mila — as a potential area for future cooperation.
+
+  Alongside the declaration, the ministers launched the Sovereign Technology
+  Alliance: a platform through which Canada and Germany will deepen coordination
+  with trusted partners to strengthen sovereign AI capacity and reduce strategic
+  technology dependencies, focused on delivering real capability and shared
+  economic benefit. Canada will also welcome Germany as Country of the Year at
+  the All In conference in Montréal in September 2026. The Sovereign Technology
+  Alliance is later cited in Canada's National AI Strategy and in the
+  Canada-Finland Joint Statement, which explores Finland's participation.
+
+derives_from:
+  - id: canada-germany-ai-joint-declaration-signed-2026
+    relationship: issued_at
+
+links:
+  - label: "ISED — News Release"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/02/canada-and-germany-sign-ai-joint-declaration-and-launch-sovereign-technology-alliance.html
+    icon: document
+  - label: "Background: Canada-Germany Digital Alliance (Dec 2025)"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2025/12/joint-statement-by-canadas-minister-solomon-and-germanys-minister-wildberger-announcing-the-canada-germany-digital-alliance.html
+    icon: document
+
+tags:
+  - international-cooperation
+  - sovereign-technology
+  - sovereign-technology-alliance
+  - sovereign-ai
+  - ai-safety
+  - generative-ai
+  - oecd
+  - gpai
+  - ised
+  - federal-government
+  - evan-solomon
+  - germany

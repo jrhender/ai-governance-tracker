@@ -18,37 +18,42 @@ derives_from:
   - id: ai-strategy-summary-of-inputs-published-2026
     relationship: informed_by
 
-description: >
+description: |
   "AI for All" is Canada's renewed national AI strategy, launched by Prime
   Minister Mark Carney in Toronto on 4 June 2026 and led by Innovation,
   Science and Economic Development Canada (ISED) under Evan Solomon, Minister
-  of Artificial Intelligence and Digital Innovation. It is the successor
-  national framework that emerged from the 30-day AI Sprint and AI Strategy
-  Task Force engagement of late 2025 and the February 2026 summary of inputs.
-  It is distinct from — and runs alongside — the 2017 Pan-Canadian AI
-  Strategy, the CIFAR-administered research-and-talent funding program that
-  remains in its Phase 2 (2021–2031).
+  of Artificial Intelligence and Digital Innovation. It emerged from the
+  30-day AI Sprint and AI Strategy Task Force engagement of late 2025 and the
+  February 2026 summary of inputs.
 
-  The strategy is anchored in three fundamental priorities: building public
-  trust, creating new opportunities, and reinforcing Canadian sovereignty.
-  Beneath these, ISED organizes the strategy into six pillars: protecting
-  Canadians and safeguarding democracy; empowering Canadians; powering AI
-  adoption for shared prosperity; building a sovereign AI foundation; scaling
-  Canadian champions; and building trusted partnerships.
+  Rather than replacing the 2017 Pan-Canadian AI Strategy, the strategy builds
+  on it. The strategy document names CIFAR and the three National AI
+  Institutes (Amii, Mila, and Vector) — the research-and-talent foundation the
+  earlier strategy created — as continuing Canadian strengths, and shifts the
+  national focus from research and talent toward adoption, sovereignty, and
+  infrastructure.
 
-  It is backed by roughly $2 billion in new federal investment over five
-  years. Headline measures include a national public AI supercomputer and
-  sovereign compute and cloud infrastructure; an expanded Canadian AI Safety
-  Institute to conduct transparent evaluations of AI models (with $50 million
-  in funding); a National AI Literacy Initiative reaching one million
-  entry-level post-secondary students and training more than 3,000 educators;
-  an AI Missions Program led by a flagship health mission ($200 million); a
-  $500 million Canadian Tech Growth Fund to scale domestic AI companies; a
-  $100 million Health Sector Data Space; and a Sovereign Technology Alliance
-  of international partners. The government projects the strategy could unlock
-  nearly $200 billion in economic growth over five years, create 250,000 new
-  AI-related jobs, deliver 90,000 AI-related job placements for young
-  Canadians, and raise business AI adoption from roughly 12% to 60% by 2034.
+  It is anchored in three fundamental priorities — **building public trust**,
+  **creating new opportunities**, and **reinforcing Canadian sovereignty** —
+  which ISED elaborates into six pillars: protecting Canadians and
+  safeguarding democracy; empowering Canadians; powering AI adoption for
+  shared prosperity; building a sovereign AI foundation; scaling Canadian
+  champions; and building trusted partnerships.
+
+  Backed by roughly $2 billion in new federal investment over five years, its
+  headline measures include:
+
+  - a national public AI supercomputer and sovereign compute and cloud infrastructure;
+  - an expanded Canadian AI Safety Institute to conduct transparent evaluations of AI models;
+  - a National AI Literacy Initiative reaching one million entry-level post-secondary students and training more than 3,000 educators;
+  - an AI Missions Program led by a flagship health mission;
+  - a Canadian Tech Growth Fund to scale domestic AI companies;
+  - a Sovereign Technology Alliance of international partners.
+
+  The government projects the strategy could unlock nearly $200 billion in
+  economic growth over five years, create 250,000 new AI-related jobs, deliver
+  90,000 AI-related job placements for young Canadians, and raise business AI
+  adoption from roughly 12% to 60% by 2034.
 
 stages:
   - date: 2025-09-26

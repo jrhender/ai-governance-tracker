@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <title>AI Governance Tracker — shield mark (outline)</title>
+  <rect width="32" height="32" rx="7" fill="#0f3040"/>
+  <path d="M8 8 H24 V15 C24 20 20 24 16 26 C12 24 8 20 8 15 Z" fill="none" stroke="#4ecdc4" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M11.5 15.5 L14.5 19 L20.5 11.5" fill="none" stroke="#4ecdc4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="11.5" cy="15.5" r="1.5" fill="#b08d2e"/>
+</svg>

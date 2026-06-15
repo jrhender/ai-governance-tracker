@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 56" fill="none">
+  <title>AI Governance Tracker — horizontal lockup (light)</title>
+  <g transform="translate(6 8) scale(1.25)">
+    <rect width="32" height="32" rx="7" fill="#0f3040"/>
+    <path d="M8 8 H24 V15 C24 20 20 24 16 26 C12 24 8 20 8 15 Z" fill="#4ecdc4"/>
+    <path d="M11.5 15.5 L14.5 19 L20.5 11.5" fill="none" stroke="#0f3040" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M8 9.2 H24" stroke="#b08d2e" stroke-width="1.1" stroke-linecap="round"/>
+  </g>
+  <text x="60" y="27" font-family="'DM Serif Display', Georgia, serif" font-size="22" fill="#0f2a38">AI Governance</text>
+  <text x="61" y="45" font-family="'DM Sans', system-ui, sans-serif" font-size="10.5" letter-spacing="4.5" font-weight="600" fill="#0a6e6a">TRACKER</text>
+</svg>

@@ -2,42 +2,19 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import TimelineWithFilter from "../../components/TimelineWithFilter";
-import type { TimelineItem, OrgOption } from "../../lib/timeline";
-import { getSourceCategory } from "../../lib/sourceCategory";
+import { buildTimelineItems, type OrgOption } from "../../lib/timeline";
 
 const events = await getCollection("events");
 const organizations = await getCollection("organizations");
 
-const orgMap = new Map<string, { name: string; short_name?: string; schema_type: string }>();
-for (const org of organizations) {
-  orgMap.set(org.id, {
-    name: org.data.name,
-    short_name: org.data.short_name,
-    schema_type: org.data.schema_type,
-  });
-}
+const items = buildTimelineItems(events, organizations);
 
-const items: TimelineItem[] = events
-  .map((e) => ({
-    id: e.id,
-    kind: "event" as const,
-    title: e.data.title,
-    date: e.data.date.toISOString(),
-    description: e.data.description,
-    tags: e.data.tags,
-    href: `/events/${e.id}/`,
-    badge: e.data.type,
-    orgIds: e.data.organizations.map((o) => o.id.id),
-    orgs: e.data.organizations.map((o) => {
-      const org = orgMap.get(o.id.id);
-      return { id: o.id.id, label: org?.short_name ?? org?.name ?? o.id.id };
-    }),
-    links: e.data.links,
-    sourceCategory: getSourceCategory(
-      e.data.organizations.map((o) => orgMap.get(o.id.id)?.schema_type ?? "Organization"),
-    ),
-  }))
-  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+const orgMap = new Map(
+  organizations.map((org) => [
+    org.id,
+    { name: org.data.name, short_name: org.data.short_name },
+  ]),
+);
 
 const orgCounts = new Map<string, number>();
 for (const item of items) {

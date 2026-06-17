@@ -1,0 +1,45 @@
+# events/2026-05-28-controlai-canada-superintelligence-campaign-launched.yaml
+
+id: controlai-canada-superintelligence-campaign-launched-2026
+type: PoliticalEvent
+schema_type: Event
+
+title: "Cross-party MPs and senators back ControlAI campaign to prohibit superintelligent AI"
+date: 2026-05-28
+status: completed
+
+organizations:
+  - id: controlai
+    role: organizer
+
+description: >
+  ControlAI launches the Canadian arm of its campaign calling on Canada to
+  negotiate an international "trust but verify" regime to prohibit the
+  development of superintelligent AI. A multipartisan group of more than 30
+  MPs and senators lends its support, days before the federal government
+  releases its national AI strategy.
+
+related_artifacts:
+  - id: controlai-canada-superintelligence-statement-2026
+
+tags:
+  - superintelligence
+  - extinction-risk
+  - ai-safety
+  - ai-governance
+  - national-security
+  - international-cooperation
+  - advocacy
+  - controlai
+  - multipartisan
+
+links:
+  - label: "ControlAI — Canada Campaign Statement"
+    url: https://controlai.com/canada-statement/en
+    icon: document
+  - label: "ControlAI — Our Work in Canada"
+    url: https://controlai.com/our-work-in-canada
+    icon: document
+  - label: "CBC News — Cross-party group calls on Canada to block superintelligent AI"
+    url: https://www.cbc.ca/news/politics/canada-superintelligent-ai-development-national-strategy-mark-carney-evan-solomon-9.7222334
+    icon: document

@@ -1,0 +1,68 @@
+# artifacts/2026-05-28-controlai-canada-superintelligence-statement.yaml
+
+id: controlai-canada-superintelligence-statement-2026
+type: JointStatement
+schema_type: CreativeWork
+
+title: "ControlAI Canada Campaign Statement on Superintelligent AI"
+published_date: 2026-05-28
+
+organizations:
+  - id: controlai
+    role: publisher
+
+description: >
+  A short campaign statement, co-signed by a multipartisan group of Canadian
+  MPs and senators and endorsed by leading AI researchers, calling for Canada
+  to negotiate an international "trust but verify" regime to prohibit the
+  development of superintelligent AI.
+
+  The statement argues that superintelligent AI — systems that can autonomously
+  compromise national security, escape human oversight, and upend international
+  stability — poses an extinction risk on par with nuclear war, citing warnings
+  from Nobel laureates, leading AI scientists, and the CEOs of leading AI
+  companies. It holds that "protecting Canadians from the development of
+  superintelligence, at home and abroad, must be a national security priority,"
+  and concludes that "Canada should negotiate an international 'trust but
+  verify' regime to prohibit the development of superintelligent AI."
+
+  Parliamentary signatories include Liberal MPs Judy Sgro, Jonathan Wilkinson
+  and Steven Guilbeault; Conservative MPs William Stevenson, Joël Godin, Cathay
+  Wagantall and Arnold Viersen; Bloc Québécois MP Martin Champoux (on behalf of
+  the Bloc's MPs); Independent MP Simon-Pierre Savard-Tremblay; and senators
+  Colin Deacon, Tony Loffreda, Kim Pate, Paulette Senior, Judy A. White, Jim
+  Quinn and Mary Jane McCallum. Expert endorsers include Geoffrey Hinton,
+  Stuart Russell, Daniel Kokotajlo and David Krueger.
+
+derives_from:
+  - id: controlai-canada-superintelligence-campaign-launched-2026
+    relationship: announced_at
+
+policy_recommendations:
+  - id: rec-controlai-2026-001
+    title: "Negotiate an international \"trust but verify\" regime on superintelligence"
+    summary: >
+      Canada should negotiate an international "trust but verify" regime to
+      prohibit the development of superintelligent AI, treating protection from
+      superintelligence at home and abroad as a national security priority.
+    status: untracked
+
+links:
+  - label: "ControlAI — Canada Campaign Statement (EN)"
+    url: https://controlai.com/canada-statement/en
+    icon: document
+  - label: "ControlAI — Canada Campaign Statement (FR)"
+    url: https://controlai.com/canada-statement/fr
+    icon: document
+
+tags:
+  - superintelligence
+  - extinction-risk
+  - ai-safety
+  - ai-governance
+  - national-security
+  - international-cooperation
+  - policy-recommendations
+  - advocacy
+  - controlai
+  - multipartisan

@@ -1,0 +1,18 @@
+# organizations/controlai.yaml
+
+id: controlai
+type: Organization
+schema_type: Organization
+country: uk
+
+name: "ControlAI"
+url: https://controlai.com/
+founded: 2023
+
+tags:
+  - non-profit
+  - advocacy
+  - ai-safety
+  - superintelligence
+  - extinction-risk
+  - uk

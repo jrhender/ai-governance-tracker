@@ -1,0 +1,56 @@
+# events/2026-05-28-controlai-canada-superintelligence-campaign-launched.yaml
+
+id: controlai-canada-superintelligence-campaign-launched-2026
+type: PoliticalEvent
+schema_type: Event
+
+title: "Cross-party MPs and senators back ControlAI campaign to prohibit superintelligent AI"
+date: 2026-05-28
+status: completed
+
+organizations:
+  - id: controlai
+    role: organizer
+
+description: >
+  ControlAI launches the Canadian arm of its campaign calling on Canada to
+  negotiate an international "trust but verify" regime to prohibit the
+  development of superintelligent AI. A multipartisan group of more than 30
+  parliamentarians lends its support, including Liberal MPs Judy Sgro,
+  Jonathan Wilkinson and Steven Guilbeault (the latter two soon stepping down
+  from cabinet), Conservative MPs William Stevenson, Joël Godin, Cathay
+  Wagantall and Arnold Viersen, Bloc Québécois MP Martin Champoux (signing on
+  behalf of the Bloc's MPs), Independent MP Simon-Pierre Savard-Tremblay, and
+  senators Colin Deacon, Tony Loffreda and Kim Pate. The statement is also
+  endorsed by AI researchers including Geoffrey Hinton, Stuart Russell, Daniel
+  Kokotajlo and David Krueger.
+
+  The campaign, led in Canada by former Mila AI safety scientist Samuel Buteau,
+  launches just days before the federal government releases its national AI
+  strategy, framing protection from superintelligence as a national security
+  priority.
+
+related_artifacts:
+  - id: controlai-canada-superintelligence-statement-2026
+
+tags:
+  - superintelligence
+  - extinction-risk
+  - ai-safety
+  - ai-governance
+  - national-security
+  - international-cooperation
+  - advocacy
+  - controlai
+  - multipartisan
+
+links:
+  - label: "ControlAI — Canada Campaign Statement"
+    url: https://controlai.com/canada-statement/en
+    icon: document
+  - label: "ControlAI — Our Work in Canada"
+    url: https://controlai.com/our-work-in-canada
+    icon: document
+  - label: "CBC News — Cross-party group calls on Canada to block superintelligent AI"
+    url: https://www.cbc.ca/news/politics/canada-superintelligent-ai-development-national-strategy-mark-carney-evan-solomon-9.7222334
+    icon: document

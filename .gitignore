@@ -1,11 +1,12 @@
 node_modules/
+.pnpm-store/
 dist/
 .astro/
 .env
 .env.*
 !.env.example
 .DS_Store
-.claude/settings.local.json
+.claude/
 CLAUDE.local.md
 playwright-report/
 test-results/

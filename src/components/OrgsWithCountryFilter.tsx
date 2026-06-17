@@ -74,16 +74,18 @@ export default function OrgsWithCountryFilter({ orgs }: Props) {
               href={`/orgs/${org.id}/`}
               className="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
             >
-              {org.short_name && (
+              {org.short_name ? (
+                <>
+                  <div className="text-base font-bold text-header">
+                    {org.short_name}
+                  </div>
+                  <div className="mt-0.5 text-sm text-muted">{org.name}</div>
+                </>
+              ) : (
                 <div className="text-base font-bold text-header">
-                  {org.short_name}
+                  {org.name}
                 </div>
               )}
-              <div
-                className={`text-sm text-muted ${org.short_name ? "mt-0.5" : "font-bold text-base text-header"}`}
-              >
-                {org.name}
-              </div>
               <div className="mt-1 text-xs text-faint">
                 {COUNTRY_LABELS[org.country] ?? org.country.toUpperCase()}
               </div>

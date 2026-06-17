@@ -80,7 +80,7 @@ export default function OrgsWithCountryFilter({ orgs }: Props) {
                 </div>
               )}
               <div
-                className={`text-sm text-muted ${org.short_name ? "mt-0.5" : "font-semibold text-base text-header"}`}
+                className={`text-sm text-muted ${org.short_name ? "mt-0.5" : "font-bold text-base text-header"}`}
               >
                 {org.name}
               </div>

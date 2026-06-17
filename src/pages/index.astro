@@ -8,7 +8,7 @@ import { fmtDate, humanizeType } from "../lib/format";
 const events = await getCollection("events");
 const organizations = await getCollection("organizations");
 
-const latest = buildTimelineItems(events, organizations).slice(0, 5);
+const latest = buildTimelineItems(events, organizations).slice(0, 3);
 ---
 
 <BaseLayout
@@ -55,7 +55,7 @@ const latest = buildTimelineItems(events, organizations).slice(0, 5);
             View full timeline →
           </a>
         </div>
-        <ol class="mt-6 border-l-2 border-accent">
+        <ol aria-label="Latest activity" class="mt-6 border-l-2 border-accent">
           {latest.map((item) => {
             const badge = sourceBadge[item.sourceCategory];
             return (

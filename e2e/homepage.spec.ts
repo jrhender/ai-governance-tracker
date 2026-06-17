@@ -33,13 +33,14 @@ test.describe("homepage", () => {
     );
   });
 
-  test("section cards link to /timeline/ and /policy/", async ({ page }) => {
+  test("explore cards link to /policy/ and /orgs/", async ({ page }) => {
     await page.goto("/");
+    const main = page.locator("main");
     await expect(
-      page.locator("main").getByRole("link", { name: /Timeline/i }).first()
-    ).toHaveAttribute("href", "/timeline/");
+      main.getByRole("link", { name: /Organizations/i }).first()
+    ).toHaveAttribute("href", "/orgs/");
     await expect(
-      page.locator("main").getByRole("link", { name: /Policy/i }).first()
+      main.getByRole("link", { name: /Policy/i }).first()
     ).toHaveAttribute("href", "/policy/");
   });
 });

@@ -23,27 +23,6 @@ const latest = buildTimelineItems(events, organizations).slice(0, 3);
       AI is likely to have a transformational impact on human society, and governance of AI is important to ensure that this transformation goes well.
       The goal of this site is to be a resource for Canadians to understand the status of AI governance in Canada so that they can provide their own input into the ecosystem.
     </p>
-    <p class="mt-4 max-w-xl text-base text-muted leading-relaxed">
-      Policy on the full range of AI risks and benefits is given space here, but emphasis is on the scenarios with the largest potential impacts such as widespread deployment of advanced AI across the economy, increased bio and cyber risk, and the implications of highly capable systems. Within that scope, the site reports on government action and civil society inputs neutrally, without editorial comment.
-    </p>
-
-    <div class="mt-8 flex flex-wrap gap-3">
-      <a
-        href="/timeline/"
-        class="inline-flex items-center rounded bg-header px-5 py-2.5 text-sm font-semibold text-white hover:bg-header-hover no-underline transition-colors"
-      >
-        Browse the Timeline →
-      </a>
-      <a
-        href="https://github.com/jrhender/ai-governance-tracker/issues/new"
-        class="inline-flex items-center rounded border border-border px-5 py-2.5 text-sm font-semibold text-muted hover:border-[#aabbcc] hover:text-ink no-underline transition-colors"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Contribute via GitHub
-      </a>
-    </div>
-
     {latest.length > 0 && (
       <section class="mt-12">
         <div class="flex items-baseline justify-between">
@@ -111,5 +90,12 @@ const latest = buildTimelineItems(events, organizations).slice(0, 3);
         </p>
       </a>
     </div>
+
+    <section class="mt-12 max-w-2xl">
+      <h2 class="font-display text-2xl text-header">About this project</h2>
+      <p class="mt-3 text-base text-muted leading-relaxed">
+        Policy on the full range of AI risks and benefits is given space here, but emphasis is on the scenarios with the largest potential impacts such as widespread deployment of advanced AI across the economy, increased bio and cyber risk, and the implications of highly capable systems. Within that scope, the site reports on government action and civil society inputs neutrally, without editorial comment.
+      </p>
+    </section>
   </div>
 </BaseLayout>

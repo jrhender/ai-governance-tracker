@@ -7,11 +7,11 @@ test.describe("homepage", () => {
     await expect(page.getByText(/transformational impact/i)).toBeVisible();
   });
 
-  test("primary CTA links to /timeline/", async ({ page }) => {
+  test("latest activity links to the full timeline", async ({ page }) => {
     await page.goto("/");
-    const cta = page.getByRole("link", { name: /Browse the Timeline/i });
-    await expect(cta).toBeVisible();
-    await expect(cta).toHaveAttribute("href", "/timeline/");
+    const link = page.getByRole("link", { name: /View full timeline/i });
+    await expect(link).toBeVisible();
+    await expect(link).toHaveAttribute("href", "/timeline/");
   });
 
   test("latest activity shows three items", async ({ page }) => {

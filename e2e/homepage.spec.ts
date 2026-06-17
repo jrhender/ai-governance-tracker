@@ -7,16 +7,25 @@ test.describe("homepage", () => {
     await expect(page.getByText(/transformational impact/i)).toBeVisible();
   });
 
-  test("primary CTA links to /timeline/", async ({ page }) => {
+  test("latest activity links to the full timeline", async ({ page }) => {
     await page.goto("/");
-    const cta = page.getByRole("link", { name: /Browse the Timeline/i });
-    await expect(cta).toBeVisible();
-    await expect(cta).toHaveAttribute("href", "/timeline/");
+    const link = page.getByRole("link", { name: /View full timeline/i });
+    await expect(link).toBeVisible();
+    await expect(link).toHaveAttribute("href", "/timeline/");
   });
 
-  test("contribute link points to GitHub new issue page", async ({ page }) => {
+  test("latest activity shows three items", async ({ page }) => {
     await page.goto("/");
-    const link = page.getByRole("link", { name: /Contribute/i });
+    const list = page.getByRole("list", { name: /Latest activity/i });
+    await expect(list.locator("li")).toHaveCount(3);
+  });
+
+  test("footer contribute link points to GitHub and is global", async ({ page }) => {
+    // Load a non-home page to prove the link lives in the global footer.
+    await page.goto("/timeline/");
+    const link = page
+      .getByRole("contentinfo")
+      .getByRole("link", { name: /Contribute/i });
     await expect(link).toBeVisible();
     await expect(link).toHaveAttribute(
       "href",
@@ -24,13 +33,14 @@ test.describe("homepage", () => {
     );
   });
 
-  test("section cards link to /timeline/ and /policy/", async ({ page }) => {
+  test("explore cards link to /policy/ and /orgs/", async ({ page }) => {
     await page.goto("/");
+    const main = page.locator("main");
     await expect(
-      page.locator("main").getByRole("link", { name: /Timeline/i }).first()
-    ).toHaveAttribute("href", "/timeline/");
+      main.getByRole("link", { name: /Organizations/i }).first()
+    ).toHaveAttribute("href", "/orgs/");
     await expect(
-      page.locator("main").getByRole("link", { name: /Policy/i }).first()
+      main.getByRole("link", { name: /Policy/i }).first()
     ).toHaveAttribute("href", "/policy/");
   });
 });

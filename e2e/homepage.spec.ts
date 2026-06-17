@@ -14,9 +14,12 @@ test.describe("homepage", () => {
     await expect(cta).toHaveAttribute("href", "/timeline/");
   });
 
-  test("contribute link points to GitHub new issue page", async ({ page }) => {
-    await page.goto("/");
-    const link = page.getByRole("link", { name: /Contribute/i });
+  test("footer contribute link points to GitHub and is global", async ({ page }) => {
+    // Load a non-home page to prove the link lives in the global footer.
+    await page.goto("/timeline/");
+    const link = page
+      .getByRole("contentinfo")
+      .getByRole("link", { name: /Contribute/i });
     await expect(link).toBeVisible();
     await expect(link).toHaveAttribute(
       "href",

@@ -30,27 +30,34 @@ description: >
   The bill recognizes privacy as a fundamental right and establishes a new
   Digital Safety and Data Protection Commission of Canada with enhanced
   enforcement powers, penalties, transparency obligations, and individual
-  rights (including data deletion). Commentators have noted it shifts
-  private-sector privacy oversight away from the Privacy Commissioner toward a
-  larger, multi-mandate commission.
+  rights (including data deletion).
 
   The government frames Bill C-36 as a "cornerstone" of its National AI
   Strategy — AI for All: by giving Canadians more control over their personal
   data, it aims to build the public trust needed for higher adoption of AI
-  tools. Its most directly AI-relevant provisions govern automated
-  decision-making systems — tools that use AI, machine learning, or predictive
-  analytics to assist or replace human judgment — for which organizations would
-  owe transparency and disclosure obligations where a decision could have a
+  tools.
+
+  Its most directly AI-relevant provisions govern automated decision-making
+  systems — tools that use AI, machine learning, or predictive analytics to
+  assist or replace human judgment — for which organizations would owe
+  transparency and disclosure obligations where a decision could have a
   significant impact on an individual, and under which unfair or discriminatory
-  profiling may be treated as an inappropriate data practice. Civil-liberties
-  groups (CCLA) have criticized the bill for broad exceptions and for not going
-  far enough on documented AI harms.
+  profiling may be treated as an inappropriate data practice.
 
   Notably, this bill carries forward only the privacy reforms of the former
   Bill C-27; it does not re-introduce AIDA, leaving Canada without dedicated
-  AI-specific legislation. As of writing the bill sits at first reading;
-  Parliament rises for the summer on 19 June 2026, with the government expected
-  to consult over the summer ahead of sittings resuming 21 September 2026.
+  AI-specific legislation.
+
+  The points above summarize what the bill says; the following reaction is
+  editorial. Commentators such as Michael Geist have noted the bill shifts
+  private-sector privacy oversight away from the Privacy Commissioner toward a
+  larger, multi-mandate commission, while civil-liberties groups such as the
+  CCLA have criticized it for broad exceptions and for not going far enough on
+  documented AI harms.
+
+  As of writing the bill sits at first reading; Parliament rises for the summer
+  on 19 June 2026, with the government expected to consult over the summer
+  ahead of sittings resuming 21 September 2026.
 
 stages:
   - date: 2026-06-15

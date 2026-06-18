@@ -1,0 +1,38 @@
+# events/2026-06-10-bill-c34-introduced.yaml
+
+id: bill-c34-introduced-2026
+type: LegislativeAction
+schema_type: Event
+
+title: "Bill C-34 (Safe Social Media Act) introduced in the House of Commons (first reading)"
+date: 2026-06-10
+
+status: completed
+
+description: >
+  The Safe Social Media Act (Bill C-34) is introduced and receives first
+  reading in the House of Commons, tabled by Marc Miller, Minister of Canadian
+  Identity and Culture. It would enact the Digital Safety Act and the Digital
+  Safety Commission of Canada Act and is the first Canadian legislation to
+  directly regulate AI chatbot services — subjecting them to a duty to act
+  responsibly alongside a minimum social media account age of 16 and a new
+  Digital Safety Commission of Canada.
+
+organizations:
+  - id: canadian-heritage
+    role: introduced_by
+
+related_artifacts:
+  - id: bill-c34-safe-social-media-act
+
+tags:
+  - bill-c-34
+  - safe-social-media-act
+  - ai-chatbots
+  - federal-government
+  - house-of-commons
+
+links:
+  - label: "LEGISinfo — Bill C-34 (45-1)"
+    url: https://www.parl.ca/legisinfo/en/bill/45-1/c-34
+    icon: document

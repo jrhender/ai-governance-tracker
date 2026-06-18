@@ -1,0 +1,118 @@
+# artifacts/2026-06-15-bill-c36-ppcda.yaml
+
+id: bill-c36-ppcda
+type: Legislation
+schema_type: CreativeWork
+
+title: "Bill C-36 — Protecting Privacy and Consumer Data Act"
+published_date: 2026-06-15  # introduction / first reading date
+
+lifecycle_status: active
+current_stage: "First reading in the House of Commons, 15 June 2026"
+
+organizations:
+  - id: ised-canada
+    role: sponsor
+
+derives_from:
+  - id: canada-national-ai-strategy-launched-2026
+    relationship: advances
+
+description: >
+  Bill C-36 would enact the Protecting Privacy and Consumer Data Act (PPCDA),
+  amend the Personal Information Protection and Electronic Documents Act
+  (PIPEDA), and make related amendments to other Acts. It was tabled on
+  15 June 2026 by Evan Solomon, Minister of Artificial Intelligence and Digital
+  Innovation, and is the Carney government's successor to the private-sector
+  privacy reforms that died with Bill C-27 (AIDA) on prorogation in January
+  2025.
+
+  The bill recognizes privacy as a fundamental right and establishes a new
+  Digital Safety and Data Protection Commission of Canada with enhanced
+  enforcement powers, penalties, transparency obligations, and individual
+  rights (including data deletion). Commentators have noted it shifts
+  private-sector privacy oversight away from the Privacy Commissioner toward a
+  larger, multi-mandate commission.
+
+  The government frames Bill C-36 as a "cornerstone" of its National AI
+  Strategy — AI for All: by giving Canadians more control over their personal
+  data, it aims to build the public trust needed for higher adoption of AI
+  tools. Its most directly AI-relevant provisions govern automated
+  decision-making systems — tools that use AI, machine learning, or predictive
+  analytics to assist or replace human judgment — for which organizations would
+  owe transparency and disclosure obligations where a decision could have a
+  significant impact on an individual, and under which unfair or discriminatory
+  profiling may be treated as an inappropriate data practice. Civil-liberties
+  groups (CCLA) have criticized the bill for broad exceptions and for not going
+  far enough on documented AI harms.
+
+  Notably, this bill carries forward only the privacy reforms of the former
+  Bill C-27; it does not re-introduce AIDA, leaving Canada without dedicated
+  AI-specific legislation. As of writing the bill sits at first reading;
+  Parliament rises for the summer on 19 June 2026, with the government expected
+  to consult over the summer ahead of sittings resuming 21 September 2026.
+
+stages:
+  - date: 2026-06-15
+    stage: "Introduction and first reading"
+    note: "Bill C-36 introduced in the House of Commons by the Minister of Artificial Intelligence and Digital Innovation."
+
+provisions:
+  - id: automated-decision-making-scope
+    title: "Scope: automated decision-making systems"
+    summary: >
+      Define and regulate automated decision-making systems — tools that use
+      AI, machine learning, or predictive analytics to assist or replace human
+      judgment in decisions about individuals.
+  - id: automated-decision-transparency
+    title: "Transparency for automated decisions"
+    summary: >
+      Require organizations to make information available about their use of any
+      automated decision-making system that could have a significant impact on
+      an individual.
+  - id: profiling-appropriateness
+    title: "Profiling and inappropriate data practices"
+    summary: >
+      Treat profiling or categorization that leads to unfair, unethical, or
+      discriminatory treatment contrary to human-rights law as an inappropriate
+      data practice.
+  - id: privacy-fundamental-right
+    title: "Privacy as a fundamental right"
+    summary: >
+      Recognize privacy as a fundamental right and strengthen individual rights,
+      including consumer rights to control and delete personal data.
+  - id: digital-safety-data-protection-commission
+    title: "Digital Safety and Data Protection Commission of Canada"
+    summary: >
+      Establish a Digital Safety and Data Protection Commission of Canada to
+      administer the regime with enhanced enforcement powers, penalties, and
+      transparency obligations, taking over private-sector privacy oversight.
+
+links:
+  - label: "LEGISinfo — Bill C-36 (45-1)"
+    url: https://www.parl.ca/legisinfo/en/bill/45-1/c-36
+    icon: document
+  - label: "Bill C-36 — First Reading text"
+    url: https://www.parl.ca/DocumentViewer/en/45-1/bill/C-36/first-reading
+    icon: document
+  - label: "Backgrounder — legislation to protect Canadians' privacy in the digital age (ISED)"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/06/government-of-canada-introduces-legislation-to-protect-canadians-privacy-in-the-digital-age.html
+    icon: document
+  - label: "Michael Geist — Canada's Digital Super-Regulator: Bill C-36 pushes out the Privacy Commissioner"
+    url: https://www.michaelgeist.ca/2026/06/canadas-digital-super-regulator-bill-c-36-pushes-out-the-privacy-commissioner-and-hands-private-sector-privacy-to-an-overloaded-commission/
+    icon: document
+  - label: "CCLA — Bill C-36 proposes empty privacy protections and little to address AI harms"
+    url: https://ccla.org/press-release/proposed-bill-c-36-protecting-privacy-and-consumer-data-act-erodes-federal-privacy-rights-and-fails-to-meaningfully-address-well-documented-ai-harms/
+    icon: document
+
+tags:
+  - bill-c-36
+  - protecting-privacy-and-consumer-data-act
+  - ppcda
+  - pipeda
+  - privacy
+  - automated-decision-making
+  - digital-safety-and-data-protection-commission
+  - ai-for-all
+  - evan-solomon
+  - federal-government

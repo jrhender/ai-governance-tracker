@@ -1,0 +1,15 @@
+# organizations/canadian-heritage.yaml
+
+id: canadian-heritage
+type: GovernmentOrganization
+schema_type: GovernmentOrganization
+country: ca
+
+name: "Department of Canadian Heritage"
+short_name: "PCH"
+url: https://www.canada.ca/en/canadian-heritage.html
+wikipedia: https://en.wikipedia.org/wiki/Department_of_Canadian_Heritage
+
+tags:
+  - federal-government
+  - canadian

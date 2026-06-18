@@ -1,0 +1,39 @@
+# events/2026-06-15-bill-c36-introduced.yaml
+
+id: bill-c36-introduced-2026
+type: LegislativeAction
+schema_type: Event
+
+title: "Bill C-36 (Protecting Privacy and Consumer Data Act) introduced in the House of Commons (first reading)"
+date: 2026-06-15
+
+status: completed
+
+description: >
+  The Protecting Privacy and Consumer Data Act (Bill C-36) is introduced and
+  receives first reading in the House of Commons, tabled by Evan Solomon,
+  Minister of Artificial Intelligence and Digital Innovation. It would enact the
+  PPCDA, amend PIPEDA, and establish a Digital Safety and Data Protection
+  Commission of Canada. Framed as a cornerstone of the AI for All national
+  strategy, it regulates automated decision-making systems and carries forward
+  the privacy reforms of the former Bill C-27 without re-introducing AIDA.
+
+organizations:
+  - id: ised-canada
+    role: introduced_by
+
+related_artifacts:
+  - id: bill-c36-ppcda
+
+tags:
+  - bill-c-36
+  - protecting-privacy-and-consumer-data-act
+  - automated-decision-making
+  - ai-for-all
+  - federal-government
+  - house-of-commons
+
+links:
+  - label: "LEGISinfo — Bill C-36 (45-1)"
+    url: https://www.parl.ca/legisinfo/en/bill/45-1/c-36
+    icon: document

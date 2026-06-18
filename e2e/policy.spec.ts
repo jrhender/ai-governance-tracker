@@ -12,7 +12,10 @@ test.describe("policy page", () => {
 
   test("legislation card shows title, status badge, and stage", async ({ page }) => {
     await page.goto("/policy/");
-    const card = page.getByRole("link", { name: /Bill C-27/i });
+    // Target the card by its unique href: the whole card is one link whose
+    // accessible name includes the description, so a name regex like /Bill C-27/i
+    // also matches other cards (e.g. C-36) that mention C-27 in their text.
+    const card = page.locator('a[href="/artifacts/bill-c27-aida/"]');
     await expect(card).toBeVisible();
     await expect(card).toContainText("Died");
     await expect(card).toContainText("Died on the Order Paper");
@@ -20,7 +23,7 @@ test.describe("policy page", () => {
 
   test("legislation card links to artifact detail page", async ({ page }) => {
     await page.goto("/policy/");
-    await page.getByRole("link", { name: /Bill C-27/i }).click();
+    await page.locator('a[href="/artifacts/bill-c27-aida/"]').click();
     await expect(page).toHaveURL(/\/artifacts\/bill-c27-aida\//);
   });
 

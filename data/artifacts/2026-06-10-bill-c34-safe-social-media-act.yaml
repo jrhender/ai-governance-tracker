@@ -1,0 +1,119 @@
+# artifacts/2026-06-10-bill-c34-safe-social-media-act.yaml
+
+id: bill-c34-safe-social-media-act
+type: Legislation
+schema_type: CreativeWork
+
+title: "Bill C-34 — Safe Social Media Act"
+published_date: 2026-06-10  # introduction / first reading date
+
+lifecycle_status: active
+current_stage: "First reading in the House of Commons, 10 June 2026"
+
+organizations:
+  - id: canadian-heritage
+    role: sponsor
+
+description: |
+  The Safe Social Media Act (Bill C-34) would enact two new statutes — the
+  Digital Safety Act and the Digital Safety Commission of Canada Act — creating
+  a federal online-safety regime aimed primarily at protecting children. It was
+  introduced by Marc Miller, Minister of Canadian Identity and Culture, on
+  10 June 2026.
+
+  Its headline measures are a minimum account age of 16 for social media
+  services (with an exemption pathway for services that can demonstrate adequate
+  child safeguards), mandated age verification, platform "duty to act
+  responsibly" obligations, and a new Digital Safety Commission of Canada to
+  administer and enforce the Act and support victims of online harms.
+
+  The bill is notable for this tracker because it is the first Canadian
+  legislation to directly regulate AI chatbots. It defines "chatbot services"
+  as AI systems that communicate over the internet, are publicly accessible,
+  use natural-language interfaces to give adaptive, human-like conversational
+  responses, can simulate sustained human-like relationships across sessions,
+  and generate output that is not fully predetermined by their developers or
+  operators.
+
+  Such services are brought under a chatbot-tailored duty to act responsibly,
+  with specific obligations around crisis situations and named harmful
+  behaviours — a legislative response to concerns about AI companions forming
+  parasocial relationships with vulnerable users and giving harmful advice
+  while appearing authoritative.
+
+  As of writing the bill sits at first reading; Parliament rises for the summer
+  on 19 June 2026, with sittings resuming 21 September 2026.
+
+stages:
+  - date: 2026-06-10
+    stage: "Introduction and first reading"
+    note: "Bill C-34 introduced in the House of Commons by the Minister of Canadian Identity and Culture."
+
+provisions:
+  - id: chatbot-scope
+    title: "Scope: AI chatbot services"
+    summary: >
+      Bring "chatbot services" within the regime — AI systems that communicate
+      over the internet, are publicly accessible via websites or apps, use
+      natural-language interfaces for adaptive human-like conversation, can
+      simulate sustained human-like relationships across multiple sessions, and
+      produce output not fully predetermined by developers or operators.
+  - id: chatbot-duty-to-act-responsibly
+    title: "Chatbot duty to act responsibly"
+    summary: >
+      Subject chatbot operators to a duty to act responsibly tailored to
+      chatbots: mitigate the risk that the chatbot communicates harmful content,
+      implement emergency measures for crisis situations, and mitigate the risk
+      that the chatbot engages in harmful behaviour.
+  - id: chatbot-crisis-measures
+    title: "Crisis intervention for self-harm"
+    summary: >
+      Require chatbots to interrupt the conversation and direct users to human
+      crisis support when a user expresses suicidal thoughts or an intention to
+      self-harm.
+  - id: chatbot-prohibited-behaviours
+    title: "Named harmful chatbot behaviours"
+    summary: >
+      Require operators to curb four named behaviours: posing as a human,
+      posing as a licensed professional, using manipulative techniques that
+      build emotional dependency, and encouraging self-harm or suicide.
+  - id: under-16-social-media-ban
+    title: "Minimum account age of 16"
+    summary: >
+      Prohibit children under 16 from holding accounts on social media services,
+      with a pathway for services to seek an exemption if they can demonstrate
+      sufficient safeguards for children. Age-appropriate protections extend to
+      regulated chatbot services.
+  - id: digital-safety-commission
+    title: "Digital Safety Commission of Canada"
+    summary: >
+      Establish a Digital Safety Commission of Canada to administer and enforce
+      the Digital Safety Act, oversee regulated operators (including chatbot
+      services), and support victims of online harms.
+
+links:
+  - label: "LEGISinfo — Bill C-34 (45-1)"
+    url: https://www.parl.ca/legisinfo/en/bill/45-1/c-34
+    icon: document
+  - label: "Bill C-34 — First Reading text"
+    url: https://www.parl.ca/DocumentViewer/en/45-1/bill/C-34/first-reading
+    icon: document
+  - label: "Canada.ca — Bill C-34, the Safe Social Media Act"
+    url: https://www.canada.ca/en/canadian-heritage/services/safe-social-media-act.html
+    icon: document
+  - label: "Backgrounder — legislation to make social media and AI chatbots safer for children (Canadian Heritage)"
+    url: https://www.canada.ca/en/canadian-heritage/news/2026/06/government-of-canada-introduces-legislation-to-make-social-media-services-and-ai-chatbots-safer-for-children.html
+    icon: document
+  - label: "Michael Geist — Everything All At Once: Bill C-34 combines platform duties, a kids' social media ban, AI chatbot regulation, and a powerful Digital Safety Commission"
+    url: https://www.michaelgeist.ca/2026/06/everything-all-at-once-bill-c-34-combines-platform-duties-a-kids-social-media-ban-ai-chatbot-regulation-and-a-powerful-digital-safety-commission-into-a-risky-trust-us-bet/
+    icon: document
+
+tags:
+  - bill-c-34
+  - safe-social-media-act
+  - digital-safety-act
+  - digital-safety-commission
+  - ai-chatbots
+  - online-harms
+  - child-safety
+  - federal-government

@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import type { SourceCategory } from "../lib/sourceCategory";
 import { sourceBadge, sourceCardStyle } from "../lib/sourceCategory";
 import type { Jurisdiction } from "../lib/jurisdiction";
+import { jurisdictionLabels, jurisdictionIcons } from "../lib/jurisdiction";
 import SourceFilter from "./SourceFilter";
 import JurisdictionFilter from "./JurisdictionFilter";
 import { fmtDate } from "../lib/format";
@@ -132,6 +133,14 @@ export default function PolicyWithSourceFilter({ artifacts }: Props) {
                           style={src.style}
                         >
                           {src.label}
+                        </span>
+                        <span
+                          role="img"
+                          aria-label={jurisdictionLabels[artifact.jurisdiction]}
+                          title={jurisdictionLabels[artifact.jurisdiction]}
+                          className="text-xs"
+                        >
+                          {jurisdictionIcons[artifact.jurisdiction]}
                         </span>
                       </div>
                     </div>

@@ -1,12 +1,20 @@
 import type { Jurisdiction } from "../lib/jurisdiction";
-import { jurisdictionLabels } from "../lib/jurisdiction";
+import { jurisdictionLabels, jurisdictionIcons } from "../lib/jurisdiction";
 
-type Option = { value: Jurisdiction | "all"; label: string };
+type Option = { value: Jurisdiction | "all"; label: string; icon?: string };
 
 const OPTIONS: Option[] = [
   { value: "all", label: "All" },
-  { value: "canada", label: jurisdictionLabels.canada },
-  { value: "international", label: jurisdictionLabels.international },
+  {
+    value: "canada",
+    label: jurisdictionLabels.canada,
+    icon: jurisdictionIcons.canada,
+  },
+  {
+    value: "international",
+    label: jurisdictionLabels.international,
+    icon: jurisdictionIcons.international,
+  },
 ];
 
 type Props = {
@@ -23,7 +31,7 @@ export default function JurisdictionFilter({ selected, onSelect }: Props) {
 
   return (
     <div role="group" aria-label="Filter by jurisdiction" className="flex flex-wrap gap-2">
-      {OPTIONS.map(({ value, label }) => (
+      {OPTIONS.map(({ value, label, icon }) => (
         <button
           key={value}
           type="button"
@@ -31,6 +39,11 @@ export default function JurisdictionFilter({ selected, onSelect }: Props) {
           className={`${pillBase} ${selected === value ? active : inactive}`}
           onClick={() => onSelect(value)}
         >
+          {icon && (
+            <span aria-hidden="true" className="mr-1.5">
+              {icon}
+            </span>
+          )}
           {label}
         </button>
       ))}

@@ -1,5 +1,6 @@
 import type { TimelineItem } from "../lib/timeline";
 import { sourceBadge, sourceDotColor } from "../lib/sourceCategory";
+import { jurisdictionLabels, jurisdictionIcons } from "../lib/jurisdiction";
 import { fmtDate } from "../lib/format";
 
 type Props = {
@@ -79,6 +80,14 @@ export default function TimelineList({ items }: Props) {
                 style={badge.style}
               >
                 {badge.label}
+              </span>
+              <span
+                role="img"
+                aria-label={jurisdictionLabels[item.jurisdiction]}
+                title={jurisdictionLabels[item.jurisdiction]}
+                className="text-xs"
+              >
+                {jurisdictionIcons[item.jurisdiction]}
               </span>
             </div>
             {item.description && (

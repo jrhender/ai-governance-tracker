@@ -2,6 +2,7 @@
 import { getCollection, getEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { fmtDate, humanizeType, leadText } from "../../lib/format";
+import { jurisdictionLabels, jurisdictionIcons } from "../../lib/jurisdiction";
 import { buildEventJsonLd, type OrgRef } from "../../lib/jsonld";
 
 export async function getStaticPaths() {
@@ -54,6 +55,11 @@ const jsonLd = buildEventJsonLd({
     <time datetime={data.date.toISOString()}>{fmtDate(data.date)}</time>
     <span>·</span>
     <span>{data.type}</span>
+    <span>·</span>
+    <span>
+      <span aria-hidden="true">{jurisdictionIcons[data.jurisdiction]}</span>
+      {" "}{jurisdictionLabels[data.jurisdiction]}
+    </span>
     {data.location && (
       <>
         <span>·</span>

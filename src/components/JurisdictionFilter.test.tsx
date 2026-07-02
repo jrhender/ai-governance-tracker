@@ -11,6 +11,13 @@ describe("JurisdictionFilter", () => {
     expect(screen.getByRole("button", { name: "International" })).toBeInTheDocument();
   });
 
+  it("shows a flag icon on Canada and a world icon on International, hidden from the accessible name", () => {
+    render(<JurisdictionFilter selected="all" onSelect={() => {}} />);
+    expect(screen.getByRole("button", { name: "Canada" })).toHaveTextContent("🇨🇦");
+    expect(screen.getByRole("button", { name: "International" })).toHaveTextContent("🌐");
+    expect(screen.getByRole("button", { name: "All" })).not.toHaveTextContent("🌐");
+  });
+
   it("sets aria-pressed='true' on the active button only", () => {
     render(<JurisdictionFilter selected="international" onSelect={() => {}} />);
     expect(screen.getByRole("button", { name: "All" })).toHaveAttribute("aria-pressed", "false");

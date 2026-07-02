@@ -1,0 +1,41 @@
+# data/events/2023-05-19-hiroshima-ai-process-launched.yaml
+
+id: hiroshima-ai-process-launched
+type: GovernmentAnnouncement
+schema_type: Event
+jurisdiction: international
+title: "G7 leaders launch the Hiroshima AI Process"
+date: 2023-05-19
+status: completed
+
+location:
+  name: "Hiroshima, Japan"
+  schema_type: Place
+
+organizations:
+  - id: g7
+    role: convener
+
+description: >
+  At the Hiroshima Summit under Japan's presidency, G7 leaders establish the
+  Hiroshima AI Process to develop international governance of generative and
+  advanced AI — the workstream that later produces the International Code of
+  Conduct for Organizations Developing Advanced AI Systems and the OECD-run
+  HAIP Reporting Framework.
+
+related_artifacts:
+  - id: hiroshima-ai-process
+
+tags:
+  - hiroshima-ai-process
+  - g7
+  - generative-ai
+  - international
+
+links:
+  - label: "G7 Hiroshima Leaders' Communiqué"
+    url: https://www.g7.utoronto.ca/summit/2023hiroshima/230520-communique.html
+    icon: document
+  - label: "Japan MIC — Hiroshima AI Process"
+    url: https://www.soumu.go.jp/hiroshimaaiprocess/en/
+    icon: website

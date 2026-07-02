@@ -1,0 +1,45 @@
+# data/events/2026-05-28-haip-reporting-framework-2-launched.yaml
+
+id: haip-reporting-framework-2-launched
+type: GovernmentAnnouncement
+schema_type: Event
+jurisdiction: international
+title: "OECD launches Hiroshima AI Process Reporting Framework 2.0"
+date: 2026-05-28
+status: completed
+
+location:
+  name: "Paris, France"
+  schema_type: Place
+
+organizations:
+  - id: oecd
+    role: publisher
+
+description: >
+  The OECD launches a streamlined version 2.0 of the Hiroshima AI Process
+  Reporting Framework at a Tech7 event alongside the G7 Digital and Tech
+  Ministerial Meeting in Paris. The revision lowers the reporting burden so
+  small and medium-sized enterprises can report on how they apply the G7 Code
+  of Conduct for advanced AI development; more than 50 organizations pledged
+  to submit reports, requested by 1 September 2026 for the next analytical
+  review.
+
+related_artifacts:
+  - id: hiroshima-ai-process
+
+tags:
+  - hiroshima-ai-process
+  - g7
+  - oecd
+  - reporting-framework
+  - transparency
+  - international
+
+links:
+  - label: "OECD.AI — HAIP 2.0 launch"
+    url: https://oecd.ai/en/haip-2-launch
+    icon: website
+  - label: "OECD press release"
+    url: https://www.oecd.org/en/about/news/press-releases/2026/05/oecd-launches-streamlined-hiroshima-ai-process-reporting-framework-to-help-small-and-medium-sized-enterprises-participate.html
+    icon: document

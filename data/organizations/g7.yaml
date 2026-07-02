@@ -1,0 +1,14 @@
+# organizations/g7.yaml
+
+id: g7
+type: IntergovernmentalForum
+schema_type: GovernmentOrganization
+country: international
+
+name: "Group of Seven"
+short_name: "G7"
+wikipedia: https://en.wikipedia.org/wiki/G7
+
+tags:
+  - intergovernmental
+  - international

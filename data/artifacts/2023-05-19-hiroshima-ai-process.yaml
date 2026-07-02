@@ -1,0 +1,100 @@
+# artifacts/2023-05-19-hiroshima-ai-process.yaml
+
+id: hiroshima-ai-process
+type: PolicyDocument
+schema_type: CreativeWork
+jurisdiction: international
+
+title: "Hiroshima AI Process — G7 code of conduct and reporting framework for advanced AI"
+published_date: 2023-05-19
+
+organizations:
+  - id: g7
+    role: initiator
+  - id: oecd
+    role: implementing_partner
+
+description: |
+  The Hiroshima AI Process (HAIP) is the G7's initiative for international
+  governance of advanced AI systems, launched at the G7 Hiroshima Summit in
+  May 2023 under Japan's presidency. It produced the International Guiding
+  Principles on AI and the International Code of Conduct for Organizations
+  Developing Advanced AI Systems (October 2023) — voluntary commitments on
+  risk assessment, incident reporting, transparency, and information sharing
+  for developers of the most advanced AI systems.
+
+  In February 2025 the OECD operationalized the Code of Conduct by launching
+  the HAIP Reporting Framework at the Paris AI Action Summit — the first
+  global framework through which companies report, in comparable form, on
+  their AI risk management practices. A streamlined version 2.0 of the
+  reporting framework followed on 28 May 2026, launched at a Tech7 event
+  alongside the G7 Digital and Tech Ministerial Meeting in Paris, designed to
+  make participation practical for small and medium-sized enterprises; more
+  than 50 organizations pledged to submit reports under the new framework,
+  with submissions requested by 1 September 2026 for the next analytical
+  review.
+
+  Canada participates as a G7 member, and its 2025 G7 presidency carried the
+  work forward: the leaders' statement on AI for Prosperity issued at the
+  Kananaskis Summit commits to building on the Hiroshima AI Process to
+  strengthen trust in AI through voluntary, standards-based frameworks.
+
+stages:
+  - date: 2023-05-19
+    stage: "Launched at the G7 Hiroshima Summit"
+    note: "G7 leaders, under Japan's presidency, establish the Hiroshima AI Process to develop international governance of generative and advanced AI."
+    links:
+      - label: "G7 Hiroshima Leaders' Communiqué"
+        url: https://www.g7.utoronto.ca/summit/2023hiroshima/230520-communique.html
+        icon: document
+  - date: 2023-10-30
+    stage: "International Guiding Principles and Code of Conduct published"
+    note: "G7 leaders issue the International Guiding Principles on AI and the voluntary International Code of Conduct for Organizations Developing Advanced AI Systems."
+    links:
+      - label: "Hiroshima Process International Code of Conduct"
+        url: https://digital-strategy.ec.europa.eu/en/library/hiroshima-process-international-code-conduct-advanced-ai-systems
+        icon: document
+  - date: 2023-12-01
+    stage: "Comprehensive Policy Framework endorsed"
+    note: "G7 digital and tech ministers endorse the Hiroshima AI Process Comprehensive Policy Framework, wrapping up Japan's presidency."
+  - date: 2025-02-07
+    stage: "OECD launches the HAIP Reporting Framework"
+    note: "Launched at the Paris AI Action Summit; companies report on their application of the Code of Conduct, with inaugural reports invited by 15 April 2025."
+    links:
+      - label: "OECD press release"
+        url: https://www.oecd.org/en/about/news/press-releases/2025/02/oecd-launches-global-framework-to-monitor-application-of-g7-hiroshima-ai-code-of-conduct.html
+        icon: document
+  - date: 2025-06-17
+    stage: "Canada's G7 presidency builds on HAIP"
+    note: "The G7 Leaders' Statement on AI for Prosperity, issued at the Kananaskis Summit under Canada's presidency, commits to leveraging HAIP outcomes to foster trust in AI."
+    links:
+      - label: "G7 Leaders' Statement on AI for Prosperity"
+        url: https://www.pm.gc.ca/en/news/statements/2025/06/17/g7-leaders-statement-ai-prosperity
+        icon: document
+  - date: 2026-05-28
+    stage: "OECD launches HAIP Reporting Framework 2.0"
+    note: "Streamlined framework launched at a Tech7 event alongside the G7 Digital and Tech Ministerial in Paris, lowering the reporting burden so SMEs can participate; 50+ organizations pledged reports, requested by 1 September 2026."
+    links:
+      - label: "OECD.AI launch page"
+        url: https://oecd.ai/en/haip-2-launch
+        icon: document
+
+links:
+  - label: "OECD.AI — Hiroshima AI Process"
+    url: https://oecd.ai/en/hiroshima
+    icon: website
+  - label: "HAIP transparency reports portal"
+    url: https://transparency.oecd.ai/
+    icon: website
+  - label: "Japan MIC — Hiroshima AI Process"
+    url: https://www.soumu.go.jp/hiroshimaaiprocess/en/
+    icon: website
+
+tags:
+  - hiroshima-ai-process
+  - g7
+  - oecd
+  - code-of-conduct
+  - reporting-framework
+  - transparency
+  - international

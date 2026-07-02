@@ -37,10 +37,13 @@ organizations:
   - id: <committee-or-sponsoring-dept-id>
     role: reviewed_by | sponsor
 
-description: >
+description: |          # literal block scalar (|), NOT folded (>). See "Description" below.
   A few paragraphs: what the bill is, what it would do, where it currently
   sits, and the key dates. This is the text a reader scanning the artifact
   page sees first.
+
+  Separate paragraphs with a blank line — the artifact page renders this
+  field as Markdown.
 
 stages:
   - date: YYYY-MM-DD            # use exact dates — research them from minutes
@@ -59,6 +62,36 @@ provisions:                       # what the bill does / would do
 links: []                         # primary sources: LEGISinfo, companion docs, etc.
 tags: []                          # see Tagging below
 ```
+
+### Description: use a literal block scalar so paragraphs render
+
+The artifact page (`src/pages/artifacts/[id].astro`) renders `description`
+through Markdown (`marked`), so paragraph breaks need a real blank line
+(`\n\n`) in the parsed string.
+
+**Author `description` with a literal block scalar (`|`), not folded (`>`).**
+A folded scalar collapses each blank line into a *single* `\n`, which
+Markdown treats as a soft break, not a paragraph break — so the whole
+description renders as one wall-of-text `<p>` no matter how you space the
+source. The literal `|` preserves blank lines as paragraph breaks.
+
+Quick check before committing a multi-paragraph description:
+
+```bash
+node --input-type=module -e '
+import { readFileSync } from "fs"; import YAML from "yaml"; import { marked } from "marked";
+const d = YAML.parse(readFileSync(process.argv[1], "utf8")).description;
+console.log((await marked.parse(d)).match(/<p>/g)?.length, "paragraphs");
+' data/artifacts/<your-file>.yaml
+```
+
+If it prints `1` for text you wrote as several paragraphs, you used `>` —
+switch to `|`. (Single-paragraph fields like a provision `summary:` are
+fine with `>`; the trap is only multi-paragraph `description`.)
+
+Note: the policy listing card (`PolicyWithSourceFilter.tsx`) renders the
+*same* `description` as raw text in one `<p>`, so it always shows as a
+single block there regardless — only the artifact detail page paragraph-breaks.
 
 ### The two events
 
@@ -127,3 +160,5 @@ For a bill whose data shape fits the existing schema, brainstorming can be light
 | Putting `canadian` / `legislation` / `ai-regulation` tags on new records | These are implicit. Drop them. |
 | Using `policy_recommendations[]` for what the bill *does* | `policy_recommendations[]` tracks adoption of someone else's suggestions. Use `provisions[]` for the bill's own obligations and mechanisms. |
 | Hyphenation drift between `id` and tags | `id: bill-c27-aida` (no inner hyphen) vs `tag: bill-c-27` (with hyphen, matches the official designator). Both are correct — don't "fix" either to match. |
+| Folded scalar (`>`) for a multi-paragraph `description` | Collapses blank lines to one `\n`; Markdown renders it as a single wall-of-text paragraph. Use a literal block scalar (`|`). See "Description" above. |
+| Naming another bill in a description and breaking e2e | The policy legislation card is one big `<a>` whose accessible name includes the description, so mentioning e.g. "Bill C-27" makes name-based Playwright locators (`getByRole('link', { name: /Bill C-27/i })`) match multiple cards. Target cards by `href` (`a[href="/artifacts/<id>/"]`) instead. |

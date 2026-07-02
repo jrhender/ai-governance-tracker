@@ -1,0 +1,47 @@
+# events/2026-05-12-ai-compute-access-fund-first-recipients.yaml
+
+id: ai-compute-access-fund-first-recipients-2026
+type: GovernmentAnnouncement
+schema_type: Event
+
+title: "Minister Solomon announces first 44 recipients of the AI Compute Access Fund"
+date: 2026-05-12
+status: completed
+
+location:
+  name: "Vancouver, British Columbia"
+  schema_type: Place
+
+organizations:
+  - id: ised-canada
+    role: organizer
+
+description: >
+  In Vancouver, Evan Solomon, Minister of Artificial Intelligence and Digital
+  Innovation, announces support for 44 projects through the AI Compute Access
+  Fund — representing $66 million of the $300-million fund — to help Canadian
+  small and medium-sized enterprises offset the cost of the high-performance
+  computing they need to train models and build AI products. Launched under
+  Canada's Sovereign AI Compute Strategy, the fund targets companies across
+  life sciences, health care, energy, advanced manufacturing, agriculture,
+  finance, natural resources, and transportation, with further funding offers
+  to follow as assessments are finalized.
+
+tags:
+  - ai-compute-access-fund
+  - sovereign-ai-compute-strategy
+  - compute
+  - evan-solomon
+  - ised
+  - federal-government
+
+links:
+  - label: "Canada.ca — Government of Canada supports 44 Canadian companies using AI"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/05/government-of-canada-supports-44-canadian-companies-using-ai-to-transform-industries-and-create-jobs.html
+    icon: document
+  - label: "CBC — AI minister names 44 projects getting federal money to access compute power"
+    url: https://www.cbc.ca/news/politics/ai-minister-names-44-projects-getting-federal-money-to-access-compute-power-9.7196774
+    icon: document
+  - label: "ISED — Canadian Sovereign AI Compute Strategy"
+    url: https://ised-isde.canada.ca/site/ised/en/canadian-sovereign-ai-compute-strategy
+    icon: document

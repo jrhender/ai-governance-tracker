@@ -85,6 +85,14 @@ describe("OrgsWithCountryFilter", () => {
     expect(screen.getAllByText("Canada").length).toBeGreaterThanOrEqual(2);
   });
 
+  it("shows country icons on pills and org cards without changing accessible names", () => {
+    render(<OrgsWithCountryFilter orgs={orgs} />);
+    expect(screen.getByRole("button", { name: "Canada" })).toHaveTextContent("🇨🇦");
+    expect(screen.getByRole("button", { name: "UK" })).toHaveTextContent("🇬🇧");
+    // Cards for the two visible CA orgs carry the flag too
+    expect(screen.getAllByText("🇨🇦").length).toBeGreaterThanOrEqual(3);
+  });
+
   it("filters to international orgs when International pill is clicked", async () => {
     const orgsWithIntl = [
       ...orgs,

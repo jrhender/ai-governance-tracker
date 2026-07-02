@@ -38,6 +38,12 @@ describe("PolicyWithSourceFilter", () => {
     expect(screen.getByText("Governing AI: A Plan for Canada")).toBeInTheDocument();
   });
 
+  it("shows a jurisdiction icon on each artifact card", () => {
+    render(<PolicyWithSourceFilter artifacts={[govArtifact, intlArtifact]} />);
+    expect(screen.getAllByRole("img", { name: "Canada" })[0]).toHaveTextContent("🇨🇦");
+    expect(screen.getAllByRole("img", { name: "International" })[0]).toHaveTextContent("🌐");
+  });
+
   it("shows only government artifacts after clicking Government", async () => {
     render(<PolicyWithSourceFilter artifacts={[govArtifact, civilArtifact]} />);
     await userEvent.click(screen.getByRole("button", { name: "Government" }));

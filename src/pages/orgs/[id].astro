@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { countryLabels, countryIcons } from "../../lib/country";
 import { buildOrgJsonLd } from "../../lib/jsonld";
 
 export async function getStaticPaths() {
@@ -42,6 +43,10 @@ const jsonLd = buildOrgJsonLd({
   {data.short_name && (
     <p class="mt-1 text-faint">{data.short_name}</p>
   )}
+  <p class="mt-1 text-sm text-faint">
+    <span aria-hidden="true">{countryIcons[data.country]}</span>
+    {" "}{countryLabels[data.country] ?? data.country.toUpperCase()}
+  </p>
 
   <div class="mt-4 flex flex-wrap gap-4 text-sm">
     {data.url && (

@@ -15,6 +15,7 @@ const baseItem: TimelineItem = {
   orgs: [{ id: "senate", label: "Senate SOCI" }],
   links: [],
   sourceCategory: "government",
+  jurisdiction: "canada",
 };
 
 describe("TimelineList", () => {
@@ -63,5 +64,15 @@ describe("TimelineList", () => {
   it("renders CIVIL SOCIETY badge for civil_society items", () => {
     render(<TimelineList items={[{ ...baseItem, sourceCategory: "civil_society" }]} />);
     expect(screen.getByText("CIVIL SOCIETY")).toBeInTheDocument();
+  });
+
+  it("renders a Canada flag icon on canadian items", () => {
+    render(<TimelineList items={[baseItem]} />);
+    expect(screen.getByRole("img", { name: "Canada" })).toHaveTextContent("🇨🇦");
+  });
+
+  it("renders a world icon on international items", () => {
+    render(<TimelineList items={[{ ...baseItem, jurisdiction: "international" }]} />);
+    expect(screen.getByRole("img", { name: "International" })).toHaveTextContent("🌐");
   });
 });

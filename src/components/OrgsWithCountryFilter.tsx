@@ -1,10 +1,5 @@
 import { useState, useMemo } from "react";
-
-const COUNTRY_LABELS: Record<string, string> = {
-  ca: "Canada",
-  uk: "UK",
-  international: "International",
-};
+import { countryLabels, countryIcons } from "../lib/country";
 
 export type OrgEntry = {
   id: string;
@@ -63,7 +58,12 @@ export default function OrgsWithCountryFilter({ orgs }: Props) {
             className={`${pillBase} ${selected === code ? active : inactive}`}
             onClick={() => setSelected(code)}
           >
-            {COUNTRY_LABELS[code] ?? code.toUpperCase()}
+            {countryIcons[code] && (
+              <span aria-hidden="true" className="mr-1.5">
+                {countryIcons[code]}
+              </span>
+            )}
+            {countryLabels[code] ?? code.toUpperCase()}
           </button>
         ))}
       </div>
@@ -91,7 +91,12 @@ export default function OrgsWithCountryFilter({ orgs }: Props) {
                 </div>
               )}
               <div className="mt-1 text-xs text-faint">
-                {COUNTRY_LABELS[org.country] ?? org.country.toUpperCase()}
+                {countryIcons[org.country] && (
+                  <span aria-hidden="true" className="mr-1">
+                    {countryIcons[org.country]}
+                  </span>
+                )}
+                <span>{countryLabels[org.country] ?? org.country.toUpperCase()}</span>
               </div>
               <div className="mt-3 text-xs text-faint">
                 {[

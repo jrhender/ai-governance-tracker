@@ -3,6 +3,7 @@ import { getCollection, getEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { marked } from "marked";
 import { fmtDate, leadText } from "../../lib/format";
+import { jurisdictionLabels, jurisdictionIcons } from "../../lib/jurisdiction";
 import { buildCreativeWorkJsonLd, type OrgRef } from "../../lib/jsonld";
 
 export async function getStaticPaths() {
@@ -94,6 +95,11 @@ const jsonLd = buildCreativeWorkJsonLd({
     </time>
     <span>·</span>
     <span>{data.type}</span>
+    <span>·</span>
+    <span>
+      <span aria-hidden="true">{jurisdictionIcons[data.jurisdiction]}</span>
+      {" "}{jurisdictionLabels[data.jurisdiction]}
+    </span>
   </div>
 
   {descriptionHtml && (

@@ -1,0 +1,50 @@
+# artifacts/2025-09-15-caisi-question-period-note.yaml
+
+id: caisi-question-period-note-2025
+type: PolicyDocument
+schema_type: CreativeWork
+
+title: "Question Period Note: Canadian Artificial Intelligence Safety Institute"
+published_date: 2025-09-15  # "date received" on the proactive-disclosure record
+
+organizations:
+  - id: ised-canada
+    role: author
+  - id: caisi
+    role: subject
+
+description: |
+  A Question Period note (reference AIDI-2026-QP-00001) prepared for Evan
+  Solomon, Minister of Artificial Intelligence and Digital Innovation, and
+  released through proactive disclosure. It answers why the Government of Canada
+  created the Canadian Artificial Intelligence Safety Institute (CAISI).
+
+  The note states that CAISI was created in November 2024 to advance scientific
+  understanding of the risks of the most advanced AI systems and to provide
+  tools to address them, leveraging Canada's research ecosystem through the
+  Canadian Institute for Advanced Research (CIFAR) and the National Research
+  Council (NRC). It records that CAISI is a founding member of the International
+  Network of AI Safety Institutes, that its 2025–26 research priorities cover
+  risk assessment, understanding how AI systems behave, and techniques to make
+  them safer, and that it has signed a $1-million research partnership with the
+  UK AI Security Institute (July 2025) and a memorandum of understanding with
+  the Canadian AI company Cohere.
+
+links:
+  - label: "Open Government — Question Period Note: Canadian Artificial Intelligence Safety Institute (AIDI-2026-QP-00001)"
+    url: https://search.open.canada.ca/qpnotes/record/ic,AIDI-2026-QP-00001
+    icon: document
+  - label: "ISED — Canadian Artificial Intelligence Safety Institute"
+    url: https://ised-isde.canada.ca/site/ised/en/canadian-artificial-intelligence-safety-institute
+    icon: document
+
+tags:
+  - caisi
+  - question-period
+  - proactive-disclosure
+  - cifar
+  - nrc
+  - international-network-of-ai-safety-institutes
+  - cohere
+  - evan-solomon
+  - federal-government

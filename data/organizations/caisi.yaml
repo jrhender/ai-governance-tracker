@@ -1,0 +1,15 @@
+# organizations/caisi.yaml
+
+id: caisi
+type: GovernmentOrganization
+schema_type: GovernmentOrganization
+country: ca
+
+name: "Canadian Artificial Intelligence Safety Institute"
+short_name: "CAISI"
+url: https://ised-isde.canada.ca/site/ised/en/canadian-artificial-intelligence-safety-institute
+
+tags:
+  - ai-safety
+  - federal-government
+  - canadian

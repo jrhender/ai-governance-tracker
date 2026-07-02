@@ -1,0 +1,38 @@
+# events/2025-09-15-caisi-question-period-note-disclosed.yaml
+
+id: caisi-question-period-note-disclosed-2025
+type: Publication
+schema_type: Event
+
+title: "ISED discloses a Question Period note on the Canadian AI Safety Institute"
+date: 2025-09-15
+status: completed
+
+organizations:
+  - id: ised-canada
+    role: publisher
+  - id: caisi
+    role: subject
+
+description: >
+  Innovation, Science and Economic Development Canada releases, through
+  proactive disclosure, a Question Period note (reference AIDI-2026-QP-00001)
+  prepared for Evan Solomon, Minister of Artificial Intelligence and Digital
+  Innovation, explaining why the government created the Canadian Artificial
+  Intelligence Safety Institute (CAISI) and summarizing its mandate, partners,
+  and research priorities.
+
+related_artifacts:
+  - id: caisi-question-period-note-2025
+
+tags:
+  - caisi
+  - question-period
+  - proactive-disclosure
+  - ised
+  - federal-government
+
+links:
+  - label: "Open Government — Question Period Note: Canadian Artificial Intelligence Safety Institute (AIDI-2026-QP-00001)"
+    url: https://search.open.canada.ca/qpnotes/record/ic,AIDI-2026-QP-00001
+    icon: document

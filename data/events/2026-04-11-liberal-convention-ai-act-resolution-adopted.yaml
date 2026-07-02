@@ -1,0 +1,39 @@
+# events/2026-04-11-liberal-convention-ai-act-resolution-adopted.yaml
+
+id: liberal-convention-ai-act-resolution-adopted-2026
+type: PoliticalEvent
+schema_type: Event
+
+title: "Liberal Party members adopt a Canadian AI Act resolution at the 2026 convention"
+date: 2026-04-11
+status: completed
+
+location:
+  name: "Montréal, Québec"
+  schema_type: Place
+
+organizations:
+  - id: liberal-party-of-canada
+    role: host
+
+description: >
+  At the Liberal Party of Canada's 2026 National Convention in Montréal,
+  members vote in favour of a policy resolution calling for a Canadian
+  Artificial Intelligence Act modelled on the EU AI Act, alongside a related
+  non-binding resolution to set 16 as the age of majority for social media use.
+  Party resolutions are non-binding on the government.
+
+related_artifacts:
+  - id: liberal-convention-ai-act-resolution-2026
+
+tags:
+  - liberal-party
+  - party-resolution
+  - canadian-ai-act
+  - caia
+  - civil-society
+
+links:
+  - label: "CBC — Liberal members vote in favour of age restrictions for social media, AI chatbots"
+    url: https://www.cbc.ca/news/politics/liberal-party-vote-on-social-media-age-restrictions-9.7159746
+    icon: document

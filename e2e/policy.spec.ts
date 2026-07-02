@@ -27,6 +27,19 @@ test.describe("policy page", () => {
     await expect(page).toHaveURL(/\/artifacts\/bill-c27-aida\//);
   });
 
+  test("jurisdiction filter narrows policy cards to international", async ({ page }) => {
+    await page.goto("/policy/");
+    const jurisdictionFilter = page.getByLabel("Filter by jurisdiction");
+
+    await jurisdictionFilter.getByRole("button", { name: "International" }).click();
+    await expect(page.locator('a[href="/artifacts/hiroshima-ai-process/"]')).toBeVisible();
+    await expect(page.locator('a[href="/artifacts/bill-c27-aida/"]')).toHaveCount(0);
+
+    await jurisdictionFilter.getByRole("button", { name: "Canada" }).click();
+    await expect(page.locator('a[href="/artifacts/bill-c27-aida/"]')).toBeVisible();
+    await expect(page.locator('a[href="/artifacts/hiroshima-ai-process/"]')).toHaveCount(0);
+  });
+
   test("reports section shows at least one card", async ({ page }) => {
     await page.goto("/policy/");
     const section = page.locator("section").filter({ has: page.getByRole("heading", { name: "Reports" }) });

@@ -1,0 +1,17 @@
+# organizations/munk-school-uoft.yaml
+
+id: munk-school-uoft
+type: EducationalOrganization
+schema_type: Organization
+country: ca
+
+name: "Munk School of Global Affairs & Public Policy"
+short_name: "Munk School"
+url: https://munkschool.utoronto.ca
+wikipedia: https://en.wikipedia.org/wiki/Munk_School_of_Global_Affairs_%26_Public_Policy
+
+tags:
+  - academic
+  - university-of-toronto
+  - think-tank
+  - canadian

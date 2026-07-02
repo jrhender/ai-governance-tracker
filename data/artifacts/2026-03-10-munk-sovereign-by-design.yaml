@@ -1,0 +1,63 @@
+# artifacts/2026-03-10-munk-sovereign-by-design.yaml
+
+id: munk-sovereign-by-design-2026
+type: Report
+schema_type: CreativeWork
+
+title: "Sovereign by Design: Strategic Options for Canadian AI Sovereignty"
+published_date: 2026-03-10
+
+authors:
+  # Individual authors — no people files created yet
+  - name: "Sean Mullin"
+    role: author
+  - name: "Jaxson Khan"
+    role: author
+
+organizations:
+  - id: munk-school-uoft
+    role: publisher
+
+description: |
+  A report from the AI Competitiveness Project at the Munk School of Global
+  Affairs & Public Policy (University of Toronto), authored by Senior Fellows
+  Sean Mullin and Jaxson Khan. It offers a systematic, layer-by-layer
+  assessment of Canada's position across the AI technology stack and warns that
+  critical gaps in cloud infrastructure and compute hardware leave the country
+  vulnerable at a moment of geopolitical uncertainty.
+
+  The report frames sovereignty as "freedom from coercion, not digital
+  isolationism or technological self-sufficiency." It identifies Canadian
+  strengths — clean energy attractive to data-centre investment, valuable
+  public and private datasets, globally competitive firms such as Cohere, and a
+  strong open-source ecosystem — alongside acute weaknesses, most notably
+  limited domestic control over foundation models and cloud infrastructure and
+  the extraterritorial legal reach that undermines data-residency protections.
+
+  Its central argument is that "the architecture is not yet settled": Canada
+  should make deliberate infrastructure and standards choices during this
+  formative period to reduce foreign leverage while building sovereign capacity
+  through coalition-building and hybrid technology strategies.
+
+links:
+  - label: "AI Competitiveness Project — Sovereign by Design"
+    url: https://aicompetitiveness.ca/
+    icon: document
+  - label: "Full report (PDF)"
+    url: https://aicompetitiveness.ca/assets/Sovereign-by-Design-Full-Report-2026.pdf
+    icon: document
+  - label: "Policy briefing note (PDF)"
+    url: https://aicompetitiveness.ca/assets/Sovereign-by-Design-Briefing-Note-2026.pdf
+    icon: document
+  - label: "Munk School — AI Competitiveness Project"
+    url: https://munkschool.utoronto.ca/ai-competitiveness-project
+    icon: document
+
+tags:
+  - ai-sovereignty
+  - compute
+  - cloud-infrastructure
+  - foundation-models
+  - competitiveness
+  - munk-school
+  - cohere

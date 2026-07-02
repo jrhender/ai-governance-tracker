@@ -1,0 +1,36 @@
+# events/2026-03-10-munk-sovereign-by-design-published.yaml
+
+id: munk-sovereign-by-design-published-2026
+type: Publication
+schema_type: Event
+
+title: "Munk School publishes \"Sovereign by Design\" on Canadian AI sovereignty"
+date: 2026-03-10
+status: completed
+
+organizations:
+  - id: munk-school-uoft
+    role: publisher
+
+description: >
+  The AI Competitiveness Project at the University of Toronto's Munk School of
+  Global Affairs & Public Policy publishes "Sovereign by Design: Strategic
+  Options for Canadian AI Sovereignty," a layer-by-layer assessment of Canada's
+  position across the AI technology stack that warns of vulnerabilities in
+  cloud infrastructure and compute and sets out strategic options for reducing
+  foreign leverage.
+
+related_artifacts:
+  - id: munk-sovereign-by-design-2026
+
+tags:
+  - ai-sovereignty
+  - compute
+  - competitiveness
+  - munk-school
+  - civil-society
+
+links:
+  - label: "Newswire — New Munk School report maps Canada's AI sovereignty vulnerabilities"
+    url: https://www.newswire.ca/news-releases/new-munk-school-report-maps-canada-s-ai-sovereignty-vulnerabilities-offers-strategic-options-for-action-872511205.html
+    icon: document

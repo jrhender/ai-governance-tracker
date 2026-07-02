@@ -1,0 +1,31 @@
+# events/2026-06-18-bill-c16-royal-assent.yaml
+
+id: bill-c16-royal-assent-2026
+type: LegislativeAction
+schema_type: Event
+
+title: "Bill C-16 (Protecting Victims Act) receives royal assent"
+date: 2026-06-18
+status: completed
+
+description: >
+  Bill C-16, the Protecting Victims Act, receives royal assent and is enacted
+  as Statutes of Canada 2026, c. 19. Its non-consensual intimate-image
+  provisions — amended in committee to explicitly capture AI-generated and
+  "nearly nude" images — come into force as part of the Criminal Code.
+
+related_artifacts:
+  - id: bill-c16-protecting-victims-act
+
+tags:
+  - bill-c-16
+  - protecting-victims-act
+  - intimate-images
+  - deepfakes
+  - royal-assent
+  - parliament
+
+links:
+  - label: "LEGISinfo — Bill C-16 (45-1)"
+    url: https://www.parl.ca/legisinfo/en/bill/45-1/c-16
+    icon: document

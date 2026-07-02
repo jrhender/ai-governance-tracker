@@ -1,0 +1,31 @@
+# events/2025-12-09-bill-c16-introduced.yaml
+
+id: bill-c16-introduced-2025
+type: LegislativeAction
+schema_type: Event
+
+title: "Bill C-16 (Protecting Victims Act) introduced in the House of Commons (first reading)"
+date: 2025-12-09
+status: completed
+
+description: >
+  The Protecting Victims Act (Bill C-16) is introduced and receives first
+  reading in the House of Commons, tabled by Sean Fraser, Minister of Justice.
+  The omnibus criminal-law bill is tracked here for its provisions on
+  non-consensual intimate images, later strengthened in committee to explicitly
+  capture AI-generated and "nearly nude" depictions.
+
+related_artifacts:
+  - id: bill-c16-protecting-victims-act
+
+tags:
+  - bill-c-16
+  - protecting-victims-act
+  - intimate-images
+  - deepfakes
+  - house-of-commons
+
+links:
+  - label: "LEGISinfo — Bill C-16 (45-1)"
+    url: https://www.parl.ca/legisinfo/en/bill/45-1/c-16
+    icon: document

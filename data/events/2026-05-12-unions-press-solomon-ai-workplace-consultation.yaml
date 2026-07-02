@@ -1,0 +1,38 @@
+# events/2026-05-12-unions-press-solomon-ai-workplace-consultation.yaml
+
+id: unions-ai-workplace-consultation-2026
+type: PoliticalEvent
+schema_type: Event
+
+title: "Unions press Ottawa to mandate worker consultation before workplace AI"
+date: 2026-05-12
+status: completed
+
+description: >
+  Labour leaders from major unions — including Unifor, the United Food and
+  Commercial Workers, and the Canadian Union of Public Employees — meet with
+  Evan Solomon, Minister of Artificial Intelligence and Digital Innovation, to
+  press the government to legislate worker consultation on workplace AI. The
+  unions call for new clauses in the Canada Labour Code that would compel
+  employers to consult and be transparent with employees before introducing AI
+  systems, arguing the national AI strategy gives too little weight to worker
+  input and job-loss risk. A day later, Minister Solomon announces that the
+  government will create an AI and Labour Advisory Council to give workers and
+  unions a voice in shaping AI policy.
+
+tags:
+  - labour
+  - unions
+  - workplace-ai
+  - canada-labour-code
+  - ai-and-labour-advisory-council
+  - job-displacement
+  - evan-solomon
+
+links:
+  - label: "The Globe and Mail — Unions press Ottawa to make companies consult employees before adopting AI"
+    url: https://www.theglobeandmail.com/business/article-unions-press-ottawa-to-force-companies-to-consult-employees-before/
+    icon: document
+  - label: "The Globe and Mail — Federal AI strategy fails to sufficiently address job-loss risk, unions contend"
+    url: https://www.theglobeandmail.com/business/article-federal-ai-strategy-unions-job-loss-risk/
+    icon: document

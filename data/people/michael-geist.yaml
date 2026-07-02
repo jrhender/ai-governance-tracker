@@ -1,0 +1,26 @@
+# people/michael-geist.yaml
+
+id: michael-geist
+schema_type: Person
+
+name: "Michael Geist"
+role: "Canada Research Chair in Internet and E-Commerce Law"
+affiliation: "University of Ottawa"
+
+bio: >
+  Michael Geist is a law professor at the University of Ottawa, where he holds
+  the Canada Research Chair in Internet and E-Commerce Law. One of Canada's most
+  prominent commentators on digital, privacy, and technology policy, he writes
+  widely on AI regulation and has appeared before parliamentary committees on
+  AI and privacy issues — including on Bill C-27's AIDA, the privacy reforms in
+  Bill C-36, and proposals to restrict minors' access to social media and AI
+  chatbots.
+
+url: https://www.michaelgeist.ca
+wikipedia: https://en.wikipedia.org/wiki/Michael_Geist
+
+tags:
+  - academic
+  - commentator
+  - privacy
+  - civil-society

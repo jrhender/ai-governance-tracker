@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const people = [...(await getCollection("people"))].sort((a, b) =>
+  a.data.name.localeCompare(b.data.name),
+);
+---
+
+<BaseLayout
+  title="People"
+  description="Ministers, officials, academics, and advocates shaping AI governance in Canada."
+>
+  <h1 class="font-display text-4xl text-header">People</h1>
+  <p class="mt-2 max-w-2xl text-muted">
+    Ministers, officials, academics, and advocates shaping AI governance in Canada.
+  </p>
+
+  {people.length === 0 ? (
+    <p class="mt-10 text-faint">No people tracked yet.</p>
+  ) : (
+    <ul class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+      {people.map((person) => (
+        <li>
+          <a
+            href={`/people/${person.id}/`}
+            class="block h-full rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
+          >
+            <h2 class="font-display text-lg text-header">{person.data.name}</h2>
+            {person.data.role && (
+              <p class="mt-1 text-sm text-muted">{person.data.role}</p>
+            )}
+            {person.data.affiliation && (
+              <p class="mt-0.5 text-xs text-faint">{person.data.affiliation}</p>
+            )}
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+</BaseLayout>

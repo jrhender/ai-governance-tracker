@@ -1,0 +1,24 @@
+# people/evan-solomon.yaml
+
+id: evan-solomon
+schema_type: Person
+
+name: "Evan Solomon"
+role: "Minister of Artificial Intelligence and Digital Innovation"
+affiliation: "Government of Canada"
+
+bio: >
+  Evan Solomon is Canada's first Minister of Artificial Intelligence and
+  Digital Innovation, appointed in 2025 in the government of Prime Minister
+  Mark Carney. A former broadcast journalist, he leads the federal AI file —
+  including the "AI for All" national strategy, the AI Compute Access Fund and
+  Sovereign AI Compute Strategy, privacy reform under Bill C-36, and the
+  government's engagement with frontier developers such as Anthropic.
+
+wikipedia: https://en.wikipedia.org/wiki/Evan_Solomon
+
+tags:
+  - minister
+  - federal-government
+  - ai-for-all
+  - evan-solomon

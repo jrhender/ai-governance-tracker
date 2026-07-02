@@ -1,13 +1,17 @@
 import { useState, useMemo } from "react";
 
-const COUNTRY_LABELS: Record<string, string> = { ca: "Canada", uk: "UK" };
+const COUNTRY_LABELS: Record<string, string> = {
+  ca: "Canada",
+  uk: "UK",
+  international: "International",
+};
 
 export type OrgEntry = {
   id: string;
   name: string;
   short_name?: string;
   url?: string;
-  country: "ca" | "uk";
+  country: "ca" | "uk" | "international";
   tags: string[];
   events: number;
   artifacts: number;

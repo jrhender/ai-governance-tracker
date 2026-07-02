@@ -16,6 +16,12 @@ const orgRoleSchema = z.object({
   role: z.string(),
 });
 
+// Which polity a record belongs to. Canadian records are the default; records
+// from international processes (G7, OECD, UN, ...) opt in explicitly.
+const jurisdictionSchema = z
+  .enum(["canada", "international"])
+  .default("canada");
+
 const events = defineCollection({
   loader: yamlGlob({ pattern: "*.yaml", base: dataDir("events") }),
   schema: z.object({
@@ -45,6 +51,7 @@ const events = defineCollection({
     related_artifacts: z
       .array(z.object({ id: reference("artifacts") }))
       .default([]),
+    jurisdiction: jurisdictionSchema,
   }),
 });
 
@@ -129,6 +136,7 @@ const artifacts = defineCollection({
       )
       .default([]),
     tags: z.array(z.string()).default([]),
+    jurisdiction: jurisdictionSchema,
   }),
 });
 
@@ -142,7 +150,7 @@ const organizations = defineCollection({
     short_name: z.string().optional(),
     url: z.string().url().optional(),
     wikipedia: z.string().url().optional(),
-    country: z.enum(["ca", "uk"]),
+    country: z.enum(["ca", "uk", "international"]),
     tags: z.array(z.string()).default([]),
   }),
 });

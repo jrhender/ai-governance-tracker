@@ -60,6 +60,29 @@ test.describe("timeline", () => {
     await expect(orgFilterAll).toHaveAttribute("aria-pressed", "true");
   });
 
+  test("jurisdiction filter narrows to international events and back", async ({
+    page,
+  }) => {
+    await page.goto("/timeline/");
+    const jurisdictionFilter = page.getByLabel("Filter by jurisdiction");
+
+    await jurisdictionFilter.getByRole("button", { name: "International" }).click();
+    await expect(
+      page.getByRole("heading", { name: /Hiroshima AI Process Reporting Framework 2\.0/i }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: NON_CIGI_EVENT_TITLE }),
+    ).toHaveCount(0);
+
+    await jurisdictionFilter.getByRole("button", { name: "Canada" }).click();
+    await expect(
+      page.getByRole("heading", { name: NON_CIGI_EVENT_TITLE }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: /Hiroshima AI Process Reporting Framework 2\.0/i }),
+    ).toHaveCount(0);
+  });
+
   test("timeline does not contain artifact entries", async ({ page }) => {
     await page.goto("/timeline/");
     const items = timelineItems(page);

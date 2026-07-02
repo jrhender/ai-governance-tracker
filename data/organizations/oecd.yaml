@@ -1,0 +1,16 @@
+# organizations/oecd.yaml
+
+id: oecd
+type: IntergovernmentalOrganization
+schema_type: GovernmentOrganization
+country: international
+
+name: "Organisation for Economic Co-operation and Development"
+short_name: "OECD"
+url: https://www.oecd.org
+wikipedia: https://en.wikipedia.org/wiki/OECD
+
+tags:
+  - intergovernmental
+  - international
+  - ai-policy

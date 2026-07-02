@@ -1,4 +1,5 @@
 import { getSourceCategory, type SourceCategory } from "./sourceCategory";
+import type { Jurisdiction } from "./jurisdiction";
 
 export type TimelineItem = {
   id: string;
@@ -13,6 +14,7 @@ export type TimelineItem = {
   orgs: { id: string; label: string }[]; // for displaying org chips
   links: { label: string; url: string; icon?: string }[]; // source links
   sourceCategory: SourceCategory;
+  jurisdiction: Jurisdiction;
 };
 
 export type OrgOption = {
@@ -33,6 +35,7 @@ export type EventInput = {
     type: string;
     organizations: { id: { id: string } }[];
     links: { label: string; url: string; icon?: string }[];
+    jurisdiction: Jurisdiction;
   };
 };
 
@@ -75,6 +78,7 @@ export function buildTimelineItems(
         return { id: o.id.id, label: org?.short_name ?? org?.name ?? o.id.id };
       }),
       links: e.data.links,
+      jurisdiction: e.data.jurisdiction,
       sourceCategory: getSourceCategory(
         e.data.organizations.map(
           (o) => orgMap.get(o.id.id)?.schema_type ?? "Organization",
@@ -98,4 +102,12 @@ export function filterBySource(
 ): TimelineItem[] {
   if (sourceCategory === "all") return items;
   return items.filter((i) => i.sourceCategory === sourceCategory);
+}
+
+export function filterByJurisdiction(
+  items: TimelineItem[],
+  jurisdiction: Jurisdiction | "all",
+): TimelineItem[] {
+  if (jurisdiction === "all") return items;
+  return items.filter((i) => i.jurisdiction === jurisdiction);
 }

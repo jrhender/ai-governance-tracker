@@ -10,6 +10,7 @@ const govArtifact: ArtifactEntry = {
   title: "Bill C-27",
   publishedDate: "2022-06-16",
   sourceCategory: "government",
+  jurisdiction: "canada",
 };
 
 const civilArtifact: ArtifactEntry = {
@@ -18,6 +19,16 @@ const civilArtifact: ArtifactEntry = {
   title: "Governing AI: A Plan for Canada",
   publishedDate: "2023-10-18",
   sourceCategory: "civil_society",
+  jurisdiction: "canada",
+};
+
+const intlArtifact: ArtifactEntry = {
+  id: "hiroshima-ai-process",
+  type: "PolicyDocument",
+  title: "Hiroshima AI Process",
+  publishedDate: "2023-05-19",
+  sourceCategory: "government",
+  jurisdiction: "international",
 };
 
 describe("PolicyWithSourceFilter", () => {
@@ -56,6 +67,37 @@ describe("PolicyWithSourceFilter", () => {
     await userEvent.click(screen.getByRole("button", { name: "Government" }));
     expect(screen.queryByText("White Papers")).not.toBeInTheDocument();
     expect(screen.getByText("Legislation")).toBeInTheDocument();
+  });
+
+  it("shows only canadian artifacts after clicking Canada", async () => {
+    render(
+      <PolicyWithSourceFilter artifacts={[govArtifact, intlArtifact]} />,
+    );
+    await userEvent.click(screen.getByRole("button", { name: "Canada" }));
+    expect(screen.getByText("Bill C-27")).toBeInTheDocument();
+    expect(screen.queryByText("Hiroshima AI Process")).not.toBeInTheDocument();
+  });
+
+  it("shows only international artifacts after clicking International", async () => {
+    render(
+      <PolicyWithSourceFilter artifacts={[govArtifact, intlArtifact]} />,
+    );
+    await userEvent.click(screen.getByRole("button", { name: "International" }));
+    expect(screen.queryByText("Bill C-27")).not.toBeInTheDocument();
+    expect(screen.getByText("Hiroshima AI Process")).toBeInTheDocument();
+  });
+
+  it("combines source and jurisdiction filters", async () => {
+    render(
+      <PolicyWithSourceFilter
+        artifacts={[govArtifact, civilArtifact, intlArtifact]}
+      />,
+    );
+    await userEvent.click(screen.getByRole("button", { name: "Government" }));
+    await userEvent.click(screen.getByRole("button", { name: "International" }));
+    expect(screen.getByText("Hiroshima AI Process")).toBeInTheDocument();
+    expect(screen.queryByText("Bill C-27")).not.toBeInTheDocument();
+    expect(screen.queryByText("Governing AI: A Plan for Canada")).not.toBeInTheDocument();
   });
 
   it("renders lifecycle status badge alongside source badge for Legislation", () => {

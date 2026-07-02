@@ -26,6 +26,16 @@ test.describe("organizations page", () => {
     await expect(page).toHaveURL(/\/orgs\/$/);
   });
 
+  test("International country pill shows international orgs", async ({ page }) => {
+    await page.goto("/orgs/");
+    const countryFilter = page.getByLabel("Filter by country");
+
+    await countryFilter.getByRole("button", { name: "International" }).click();
+    await expect(page.locator('main a[href="/orgs/oecd/"]')).toBeVisible();
+    await expect(page.locator('main a[href="/orgs/g7/"]')).toBeVisible();
+    await expect(page.locator('main a[href="/orgs/ised-canada/"]')).toHaveCount(0);
+  });
+
   test("header nav contains Organizations link", async ({ page }) => {
     await page.goto("/");
     const nav = page.locator("header nav");

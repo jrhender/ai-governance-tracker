@@ -1,10 +1,12 @@
 // src/components/TimelineWithFilter.tsx
 import { useState, useEffect, useMemo } from "react";
 import type { TimelineItem, OrgOption } from "../lib/timeline";
-import { filterByOrg, filterBySource } from "../lib/timeline";
+import { filterByOrg, filterBySource, filterByJurisdiction } from "../lib/timeline";
 import type { SourceCategory } from "../lib/sourceCategory";
+import type { Jurisdiction } from "../lib/jurisdiction";
 import OrgFilter from "./OrgFilter";
 import SourceFilter from "./SourceFilter";
+import JurisdictionFilter from "./JurisdictionFilter";
 import TimelineList from "./TimelineList";
 
 type Props = {
@@ -15,6 +17,7 @@ type Props = {
 export default function TimelineWithFilter({ items, orgs }: Props) {
   const [selectedOrgId, setSelectedOrgId] = useState<string | null>(null);
   const [selectedSource, setSelectedSource] = useState<SourceCategory | "all">("all");
+  const [selectedJurisdiction, setSelectedJurisdiction] = useState<Jurisdiction | "all">("all");
 
   useEffect(() => {
     function resolveOrg(): string | null {
@@ -44,8 +47,12 @@ export default function TimelineWithFilter({ items, orgs }: Props) {
   }
 
   const filteredItems = useMemo(
-    () => filterBySource(filterByOrg(items, selectedOrgId), selectedSource),
-    [items, selectedOrgId, selectedSource],
+    () =>
+      filterByJurisdiction(
+        filterBySource(filterByOrg(items, selectedOrgId), selectedSource),
+        selectedJurisdiction,
+      ),
+    [items, selectedOrgId, selectedSource, selectedJurisdiction],
   );
 
   return (
@@ -54,6 +61,10 @@ export default function TimelineWithFilter({ items, orgs }: Props) {
         <div>
           <p className="text-xs font-semibold uppercase tracking-wide text-faint mb-2">Source</p>
           <SourceFilter selected={selectedSource} onSelect={setSelectedSource} />
+        </div>
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wide text-faint mb-2">Jurisdiction</p>
+          <JurisdictionFilter selected={selectedJurisdiction} onSelect={setSelectedJurisdiction} />
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-wide text-faint mb-2">Organization</p>

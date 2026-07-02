@@ -1,7 +1,9 @@
 import { useState, useMemo } from "react";
 import type { SourceCategory } from "../lib/sourceCategory";
 import { sourceBadge, sourceCardStyle } from "../lib/sourceCategory";
+import type { Jurisdiction } from "../lib/jurisdiction";
 import SourceFilter from "./SourceFilter";
+import JurisdictionFilter from "./JurisdictionFilter";
 import { fmtDate } from "../lib/format";
 import { badgeClass, statusLabel } from "../lib/legislation";
 
@@ -20,6 +22,7 @@ export type ArtifactEntry = {
   lifecycleStatus?: string;
   currentStage?: string;
   sourceCategory: SourceCategory;
+  jurisdiction: Jurisdiction;
 };
 
 type Props = {
@@ -72,19 +75,29 @@ const SECTIONS: {
 
 export default function PolicyWithSourceFilter({ artifacts }: Props) {
   const [selectedSource, setSelectedSource] = useState<SourceCategory | "all">("all");
+  const [selectedJurisdiction, setSelectedJurisdiction] = useState<Jurisdiction | "all">("all");
 
   const filtered = useMemo(
     () =>
-      selectedSource === "all"
-        ? artifacts
-        : artifacts.filter((a) => a.sourceCategory === selectedSource),
-    [artifacts, selectedSource],
+      artifacts
+        .filter((a) => selectedSource === "all" || a.sourceCategory === selectedSource)
+        .filter(
+          (a) => selectedJurisdiction === "all" || a.jurisdiction === selectedJurisdiction,
+        ),
+    [artifacts, selectedSource, selectedJurisdiction],
   );
 
   return (
     <div>
-      <div className="mt-6">
-        <SourceFilter selected={selectedSource} onSelect={setSelectedSource} />
+      <div className="mt-6 space-y-3">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wide text-faint mb-2">Source</p>
+          <SourceFilter selected={selectedSource} onSelect={setSelectedSource} />
+        </div>
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wide text-faint mb-2">Jurisdiction</p>
+          <JurisdictionFilter selected={selectedJurisdiction} onSelect={setSelectedJurisdiction} />
+        </div>
       </div>
 
       {SECTIONS.map(({ type, heading, description }) => {

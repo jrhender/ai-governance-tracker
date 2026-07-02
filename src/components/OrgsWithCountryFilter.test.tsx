@@ -85,6 +85,29 @@ describe("OrgsWithCountryFilter", () => {
     expect(screen.getAllByText("Canada").length).toBeGreaterThanOrEqual(2);
   });
 
+  it("filters to international orgs when International pill is clicked", async () => {
+    const orgsWithIntl = [
+      ...orgs,
+      {
+        id: "oecd",
+        name: "Organisation for Economic Co-operation and Development",
+        short_name: "OECD",
+        country: "international" as const,
+        tags: ["intergovernmental"],
+        events: 1,
+        artifacts: 1,
+      },
+    ];
+    render(<OrgsWithCountryFilter orgs={orgsWithIntl} />);
+    expect(
+      screen.getByRole("button", { name: "International" }),
+    ).toBeInTheDocument();
+    await userEvent.click(screen.getByRole("button", { name: "International" }));
+    expect(screen.getByText("OECD")).toBeInTheDocument();
+    expect(screen.queryByText("AIGS")).not.toBeInTheDocument();
+    expect(screen.queryByText("DSIT")).not.toBeInTheDocument();
+  });
+
   it("auto-adds a pill when a new country appears in props", () => {
     const orgsWithUs = [
       ...orgs,

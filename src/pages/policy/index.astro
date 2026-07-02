@@ -38,6 +38,7 @@ const artifacts: ArtifactEntry[] = artifactCollection
       lifecycleStatus: a.data.lifecycle_status,
       currentStage: a.data.current_stage,
       sourceCategory: getSourceCategory(orgSchemaTypes),
+      jurisdiction: a.data.jurisdiction,
     };
   })
   .sort((a, b) => new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime());

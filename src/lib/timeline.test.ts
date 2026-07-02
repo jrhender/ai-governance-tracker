@@ -3,13 +3,20 @@ import {
   buildTimelineItems,
   filterByOrg,
   filterBySource,
+  filterByJurisdiction,
   type EventInput,
   type OrgInput,
   type TimelineItem,
 } from "./timeline";
 import type { SourceCategory } from "./sourceCategory";
+import type { Jurisdiction } from "./jurisdiction";
 
-function make(id: string, orgIds: string[], sourceCategory: SourceCategory = "government"): TimelineItem {
+function make(
+  id: string,
+  orgIds: string[],
+  sourceCategory: SourceCategory = "government",
+  jurisdiction: Jurisdiction = "canada",
+): TimelineItem {
   return {
     id,
     kind: "event",
@@ -22,6 +29,7 @@ function make(id: string, orgIds: string[], sourceCategory: SourceCategory = "go
     orgs: [],
     links: [],
     sourceCategory,
+    jurisdiction,
   };
 }
 
@@ -37,7 +45,12 @@ describe("buildTimelineItems", () => {
     },
   ];
 
-  function event(id: string, date: string, orgIds: string[]): EventInput {
+  function event(
+    id: string,
+    date: string,
+    orgIds: string[],
+    jurisdiction: Jurisdiction = "canada",
+  ): EventInput {
     return {
       id,
       data: {
@@ -48,6 +61,7 @@ describe("buildTimelineItems", () => {
         type: "GovernmentAnnouncement",
         organizations: orgIds.map((o) => ({ id: { id: o } })),
         links: [],
+        jurisdiction,
       },
     };
   }
@@ -78,6 +92,16 @@ describe("buildTimelineItems", () => {
     const [civil] = buildTimelineItems([event("b", "2017-03-22", ["cigi"])], orgs);
     expect(gov.sourceCategory).toBe("government");
     expect(civil.sourceCategory).toBe("civil_society");
+  });
+
+  it("passes jurisdiction through to the timeline item", () => {
+    const [intl] = buildTimelineItems(
+      [event("a", "2023-05-19", ["ised-canada"], "international")],
+      orgs,
+    );
+    const [ca] = buildTimelineItems([event("b", "2023-05-19", ["ised-canada"])], orgs);
+    expect(intl.jurisdiction).toBe("international");
+    expect(ca.jurisdiction).toBe("canada");
   });
 
   it("builds the event href and flattened orgIds", () => {
@@ -136,5 +160,31 @@ describe("filterBySource", () => {
 
   it("returns [] for empty input", () => {
     expect(filterBySource([], "government")).toEqual([]);
+  });
+});
+
+describe("filterByJurisdiction", () => {
+  const items: TimelineItem[] = [
+    make("a", [], "government", "canada"),
+    make("b", [], "government", "international"),
+    make("c", [], "civil_society", "canada"),
+  ];
+
+  it("returns all items when 'all' is selected", () => {
+    expect(filterByJurisdiction(items, "all")).toEqual(items);
+  });
+
+  it("returns only canadian items", () => {
+    const result = filterByJurisdiction(items, "canada");
+    expect(result.map((i) => i.id)).toEqual(["a", "c"]);
+  });
+
+  it("returns only international items", () => {
+    const result = filterByJurisdiction(items, "international");
+    expect(result.map((i) => i.id)).toEqual(["b"]);
+  });
+
+  it("returns [] for empty input", () => {
+    expect(filterByJurisdiction([], "canada")).toEqual([]);
   });
 });

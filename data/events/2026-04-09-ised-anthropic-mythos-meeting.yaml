@@ -1,0 +1,44 @@
+# events/2026-04-09-ised-anthropic-mythos-meeting.yaml
+
+id: ised-anthropic-mythos-meeting-2026
+type: PoliticalEvent
+schema_type: Event
+
+title: "Minister Solomon and ISED meet Anthropic over the Claude Mythos model"
+date: 2026-04-09
+status: completed
+
+organizations:
+  - id: ised-canada
+    role: participant
+
+description: >
+  After Anthropic decided not to release its powerful new Claude Mythos model
+  to the general public — citing its ability to detect and exploit software
+  vulnerabilities, and instead offering a preview to a select group of critical
+  infrastructure operators under a program dubbed "Project Glasswing" — the
+  Canadian government engages with the company. Officials from Innovation,
+  Science and Economic Development Canada meet Anthropic on April 8, and
+  Minister of Artificial Intelligence and Digital Innovation Evan Solomon meets
+  Anthropic on April 9, 2026. Solomon calls Anthropic's "defenders first"
+  approach the responsible path and says the company and the government are in
+  constructive, ongoing discussions. Canada later joins Project Glasswing
+  through the Canadian Centre for Cybersecurity, giving some Canadian
+  organizations access to the model to strengthen their cyber defences.
+
+tags:
+  - anthropic
+  - mythos
+  - project-glasswing
+  - cybersecurity
+  - frontier-ai
+  - evan-solomon
+  - ised
+
+links:
+  - label: "The Globe and Mail — Anthropic's AI model sparks rush to batten down defence hatches"
+    url: https://www.theglobeandmail.com/business/economy/article-anthropic-mythos-ai-defence/
+    icon: document
+  - label: "Global News — Canada's AI minister says Anthropic withholding Mythos is 'responsible'"
+    url: https://globalnews.ca/news/11801374/evan-solomon-anthropic-mythos-meeting/
+    icon: document

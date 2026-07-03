@@ -1,0 +1,15 @@
+# organizations/department-of-justice-canada.yaml
+
+id: department-of-justice-canada
+type: GovernmentOrganization
+schema_type: GovernmentOrganization
+country: ca
+
+name: "Department of Justice Canada"
+short_name: "Justice Canada"
+url: https://www.justice.gc.ca
+wikipedia: https://en.wikipedia.org/wiki/Department_of_Justice_(Canada)
+
+tags:
+  - federal-government
+  - canadian

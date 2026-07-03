@@ -1,0 +1,107 @@
+# artifacts/2025-12-09-bill-c16-protecting-victims-act.yaml
+
+id: bill-c16-protecting-victims-act
+type: Legislation
+schema_type: CreativeWork
+
+title: "Bill C-16 — Protecting Victims Act"
+published_date: 2025-12-09  # introduction / first reading date
+
+lifecycle_status: enacted
+current_stage: "Received royal assent on 18 June 2026 (S.C. 2026, c. 19)"
+
+organizations:
+  - id: department-of-justice-canada
+    role: sponsor
+
+description: |
+  Bill C-16, the Protecting Victims Act, is an omnibus criminal-law bill that
+  amends the Criminal Code and related Acts on child protection, gender-based
+  violence, and sentencing. It was introduced on 9 December 2025 by Sean
+  Fraser, Minister of Justice, and received royal assent on 18 June 2026 as
+  Statutes of Canada 2026, c. 19.
+
+  It is tracked here for its AI-relevant provisions on non-consensual intimate
+  images. During its study at the Standing Committee on Justice and Human
+  Rights (JUST), the bill's intimate-image provisions were strengthened to
+  address AI-generated content: the definition of an "intimate image" was
+  amended to refer explicitly to images created or altered using artificial
+  intelligence software, and the offence was broadened from "nude" to "nearly
+  nude" depictions — a response to AI tools that generate sexualized images of
+  identifiable people. The amendments also add a 48-hour platform takedown
+  expectation for flagged material and increase maximum penalties where the
+  image depicts sexual assault.
+
+  The Act's other measures — including making femicide first-degree murder and
+  restoring certain mandatory minimum sentences — fall outside this tracker's
+  AI-governance scope and are summarized only in passing.
+
+stages:
+  - date: 2025-12-09
+    stage: "Introduction and first reading (House of Commons)"
+    note: "Tabled by the Minister of Justice, Sean Fraser."
+  - date: 2026-02-02
+    stage: "Second reading passed; referred to JUST"
+    note: "Referred to the Standing Committee on Justice and Human Rights."
+  - date: 2026-03-23
+    stage: "Committee study begins (JUST)"
+    note: >
+      Clause-by-clause study; committee amendments strengthened the
+      non-consensual intimate-image provisions to explicitly capture
+      AI-generated and "nearly nude" images.
+  - date: 2026-05-06
+    stage: "Committee reports the bill back to the House"
+  - date: 2026-06-08
+    stage: "Report stage (House of Commons)"
+  - date: 2026-06-11
+    stage: "Third reading passed (House); first reading (Senate)"
+  - date: 2026-06-15
+    stage: "Second reading (Senate)"
+  - date: 2026-06-16
+    stage: "Committee study (Senate)"
+  - date: 2026-06-18
+    stage: "Third reading (Senate) and royal assent"
+    note: "Enacted as Statutes of Canada 2026, c. 19."
+
+provisions:
+  - id: ai-generated-intimate-images
+    title: "Intimate-image offence captures AI-generated content"
+    summary: >
+      Amend the Criminal Code definition of an "intimate image" to refer
+      explicitly to images created or altered using artificial intelligence
+      software, so that AI-generated sexual deepfakes of identifiable people
+      fall within the non-consensual distribution offence.
+  - id: nearly-nude-depictions
+    title: "Extend the offence to \"nearly nude\" depictions"
+    summary: >
+      Broaden the offence from "nude" to "nearly nude" depictions to capture
+      AI-generated images that place identifiable people in sexualized but not
+      fully nude scenarios.
+  - id: platform-takedown-timeline
+    title: "48-hour platform takedown expectation"
+    summary: >
+      Require flagged non-consensual intimate images to be removed by platforms
+      within 48 hours.
+  - id: enhanced-penalties-sexual-assault
+    title: "Enhanced penalties for images depicting sexual assault"
+    summary: >
+      Increase the maximum penalties where the non-consensual intimate image
+      depicts sexual assault.
+
+links:
+  - label: "LEGISinfo — Bill C-16 (45-1)"
+    url: https://www.parl.ca/legisinfo/en/bill/45-1/c-16
+    icon: document
+  - label: "Global News — New bill targets AI sexual deepfakes and nearly nude images"
+    url: https://globalnews.ca/news/11843238/bill-ai-sexual-deepfakes-nearly-nude-images/
+    icon: document
+
+tags:
+  - bill-c-16
+  - protecting-victims-act
+  - intimate-images
+  - non-consensual-intimate-images
+  - deepfakes
+  - criminal-code
+  - gender-based-violence
+  - royal-assent

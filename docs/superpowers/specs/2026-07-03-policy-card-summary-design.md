@@ -6,7 +6,7 @@
 ## Problem
 
 Every card on the Policy page renders the artifact's full `description`. Descriptions
-run 342–2,400 characters of multi-paragraph text across the 19 artifacts, so the page
+run 342–2,400 characters of multi-paragraph text across the 23 artifacts, so the page
 reads as a wall of text. Each card already links to a detail page
 (`/artifacts/{id}/`) that renders the full description, so the card copy is redundant.
 
@@ -26,7 +26,7 @@ Alternatives considered:
   description happens to open, and sentence splitting is fragile.
 
 Hand-written summaries give the best card reading quality for a one-time cost of
-writing 19 short summaries; the fallback covers anything unsummarized.
+writing 23 short summaries; the fallback covers anything unsummarized.
 
 ## Changes
 
@@ -43,7 +43,7 @@ and fails the build with a clear error.
 
 ### Data (`data/artifacts/*.yaml`)
 
-Add a `summary` to each of the 19 artifacts: 1–2 plain-text sentences (no markdown),
+Add a `summary` to each of the 23 artifacts: 1–2 plain-text sentences (no markdown),
 ≤ 300 characters, stating what the artifact is and why it matters. Place it directly
 above `description`.
 

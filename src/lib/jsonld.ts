@@ -61,3 +61,23 @@ export function buildOrgJsonLd(params: {
   if (params.sameAs) ld.sameAs = params.sameAs;
   return ld;
 }
+
+export function buildPersonJsonLd(params: {
+  name: string;
+  jobTitle?: string;
+  affiliation?: string;
+  url?: string;
+  sameAs?: string;
+}): Record<string, unknown> {
+  const ld: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: params.name,
+  };
+  if (params.jobTitle) ld.jobTitle = params.jobTitle;
+  if (params.affiliation)
+    ld.affiliation = { "@type": "Organization", name: params.affiliation };
+  if (params.url) ld.url = params.url;
+  if (params.sameAs) ld.sameAs = params.sameAs;
+  return ld;
+}

@@ -1,5 +1,10 @@
 import { describe, it, expect } from "vitest";
-import { buildEventJsonLd, buildCreativeWorkJsonLd, buildOrgJsonLd } from "./jsonld";
+import {
+  buildEventJsonLd,
+  buildCreativeWorkJsonLd,
+  buildOrgJsonLd,
+  buildPersonJsonLd,
+} from "./jsonld";
 
 describe("buildEventJsonLd", () => {
   it("sets context, type, name, startDate, url", () => {
@@ -188,5 +193,53 @@ describe("buildOrgJsonLd", () => {
       sameAs: "https://en.wikipedia.org/wiki/Senate_of_Canada",
     });
     expect(result.sameAs).toBe("https://en.wikipedia.org/wiki/Senate_of_Canada");
+  });
+});
+
+describe("buildPersonJsonLd", () => {
+  it("sets context, type, name", () => {
+    const result = buildPersonJsonLd({ name: "Evan Solomon" });
+    expect(result["@context"]).toBe("https://schema.org");
+    expect(result["@type"]).toBe("Person");
+    expect(result.name).toBe("Evan Solomon");
+  });
+
+  it("omits jobTitle, affiliation, url, sameAs when not provided", () => {
+    const result = buildPersonJsonLd({ name: "N" });
+    expect("jobTitle" in result).toBe(false);
+    expect("affiliation" in result).toBe(false);
+    expect("url" in result).toBe(false);
+    expect("sameAs" in result).toBe(false);
+  });
+
+  it("includes jobTitle when provided", () => {
+    const result = buildPersonJsonLd({
+      name: "Evan Solomon",
+      jobTitle: "Minister of Artificial Intelligence and Digital Innovation",
+    });
+    expect(result.jobTitle).toBe(
+      "Minister of Artificial Intelligence and Digital Innovation",
+    );
+  });
+
+  it("wraps affiliation as an Organization", () => {
+    const result = buildPersonJsonLd({
+      name: "Michael Geist",
+      affiliation: "University of Ottawa",
+    });
+    expect(result.affiliation).toEqual({
+      "@type": "Organization",
+      name: "University of Ottawa",
+    });
+  });
+
+  it("includes url and sameAs when provided", () => {
+    const result = buildPersonJsonLd({
+      name: "Michael Geist",
+      url: "https://www.michaelgeist.ca",
+      sameAs: "https://en.wikipedia.org/wiki/Michael_Geist",
+    });
+    expect(result.url).toBe("https://www.michaelgeist.ca");
+    expect(result.sameAs).toBe("https://en.wikipedia.org/wiki/Michael_Geist");
   });
 });

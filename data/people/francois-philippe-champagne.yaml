@@ -1,0 +1,24 @@
+# people/francois-philippe-champagne.yaml
+
+id: francois-philippe-champagne
+schema_type: Person
+
+name: "François-Philippe Champagne"
+role: "Minister of Finance and National Revenue"
+affiliation: "Government of Canada"
+
+bio: >
+  François-Philippe Champagne is a Liberal Member of Parliament and, since 2025,
+  Minister of Finance and National Revenue. As Minister of Innovation, Science
+  and Industry from 2021 to 2025 he led Canada's industrial AI agenda and
+  introduced Bill C-27, the Digital Charter Implementation Act, whose Artificial
+  Intelligence and Data Act (AIDA) would have been Canada's first dedicated AI
+  law before the bill died on prorogation in January 2025.
+
+wikipedia: https://en.wikipedia.org/wiki/Fran%C3%A7ois-Philippe_Champagne
+
+tags:
+  - minister
+  - federal-government
+  - bill-c-27
+  - aida

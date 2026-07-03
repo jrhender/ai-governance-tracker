@@ -1,0 +1,70 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { buildPersonJsonLd } from "../../lib/jsonld";
+
+export async function getStaticPaths() {
+  const people = await getCollection("people");
+  return people.map((person) => ({
+    params: { id: person.id },
+    props: { person },
+  }));
+}
+
+const { person } = Astro.props;
+const { data } = person;
+
+const jsonLd = buildPersonJsonLd({
+  name: data.name,
+  jobTitle: data.role,
+  affiliation: data.affiliation,
+  url: data.url,
+  sameAs: data.wikipedia,
+});
+---
+
+<BaseLayout title={data.name} description={`Person: ${data.name}`} jsonLd={jsonLd}>
+  <p class="text-sm text-faint">
+    <a href="/people/" class="hover:underline text-accent-dark">← People</a>
+  </p>
+  <h1 class="mt-4 font-display text-3xl text-header">{data.name}</h1>
+  {data.role && <p class="mt-1 text-muted">{data.role}</p>}
+  {data.affiliation && <p class="mt-0.5 text-sm text-faint">{data.affiliation}</p>}
+
+  {data.bio && (
+    <p class="mt-6 max-w-2xl text-base text-ink leading-relaxed">{data.bio}</p>
+  )}
+
+  <div class="mt-4 flex flex-wrap gap-4 text-sm">
+    {data.url && (
+      <a
+        href={data.url}
+        class="text-accent-dark hover:underline"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Website ↗
+      </a>
+    )}
+    {data.wikipedia && (
+      <a
+        href={data.wikipedia}
+        class="text-accent-dark hover:underline"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Wikipedia ↗
+      </a>
+    )}
+  </div>
+
+  {data.tags.length > 0 && (
+    <section class="mt-8 flex flex-wrap gap-2">
+      {data.tags.map((t) => (
+        <span class="rounded bg-body px-2 py-0.5 text-xs text-muted border border-border-lt">
+          #{t}
+        </span>
+      ))}
+    </section>
+  )}
+</BaseLayout>

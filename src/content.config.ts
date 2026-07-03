@@ -155,4 +155,19 @@ const organizations = defineCollection({
   }),
 });
 
-export const collections = { events, artifacts, organizations };
+const people = defineCollection({
+  loader: yamlGlob({ pattern: "*.yaml", base: dataDir("people") }),
+  schema: z.object({
+    id: z.string(),
+    schema_type: z.literal("Person"),
+    name: z.string(),
+    role: z.string().optional(),
+    affiliation: z.string().optional(),
+    bio: z.string().optional(),
+    url: z.string().url().optional(),
+    wikipedia: z.string().url().optional(),
+    tags: z.array(z.string()).default([]),
+  }),
+});
+
+export const collections = { events, artifacts, organizations, people };

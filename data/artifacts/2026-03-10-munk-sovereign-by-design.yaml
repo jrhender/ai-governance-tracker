@@ -18,6 +18,7 @@ organizations:
   - id: munk-school-uoft
     role: publisher
 
+summary: "Munk School report assessing Canada's position across the AI technology stack, warning that gaps in cloud infrastructure and compute hardware leave Canada vulnerable, and framing sovereignty as freedom from coercion rather than isolationism."
 description: |
   A report from the AI Competitiveness Project at the Munk School of Global
   Affairs & Public Policy (University of Toronto), authored by Senior Fellows

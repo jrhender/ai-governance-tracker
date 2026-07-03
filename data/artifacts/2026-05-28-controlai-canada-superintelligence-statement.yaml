@@ -11,6 +11,7 @@ organizations:
   - id: controlai
     role: publisher
 
+summary: "Campaign statement co-signed by a multipartisan group of MPs and senators calling for Canada to negotiate an international \"trust but verify\" regime to prohibit the development of superintelligent AI."
 description: >
   A short campaign statement, co-signed by a multipartisan group of Canadian
   MPs and senators and endorsed by leading AI researchers, calling for Canada

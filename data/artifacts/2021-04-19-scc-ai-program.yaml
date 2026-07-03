@@ -22,6 +22,7 @@ derives_from:
   - id: canada-national-ai-strategy-launched-2026
     relationship: renewed_by
 
+summary: "The Standards Council of Canada's federal program for AI and data governance standardization — the standards-and-certification layer of Canada's AI governance toolkit, complementing legislation and voluntary codes."
 description: |
   The Standards Council of Canada (SCC) runs the federal program to advance
   the development and adoption of standards and conformity assessment for

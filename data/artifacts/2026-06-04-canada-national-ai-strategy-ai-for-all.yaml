@@ -18,6 +18,7 @@ derives_from:
   - id: ai-strategy-summary-of-inputs-published-2026
     relationship: informed_by
 
+summary: "Canada's renewed national AI strategy, launched by Prime Minister Carney in June 2026 and led by ISED. Builds on the 2017 Pan-Canadian AI Strategy and the AI Sprint consultations rather than replacing them."
 description: |
   "AI for All" is Canada's renewed national AI strategy, launched by Prime
   Minister Mark Carney in Toronto on 4 June 2026 and led by Innovation,

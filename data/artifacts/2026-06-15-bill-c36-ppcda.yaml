@@ -18,6 +18,7 @@ derives_from:
   - id: canada-national-ai-strategy-launched-2026
     relationship: advances
 
+summary: "The Carney government's successor to Bill C-27's privacy reforms. Recognizes privacy as a fundamental right and creates a Digital Safety and Data Protection Commission of Canada with enhanced enforcement powers."
 description: |
   Bill C-36 would enact the Protecting Privacy and Consumer Data Act (PPCDA),
   amend the Personal Information Protection and Electronic Documents Act

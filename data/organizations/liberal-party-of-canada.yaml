@@ -1,0 +1,15 @@
+# organizations/liberal-party-of-canada.yaml
+
+id: liberal-party-of-canada
+type: PoliticalParty
+schema_type: Organization
+country: ca
+
+name: "Liberal Party of Canada"
+short_name: "LPC"
+url: https://liberal.ca
+wikipedia: https://en.wikipedia.org/wiki/Liberal_Party_of_Canada
+
+tags:
+  - political-party
+  - canadian

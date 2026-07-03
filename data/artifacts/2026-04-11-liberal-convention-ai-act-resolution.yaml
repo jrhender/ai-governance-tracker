@@ -1,0 +1,62 @@
+# artifacts/2026-04-11-liberal-convention-ai-act-resolution.yaml
+
+id: liberal-convention-ai-act-resolution-2026
+type: PolicyDocument
+schema_type: CreativeWork
+
+title: "Liberal Party 2026 Convention resolution: a Canadian Artificial Intelligence Act"
+published_date: 2026-04-11
+
+organizations:
+  - id: liberal-party-of-canada
+    role: adopted_by
+
+description: |
+  A policy resolution adopted by Liberal Party of Canada members at the party's
+  2026 National Convention in Montreal, calling for the introduction of a
+  Canadian Artificial Intelligence Act (CAIA) modelled on the European Union's
+  AI Act to regulate the use of AI in Canada.
+
+  The resolution proposes risk-based regulation: high-risk AI systems — such as
+  those used in health care, policing, and judicial settings — would have to
+  demonstrate safety, fairness, and bias mitigation before deployment, with
+  meaningful human oversight, interpretability, independent audits, strong
+  cybersecurity, high-quality representative data, clear labelling of
+  AI-generated content, and protections for mental privacy and brain data.
+  Limited-risk systems would face transparency requirements, and industry
+  representatives would be barred from voting on or auditing the rules,
+  participating on an observation-only basis. It sets an implementation
+  timeline of drafting and advancing the CAIA by 2026, strengthening or
+  establishing oversight bodies by 2027, and full implementation by 2028.
+
+  Party policy resolutions are non-binding on the government; they express the
+  membership's priorities and may inform, but do not commit, government policy.
+
+policy_recommendations:
+  - id: caia-enactment
+    title: "Enact a Canadian Artificial Intelligence Act (CAIA)"
+    summary: >
+      Introduce a Canadian Artificial Intelligence Act modelled on the EU AI
+      Act, applying risk-based regulation with pre-deployment safety, fairness,
+      and bias-mitigation requirements for high-risk systems, transparency for
+      limited-risk systems, and full implementation by 2028.
+    status: untracked
+
+links:
+  - label: "CBC — Liberal members vote in favour of age restrictions for social media, AI chatbots"
+    url: https://www.cbc.ca/news/politics/liberal-party-vote-on-social-media-age-restrictions-9.7159746
+    icon: document
+  - label: "The Logic — The Liberal Party is gearing up for a tech crackdown"
+    url: https://thelogic.co/commentary/quebec-ink/liberal-convention-2026-ai-social-media-regulation/
+    icon: document
+  - label: "Policy Resolutions — 2026 Liberal National Convention (PDF)"
+    url: https://2026.liberal.ca/wp-content/uploads/sites/565/2026/04/Policy-Resolutions-2026-National-Convention_OFFICIAL_ENG-1.pdf
+    icon: document
+
+tags:
+  - liberal-party
+  - party-resolution
+  - canadian-ai-act
+  - caia
+  - eu-ai-act
+  - risk-based-regulation

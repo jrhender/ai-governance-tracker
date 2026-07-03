@@ -106,6 +106,28 @@ describe("PolicyWithSourceFilter", () => {
     expect(screen.queryByText("Governing AI: A Plan for Canada")).not.toBeInTheDocument();
   });
 
+  it("renders the summary instead of the description when a summary is present", () => {
+    const withSummary: ArtifactEntry = {
+      ...govArtifact,
+      summary: "Canada's first proposed federal AI law.",
+      description: "Part 3 of Bill C-27 contained AIDA.\n\nIt died on prorogation.",
+    };
+    render(<PolicyWithSourceFilter artifacts={[withSummary]} />);
+    expect(screen.getByText("Canada's first proposed federal AI law.")).toBeInTheDocument();
+    expect(screen.queryByText(/Part 3 of Bill C-27/)).not.toBeInTheDocument();
+  });
+
+  it("falls back to the description's first paragraph, clamped, when summary is absent", () => {
+    const noSummary: ArtifactEntry = {
+      ...govArtifact,
+      description: "First paragraph text.\n\nSecond paragraph text.",
+    };
+    render(<PolicyWithSourceFilter artifacts={[noSummary]} />);
+    const fallback = screen.getByText("First paragraph text.");
+    expect(fallback).toHaveClass("line-clamp-3");
+    expect(screen.queryByText(/Second paragraph text/)).not.toBeInTheDocument();
+  });
+
   it("renders lifecycle status badge alongside source badge for Legislation", () => {
     const bill: ArtifactEntry = {
       ...govArtifact,

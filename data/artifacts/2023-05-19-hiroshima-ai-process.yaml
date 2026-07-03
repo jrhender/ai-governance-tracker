@@ -14,6 +14,7 @@ organizations:
   - id: oecd
     role: implementing_partner
 
+summary: "The G7's initiative for international governance of advanced AI, launched in May 2023. Produced voluntary guiding principles, a code of conduct for advanced AI developers, and the OECD-run HAIP reporting framework."
 description: |
   The Hiroshima AI Process (HAIP) is the G7's initiative for international
   governance of advanced AI systems, launched at the G7 Hiroshima Summit in

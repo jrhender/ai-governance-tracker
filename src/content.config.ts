@@ -73,6 +73,7 @@ const artifacts = defineCollection({
     schema_type: z.literal("CreativeWork"),
     title: z.string(),
     published_date: z.coerce.date(),
+    summary: z.string().max(300).optional(),
     description: z.string().optional(),
     lifecycle_status: z
       .enum(["active", "enacted", "died", "withdrawn"])

@@ -5,7 +5,7 @@ import type { Jurisdiction } from "../lib/jurisdiction";
 import { jurisdictionLabels, jurisdictionIcons } from "../lib/jurisdiction";
 import SourceFilter from "./SourceFilter";
 import JurisdictionFilter from "./JurisdictionFilter";
-import { fmtDate } from "../lib/format";
+import { fmtDate, leadText } from "../lib/format";
 import { badgeClass, statusLabel } from "../lib/legislation";
 
 export type ArtifactEntry = {
@@ -19,6 +19,7 @@ export type ArtifactEntry = {
     | "WhitePaper";
   title: string;
   publishedDate: string; // ISO string
+  summary?: string;
   description?: string;
   lifecycleStatus?: string;
   currentStage?: string;
@@ -147,9 +148,13 @@ export default function PolicyWithSourceFilter({ artifacts }: Props) {
                     {artifact.type === "Legislation" && artifact.currentStage && (
                       <p className="mt-2 text-sm text-muted">{artifact.currentStage}</p>
                     )}
-                    {artifact.description && (
-                      <p className="mt-2 text-sm text-muted">{artifact.description}</p>
-                    )}
+                    {artifact.summary ? (
+                      <p className="mt-2 text-sm text-muted">{artifact.summary}</p>
+                    ) : artifact.description ? (
+                      <p className="mt-2 text-sm text-muted line-clamp-3">
+                        {leadText(artifact.description)}
+                      </p>
+                    ) : null}
                     <p className="mt-2 text-xs text-faint">
                       {artifact.type === "Legislation" ? "Introduced" : "Published"}:{" "}
                       {fmtDate(artifact.publishedDate)}

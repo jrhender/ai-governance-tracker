@@ -37,6 +37,8 @@ organizations:
   - id: <committee-or-sponsoring-dept-id>
     role: reviewed_by | sponsor
 
+summary: "1–2 plain-text sentences, ≤ 300 chars — shown on the Policy page card. No markdown."
+
 description: |          # literal block scalar (|), NOT folded (>). See "Description" below.
   A few paragraphs: what the bill is, what it would do, where it currently
   sits, and the key dates. This is the text a reader scanning the artifact
@@ -89,9 +91,11 @@ If it prints `1` for text you wrote as several paragraphs, you used `>` —
 switch to `|`. (Single-paragraph fields like a provision `summary:` are
 fine with `>`; the trap is only multi-paragraph `description`.)
 
-Note: the policy listing card (`PolicyWithSourceFilter.tsx`) renders the
-*same* `description` as raw text in one `<p>`, so it always shows as a
-single block there regardless — only the artifact detail page paragraph-breaks.
+Every artifact should also carry a one-to-two-sentence `summary` (≤ 300
+characters, plain text) — the policy listing card
+(`PolicyWithSourceFilter.tsx`) shows `summary` and only falls back to a
+clamped first paragraph of `description` when it is missing. Only the
+artifact detail page renders the full `description`.
 
 ### The two events
 

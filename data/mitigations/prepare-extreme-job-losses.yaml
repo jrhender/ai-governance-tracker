@@ -1,0 +1,14 @@
+# mitigations/prepare-extreme-job-losses.yaml
+
+id: prepare-extreme-job-losses
+schema_type: DefinedTerm
+title: "Prepare for extreme AI-driven job losses"
+description: >
+  Prepare for the possibility of extreme job losses and economic disruption,
+  including by developing new income distribution infrastructure.
+mitigation_type: governance-oversight
+addresses_risks:
+  - labour-market-disruption
+status: untracked
+implemented_by: []
+tags: []

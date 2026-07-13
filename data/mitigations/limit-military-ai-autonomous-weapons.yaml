@@ -1,0 +1,13 @@
+# mitigations/limit-military-ai-autonomous-weapons.yaml
+
+id: limit-military-ai-autonomous-weapons
+schema_type: DefinedTerm
+title: "Limit AI in military decisions; regulate autonomous weapons"
+description: >
+  Limit use of AI systems in key military decisions and strengthen national
+  and international rules on the use of autonomous weapons.
+mitigation_type: governance-oversight
+addresses_risks: []
+status: untracked
+implemented_by: []
+tags: []

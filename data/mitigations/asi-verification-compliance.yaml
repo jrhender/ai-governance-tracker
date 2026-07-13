@@ -1,0 +1,14 @@
+# mitigations/asi-verification-compliance.yaml
+
+id: asi-verification-compliance
+schema_type: DefinedTerm
+title: "Develop technical verification to prevent ASI weaponization"
+description: >
+  Develop technical verification and compliance measures to prevent malicious
+  use and weaponization of ASI systems.
+mitigation_type: technical-security
+addresses_risks:
+  - loss-of-control
+status: untracked
+implemented_by: []
+tags: []

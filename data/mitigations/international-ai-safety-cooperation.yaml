@@ -1,0 +1,14 @@
+# mitigations/international-ai-safety-cooperation.yaml
+
+id: international-ai-safety-cooperation
+schema_type: DefinedTerm
+title: "Expand international AI safety cooperation"
+description: >
+  Expand international cooperation and research on AI safety and security,
+  including risks, technical safety, and governance mechanisms.
+mitigation_type: governance-oversight
+addresses_risks:
+  - loss-of-control
+status: untracked
+implemented_by: []
+tags: []

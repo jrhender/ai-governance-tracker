@@ -1,0 +1,13 @@
+# mitigations/inclusive-asi-governance.yaml
+
+id: inclusive-asi-governance
+schema_type: DefinedTerm
+title: "Ensure inclusive international ASI governance"
+description: >
+  Implement international agreement and cooperation to ensure inclusive and
+  legitimate decision making around the development and use of ASI.
+mitigation_type: governance-oversight
+addresses_risks: []
+status: untracked
+implemented_by: []
+tags: []

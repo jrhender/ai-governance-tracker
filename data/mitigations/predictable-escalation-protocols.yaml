@@ -1,0 +1,14 @@
+# mitigations/predictable-escalation-protocols.yaml
+
+id: predictable-escalation-protocols
+schema_type: DefinedTerm
+title: "Develop protocols for predictable AI-enabled military escalation"
+description: >
+  Limit use of AI systems in key military decisions and develop protocols for
+  scaled and predictable sabotage and retaliation to reduce the risk of
+  sudden destabilizing shifts in the balance of power.
+mitigation_type: governance-oversight
+addresses_risks: []
+status: untracked
+implemented_by: []
+tags: []

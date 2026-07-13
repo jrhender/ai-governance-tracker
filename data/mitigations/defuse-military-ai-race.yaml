@@ -1,0 +1,13 @@
+# mitigations/defuse-military-ai-race.yaml
+
+id: defuse-military-ai-race
+schema_type: DefinedTerm
+title: "Build trust to limit military AI race escalation"
+description: >
+  Build trust and defuse tension between rival powers to limit a military AI
+  race that could result in rapid, unintended escalation and global conflict.
+mitigation_type: governance-oversight
+addresses_risks: []
+status: untracked
+implemented_by: []
+tags: []

@@ -1,0 +1,19 @@
+# mitigations/comprehensive-ai-legislation.yaml
+
+id: comprehensive-ai-legislation
+schema_type: DefinedTerm
+title: "Enact comprehensive risk-based federal AI legislation"
+description: >
+  Pass a federal statute applying risk-based obligations to AI systems —
+  audits, transparency, liability, and pre-deployment requirements for
+  high-risk systems — with an independent regulator.
+mitigation_type: governance-oversight
+addresses_risks: []
+status: untracked
+implemented_by:
+  - artifact: bill-c27-aida
+    relationship: related
+    note: >
+      AIDA (part of Bill C-27) attempted a risk-based framework and died on
+      the Order Paper when Parliament was prorogued in January 2025.
+tags: [legislation, aida, caia]

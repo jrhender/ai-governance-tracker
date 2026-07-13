@@ -1,0 +1,15 @@
+# mitigations/lead-global-ai-governance.yaml
+
+id: lead-global-ai-governance
+schema_type: DefinedTerm
+title: "Champion and fund global AI governance efforts"
+description: >
+  Lead and fund international AI governance initiatives — at the UN, G7, and
+  OECD and through safety summits — including exploring CERN, IPCC, and IAEA
+  models, on the premise that domestic regulation alone cannot address
+  frontier AI developed abroad.
+mitigation_type: governance-oversight
+addresses_risks: []
+status: untracked
+implemented_by: []
+tags: [international, diplomacy]

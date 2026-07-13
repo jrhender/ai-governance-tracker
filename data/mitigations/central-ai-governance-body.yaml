@@ -1,0 +1,15 @@
+# mitigations/central-ai-governance-body.yaml
+
+id: central-ai-governance-body
+schema_type: DefinedTerm
+title: "Establish a central federal AI governance body"
+description: >
+  Create a dedicated federal centre of gravity for AI governance — a central
+  agency or Ministry of AI — to monitor developments, coordinate federal
+  action, communicate with provinces, and avoid ISED's conflicting mandate of
+  both boosting and regulating AI.
+mitigation_type: governance-oversight
+addresses_risks: []
+status: untracked
+implemented_by: []
+tags: [government-machinery]

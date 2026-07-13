@@ -1,0 +1,14 @@
+# mitigations/shared-understanding-global-risks.yaml
+
+id: shared-understanding-global-risks
+schema_type: DefinedTerm
+title: "Build shared understanding of global AI risks"
+description: >
+  Build shared international understanding about global-scale AI risks and
+  mitigations, including with rival powers, as a foundation for future
+  cooperation if needed.
+mitigation_type: governance-oversight
+addresses_risks: []
+status: untracked
+implemented_by: []
+tags: []

@@ -1,0 +1,14 @@
+# mitigations/remove-adoption-impediments.yaml
+
+id: remove-adoption-impediments
+schema_type: DefinedTerm
+title: "Remove regulatory impediments to AI adoption"
+description: >
+  Promote rapid AI adoption by removing regulatory impediments, while
+  strengthening incentives for the development and deployment of reliable
+  AI systems and tools.
+mitigation_type: governance-oversight
+addresses_risks: []
+status: untracked
+implemented_by: []
+tags: []

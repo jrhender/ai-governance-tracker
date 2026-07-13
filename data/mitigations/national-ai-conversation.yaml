@@ -1,0 +1,15 @@
+# mitigations/national-ai-conversation.yaml
+
+id: national-ai-conversation
+schema_type: DefinedTerm
+title: "Launch a national public conversation on AI"
+description: >
+  Hold nationwide open public consultations on AI's impact on jobs, wealth
+  concentration, and the balance between pursuing benefits and limiting
+  risks, so Canadians are informed and consulted on a technology reshaping
+  their lives.
+mitigation_type: governance-oversight
+addresses_risks: []
+status: untracked
+implemented_by: []
+tags: [public-consultation]

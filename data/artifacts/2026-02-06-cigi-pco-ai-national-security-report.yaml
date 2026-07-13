@@ -51,6 +51,7 @@ policy_recommendations:
       Promote widespread diffusion and adoption of reliable AI tools to advance
       productivity and prosperity, while preventing adoption of unreliable AI in
       critical systems.
+    mitigation: reliable-ai-adoption
     robustness: robust
 
   - id: rec-nr-002
@@ -58,6 +59,7 @@ policy_recommendations:
     summary: >
       Invest in widespread skills development and broad access to data and
       computing power.
+    mitigation: skills-data-compute-investment
     robustness: robust
 
   - id: rec-nr-003
@@ -65,6 +67,7 @@ policy_recommendations:
     summary: >
       Strengthen measures to support workers displaced by AI-enabled automation,
       including retraining, income support, and AI-enabled learning tools.
+    mitigation: support-displaced-workers
     robustness: robust
 
   - id: rec-nr-004
@@ -72,6 +75,7 @@ policy_recommendations:
     summary: >
       Strengthen information-sharing protocols to facilitate research cooperation
       without unintended information flows.
+    mitigation: information-sharing-protocols
     robustness: robust
 
   - id: rec-nr-005
@@ -79,6 +83,7 @@ policy_recommendations:
     summary: >
       Expand international cooperation and research on AI safety and security,
       including risks, technical safety, and governance mechanisms.
+    mitigation: international-ai-safety-cooperation
     robustness: robust
 
   - id: rec-nr-006
@@ -87,6 +92,7 @@ policy_recommendations:
       Build shared international understanding about global-scale AI risks and
       mitigations, including with rival powers, as a foundation for future
       cooperation if needed.
+    mitigation: shared-understanding-global-risks
     robustness: robust
 
   - id: rec-nr-007
@@ -94,6 +100,7 @@ policy_recommendations:
     summary: >
       Limit use of AI systems in key military decisions and strengthen national
       and international rules on the use of autonomous weapons.
+    mitigation: limit-military-ai-autonomous-weapons
     robustness: robust
 
   - id: rec-nr-008
@@ -101,6 +108,7 @@ policy_recommendations:
     summary: >
       Strengthen national and international AI incident monitoring and build
       protocols for coordinated emergency response.
+    mitigation: ai-incident-monitoring
     robustness: robust
 
   - id: rec-nr-009
@@ -109,6 +117,7 @@ policy_recommendations:
       Develop redundant physical and digital repositories of information for
       knowledge preservation in the event of an accidental or necessary internet
       shutdown.
+    mitigation: redundant-knowledge-repositories
     robustness: robust
 
   - id: rec-nr-010
@@ -116,6 +125,7 @@ policy_recommendations:
     summary: >
       Implement transparency requirements and whistleblower protections for
       disclosures about dangerous AI systems or practices.
+    mitigation: transparency-whistleblower-protections
     robustness: robust
 
   - id: rec-nr-011
@@ -124,6 +134,7 @@ policy_recommendations:
       Harden digital systems from cyberattacks, limit access to bio-synthesis
       tools, and improve detection and response to novel pathogens — essential
       at all levels of AI development.
+    mitigation: harden-digital-bio-defences
     robustness: robust
 
   # Scenario 1: AI Stall — necessary bets
@@ -133,6 +144,7 @@ policy_recommendations:
       Promote rapid AI adoption by removing regulatory impediments, while
       strengthening incentives for the development and deployment of reliable
       AI systems and tools.
+    mitigation: remove-adoption-impediments
     robustness: contingent
     scenarios: [scenario-ai-stall]
 
@@ -142,6 +154,7 @@ policy_recommendations:
       Prepare for the possibility of moderate-to-high job losses and economic
       disruption by enhancing policy measures for retraining, income support,
       business development, and cost-of-living reduction.
+    mitigation: prepare-moderate-job-losses
     robustness: contingent
     scenarios: [scenario-ai-stall]
 
@@ -151,6 +164,7 @@ policy_recommendations:
       Monitor and mitigate AI adoption risks in key domains such as nuclear
       missile launch, critical infrastructure, and personal companionship, to
       avoid critical failures.
+    mitigation: monitor-adoption-critical-domains
     robustness: contingent
     scenarios: [scenario-ai-stall]
 
@@ -160,6 +174,7 @@ policy_recommendations:
     summary: >
       Prepare for the possibility of extreme job losses and economic disruption,
       including by developing new income distribution infrastructure.
+    mitigation: prepare-extreme-job-losses
     robustness: contingent
     scenarios: [scenario-precarious-precipice]
 
@@ -168,6 +183,7 @@ policy_recommendations:
     summary: >
       Develop international systems to address severely widening income
       inequalities among countries driven by uneven AI adoption.
+    mitigation: international-income-inequality-systems
     robustness: contingent
     scenarios: [scenario-precarious-precipice]
 
@@ -177,6 +193,7 @@ policy_recommendations:
       Establish joint international limits on AI adoption in key domains such as
       nuclear missile launch and critical infrastructure to avoid critical
       failures.
+    mitigation: international-limits-critical-domains
     robustness: contingent
     scenarios: [scenario-precarious-precipice]
 
@@ -186,6 +203,7 @@ policy_recommendations:
       Establish joint international limits on the overall level of AI adoption
       and societal automation, if needed, to prevent excessive displacement of
       humans in decision making.
+    mitigation: limit-societal-automation
     robustness: contingent
     scenarios: [scenario-precarious-precipice]
 
@@ -194,6 +212,7 @@ policy_recommendations:
     summary: >
       Build trust and defuse tension between rival powers to limit a military AI
       race that could result in rapid, unintended escalation and global conflict.
+    mitigation: defuse-military-ai-race
     robustness: contingent
     scenarios: [scenario-precarious-precipice]
 
@@ -203,6 +222,7 @@ policy_recommendations:
       Limit use of AI systems in key military decisions and develop protocols for
       scaled and predictable sabotage and retaliation to reduce the risk of
       sudden destabilizing shifts in the balance of power.
+    mitigation: predictable-escalation-protocols
     robustness: contingent
     scenarios: [scenario-precarious-precipice]
 
@@ -212,6 +232,7 @@ policy_recommendations:
       Implement a robust international AI transparency and monitoring regime to
       provide timely alerts of emerging global AI risks, such as from imminent
       breakthroughs in AI capabilities.
+    mitigation: international-transparency-monitoring-regime
     robustness: contingent
     scenarios: [scenario-precarious-precipice]
 
@@ -221,6 +242,7 @@ policy_recommendations:
       Ensure that national and coordinated emergency response protocols are
       adequate to handle risks posed by the potential sudden emergence of much
       more capable AI systems.
+    mitigation: emergency-protocols-capability-jumps
     robustness: contingent
     scenarios: [scenario-precarious-precipice]
 
@@ -230,6 +252,7 @@ policy_recommendations:
     summary: >
       Develop mechanisms to coordinate use of ASIs across countries to avoid
       ASI-enabled conflict among multiple controllable ASI powers.
+    mitigation: coordinate-asi-use
     robustness: contingent
     scenarios: [scenario-hypercompetition]
 
@@ -238,6 +261,7 @@ policy_recommendations:
     summary: >
       Develop national or international mechanisms to prevent any single faction
       from gaining control of an ASI.
+    mitigation: prevent-asi-faction-takeover
     robustness: contingent
     scenarios: [scenario-hypercompetition, scenario-hyperpower]
 
@@ -246,6 +270,7 @@ policy_recommendations:
     summary: >
       Develop technical verification and compliance measures to prevent malicious
       use and weaponization of ASI systems.
+    mitigation: asi-verification-compliance
     robustness: contingent
     scenarios: [scenario-hypercompetition]
 
@@ -254,6 +279,7 @@ policy_recommendations:
     summary: >
       Prepare an international agreement with the ability to enforce a moratorium
       on ASI development if required.
+    mitigation: international-asi-prohibition-regime
     robustness: contingent
     scenarios: [scenario-hypercompetition]
 
@@ -262,6 +288,7 @@ policy_recommendations:
     summary: >
       Prepare an international agreement with mechanisms to coordinate use of
       ASIs across countries if safe ASI cooperation is seen as possible.
+    mitigation: safe-asi-cooperation-mechanisms
     robustness: contingent
     scenarios: [scenario-hypercompetition]
 
@@ -271,6 +298,7 @@ policy_recommendations:
     summary: >
       Adopt antitrust measures to prevent monopoly and singleton control of ASI
       in the market or politically.
+    mitigation: asi-antitrust-measures
     robustness: contingent
     scenarios: [scenario-hyperpower]
 
@@ -279,6 +307,7 @@ policy_recommendations:
     summary: >
       Implement international agreement and cooperation to ensure inclusive and
       legitimate decision making around the development and use of ASI.
+    mitigation: inclusive-asi-governance
     robustness: contingent
     scenarios: [scenario-hyperpower]
 
@@ -289,6 +318,7 @@ policy_recommendations:
       Develop the ability, via international cooperation if necessary, to prevent
       creation of ASI anywhere in the world until there is sufficient evidence
       that it can be controlled and aligned.
+    mitigation: international-asi-prohibition-regime
     robustness: contingent
     scenarios: [scenario-rogue-asi]
 
@@ -297,6 +327,7 @@ policy_recommendations:
     summary: >
       Prepare emergency response strategies including kill switches for ASI and
       protocols for rapid containment of a nascent rogue ASI.
+    mitigation: asi-emergency-kill-switches
     robustness: contingent
     scenarios: [scenario-rogue-asi]
 
@@ -305,6 +336,7 @@ policy_recommendations:
     summary: >
       Ensure air-gapped networks and robust cyber defence for critical systems
       to limit a rogue ASI's ability to propagate or gain control.
+    mitigation: air-gapped-critical-systems
     robustness: contingent
     scenarios: [scenario-rogue-asi]
 
@@ -314,6 +346,7 @@ policy_recommendations:
       Prepare resource stockpiles, citizen defence brigades, training programs,
       and analogue contingency systems to ensure continuity of authority in the
       event of loss of control to a rogue ASI.
+    mitigation: analogue-contingency-systems
     robustness: contingent
     scenarios: [scenario-rogue-asi]
 

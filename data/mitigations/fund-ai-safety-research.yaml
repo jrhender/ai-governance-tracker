@@ -1,0 +1,16 @@
+# mitigations/fund-ai-safety-research.yaml
+
+id: fund-ai-safety-research
+schema_type: DefinedTerm
+title: "Scale up public funding for AI safety and governance research"
+description: >
+  Invest more than $500M in technical AI safety and governance policy
+  research, coordinated through Canada's AI Safety Institute, including
+  dedicating a substantial share of public compute to frontier safety work.
+mitigation_type: governance-oversight
+addresses_risks:
+  - loss-of-control
+  - unreliable-ai-agents
+status: untracked
+implemented_by: []
+tags: [research-funding, caisi]

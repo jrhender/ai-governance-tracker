@@ -43,6 +43,7 @@ policy_recommendations:
       provinces, and coordinate federal action. ISED and other departments
       lack the institutional incentives or mandate to navigate and balance
       the full range of issues.
+    mitigation: central-ai-governance-body
 
   - id: rec-2023-002
     title: "Invest >$500M in AI governance and safety research"
@@ -51,6 +52,7 @@ policy_recommendations:
       earmarking the extra funds to developing better policy and technical AI
       safety solutions. Governance and safety research must rapidly catch up
       to the hundreds of billions invested annually in capabilities.
+    mitigation: fund-ai-safety-research
 
   - id: rec-2023-003
     title: "Champion and fund global AI governance efforts"
@@ -59,6 +61,7 @@ policy_recommendations:
       and OECD. Lead the conversation about CERN, IPCC, and IAEA models for
       global AI governance. Without global coordination, domestic regulation
       will simply push AI development to other jurisdictions.
+    mitigation: lead-global-ai-governance
 
   - id: rec-2023-004
     title: "Improve and pass the AI & Data Act"
@@ -66,6 +69,7 @@ policy_recommendations:
       Accelerate consultations and drafting of legislation as the best
       mechanism for enacting policies on audits, transparency, and liability.
       Establish a Canadian AI Commission to regulate high-risk models.
+    mitigation: comprehensive-ai-legislation
 
   - id: rec-2023-005
     title: "Launch a national conversation on AI"
@@ -75,6 +79,7 @@ policy_recommendations:
       the right balance between pursuing rewards and limiting risks. Canada's
       relative stability and strong AI ecosystem make it well placed to lead
       this conversation.
+    mitigation: national-ai-conversation
 
 tags:
   - ai-governance

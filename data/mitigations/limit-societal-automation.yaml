@@ -1,0 +1,15 @@
+# mitigations/limit-societal-automation.yaml
+
+id: limit-societal-automation
+schema_type: DefinedTerm
+title: "Limit overall societal automation to preserve human agency"
+description: >
+  Establish joint international limits on the overall level of AI adoption
+  and societal automation, if needed, to prevent excessive displacement of
+  humans in decision making.
+mitigation_type: governance-oversight
+addresses_risks:
+  - erosion-of-human-autonomy
+status: untracked
+implemented_by: []
+tags: []

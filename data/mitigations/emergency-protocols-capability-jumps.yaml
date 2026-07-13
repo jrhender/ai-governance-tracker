@@ -1,0 +1,15 @@
+# mitigations/emergency-protocols-capability-jumps.yaml
+
+id: emergency-protocols-capability-jumps
+schema_type: DefinedTerm
+title: "Ensure emergency protocols for sudden AI capability jumps"
+description: >
+  Ensure that national and coordinated emergency response protocols are
+  adequate to handle risks posed by the potential sudden emergence of much
+  more capable AI systems.
+mitigation_type: operational-process
+addresses_risks:
+  - loss-of-control
+status: untracked
+implemented_by: []
+tags: []

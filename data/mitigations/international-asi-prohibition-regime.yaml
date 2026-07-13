@@ -1,0 +1,15 @@
+# mitigations/international-asi-prohibition-regime.yaml
+
+id: international-asi-prohibition-regime
+schema_type: DefinedTerm
+title: "Prepare an international regime able to prohibit or pause superintelligence development"
+description: >
+  Negotiate an international "trust but verify" agreement with the ability to
+  enforce a moratorium on superintelligent AI development anywhere in the
+  world until there is sufficient evidence it can be controlled and aligned.
+mitigation_type: governance-oversight
+addresses_risks:
+  - loss-of-control
+status: untracked
+implemented_by: []
+tags: [superintelligence, international, treaty]

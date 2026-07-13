@@ -1,0 +1,15 @@
+# mitigations/international-transparency-monitoring-regime.yaml
+
+id: international-transparency-monitoring-regime
+schema_type: DefinedTerm
+title: "Implement international AI transparency and monitoring regime"
+description: >
+  Implement a robust international AI transparency and monitoring regime to
+  provide timely alerts of emerging global AI risks, such as from imminent
+  breakthroughs in AI capabilities.
+mitigation_type: transparency-accountability
+addresses_risks:
+  - loss-of-control
+status: untracked
+implemented_by: []
+tags: []

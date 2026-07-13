@@ -1,0 +1,17 @@
+# mitigations/national-ai-resilience.yaml
+
+id: national-ai-resilience
+schema_type: DefinedTerm
+title: "Build domestic resilience to AI-driven shocks"
+description: >
+  Implement domestic measures against secondary impacts of AI crises:
+  AI-powered cyberattacks on critical infrastructure, supply chain
+  disruptions, fiscal shocks from sustained job losses, and loss of access
+  to foreign compute.
+mitigation_type: operational-process
+addresses_risks:
+  - ai-enabled-cyberattacks
+  - labour-market-disruption
+status: untracked
+implemented_by: []
+tags: [resilience, critical-infrastructure]

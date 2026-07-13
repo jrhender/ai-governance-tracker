@@ -1,0 +1,13 @@
+# mitigations/international-income-inequality-systems.yaml
+
+id: international-income-inequality-systems
+schema_type: DefinedTerm
+title: "Develop systems to address widening international income inequality"
+description: >
+  Develop international systems to address severely widening income
+  inequalities among countries driven by uneven AI adoption.
+mitigation_type: governance-oversight
+addresses_risks: []
+status: untracked
+implemented_by: []
+tags: []

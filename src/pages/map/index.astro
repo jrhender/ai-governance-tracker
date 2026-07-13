@@ -1,0 +1,242 @@
+---
+// src/pages/map/index.astro
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { buildRiskMap } from "../../lib/riskMap";
+import {
+  MITIGATION_CATEGORIES,
+  MITIGATION_STATUSES,
+} from "../../lib/mitigationTaxonomy";
+
+const [risks, mitigations, artifacts, events] = await Promise.all([
+  getCollection("risks"),
+  getCollection("mitigations"),
+  getCollection("artifacts"),
+  getCollection("events"),
+]);
+
+const { domains, general, unmapped, metrics } = buildRiskMap(
+  risks.map((r) => ({ id: r.id, data: r.data })),
+  mitigations.map((m) => ({ id: m.id, data: m.data })),
+  artifacts.map((a) => ({ id: a.id, data: a.data })),
+  events.map((e) => ({ id: e.id, data: e.data })),
+);
+
+const statusColors: Record<string, string> = {
+  untracked: "bg-gray-100 text-gray-600 border-gray-200",
+  under_review: "bg-yellow-100 text-yellow-800 border-yellow-200",
+  adopted: "bg-green-100 text-green-800 border-green-200",
+  rejected: "bg-red-100 text-red-800 border-red-200",
+};
+
+const relationshipLabels: Record<string, string> = {
+  implements: "implements",
+  partially_implements: "partially implements",
+  related: "related",
+};
+---
+
+<BaseLayout
+  title="Map"
+  description="How identified AI risks map to proposed mitigations and their implementation status in Canadian policy."
+>
+  <h1 class="font-display text-4xl text-header">Risk → Mitigation → Implementation</h1>
+  <p class="mt-3 text-ink">
+    Which AI risks have been identified, which mitigations have been proposed
+    to address them, and whether the Canadian government has implemented them.
+  </p>
+
+  <section class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4" aria-label="Progress metrics">
+    <div class="rounded border border-border bg-surface p-3">
+      <div class="text-2xl font-semibold text-header">{metrics.riskCount}</div>
+      <div class="text-xs text-faint">risks tracked</div>
+    </div>
+    <div class="rounded border border-border bg-surface p-3">
+      <div class="text-2xl font-semibold text-header">{metrics.mitigationCount}</div>
+      <div class="text-xs text-faint">mitigations proposed</div>
+    </div>
+    <div class="rounded border border-border bg-surface p-3">
+      <div class="text-2xl font-semibold text-header">{metrics.statusCounts.adopted}</div>
+      <div class="text-xs text-faint">mitigations adopted</div>
+    </div>
+    <div class="rounded border border-border bg-surface p-3">
+      <div class="text-2xl font-semibold text-header">{metrics.unimplementedCount}</div>
+      <div class="text-xs text-faint">without implementation evidence</div>
+    </div>
+  </section>
+
+  {metrics.domainsWithoutAdopted.length > 0 && (
+    <p class="mt-4 rounded border border-border bg-body p-3 text-sm text-muted">
+      <strong class="text-ink">Coverage gap:</strong>
+      {" "}no adopted mitigation yet addresses risks in{" "}
+      {metrics.domainsWithoutAdopted.join(", ")}.
+    </p>
+  )}
+
+  {domains.map((group) => (
+    <section class="mt-10">
+      <h2 class="font-display text-2xl text-header">{group.label}</h2>
+      {group.risks.map((risk) => (
+        <div class="mt-4 rounded border border-border bg-surface p-4">
+          <div class="flex items-start justify-between gap-3">
+            <h3 class="font-medium text-ink">{risk.title}</h3>
+            <span class="shrink-0 rounded-full bg-body px-2 py-0.5 text-xs text-muted border border-border-lt">
+              {risk.subdomainLabel}
+            </span>
+          </div>
+          {risk.description && <p class="mt-1 text-sm text-muted">{risk.description}</p>}
+          {risk.identifiedBy.length > 0 && (
+            <p class="mt-2 text-xs text-faint">
+              Identified by:{" "}
+              {risk.identifiedBy.map((s, i) => (
+                <>
+                  {i > 0 && ", "}
+                  <a href={`/artifacts/${s.artifactId}/`} class="text-accent-dark hover:underline">
+                    {s.artifactTitle}
+                  </a>
+                </>
+              ))}
+            </p>
+          )}
+          <ul class="mt-3 space-y-2">
+            {risk.mitigations.map((m) => (
+              <li class="rounded border border-border-lt bg-body p-3">
+                <div class="flex items-start justify-between gap-3">
+                  <span class="text-sm font-medium text-ink">{m.title}</span>
+                  <div class="flex shrink-0 flex-wrap gap-1">
+                    {m.mitigationType && (
+                      <span class="rounded-full bg-surface px-2 py-0.5 text-xs text-muted border border-border-lt">
+                        {MITIGATION_CATEGORIES[m.mitigationType]}
+                      </span>
+                    )}
+                    <span class={`rounded-full px-2 py-0.5 text-xs border ${statusColors[m.status]}`}>
+                      {MITIGATION_STATUSES[m.status]}
+                    </span>
+                  </div>
+                </div>
+                {m.recommendedBy.length > 0 && (
+                  <p class="mt-1 text-xs text-faint">
+                    Recommended by:{" "}
+                    {m.recommendedBy.map((r, i) => (
+                      <>
+                        {i > 0 && ", "}
+                        <a href={`/artifacts/${r.artifactId}/`} class="text-accent-dark hover:underline">
+                          {r.artifactTitle}
+                        </a>
+                      </>
+                    ))}
+                  </p>
+                )}
+                {m.implementations.length > 0 && (
+                  <ul class="mt-1 text-xs text-faint">
+                    {m.implementations.map((impl) => (
+                      <li>
+                        {relationshipLabels[impl.relationship]}:{" "}
+                        <a
+                          href={`/${impl.kind === "artifact" ? "artifacts" : "events"}/${impl.id}/`}
+                          class="text-accent-dark hover:underline"
+                        >
+                          {impl.title}
+                        </a>
+                        {impl.note && <span> — {impl.note}</span>}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </section>
+  ))}
+
+  {general.length > 0 && (
+    <section class="mt-10">
+      <h2 class="font-display text-2xl text-header">General &amp; machinery mitigations</h2>
+      <p class="mt-1 text-sm text-muted">
+        Mitigations not tied to a single tracked risk — government machinery,
+        broad capacity building, and preparedness.
+      </p>
+      <ul class="mt-4 space-y-2">
+        {general.map((m) => (
+          <li class="rounded border border-border bg-surface p-3">
+            <div class="flex items-start justify-between gap-3">
+              <span class="text-sm font-medium text-ink">{m.title}</span>
+              <div class="flex shrink-0 flex-wrap gap-1">
+                {m.mitigationType && (
+                  <span class="rounded-full bg-body px-2 py-0.5 text-xs text-muted border border-border-lt">
+                    {MITIGATION_CATEGORIES[m.mitigationType]}
+                  </span>
+                )}
+                <span class={`rounded-full px-2 py-0.5 text-xs border ${statusColors[m.status]}`}>
+                  {MITIGATION_STATUSES[m.status]}
+                </span>
+              </div>
+            </div>
+            {m.recommendedBy.length > 0 && (
+              <p class="mt-1 text-xs text-faint">
+                Recommended by:{" "}
+                {m.recommendedBy.map((r, i) => (
+                  <>
+                    {i > 0 && ", "}
+                    <a href={`/artifacts/${r.artifactId}/`} class="text-accent-dark hover:underline">
+                      {r.artifactTitle}
+                    </a>
+                  </>
+                ))}
+              </p>
+            )}
+            {m.implementations.length > 0 && (
+              <ul class="mt-1 text-xs text-faint">
+                {m.implementations.map((impl) => (
+                  <li>
+                    {relationshipLabels[impl.relationship]}:{" "}
+                    <a
+                      href={`/${impl.kind === "artifact" ? "artifacts" : "events"}/${impl.id}/`}
+                      class="text-accent-dark hover:underline"
+                    >
+                      {impl.title}
+                    </a>
+                    {impl.note && <span> — {impl.note}</span>}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {unmapped.length > 0 && (
+    <section class="mt-10">
+      <h2 class="font-display text-2xl text-header">Not yet mapped</h2>
+      <p class="mt-1 text-sm text-muted">
+        Recommendations from tracked reports that have not been linked to a
+        canonical mitigation yet.
+      </p>
+      <ul class="mt-4 space-y-2">
+        {unmapped.map((r) => (
+          <li class="rounded border border-border bg-surface p-3">
+            <span class="text-sm font-medium text-ink">{r.title}</span>
+            <p class="mt-1 text-xs text-faint">
+              From{" "}
+              <a href={`/artifacts/${r.artifactId}/`} class="text-accent-dark hover:underline">
+                {r.artifactTitle}
+              </a>
+            </p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <p class="mt-12 text-xs text-faint">
+    Risk and mitigation classifications follow the{" "}
+    <a href="https://airisk.mit.edu/" class="text-accent-dark hover:underline" target="_blank" rel="noopener noreferrer">
+      MIT AI Risk Repository
+    </a>{" "}
+    taxonomies (Slattery et al.).
+  </p>
+</BaseLayout>

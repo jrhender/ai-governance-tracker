@@ -41,7 +41,6 @@ policy_recommendations:
       Act, applying risk-based regulation with pre-deployment safety, fairness,
       and bias-mitigation requirements for high-risk systems, transparency for
       limited-risk systems, and full implementation by 2028.
-    status: untracked
 
 links:
   - label: "CBC — Liberal members vote in favour of age restrictions for social media, AI chatbots"

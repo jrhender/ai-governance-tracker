@@ -48,7 +48,6 @@ policy_recommendations:
       AI developments, communicate with the provinces, and coordinate federal
       action. Avoids ISED's conflicting mandate of boosting development while
       also regulating it.
-    status: untracked
 
   - id: rec-2024-002
     title: "Champion and fund global AI governance efforts"
@@ -58,7 +57,6 @@ policy_recommendations:
       Without global coordination, domestic regulation will simply push AI
       development to other jurisdictions, and frontier AI development is
       mostly happening abroad.
-    status: untracked
 
   - id: rec-2024-003
     title: "Improve and pass the AI & Data Act and supporting regulations"
@@ -68,7 +66,6 @@ policy_recommendations:
       by moving its administration to the new Ministry of AI to avoid
       conflict with ISED's mandate. There is no time to drop the AIDA and
       reintroduce it later.
-    status: untracked
 
   - id: rec-2024-004
     title: "Increase and focus Budget 2024 investments on safety and governance"
@@ -78,7 +75,6 @@ policy_recommendations:
       more than 20% of the proposed AI Compute Access Fund for research on
       frontier AI safety. The AISI's $50M in funding is insufficient given
       the scale of AI safety needs.
-    status: untracked
 
   - id: rec-2024-005
     title: "Launch a national conversation on AI"
@@ -89,7 +85,6 @@ policy_recommendations:
       radically transform society, and managing this transition needs to start
       early with Canada's relative stability and strong AI ecosystem making
       it well placed to lead.
-    status: untracked
 
 tags:
   - ai-governance

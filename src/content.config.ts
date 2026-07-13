@@ -6,6 +6,10 @@ import {
   RISK_SUBDOMAIN_SLUGS,
   RISK_SUBDOMAINS,
 } from "./lib/riskTaxonomy";
+import {
+  MITIGATION_CATEGORY_SLUGS,
+  MITIGATION_STATUS_SLUGS,
+} from "./lib/mitigationTaxonomy";
 
 const dataDir = (sub: string) =>
   fileURLToPath(new URL(`../data/${sub}`, import.meta.url));
@@ -121,12 +125,7 @@ const artifacts = defineCollection({
           summary: z.string().optional().default(""),
           robustness: z.enum(["robust", "contingent"]).optional(),
           scenarios: z.array(z.string()).optional().default([]),
-          status: z.enum([
-            "untracked",
-            "under_review",
-            "adopted",
-            "rejected",
-          ]),
+          mitigation: reference("mitigations").optional(),
         }),
       )
       .default([]),
@@ -185,4 +184,49 @@ const risks = defineCollection({
     }),
 });
 
-export const collections = { events, artifacts, organizations, risks };
+const mitigations = defineCollection({
+  loader: yamlGlob({ pattern: "*.yaml", base: dataDir("mitigations") }),
+  schema: z.object({
+    id: z.string(),
+    schema_type: z.literal("DefinedTerm"),
+    title: z.string(),
+    description: z.string().optional(),
+    mitigation_type: z.enum(MITIGATION_CATEGORY_SLUGS).optional(),
+    addresses_risks: z.array(reference("risks")).default([]),
+    status: z.enum(MITIGATION_STATUS_SLUGS).default("untracked"),
+    implemented_by: z
+      .array(
+        z
+          .object({
+            artifact: reference("artifacts").optional(),
+            event: reference("events").optional(),
+            relationship: z.enum([
+              "implements",
+              "partially_implements",
+              "related",
+            ]),
+            note: z.string().optional(),
+          })
+          .superRefine((val, ctx) => {
+            const refs = [val.artifact, val.event].filter(Boolean).length;
+            if (refs !== 1) {
+              ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                message:
+                  "each implemented_by entry needs exactly one of artifact/event",
+              });
+            }
+          }),
+      )
+      .default([]),
+    tags: z.array(z.string()).default([]),
+  }),
+});
+
+export const collections = {
+  events,
+  artifacts,
+  organizations,
+  risks,
+  mitigations,
+};

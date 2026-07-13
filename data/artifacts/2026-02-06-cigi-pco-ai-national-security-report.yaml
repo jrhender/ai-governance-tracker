@@ -52,7 +52,6 @@ policy_recommendations:
       productivity and prosperity, while preventing adoption of unreliable AI in
       critical systems.
     robustness: robust
-    status: untracked
 
   - id: rec-nr-002
     title: "Invest in skills, data, and compute"
@@ -60,7 +59,6 @@ policy_recommendations:
       Invest in widespread skills development and broad access to data and
       computing power.
     robustness: robust
-    status: untracked
 
   - id: rec-nr-003
     title: "Support AI-displaced workers"
@@ -68,7 +66,6 @@ policy_recommendations:
       Strengthen measures to support workers displaced by AI-enabled automation,
       including retraining, income support, and AI-enabled learning tools.
     robustness: robust
-    status: untracked
 
   - id: rec-nr-004
     title: "Strengthen information-sharing protocols"
@@ -76,7 +73,6 @@ policy_recommendations:
       Strengthen information-sharing protocols to facilitate research cooperation
       without unintended information flows.
     robustness: robust
-    status: untracked
 
   - id: rec-nr-005
     title: "Expand international AI safety cooperation"
@@ -84,7 +80,6 @@ policy_recommendations:
       Expand international cooperation and research on AI safety and security,
       including risks, technical safety, and governance mechanisms.
     robustness: robust
-    status: untracked
 
   - id: rec-nr-006
     title: "Build shared understanding of global AI risks"
@@ -93,7 +88,6 @@ policy_recommendations:
       mitigations, including with rival powers, as a foundation for future
       cooperation if needed.
     robustness: robust
-    status: untracked
 
   - id: rec-nr-007
     title: "Limit AI in military decisions; regulate autonomous weapons"
@@ -101,7 +95,6 @@ policy_recommendations:
       Limit use of AI systems in key military decisions and strengthen national
       and international rules on the use of autonomous weapons.
     robustness: robust
-    status: untracked
 
   - id: rec-nr-008
     title: "Strengthen AI incident monitoring and emergency protocols"
@@ -109,7 +102,6 @@ policy_recommendations:
       Strengthen national and international AI incident monitoring and build
       protocols for coordinated emergency response.
     robustness: robust
-    status: untracked
 
   - id: rec-nr-009
     title: "Develop redundant knowledge repositories"
@@ -118,7 +110,6 @@ policy_recommendations:
       knowledge preservation in the event of an accidental or necessary internet
       shutdown.
     robustness: robust
-    status: untracked
 
   - id: rec-nr-010
     title: "Implement AI transparency and whistleblower protections"
@@ -126,7 +117,6 @@ policy_recommendations:
       Implement transparency requirements and whistleblower protections for
       disclosures about dangerous AI systems or practices.
     robustness: robust
-    status: untracked
 
   - id: rec-nr-011
     title: "Harden digital systems and biosecurity defences"
@@ -135,7 +125,6 @@ policy_recommendations:
       tools, and improve detection and response to novel pathogens — essential
       at all levels of AI development.
     robustness: robust
-    status: untracked
 
   # Scenario 1: AI Stall — necessary bets
   - id: rec-s1-001
@@ -146,7 +135,6 @@ policy_recommendations:
       AI systems and tools.
     robustness: contingent
     scenarios: [scenario-ai-stall]
-    status: untracked
 
   - id: rec-s1-002
     title: "Prepare for moderate-to-high AI-driven job losses"
@@ -156,7 +144,6 @@ policy_recommendations:
       business development, and cost-of-living reduction.
     robustness: contingent
     scenarios: [scenario-ai-stall]
-    status: untracked
 
   - id: rec-s1-003
     title: "Monitor AI adoption risks in critical domains"
@@ -166,7 +153,6 @@ policy_recommendations:
       avoid critical failures.
     robustness: contingent
     scenarios: [scenario-ai-stall]
-    status: untracked
 
   # Scenario 2: Precarious Precipice — necessary bets
   - id: rec-s2-001
@@ -176,7 +162,6 @@ policy_recommendations:
       including by developing new income distribution infrastructure.
     robustness: contingent
     scenarios: [scenario-precarious-precipice]
-    status: untracked
 
   - id: rec-s2-002
     title: "Develop systems to address widening international income inequality"
@@ -185,7 +170,6 @@ policy_recommendations:
       inequalities among countries driven by uneven AI adoption.
     robustness: contingent
     scenarios: [scenario-precarious-precipice]
-    status: untracked
 
   - id: rec-s2-003
     title: "Establish joint international limits on AI in critical domains"
@@ -195,7 +179,6 @@ policy_recommendations:
       failures.
     robustness: contingent
     scenarios: [scenario-precarious-precipice]
-    status: untracked
 
   - id: rec-s2-004
     title: "Limit overall societal automation to preserve human agency"
@@ -205,7 +188,6 @@ policy_recommendations:
       humans in decision making.
     robustness: contingent
     scenarios: [scenario-precarious-precipice]
-    status: untracked
 
   - id: rec-s2-005
     title: "Build trust to limit military AI race escalation"
@@ -214,7 +196,6 @@ policy_recommendations:
       race that could result in rapid, unintended escalation and global conflict.
     robustness: contingent
     scenarios: [scenario-precarious-precipice]
-    status: untracked
 
   - id: rec-s2-006
     title: "Develop protocols for predictable AI-enabled military escalation"
@@ -224,7 +205,6 @@ policy_recommendations:
       sudden destabilizing shifts in the balance of power.
     robustness: contingent
     scenarios: [scenario-precarious-precipice]
-    status: untracked
 
   - id: rec-s2-007
     title: "Implement international AI transparency and monitoring regime"
@@ -234,7 +214,6 @@ policy_recommendations:
       breakthroughs in AI capabilities.
     robustness: contingent
     scenarios: [scenario-precarious-precipice]
-    status: untracked
 
   - id: rec-s2-008
     title: "Ensure emergency protocols for sudden AI capability jumps"
@@ -244,7 +223,6 @@ policy_recommendations:
       more capable AI systems.
     robustness: contingent
     scenarios: [scenario-precarious-precipice]
-    status: untracked
 
   # Scenario 3a: Hypercompetition — necessary bets
   - id: rec-s3a-001
@@ -254,7 +232,6 @@ policy_recommendations:
       ASI-enabled conflict among multiple controllable ASI powers.
     robustness: contingent
     scenarios: [scenario-hypercompetition]
-    status: untracked
 
   - id: rec-s3a-002
     title: "Prevent ASI takeover by a faction"
@@ -263,7 +240,6 @@ policy_recommendations:
       from gaining control of an ASI.
     robustness: contingent
     scenarios: [scenario-hypercompetition, scenario-hyperpower]
-    status: untracked
 
   - id: rec-s3a-003
     title: "Develop technical verification to prevent ASI weaponization"
@@ -272,7 +248,6 @@ policy_recommendations:
       use and weaponization of ASI systems.
     robustness: contingent
     scenarios: [scenario-hypercompetition]
-    status: untracked
 
   - id: rec-s3a-004
     title: "Prepare moratorium agreement on ASI development"
@@ -281,7 +256,6 @@ policy_recommendations:
       on ASI development if required.
     robustness: contingent
     scenarios: [scenario-hypercompetition]
-    status: untracked
 
   - id: rec-s3a-005
     title: "Prepare mechanisms for safe international ASI cooperation"
@@ -290,7 +264,6 @@ policy_recommendations:
       ASIs across countries if safe ASI cooperation is seen as possible.
     robustness: contingent
     scenarios: [scenario-hypercompetition]
-    status: untracked
 
   # Scenario 3b: Hyperpower — necessary bets
   - id: rec-s3b-001
@@ -300,7 +273,6 @@ policy_recommendations:
       in the market or politically.
     robustness: contingent
     scenarios: [scenario-hyperpower]
-    status: untracked
 
   - id: rec-s3b-002
     title: "Ensure inclusive international ASI governance"
@@ -309,7 +281,6 @@ policy_recommendations:
       legitimate decision making around the development and use of ASI.
     robustness: contingent
     scenarios: [scenario-hyperpower]
-    status: untracked
 
   # Scenario 4: Rogue ASI — necessary bets
   - id: rec-s4-001
@@ -320,7 +291,6 @@ policy_recommendations:
       that it can be controlled and aligned.
     robustness: contingent
     scenarios: [scenario-rogue-asi]
-    status: untracked
 
   - id: rec-s4-002
     title: "Prepare ASI emergency response and kill switches"
@@ -329,7 +299,6 @@ policy_recommendations:
       protocols for rapid containment of a nascent rogue ASI.
     robustness: contingent
     scenarios: [scenario-rogue-asi]
-    status: untracked
 
   - id: rec-s4-003
     title: "Ensure air-gapped networks and cyber defence for critical systems"
@@ -338,7 +307,6 @@ policy_recommendations:
       to limit a rogue ASI's ability to propagate or gain control.
     robustness: contingent
     scenarios: [scenario-rogue-asi]
-    status: untracked
 
   - id: rec-s4-004
     title: "Prepare analogue contingency systems for continuity of authority"
@@ -348,7 +316,6 @@ policy_recommendations:
       event of loss of control to a rogue ASI.
     robustness: contingent
     scenarios: [scenario-rogue-asi]
-    status: untracked
 
 tags:
   - national-security

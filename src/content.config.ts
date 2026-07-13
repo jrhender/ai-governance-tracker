@@ -1,6 +1,11 @@
 import { defineCollection, z, reference } from "astro:content";
 import { fileURLToPath } from "node:url";
 import { yamlGlob } from "./content/yamlLoader";
+import {
+  RISK_DOMAIN_SLUGS,
+  RISK_SUBDOMAIN_SLUGS,
+  RISK_SUBDOMAINS,
+} from "./lib/riskTaxonomy";
 
 const dataDir = (sub: string) =>
   fileURLToPath(new URL(`../data/${sub}`, import.meta.url));
@@ -133,6 +138,7 @@ const artifacts = defineCollection({
           title: z.string(),
           summary: z.string(),
           evidence_level: z.enum(["established", "emerging", "uncertain"]),
+          risk: reference("risks").optional(),
         }),
       )
       .default([]),
@@ -156,4 +162,27 @@ const organizations = defineCollection({
   }),
 });
 
-export const collections = { events, artifacts, organizations };
+const risks = defineCollection({
+  loader: yamlGlob({ pattern: "*.yaml", base: dataDir("risks") }),
+  schema: z
+    .object({
+      id: z.string(),
+      schema_type: z.literal("DefinedTerm"),
+      title: z.string(),
+      description: z.string().optional(),
+      domain: z.enum(RISK_DOMAIN_SLUGS),
+      subdomain: z.enum(RISK_SUBDOMAIN_SLUGS),
+      tags: z.array(z.string()).default([]),
+    })
+    .superRefine((val, ctx) => {
+      if (RISK_SUBDOMAINS[val.subdomain].domain !== val.domain) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["subdomain"],
+          message: `subdomain "${val.subdomain}" belongs to domain "${RISK_SUBDOMAINS[val.subdomain].domain}", not "${val.domain}"`,
+        });
+      }
+    }),
+});
+
+export const collections = { events, artifacts, organizations, risks };

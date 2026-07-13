@@ -1,0 +1,11 @@
+# risks/unreliable-ai-agents.yaml
+
+id: unreliable-ai-agents
+schema_type: DefinedTerm
+title: "Unreliable autonomous AI agents"
+description: >
+  Failures of autonomously operating AI agents in settings where humans cannot
+  intervene before harm occurs.
+domain: ai-system-safety
+subdomain: lack-of-capability-robustness
+tags: [ai-agents, reliability]

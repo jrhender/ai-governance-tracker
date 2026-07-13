@@ -1,0 +1,11 @@
+# risks/ai-biochemical-weapons-uplift.yaml
+
+id: ai-biochemical-weapons-uplift
+schema_type: DefinedTerm
+title: "Biological and chemical weapons uplift"
+description: >
+  AI systems assisting actors, including novices, in developing biological or
+  chemical weapons.
+domain: malicious-actors-misuse
+subdomain: cyberattacks-weapons-mass-harm
+tags: [biosecurity, cbrn]

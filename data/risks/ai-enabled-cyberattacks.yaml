@@ -1,0 +1,11 @@
+# risks/ai-enabled-cyberattacks.yaml
+
+id: ai-enabled-cyberattacks
+schema_type: DefinedTerm
+title: "AI-enabled cyberattacks"
+description: >
+  Use of general-purpose AI to discover vulnerabilities and conduct cyber
+  operations against individuals, organizations, and critical infrastructure.
+domain: malicious-actors-misuse
+subdomain: cyberattacks-weapons-mass-harm
+tags: [cybersecurity, critical-infrastructure]

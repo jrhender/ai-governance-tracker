@@ -1,0 +1,11 @@
+# risks/ai-influence-operations.yaml
+
+id: ai-influence-operations
+schema_type: DefinedTerm
+title: "AI-driven influence and manipulation"
+description: >
+  Use of AI-generated content for persuasion, disinformation, and influence
+  operations at scale.
+domain: malicious-actors-misuse
+subdomain: disinformation-surveillance-influence
+tags: [disinformation, elections]

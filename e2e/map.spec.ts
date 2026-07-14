@@ -8,6 +8,9 @@ test.describe("map page", () => {
     ).toBeVisible();
     await expect(page.getByText("risks tracked")).toBeVisible();
     await expect(
+      page.getByRole("link", { name: "International AI Safety Report 2026" }),
+    ).toBeVisible();
+    await expect(
       page.getByRole("heading", { name: "AI system safety, failures & limitations", level: 2 }),
     ).toBeVisible();
   });

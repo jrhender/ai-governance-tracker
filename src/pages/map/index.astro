@@ -34,7 +34,12 @@ const { domains, general, unmapped, metrics } = buildRiskMap(
     All risks on this page are drawn from the{" "}
     <a href="/artifacts/international-ai-safety-report-2026/" class="text-accent-dark hover:underline">
       International AI Safety Report 2026
-    </a>, the international expert assessment chaired by Yoshua Bengio.
+    </a>, the international expert assessment chaired by Yoshua Bengio. Risks and
+    mitigations are classified using the{" "}
+    <a href="https://airisk.mit.edu/" class="text-accent-dark hover:underline" target="_blank" rel="noopener noreferrer">
+      MIT AI Risk Repository
+    </a>{" "}
+    taxonomies (Slattery et al.).
   </p>
 
   <section class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4" aria-label="Progress metrics">
@@ -59,7 +64,7 @@ const { domains, general, unmapped, metrics } = buildRiskMap(
   {metrics.domainsWithoutAdopted.length > 0 && (
     <p class="mt-4 rounded border border-border bg-body p-3 text-sm text-muted">
       <strong class="text-ink">Coverage gap:</strong>
-      {" "}no adopted mitigation yet addresses risks in{" "}
+      {" "}no adopted mitigation yet addresses risks in the MIT risk domains{" "}
       {metrics.domainsWithoutAdopted.join(", ")}.
     </p>
   )}
@@ -124,11 +129,4 @@ const { domains, general, unmapped, metrics } = buildRiskMap(
     </section>
   )}
 
-  <p class="mt-12 text-xs text-faint">
-    Risk and mitigation classifications follow the{" "}
-    <a href="https://airisk.mit.edu/" class="text-accent-dark hover:underline" target="_blank" rel="noopener noreferrer">
-      MIT AI Risk Repository
-    </a>{" "}
-    taxonomies (Slattery et al.).
-  </p>
 </BaseLayout>

@@ -1,0 +1,14 @@
+# mitigations/support-displaced-workers.yaml
+
+id: support-displaced-workers
+schema_type: DefinedTerm
+title: "Support AI-displaced workers"
+description: >
+  Strengthen measures to support workers displaced by AI-enabled automation,
+  including retraining, income support, and AI-enabled learning tools.
+mitigation_type: governance-oversight
+addresses_risks:
+  - labour-market-disruption
+status: untracked
+implemented_by: []
+tags: []

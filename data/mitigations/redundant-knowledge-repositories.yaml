@@ -1,0 +1,14 @@
+# mitigations/redundant-knowledge-repositories.yaml
+
+id: redundant-knowledge-repositories
+schema_type: DefinedTerm
+title: "Develop redundant knowledge repositories"
+description: >
+  Develop redundant physical and digital repositories of information for
+  knowledge preservation in the event of an accidental or necessary internet
+  shutdown.
+mitigation_type: operational-process
+addresses_risks: []
+status: untracked
+implemented_by: []
+tags: []

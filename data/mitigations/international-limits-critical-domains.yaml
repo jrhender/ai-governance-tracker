@@ -1,0 +1,15 @@
+# mitigations/international-limits-critical-domains.yaml
+
+id: international-limits-critical-domains
+schema_type: DefinedTerm
+title: "Establish joint international limits on AI in critical domains"
+description: >
+  Establish joint international limits on AI adoption in key domains such as
+  nuclear missile launch and critical infrastructure to avoid critical
+  failures.
+mitigation_type: governance-oversight
+addresses_risks:
+  - unreliable-ai-agents
+status: untracked
+implemented_by: []
+tags: []

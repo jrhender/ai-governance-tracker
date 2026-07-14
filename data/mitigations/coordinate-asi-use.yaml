@@ -1,0 +1,13 @@
+# mitigations/coordinate-asi-use.yaml
+
+id: coordinate-asi-use
+schema_type: DefinedTerm
+title: "Coordinate ASI use across countries to avoid conflict"
+description: >
+  Develop mechanisms to coordinate use of ASIs across countries to avoid
+  ASI-enabled conflict among multiple controllable ASI powers.
+mitigation_type: governance-oversight
+addresses_risks: []
+status: untracked
+implemented_by: []
+tags: []

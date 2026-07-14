@@ -1,0 +1,13 @@
+# mitigations/information-sharing-protocols.yaml
+
+id: information-sharing-protocols
+schema_type: DefinedTerm
+title: "Strengthen information-sharing protocols"
+description: >
+  Strengthen information-sharing protocols to facilitate research cooperation
+  without unintended information flows.
+mitigation_type: operational-process
+addresses_risks: []
+status: untracked
+implemented_by: []
+tags: []

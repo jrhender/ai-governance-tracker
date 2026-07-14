@@ -1,0 +1,11 @@
+# risks/erosion-of-human-autonomy.yaml
+
+id: erosion-of-human-autonomy
+schema_type: DefinedTerm
+title: "Erosion of human autonomy"
+description: >
+  Weakened critical thinking, automation bias, and social withdrawal from
+  reliance on AI systems and companions.
+domain: human-computer-interaction
+subdomain: loss-of-agency-autonomy
+tags: [autonomy, companions]

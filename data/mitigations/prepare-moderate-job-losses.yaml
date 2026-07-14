@@ -1,0 +1,15 @@
+# mitigations/prepare-moderate-job-losses.yaml
+
+id: prepare-moderate-job-losses
+schema_type: DefinedTerm
+title: "Prepare for moderate-to-high AI-driven job losses"
+description: >
+  Prepare for the possibility of moderate-to-high job losses and economic
+  disruption by enhancing policy measures for retraining, income support,
+  business development, and cost-of-living reduction.
+mitigation_type: governance-oversight
+addresses_risks:
+  - labour-market-disruption
+status: untracked
+implemented_by: []
+tags: []

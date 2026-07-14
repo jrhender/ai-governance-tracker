@@ -1,0 +1,11 @@
+# risks/labour-market-disruption.yaml
+
+id: labour-market-disruption
+schema_type: DefinedTerm
+title: "Labour market disruption"
+description: >
+  Displacement of workers and degradation of employment quality from
+  AI-enabled automation.
+domain: socioeconomic-environmental
+subdomain: inequality-employment-decline
+tags: [labour, employment]

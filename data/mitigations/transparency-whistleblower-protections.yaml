@@ -1,0 +1,14 @@
+# mitigations/transparency-whistleblower-protections.yaml
+
+id: transparency-whistleblower-protections
+schema_type: DefinedTerm
+title: "Implement AI transparency and whistleblower protections"
+description: >
+  Implement transparency requirements and whistleblower protections for
+  disclosures about dangerous AI systems or practices.
+mitigation_type: transparency-accountability
+addresses_risks:
+  - loss-of-control
+status: untracked
+implemented_by: []
+tags: []

@@ -1,0 +1,16 @@
+# mitigations/harden-digital-bio-defences.yaml
+
+id: harden-digital-bio-defences
+schema_type: DefinedTerm
+title: "Harden digital systems and biosecurity defences"
+description: >
+  Harden digital systems from cyberattacks, limit access to bio-synthesis
+  tools, and improve detection and response to novel pathogens — essential
+  at all levels of AI development.
+mitigation_type: technical-security
+addresses_risks:
+  - ai-enabled-cyberattacks
+  - ai-biochemical-weapons-uplift
+status: untracked
+implemented_by: []
+tags: []

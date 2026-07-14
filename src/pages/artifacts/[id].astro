@@ -31,13 +31,6 @@ const sources = await Promise.all(
   }),
 );
 
-const statusLabels: Record<string, string> = {
-  untracked: "Untracked",
-  under_review: "Under review",
-  adopted: "Adopted",
-  rejected: "Rejected",
-};
-
 const robustnessLabels: Record<string, string> = {
   robust: "No regrets",
   contingent: "Conditional",
@@ -192,9 +185,6 @@ const jsonLd = buildCreativeWorkJsonLd({
                     {robustnessLabels[r.robustness] ?? r.robustness}
                   </span>
                 )}
-                <span class="rounded-full bg-body px-2 py-0.5 text-xs text-muted border border-border-lt">
-                  {statusLabels[r.status] ?? r.status}
-                </span>
               </div>
             </div>
             {r.summary && (

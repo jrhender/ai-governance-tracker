@@ -1,0 +1,12 @@
+# risks/loss-of-control.yaml
+
+id: loss-of-control
+schema_type: DefinedTerm
+title: "Loss of control of advanced AI"
+description: >
+  Advanced AI systems evading oversight, gaming evaluations, or pursuing goals
+  in conflict with human intent, up to and including uncontrollable
+  superintelligent systems.
+domain: ai-system-safety
+subdomain: misalignment
+tags: [loss-of-control, agi, superintelligence]

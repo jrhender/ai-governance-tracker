@@ -1,0 +1,15 @@
+# mitigations/reliable-ai-adoption.yaml
+
+id: reliable-ai-adoption
+schema_type: DefinedTerm
+title: "Encourage reliable AI diffusion and adoption"
+description: >
+  Promote widespread diffusion and adoption of reliable AI tools to advance
+  productivity and prosperity, while preventing adoption of unreliable AI in
+  critical systems.
+mitigation_type: operational-process
+addresses_risks:
+  - unreliable-ai-agents
+status: untracked
+implemented_by: []
+tags: []

@@ -43,6 +43,7 @@ risk_findings:
       non-consensual intimate imagery. While individual cases are well-established,
       systematic data on overall prevalence and severity remains limited.
     evidence_level: established
+    risk: ai-enabled-crime-and-fraud
 
   - id: risk-iasr-002
     category: misuse
@@ -52,6 +53,7 @@ risk_findings:
       settings. Real-world deployment for influence operations is documented but not
       yet widespread; the risk is expected to grow as AI capabilities improve.
     evidence_level: emerging
+    risk: ai-influence-operations
 
   - id: risk-iasr-003
     category: misuse
@@ -62,6 +64,7 @@ risk_findings:
       general-purpose AI in cyber operations. The overall offence–defence balance
       remains uncertain.
     evidence_level: emerging
+    risk: ai-enabled-cyberattacks
 
   - id: risk-iasr-004
     category: misuse
@@ -72,6 +75,7 @@ risk_findings:
       safeguards as a precautionary measure. Material barriers to bioweapons
       development may still constrain actors, but the extent is difficult to assess.
     evidence_level: uncertain
+    risk: ai-biochemical-weapons-uplift
 
   # §2.2 — Structural risks (risks from AI system behaviour)
   - id: risk-iasr-005
@@ -82,6 +86,7 @@ risk_findings:
       humans to intervene before failures cause harm. Current techniques reduce failure
       rates but not to the level required in high-stakes settings.
     evidence_level: emerging
+    risk: unreliable-ai-agents
 
   - id: risk-iasr-006
     category: structural
@@ -93,6 +98,7 @@ risk_findings:
       lack the capabilities to pose a full loss-of-control risk, but are improving in
       relevant areas.
     evidence_level: uncertain
+    risk: loss-of-control
 
   # §2.3 — Societal impacts
   - id: risk-iasr-007
@@ -103,6 +109,7 @@ risk_findings:
       early-career workers in AI-exposed occupations such as writing. Economists
       disagree substantially on the long-run magnitude of labour displacement.
     evidence_level: emerging
+    risk: labour-market-disruption
 
   - id: risk-iasr-008
     category: societal
@@ -112,6 +119,7 @@ risk_findings:
       automation bias. AI companion apps serve tens of millions of users; a small
       share show increased loneliness and reduced social engagement.
     evidence_level: emerging
+    risk: erosion-of-human-autonomy
 
 tags:
   - ai-safety

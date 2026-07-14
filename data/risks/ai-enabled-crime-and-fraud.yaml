@@ -1,0 +1,11 @@
+# risks/ai-enabled-crime-and-fraud.yaml
+
+id: ai-enabled-crime-and-fraud
+schema_type: DefinedTerm
+title: "AI-enabled crime and fraud"
+description: >
+  Use of AI systems for scams, fraud, blackmail, and non-consensual intimate
+  imagery.
+domain: malicious-actors-misuse
+subdomain: fraud-scams-manipulation
+tags: [fraud, deepfakes]

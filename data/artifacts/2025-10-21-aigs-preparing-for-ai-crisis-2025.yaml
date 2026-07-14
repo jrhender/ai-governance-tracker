@@ -43,7 +43,6 @@ policy_recommendations:
       multiple crises including accidents, geopolitical tensions, employment
       disruption, economic shocks, and social unrest. Government must treat
       AI development as a strategic emergency.
-    status: untracked
 
   - id: rec-2025-002
     title: "Spearhead the global response"
@@ -52,7 +51,7 @@ policy_recommendations:
       protocols, and distribute AI benefits equitably across nations. Canada
       is well placed to lead global talks given its stable society, educated
       population, and reputation on the world stage.
-    status: untracked
+    mitigation: lead-global-ai-governance
 
   - id: rec-2025-003
     title: "Build Canada's resilience"
@@ -61,7 +60,7 @@ policy_recommendations:
       crisis, including AI-powered cyberattacks on critical infrastructure,
       supply chain disruptions from accidents or conflict, fiscal shocks from
       sustained job losses, and potential loss of access to foreign compute.
-    status: untracked
+    mitigation: national-ai-resilience
 
   - id: rec-2025-004
     title: "Engage Canadians in a national conversation on AI"
@@ -71,7 +70,7 @@ policy_recommendations:
       technology that will reshape their lives. Canada's relative stability
       and strong AI ecosystem make it a good position to pilot such a
       conversation.
-    status: untracked
+    mitigation: national-ai-conversation
 
 tags:
   - ai-governance

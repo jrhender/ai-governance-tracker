@@ -1,0 +1,13 @@
+# mitigations/safe-asi-cooperation-mechanisms.yaml
+
+id: safe-asi-cooperation-mechanisms
+schema_type: DefinedTerm
+title: "Prepare mechanisms for safe international ASI cooperation"
+description: >
+  Prepare an international agreement with mechanisms to coordinate use of
+  ASIs across countries if safe ASI cooperation is seen as possible.
+mitigation_type: governance-oversight
+addresses_risks: []
+status: untracked
+implemented_by: []
+tags: []

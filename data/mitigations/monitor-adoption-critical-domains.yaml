@@ -1,0 +1,15 @@
+# mitigations/monitor-adoption-critical-domains.yaml
+
+id: monitor-adoption-critical-domains
+schema_type: DefinedTerm
+title: "Monitor AI adoption risks in critical domains"
+description: >
+  Monitor and mitigate AI adoption risks in key domains such as nuclear
+  missile launch, critical infrastructure, and personal companionship, to
+  avoid critical failures.
+mitigation_type: operational-process
+addresses_risks:
+  - unreliable-ai-agents
+status: untracked
+implemented_by: []
+tags: []

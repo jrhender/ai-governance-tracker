@@ -1,0 +1,15 @@
+# mitigations/air-gapped-critical-systems.yaml
+
+id: air-gapped-critical-systems
+schema_type: DefinedTerm
+title: "Ensure air-gapped networks and cyber defence for critical systems"
+description: >
+  Ensure air-gapped networks and robust cyber defence for critical systems
+  to limit a rogue ASI's ability to propagate or gain control.
+mitigation_type: technical-security
+addresses_risks:
+  - ai-enabled-cyberattacks
+  - loss-of-control
+status: untracked
+implemented_by: []
+tags: []

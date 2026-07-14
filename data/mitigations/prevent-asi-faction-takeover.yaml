@@ -1,0 +1,14 @@
+# mitigations/prevent-asi-faction-takeover.yaml
+
+id: prevent-asi-faction-takeover
+schema_type: DefinedTerm
+title: "Prevent ASI takeover by a faction"
+description: >
+  Develop national or international mechanisms to prevent any single faction
+  from gaining control of an ASI.
+mitigation_type: governance-oversight
+addresses_risks:
+  - loss-of-control
+status: untracked
+implemented_by: []
+tags: []

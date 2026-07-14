@@ -1,0 +1,13 @@
+# mitigations/asi-antitrust-measures.yaml
+
+id: asi-antitrust-measures
+schema_type: DefinedTerm
+title: "Adopt antitrust measures against ASI monopoly"
+description: >
+  Adopt antitrust measures to prevent monopoly and singleton control of ASI
+  in the market or politically.
+mitigation_type: governance-oversight
+addresses_risks: []
+status: untracked
+implemented_by: []
+tags: []

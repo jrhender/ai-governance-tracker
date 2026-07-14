@@ -1,0 +1,13 @@
+# mitigations/skills-data-compute-investment.yaml
+
+id: skills-data-compute-investment
+schema_type: DefinedTerm
+title: "Invest in skills, data, and compute"
+description: >
+  Invest in widespread skills development and broad access to data and
+  computing power.
+mitigation_type: operational-process
+addresses_risks: []
+status: untracked
+implemented_by: []
+tags: []

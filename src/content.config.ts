@@ -1,6 +1,15 @@
 import { defineCollection, z, reference } from "astro:content";
 import { fileURLToPath } from "node:url";
 import { yamlGlob } from "./content/yamlLoader";
+import {
+  RISK_DOMAIN_SLUGS,
+  RISK_SUBDOMAIN_SLUGS,
+  RISK_SUBDOMAINS,
+} from "./lib/riskTaxonomy";
+import {
+  MITIGATION_CATEGORY_SLUGS,
+  MITIGATION_STATUS_SLUGS,
+} from "./lib/mitigationTaxonomy";
 
 const dataDir = (sub: string) =>
   fileURLToPath(new URL(`../data/${sub}`, import.meta.url));
@@ -116,12 +125,7 @@ const artifacts = defineCollection({
           summary: z.string().optional().default(""),
           robustness: z.enum(["robust", "contingent"]).optional(),
           scenarios: z.array(z.string()).optional().default([]),
-          status: z.enum([
-            "untracked",
-            "under_review",
-            "adopted",
-            "rejected",
-          ]),
+          mitigation: reference("mitigations").optional(),
         }),
       )
       .default([]),
@@ -133,6 +137,7 @@ const artifacts = defineCollection({
           title: z.string(),
           summary: z.string(),
           evidence_level: z.enum(["established", "emerging", "uncertain"]),
+          risk: reference("risks").optional(),
         }),
       )
       .default([]),
@@ -156,4 +161,72 @@ const organizations = defineCollection({
   }),
 });
 
-export const collections = { events, artifacts, organizations };
+const risks = defineCollection({
+  loader: yamlGlob({ pattern: "*.yaml", base: dataDir("risks") }),
+  schema: z
+    .object({
+      id: z.string(),
+      schema_type: z.literal("DefinedTerm"),
+      title: z.string(),
+      description: z.string().optional(),
+      domain: z.enum(RISK_DOMAIN_SLUGS),
+      subdomain: z.enum(RISK_SUBDOMAIN_SLUGS),
+      tags: z.array(z.string()).default([]),
+    })
+    .superRefine((val, ctx) => {
+      if (RISK_SUBDOMAINS[val.subdomain].domain !== val.domain) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["subdomain"],
+          message: `subdomain "${val.subdomain}" belongs to domain "${RISK_SUBDOMAINS[val.subdomain].domain}", not "${val.domain}"`,
+        });
+      }
+    }),
+});
+
+const mitigations = defineCollection({
+  loader: yamlGlob({ pattern: "*.yaml", base: dataDir("mitigations") }),
+  schema: z.object({
+    id: z.string(),
+    schema_type: z.literal("DefinedTerm"),
+    title: z.string(),
+    description: z.string().optional(),
+    mitigation_type: z.enum(MITIGATION_CATEGORY_SLUGS).optional(),
+    addresses_risks: z.array(reference("risks")).default([]),
+    status: z.enum(MITIGATION_STATUS_SLUGS).default("untracked"),
+    implemented_by: z
+      .array(
+        z
+          .object({
+            artifact: reference("artifacts").optional(),
+            event: reference("events").optional(),
+            relationship: z.enum([
+              "implements",
+              "partially_implements",
+              "related",
+            ]),
+            note: z.string().optional(),
+          })
+          .superRefine((val, ctx) => {
+            const refs = [val.artifact, val.event].filter(Boolean).length;
+            if (refs !== 1) {
+              ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                message:
+                  "each implemented_by entry needs exactly one of artifact/event",
+              });
+            }
+          }),
+      )
+      .default([]),
+    tags: z.array(z.string()).default([]),
+  }),
+});
+
+export const collections = {
+  events,
+  artifacts,
+  organizations,
+  risks,
+  mitigations,
+};

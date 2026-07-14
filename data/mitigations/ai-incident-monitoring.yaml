@@ -1,0 +1,15 @@
+# mitigations/ai-incident-monitoring.yaml
+
+id: ai-incident-monitoring
+schema_type: DefinedTerm
+title: "Strengthen AI incident monitoring and emergency protocols"
+description: >
+  Strengthen national and international AI incident monitoring and build
+  protocols for coordinated emergency response.
+mitigation_type: operational-process
+addresses_risks:
+  - loss-of-control
+  - unreliable-ai-agents
+status: untracked
+implemented_by: []
+tags: []

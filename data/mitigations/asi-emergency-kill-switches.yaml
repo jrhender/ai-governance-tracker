@@ -1,0 +1,14 @@
+# mitigations/asi-emergency-kill-switches.yaml
+
+id: asi-emergency-kill-switches
+schema_type: DefinedTerm
+title: "Prepare ASI emergency response and kill switches"
+description: >
+  Prepare emergency response strategies including kill switches for ASI and
+  protocols for rapid containment of a nascent rogue ASI.
+mitigation_type: technical-security
+addresses_risks:
+  - loss-of-control
+status: untracked
+implemented_by: []
+tags: []

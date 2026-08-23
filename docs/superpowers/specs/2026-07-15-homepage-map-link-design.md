@@ -17,8 +17,12 @@ Two small edits to `src/pages/index.astro`, no new components or data changes:
    > [risk map](/map/) shows which AI risks have been identified, which
    > mitigations have been proposed, and whether Canada has implemented them.
 
-   The link uses the site's standard inline-link styling
-   (`text-accent-dark hover:underline`).
+   The link uses `text-accent-dark underline` — the site's usual
+   `hover:underline` variant fails axe's `link-in-text-block` rule here,
+   because a link sitting inside a paragraph of body text must be
+   distinguishable from that text without relying on colour. Accent-dark
+   against `text-muted` is only 1.09:1, well under the required 3:1, so the
+   underline has to be present in the default state, not just on hover.
 
 2. **Map card.** Add a third card to the existing card grid, using the exact
    same markup pattern as the Organizations and Policy cards:

@@ -33,7 +33,7 @@ test.describe("homepage", () => {
     );
   });
 
-  test("explore cards link to /policy/ and /orgs/", async ({ page }) => {
+  test("explore cards cover all four site sections", async ({ page }) => {
     await page.goto("/");
     const main = page.locator("main");
     await expect(
@@ -42,5 +42,31 @@ test.describe("homepage", () => {
     await expect(
       main.getByRole("link", { name: /Policy/i }).first()
     ).toHaveAttribute("href", "/policy/");
+    // The Map and Timeline cards are matched on their descriptions: each shares
+    // an href with another link on the page (the "risk map" link in the intro
+    // and the "View full timeline" button), so a title-only match is ambiguous.
+    await expect(
+      main.getByRole("link", {
+        name: /How AI risks map to proposed mitigations/i,
+      })
+    ).toHaveAttribute("href", "/map/");
+    await expect(
+      main.getByRole("link", { name: /The full record of hearings/i })
+    ).toHaveAttribute("href", "/timeline/");
+  });
+
+  test("explore grid holds four cards, so no row is left short", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const grid = page.getByRole("navigation", { name: /Explore/i });
+    await expect(grid.getByRole("link")).toHaveCount(4);
+  });
+
+  test("intro paragraph links to the risk map", async ({ page }) => {
+    await page.goto("/");
+    const link = page.locator("main").getByRole("link", { name: /risk map/i });
+    await expect(link).toBeVisible();
+    await expect(link).toHaveAttribute("href", "/map/");
   });
 });

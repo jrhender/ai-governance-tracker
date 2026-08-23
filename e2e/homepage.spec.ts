@@ -33,7 +33,7 @@ test.describe("homepage", () => {
     );
   });
 
-  test("explore cards link to /policy/ and /orgs/", async ({ page }) => {
+  test("explore cards link to /policy/, /orgs/, and /map/", async ({ page }) => {
     await page.goto("/");
     const main = page.locator("main");
     await expect(
@@ -42,5 +42,19 @@ test.describe("homepage", () => {
     await expect(
       main.getByRole("link", { name: /Policy/i }).first()
     ).toHaveAttribute("href", "/policy/");
+    // Matched on the card's description so this can't accidentally resolve to
+    // the "risk map" link in the intro paragraph, which shares the same href.
+    await expect(
+      main.getByRole("link", {
+        name: /How AI risks map to proposed mitigations/i,
+      })
+    ).toHaveAttribute("href", "/map/");
+  });
+
+  test("intro paragraph links to the risk map", async ({ page }) => {
+    await page.goto("/");
+    const link = page.locator("main").getByRole("link", { name: /risk map/i });
+    await expect(link).toBeVisible();
+    await expect(link).toHaveAttribute("href", "/map/");
   });
 });

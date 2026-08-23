@@ -71,7 +71,10 @@ const latest = buildTimelineItems(events, organizations).slice(0, 3);
       </section>
     )}
 
-    <div class="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2">
+    <nav
+      aria-label="Explore"
+      class="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2"
+    >
       <a
         href="/orgs/"
         class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
@@ -99,7 +102,16 @@ const latest = buildTimelineItems(events, organizations).slice(0, 3);
           How AI risks map to proposed mitigations and their implementation status.
         </p>
       </a>
-    </div>
+      <a
+        href="/timeline/"
+        class="block rounded-r-lg border border-border border-l-4 border-l-accent bg-surface p-5 hover:border-l-accent-dark hover:shadow-sm transition-all no-underline"
+      >
+        <h2 class="font-display text-lg text-header">Timeline</h2>
+        <p class="mt-1 text-sm text-muted">
+          The full record of hearings, reports, and announcements.
+        </p>
+      </a>
+    </nav>
 
     <section class="mt-12">
       <h2 class="font-display text-2xl text-header">About this project</h2>

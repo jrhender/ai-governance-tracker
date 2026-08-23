@@ -32,7 +32,27 @@ Two small edits to `src/pages/index.astro`, no new components or data changes:
      implementation status."
    - Href: `/map/`
 
-   The grid stays `sm:grid-cols-2`; the third card wraps to a second row.
+3. **Timeline card.** A third card alone would wrap to a second row and sit
+   beside an empty half, which reads as an accident rather than a choice. A
+   fourth card fills the `sm:grid-cols-2` grid evenly and makes the set mirror
+   the four nav destinations:
+
+   - Title: **Timeline** (matches the nav label)
+   - Description: "The full record of hearings, reports, and announcements."
+   - Href: `/timeline/`
+
+   Three columns were the alternative, but the homepage content sits in a
+   `max-w-2xl` (672px) reading-width wrapper, so three cards would be ~213px
+   wide — around 173px of text once padding is subtracted — leaving the
+   descriptions to wrap into two-to-four ragged lines. Two columns keep each
+   card near 328px.
+
+   Timeline is also linked by the "View full timeline →" button above the grid.
+   That duplication is deliberate: the button continues the Latest activity
+   list, while the card belongs to the set of site sections.
+
+   The grid becomes `<nav aria-label="Explore">` so the four links form a named
+   landmark, matching how the Latest activity list is labelled.
 
 ## Out of scope
 

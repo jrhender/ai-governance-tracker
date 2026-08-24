@@ -1,0 +1,7 @@
+id: sample-event
+type: GovernmentAnnouncement
+schema_type: Event
+title: "A sample event"
+date: 2026-01-15
+tags:
+  - federal-government

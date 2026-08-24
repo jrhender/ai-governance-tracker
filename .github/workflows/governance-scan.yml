@@ -50,19 +50,36 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      # Deterministic reachability check. No agent, no quota. Runs on every
-      # scan so a source that starts bot-blocking is visible, and can be run
-      # alone via probe_only to test candidate feed urls.
-      - name: Probe source reachability
-        id: probe
-        continue-on-error: true
-        run: node scripts/governance-scan/probe.mjs 2>&1 | tee probe.txt
+      # Fetch the sources ourselves rather than letting the agent do it. Plain
+      # HTTP reaches canada.ca where the agent's WebFetch got 403, and doing it
+      # here means coverage is MEASURED, not self-reported by the agent.
+      - name: Fetch sources
+        run: node scripts/governance-scan/fetch.mjs 2>&1 | tee fetch.txt
+
+      # Gate on measured coverage before spending any quota. A scan that cannot
+      # see most of its sources cannot be trusted to report NO_NEW_LEADS.
+      - name: Check source coverage
+        env:
+          MIN_SOURCES_OK: '5'
+        run: |
+          node -e '
+            const cov = require("./sources-cache/coverage.json");
+            const ok = cov.filter((c) => c.ok);
+            const bad = cov.filter((c) => !c.ok);
+            const min = Number(process.env.MIN_SOURCES_OK || "5");
+            console.log("Coverage: " + ok.length + "/" + cov.length + " sources fetched.");
+            if (bad.length) {
+              console.error("::warning::Unreachable: " + bad.map((c) => c.id + " (" + c.attempts.map((a) => a.error || a.status).join(",") + ")").join("; "));
+            }
+            if (ok.length < min) {
+              console.error("::error::Only " + ok.length + " of " + cov.length + " sources were fetched (minimum " + min + "). Fix the source urls or lower MIN_SOURCES_OK deliberately.");
+              process.exit(1);
+            }
+          '
 
       - name: Stop here if probing only
         if: ${{ inputs.probe_only }}
-        run: |
-          echo "probe_only requested — skipping the scan."
-          exit 0
+        run: echo "probe_only requested — sources fetched, skipping the scan."
 
       - if: ${{ !inputs.probe_only }}
         run: npm install -g @anthropic-ai/claude-code@2.1.241
@@ -73,7 +90,6 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
-          MIN_SOURCES_OK: '5'
         run: |
           set -o pipefail
           claude -p "$(cat .github/prompts/governance-scan.md)"$'\n\nDRY_RUN='"$DRY_RUN" \
@@ -82,13 +98,6 @@ jobs:
             --allowed-tools 'Bash(gh issue create:*)' \
             --allowed-tools 'Read' \
             --allowed-tools 'WebSearch' \
-            --allowed-tools 'WebFetch(domain:www.parl.ca)' \
-            --allowed-tools 'WebFetch(domain:www.canada.ca)' \
-            --allowed-tools 'WebFetch(domain:ised-isde.canada.ca)' \
-            --allowed-tools 'WebFetch(domain:www.ourcommons.ca)' \
-            --allowed-tools 'WebFetch(domain:aigs.ca)' \
-            --allowed-tools 'WebFetch(domain:www.cigionline.org)' \
-            --allowed-tools 'WebFetch(domain:cifar.ca)' \
             --max-turns 60 \
             --output-format json < /dev/null 2>scan.err | tee scan.json
 
@@ -109,21 +118,14 @@ jobs:
               process.exit(1);
             }
 
-            const BLIND_TOOLS = new Set(["WebFetch", "WebSearch"]);
-            const describe = (x) => x.tool_name + " " + ((x.tool_input && x.tool_input.url) || "");
+            // Every denial is a warning now, not a failure. Blindness is caught
+            // deterministically by the coverage gate BEFORE the agent runs, so a
+            // denial here only means the agent reached for a tool it was told not
+            // to use — the content it needed was already on disk.
             const denials = j.permission_denials || [];
-            const blind = denials.filter((x) => BLIND_TOOLS.has(x.tool_name));
-            const other = denials.filter((x) => !BLIND_TOOLS.has(x.tool_name));
-
-            if (blind.length) {
-              console.error("::error::Scan hit " + blind.length + " blind-scan permission denial(s), the run could not see everything it needed to: " + blind.map(describe).join(", "));
-              if (other.length) {
-                console.error("::warning::Also saw " + other.length + " other permission denial(s), possibly recovered from: " + other.map(describe).join(", "));
-              }
-              process.exit(1);
-            }
-            if (other.length) {
-              console.error("::warning::Scan hit " + other.length + " permission denial(s) on non-fetch tools, likely recovered from: " + other.map(describe).join(", "));
+            if (denials.length) {
+              const describe = (x) => x.tool_name + " " + ((x.tool_input && (x.tool_input.url || x.tool_input.command)) || "");
+              console.error("::warning::Scan hit " + denials.length + " permission denial(s): " + denials.map(describe).join(", "));
             }
 
             if (j.subtype === "error_max_turns") {
@@ -135,31 +137,7 @@ jobs:
               process.exit(1);
             }
 
-            // Coverage gate. A source that 403s is not a permission denial and
-            // does not fail anything above — the first live run reported
-            // NO_NEW_LEADS while blind to 4 of 7 sources. Parse the block the
-            // prompt is required to emit and fail when coverage is too thin.
-            const text = j.result || "";
-            console.log(text);
-
-            const block = text.match(/```coverage\s*\n([\s\S]*?)```/);
-            if (!block) {
-              console.error("::error::Scan produced no ```coverage block, so per-source reachability is unknown. The prompt requires one.");
-              process.exit(1);
-            }
-            const rows = block[1].trim().split("\n").map((l) => l.trim()).filter(Boolean);
-            const ok = rows.filter((l) => /:\s*ok\s*$/i.test(l));
-            const bad = rows.filter((l) => !/:\s*ok\s*$/i.test(l));
-            const MIN_SOURCES_OK = Number(process.env.MIN_SOURCES_OK || "5");
-
-            console.log("Coverage: " + ok.length + "/" + rows.length + " sources read this run.");
-            if (bad.length) {
-              console.error("::warning::Unreachable this run: " + bad.join("; "));
-            }
-            if (ok.length < MIN_SOURCES_OK) {
-              console.error("::error::Only " + ok.length + " of " + rows.length + " sources were readable (minimum " + MIN_SOURCES_OK + "). A scan this blind cannot be trusted to report NO_NEW_LEADS \u2014 fix the source urls or lower MIN_SOURCES_OK deliberately.");
-              process.exit(1);
-            }
+            console.log(j.result || "");
           '
 
       - name: Upload scan log
@@ -170,4 +148,5 @@ jobs:
           path: |
             scan.json
             scan.err
-            probe.txt
+            fetch.txt
+            sources-cache/coverage.json

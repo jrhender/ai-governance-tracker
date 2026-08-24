@@ -47,4 +47,24 @@ describe("filterCandidates", () => {
     const many = Array.from({ length: 12 }, (_, i) => candidate({ title: `Add thing ${i}` }));
     expect(filterCandidates({ candidates: many, tracked, reportedTitles: [] })).toHaveLength(5);
   });
+
+  it("drops a candidate dated before the lookback window", () => {
+    const out = filterCandidates({
+      candidates: [candidate({ date: "2026-08-01" })],
+      tracked,
+      reportedTitles: [],
+      since: "2026-08-10",
+    });
+    expect(out).toEqual([]);
+  });
+
+  it("keeps a candidate dated on or after the lookback window", () => {
+    const out = filterCandidates({
+      candidates: [candidate({ date: "2026-08-10" })],
+      tracked,
+      reportedTitles: [],
+      since: "2026-08-10",
+    });
+    expect(out).toHaveLength(1);
+  });
 });

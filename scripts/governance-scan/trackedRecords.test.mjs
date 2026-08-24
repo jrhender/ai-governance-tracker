@@ -24,4 +24,11 @@ describe("loadTrackedRecords", () => {
     expect(records.length).toBeGreaterThan(20);
     expect(records.every((r) => typeof r.id === "string" && r.id.length > 0)).toBe(true);
   });
+
+  it("respects an ignore option to exclude subdirectories", async () => {
+    const records = await loadTrackedRecords(FIXTURES, { ignore: [`${FIXTURES}/events/**`] });
+    expect(records).toEqual([
+      { id: "sample-report", date: "2026-01-20", title: "A sample report", tags: ["think-tank"] },
+    ]);
+  });
 });

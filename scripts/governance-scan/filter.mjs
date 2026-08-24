@@ -1,6 +1,6 @@
 import { loadTrackedRecords } from "./trackedRecords.mjs";
 import { filterCandidates } from "./filterCandidates.mjs";
-import { reportedTitles } from "./github.mjs";
+import { reportedTitles, since } from "./github.mjs";
 
 const stdin = await new Promise((resolve) => {
   let buf = "";
@@ -17,6 +17,7 @@ process.stdout.write(
       candidates,
       tracked: await loadTrackedRecords(),
       reportedTitles: reportedTitles(),
+      since: since(),
     }),
   ),
 );

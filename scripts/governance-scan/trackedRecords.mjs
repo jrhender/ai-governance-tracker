@@ -6,8 +6,8 @@ import { parse } from "yaml";
  * Load every record in the tracker as a compact summary.
  * Records without an `id` are skipped — they are not addressable.
  */
-export async function loadTrackedRecords(dataDir = "data") {
-  const files = (await fg(`${dataDir}/**/*.yaml`)).sort();
+export async function loadTrackedRecords(dataDir = "data", { ignore = [] } = {}) {
+  const files = (await fg(`${dataDir}/**/*.yaml`, { ignore })).sort();
   const records = [];
 
   for (const file of files) {

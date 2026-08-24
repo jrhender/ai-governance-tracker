@@ -4,6 +4,10 @@
 # Auth: CLAUDE_CODE_OAUTH_TOKEN is a Claude subscription token minted with
 # `claude setup-token`. It is long-lived but NOT permanent — when it expires
 # this workflow fails loudly and the fix is to re-mint it and update the secret.
+# The claude-code CLI version below is pinned deliberately, since this
+# workflow's correctness depends on specific permission-denial and
+# result-schema behaviour — it needs periodic, deliberate bumping, not an
+# automatic float to @latest.
 
 name: Governance Scan
 
@@ -65,7 +69,7 @@ jobs:
             --allowed-tools 'WebFetch(domain:www.cigionline.org)' \
             --allowed-tools 'WebFetch(domain:cifar.ca)' \
             --max-turns 60 \
-            --output-format json | tee scan.json
+            --output-format json < /dev/null 2>scan.err | tee scan.json
 
           node -e '
             const fs = require("fs");
@@ -83,16 +87,33 @@ jobs:
               console.error("::error::scan.json is not valid JSON, the scan may have crashed or been interrupted: " + e.message);
               process.exit(1);
             }
-            const d = j.permission_denials || [];
-            if (d.length) {
-              console.error("::error::Scan hit " + d.length + " permission denial(s): " +
-                d.map(x => x.tool_name + " " + ((x.tool_input && x.tool_input.url) || "")).join(", "));
+
+            const BLIND_TOOLS = new Set(["WebFetch", "WebSearch"]);
+            const describe = (x) => x.tool_name + " " + ((x.tool_input && x.tool_input.url) || "");
+            const denials = j.permission_denials || [];
+            const blind = denials.filter((x) => BLIND_TOOLS.has(x.tool_name));
+            const other = denials.filter((x) => !BLIND_TOOLS.has(x.tool_name));
+
+            if (blind.length) {
+              console.error("::error::Scan hit " + blind.length + " blind-scan permission denial(s), the run could not see everything it needed to: " + blind.map(describe).join(", "));
+              if (other.length) {
+                console.error("::warning::Also saw " + other.length + " other permission denial(s), possibly recovered from: " + other.map(describe).join(", "));
+              }
               process.exit(1);
             }
+            if (other.length) {
+              console.error("::warning::Scan hit " + other.length + " permission denial(s) on non-fetch tools, likely recovered from: " + other.map(describe).join(", "));
+            }
+
             if (j.subtype === "error_max_turns") {
               console.error("::error::Scan hit the --max-turns limit before finishing (subtype=error_max_turns), results may be incomplete.");
               process.exit(1);
             }
+            if (j.is_error || (j.subtype && j.subtype.startsWith("error"))) {
+              console.error("::error::Scan ended in an error state (subtype=" + j.subtype + ", is_error=" + j.is_error + ").");
+              process.exit(1);
+            }
+
             console.log(j.result);
           '
 
@@ -101,4 +122,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: governance-scan-log
-          path: scan.json
+          path: |
+            scan.json
+            scan.err

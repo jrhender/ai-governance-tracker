@@ -1,10 +1,10 @@
 export const MAX_ISSUES_PER_RUN = 5;
 
 /**
- * Drop candidates that are already tracked, already reported, or
- * unsourced — then cap the survivors.
+ * Drop candidates that are already tracked, already reported, outside the
+ * lookback window, or unsourced — then cap the survivors.
  */
-export function filterCandidates({ candidates, tracked, reportedTitles }) {
+export function filterCandidates({ candidates, tracked, reportedTitles, since }) {
   const trackedKeys = new Set(tracked.map((r) => normalise(r.title)));
   for (const record of tracked) trackedKeys.add(normalise(record.id));
 
@@ -12,6 +12,7 @@ export function filterCandidates({ candidates, tracked, reportedTitles }) {
 
   return candidates
     .filter((c) => c.url && c.url.trim() !== "")
+    .filter((c) => !since || !c.date || c.date >= since)
     .filter((c) => !reportedKeys.has(normalise(c.title)))
     .filter((c) => !trackedKeys.has(normalise(stripAddPrefix(c.title))))
     .slice(0, MAX_ISSUES_PER_RUN);

@@ -1,6 +1,13 @@
 # Sources walked by .github/workflows/governance-scan.yml each weekday.
 # Tuning this list is the main lever on signal quality — add sources that
 # have produced real leads, remove ones that only produce noise.
+#
+# `feed:` is an OPTIONAL machine-readable feed for the same source. Several of
+# these sites bot-block direct page fetches (the first live run got HTTP 403
+# from four of seven), and feeds are usually served to machines without
+# blocking. The feed urls below are CANDIDATES, not verified — run
+# `node scripts/governance-scan/probe.mjs` on a runner to find out which
+# actually resolve, then keep the winners and delete the rest.
 
 sources:
   - id: legisinfo
@@ -12,6 +19,7 @@ sources:
     name: ISED news releases
     url: https://www.canada.ca/en/innovation-science-economic-development/news.html
     look_for: AI strategy, funding, codes of practice, ministerial announcements
+    feed: https://api.io.canada.ca/io-server/gc/news/en/v2?dept=innovationsciencedevelopment&sort=publishedDate&orderBy=desc&pick=25&format=atom  # candidate, unverified
 
   - id: indu-committee
     name: INDU — Standing Committee on Industry and Technology
@@ -27,13 +35,16 @@ sources:
     name: AI Governance & Safety Canada
     url: https://aigs.ca/
     look_for: reports, briefs, campaigns
+    feed: https://aigs.ca/feed/  # candidate, unverified
 
   - id: cigi
     name: Centre for International Governance Innovation
     url: https://www.cigionline.org/topics/artificial-intelligence/
     look_for: AI governance reports and policy briefs
+    feed: https://www.cigionline.org/rss.xml  # candidate, unverified
 
   - id: cifar
     name: CIFAR — Pan-Canadian AI Strategy
     url: https://cifar.ca/ai/
     look_for: strategy phases, funding, national AI institute news
+    feed: https://cifar.ca/feed/  # candidate, unverified

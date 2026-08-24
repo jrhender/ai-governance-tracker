@@ -1,6 +1,6 @@
 // @vitest-environment node
 import { describe, it, expect } from "vitest";
-import { filterCandidates } from "./filterCandidates.mjs";
+import { filterCandidates, maxIssues, DEFAULT_MAX_ISSUES } from "./filterCandidates.mjs";
 
 const tracked = [
   { id: "hiroshima-ai-process", date: "2023-05-19", title: "Hiroshima AI Process launched", tags: [] },
@@ -66,5 +66,27 @@ describe("filterCandidates", () => {
       since: "2026-08-10",
     });
     expect(out).toHaveLength(1);
+  });
+});
+
+describe("maxIssues", () => {
+  it("defaults to 5", () => {
+    expect(maxIssues({})).toBe(DEFAULT_MAX_ISSUES);
+    expect(DEFAULT_MAX_ISSUES).toBe(5);
+  });
+
+  it("honours a deliberate override for a catch-up run", () => {
+    expect(maxIssues({ MAX_ISSUES: "25" })).toBe(25);
+  });
+
+  it("falls back to 5 on junk, zero or negative rather than filing nothing", () => {
+    expect(maxIssues({ MAX_ISSUES: "abc" })).toBe(5);
+    expect(maxIssues({ MAX_ISSUES: "0" })).toBe(5);
+    expect(maxIssues({ MAX_ISSUES: "-3" })).toBe(5);
+  });
+
+  it("raises the cap when passed explicitly", () => {
+    const many = Array.from({ length: 12 }, (_, i) => candidate({ title: `Add thing ${i}` }));
+    expect(filterCandidates({ candidates: many, tracked, reportedTitles: [], max: 10 })).toHaveLength(10);
   });
 });

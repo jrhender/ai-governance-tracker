@@ -1,6 +1,9 @@
 import { execFileSync } from "node:child_process";
 
-const LOOKBACK_DAYS = 14;
+// 14 days for the daily run: long enough that a failed or missed run leaves
+// no gap, short enough to keep each scan cheap. LOOKBACK_DAYS overrides it for
+// a deliberate one-off catch-up over a wider window.
+const DEFAULT_LOOKBACK_DAYS = 14;
 
 /**
  * Titles of every `content`-labelled issue, open AND closed.
@@ -21,6 +24,12 @@ export function reportedTitles() {
 }
 
 /** Start of the rolling lookback window, as YYYY-MM-DD. */
-export function since() {
-  return new Date(Date.now() - LOOKBACK_DAYS * 86400000).toISOString().slice(0, 10);
+export function since(days = lookbackDays()) {
+  return new Date(Date.now() - days * 86400000).toISOString().slice(0, 10);
+}
+
+/** Lookback in days: LOOKBACK_DAYS if it is a sane positive number, else 14. */
+export function lookbackDays(env = process.env) {
+  const n = Number(env.LOOKBACK_DAYS);
+  return Number.isFinite(n) && n > 0 ? Math.floor(n) : DEFAULT_LOOKBACK_DAYS;
 }

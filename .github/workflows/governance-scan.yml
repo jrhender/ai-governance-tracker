@@ -25,6 +25,14 @@ on:
         description: 'Only probe source reachability, do not scan (no quota cost)'
         type: boolean
         default: false
+      lookback_days:
+        description: 'How many days back to look (default 14; use a wider window for a one-off catch-up)'
+        type: string
+        default: ''
+      max_issues:
+        description: 'Max issues to file (default 5; raise for a one-off catch-up)'
+        type: string
+        default: ''
 
 concurrency:
   group: governance-scan
@@ -90,6 +98,8 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
+          LOOKBACK_DAYS: ${{ inputs.lookback_days || '' }}
+          MAX_ISSUES: ${{ inputs.max_issues || '' }}
         run: |
           set -o pipefail
           claude -p "$(cat .github/prompts/governance-scan.md)"$'\n\nDRY_RUN='"$DRY_RUN" \

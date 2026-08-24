@@ -1,0 +1,59 @@
+# Scans curated sources each weekday for Canadian AI governance developments
+# not yet in data/, and files them as issues for human review.
+#
+# Auth: CLAUDE_CODE_OAUTH_TOKEN is a Claude subscription token minted with
+# `claude setup-token`. It is long-lived but NOT permanent — when it expires
+# this workflow fails loudly and the fix is to re-mint it and update the secret.
+
+name: Governance Scan
+
+on:
+  schedule:
+    # 12:00 UTC = 08:00 Eastern in summer, 07:00 in winter. Weekdays only.
+    - cron: '0 12 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Print candidate issues instead of filing them'
+        type: boolean
+        default: false
+
+concurrency:
+  group: governance-scan
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: npm install -g @anthropic-ai/claude-code
+
+      - name: Scan for untracked developments
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
+        run: |
+          set -o pipefail
+          claude -p "$(cat .github/prompts/governance-scan.md)" \
+            --allowed-tools 'Bash(node scripts/governance-scan/context.mjs)' \
+            --allowed-tools 'Bash(node scripts/governance-scan/filter.mjs)' \
+            --allowed-tools 'Bash(gh issue create:*)' \
+            --allowed-tools 'Read,WebFetch,WebSearch' \
+            2>&1 | tee scan.log

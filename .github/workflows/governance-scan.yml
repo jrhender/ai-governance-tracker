@@ -57,14 +57,20 @@ jobs:
             --allowed-tools 'Bash(gh issue create:*)' \
             --allowed-tools 'Read' \
             --allowed-tools 'WebSearch' \
-            --allowed-tools 'WebFetch(domain:parl.ca)' \
-            --allowed-tools 'WebFetch(domain:canada.ca)' \
-            --allowed-tools 'WebFetch(domain:ourcommons.ca)' \
+            --allowed-tools 'WebFetch(domain:www.parl.ca)' \
+            --allowed-tools 'WebFetch(domain:www.canada.ca)' \
+            --allowed-tools 'WebFetch(domain:ised-isde.canada.ca)' \
+            --allowed-tools 'WebFetch(domain:www.ourcommons.ca)' \
             --allowed-tools 'WebFetch(domain:aigs.ca)' \
-            --allowed-tools 'WebFetch(domain:cigionline.org)' \
+            --allowed-tools 'WebFetch(domain:www.cigionline.org)' \
             --allowed-tools 'WebFetch(domain:cifar.ca)' \
             --max-turns 60 \
             2>&1 | tee scan.log
+
+          if grep -qiE "Permission to use .*(has been denied|denied because)" scan.log; then
+            echo "::error::Scan hit a permission denial — an allowed-tools rule is wrong. See the governance-scan-log artifact."
+            exit 1
+          fi
 
       - name: Upload scan log
         if: always()

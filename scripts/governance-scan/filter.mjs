@@ -1,6 +1,7 @@
 import { loadTrackedRecords } from "./trackedRecords.mjs";
 import { filterCandidates } from "./filterCandidates.mjs";
 import { reportedTitles, since } from "./github.mjs";
+import { TAXONOMY_DIRS } from "./taxonomy.mjs";
 
 const stdin = await new Promise((resolve) => {
   let buf = "";
@@ -15,7 +16,7 @@ process.stdout.write(
   JSON.stringify(
     filterCandidates({
       candidates,
-      tracked: await loadTrackedRecords(),
+      tracked: await loadTrackedRecords("data", { ignore: TAXONOMY_DIRS }),
       reportedTitles: reportedTitles(),
       since: since(),
     }),

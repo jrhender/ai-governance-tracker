@@ -2,12 +2,14 @@
 # Tuning this list is the main lever on signal quality — add sources that
 # have produced real leads, remove ones that only produce noise.
 #
-# `feed:` is an OPTIONAL machine-readable feed for the same source. Several of
-# these sites bot-block direct page fetches (the first live run got HTTP 403
-# from four of seven), and feeds are usually served to machines without
-# blocking. The feed urls below are CANDIDATES, not verified — run
-# `node scripts/governance-scan/probe.mjs` on a runner to find out which
-# actually resolve, then keep the winners and delete the rest.
+# `feeds:` is an optional ordered list of machine-readable feeds for the same
+# source. The workflow fetches these itself (scripts/governance-scan/fetch.mjs)
+# and tries each in order, falling back to `url` last — first success wins.
+#
+# Verified by a probe run on a GitHub runner (2026-08-24):
+#   reachable  legisinfo, ised-newsroom, indu-committee, caisi, cifar
+#   blocked    aigs, cigi — Cloudflare 403 on both page and feed, so nothing
+#              fetches them; the agent uses WebSearch for these instead.
 
 sources:
   - id: legisinfo
@@ -19,7 +21,10 @@ sources:
     name: ISED news releases
     url: https://www.canada.ca/en/innovation-science-economic-development/news.html
     look_for: AI strategy, funding, codes of practice, ministerial announcements
-    feed: https://api.io.canada.ca/io-server/gc/news/en/v2?dept=innovationsciencedevelopment&sort=publishedDate&orderBy=desc&pick=25&format=atom  # candidate, unverified
+    feeds:
+      # dept slugs use the department's legal name; ISED is the Department of
+      # Industry. Candidate — falls back to the page url, which probes OK.
+      - https://api.io.canada.ca/io-server/gc/news/en/v2?dept=departmentofindustry&sort=publishedDate&orderBy=desc&pick=25&format=atom
 
   - id: indu-committee
     name: INDU — Standing Committee on Industry and Technology
@@ -28,23 +33,24 @@ sources:
 
   - id: caisi
     name: Canadian AI Safety Institute
-    url: https://ised-isde.canada.ca/site/ai-safety-institute-canada/en
+    url: https://ised-isde.canada.ca/site/ised/en/canadian-artificial-intelligence-safety-institute
     look_for: publications, research notes, mandate changes
 
   - id: aigs
     name: AI Governance & Safety Canada
     url: https://aigs.ca/
     look_for: reports, briefs, campaigns
-    feed: https://aigs.ca/feed/  # candidate, unverified
+    # Cloudflare 403s both the page and /feed/ — WebSearch only.
 
   - id: cigi
     name: Centre for International Governance Innovation
     url: https://www.cigionline.org/topics/artificial-intelligence/
     look_for: AI governance reports and policy briefs
-    feed: https://www.cigionline.org/rss.xml  # candidate, unverified
+    # Cloudflare 403s both the page and /rss.xml — WebSearch only.
 
   - id: cifar
     name: CIFAR — Pan-Canadian AI Strategy
     url: https://cifar.ca/ai/
     look_for: strategy phases, funding, national AI institute news
-    feed: https://cifar.ca/feed/  # candidate, unverified
+    feeds:
+      - https://cifar.ca/feed/  # verified reachable

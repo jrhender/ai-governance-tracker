@@ -1,0 +1,39 @@
+# Sources walked by .github/workflows/governance-scan.yml each weekday.
+# Tuning this list is the main lever on signal quality — add sources that
+# have produced real leads, remove ones that only produce noise.
+
+sources:
+  - id: legisinfo
+    name: LEGISinfo — bills before Parliament
+    url: https://www.parl.ca/legisinfo/en/bills
+    look_for: AI, algorithmic, online harms, privacy, or data bills
+
+  - id: ised-newsroom
+    name: ISED news releases
+    url: https://www.canada.ca/en/innovation-science-economic-development/news.html
+    look_for: AI strategy, funding, codes of practice, ministerial announcements
+
+  - id: indu-committee
+    name: INDU — Standing Committee on Industry and Technology
+    url: https://www.ourcommons.ca/Committees/en/INDU/Meetings
+    look_for: meetings and reports touching AI
+
+  - id: caisi
+    name: Canadian AI Safety Institute
+    url: https://ised-isde.canada.ca/site/ai-safety-institute-canada/en
+    look_for: publications, research notes, mandate changes
+
+  - id: aigs
+    name: AI Governance & Safety Canada
+    url: https://aigs.ca/
+    look_for: reports, briefs, campaigns
+
+  - id: cigi
+    name: Centre for International Governance Innovation
+    url: https://www.cigionline.org/topics/artificial-intelligence/
+    look_for: AI governance reports and policy briefs
+
+  - id: cifar
+    name: CIFAR — Pan-Canadian AI Strategy
+    url: https://cifar.ca/ai/
+    look_for: strategy phases, funding, national AI institute news

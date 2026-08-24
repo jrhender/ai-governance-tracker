@@ -1,0 +1,127 @@
+# Scans curated sources each weekday for Canadian AI governance developments
+# not yet in data/, and files them as issues for human review.
+#
+# Auth: CLAUDE_CODE_OAUTH_TOKEN is a Claude subscription token minted with
+# `claude setup-token`. It is long-lived but NOT permanent — when it expires
+# this workflow fails loudly and the fix is to re-mint it and update the secret.
+# The claude-code CLI version below is pinned deliberately, since this
+# workflow's correctness depends on specific permission-denial and
+# result-schema behaviour — it needs periodic, deliberate bumping, not an
+# automatic float to @latest.
+
+name: Governance Scan
+
+on:
+  schedule:
+    # 12:00 UTC = 08:00 Eastern in summer, 07:00 in winter. Weekdays only.
+    - cron: '0 12 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Print candidate issues instead of filing them'
+        type: boolean
+        default: false
+
+concurrency:
+  group: governance-scan
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: npm install -g @anthropic-ai/claude-code@2.1.241
+
+      - name: Scan for untracked developments
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
+        run: |
+          set -o pipefail
+          claude -p "$(cat .github/prompts/governance-scan.md)"$'\n\nDRY_RUN='"$DRY_RUN" \
+            --allowed-tools 'Bash(node scripts/governance-scan/context.mjs:*)' \
+            --allowed-tools 'Bash(node scripts/governance-scan/filter.mjs:*)' \
+            --allowed-tools 'Bash(gh issue create:*)' \
+            --allowed-tools 'Read' \
+            --allowed-tools 'WebSearch' \
+            --allowed-tools 'WebFetch(domain:www.parl.ca)' \
+            --allowed-tools 'WebFetch(domain:www.canada.ca)' \
+            --allowed-tools 'WebFetch(domain:ised-isde.canada.ca)' \
+            --allowed-tools 'WebFetch(domain:www.ourcommons.ca)' \
+            --allowed-tools 'WebFetch(domain:aigs.ca)' \
+            --allowed-tools 'WebFetch(domain:www.cigionline.org)' \
+            --allowed-tools 'WebFetch(domain:cifar.ca)' \
+            --max-turns 60 \
+            --output-format json < /dev/null 2>scan.err | tee scan.json
+
+          node -e '
+            const fs = require("fs");
+            let raw;
+            try {
+              raw = fs.readFileSync("scan.json", "utf8");
+            } catch (e) {
+              console.error("::error::Could not read scan.json: " + e.message);
+              process.exit(1);
+            }
+            let j;
+            try {
+              j = JSON.parse(raw);
+            } catch (e) {
+              console.error("::error::scan.json is not valid JSON, the scan may have crashed or been interrupted: " + e.message);
+              process.exit(1);
+            }
+
+            const BLIND_TOOLS = new Set(["WebFetch", "WebSearch"]);
+            const describe = (x) => x.tool_name + " " + ((x.tool_input && x.tool_input.url) || "");
+            const denials = j.permission_denials || [];
+            const blind = denials.filter((x) => BLIND_TOOLS.has(x.tool_name));
+            const other = denials.filter((x) => !BLIND_TOOLS.has(x.tool_name));
+
+            if (blind.length) {
+              console.error("::error::Scan hit " + blind.length + " blind-scan permission denial(s), the run could not see everything it needed to: " + blind.map(describe).join(", "));
+              if (other.length) {
+                console.error("::warning::Also saw " + other.length + " other permission denial(s), possibly recovered from: " + other.map(describe).join(", "));
+              }
+              process.exit(1);
+            }
+            if (other.length) {
+              console.error("::warning::Scan hit " + other.length + " permission denial(s) on non-fetch tools, likely recovered from: " + other.map(describe).join(", "));
+            }
+
+            if (j.subtype === "error_max_turns") {
+              console.error("::error::Scan hit the --max-turns limit before finishing (subtype=error_max_turns), results may be incomplete.");
+              process.exit(1);
+            }
+            if (j.is_error || (j.subtype && j.subtype.startsWith("error"))) {
+              console.error("::error::Scan ended in an error state (subtype=" + j.subtype + ", is_error=" + j.is_error + ").");
+              process.exit(1);
+            }
+
+            console.log(j.result);
+          '
+
+      - name: Upload scan log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: governance-scan-log
+          path: |
+            scan.json
+            scan.err

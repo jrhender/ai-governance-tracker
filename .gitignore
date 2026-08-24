@@ -12,3 +12,5 @@ playwright-report/
 test-results/
 .superpowers/
 .superset/
+# Downloaded workflow artifacts
+governance-scan-log/

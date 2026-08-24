@@ -21,6 +21,10 @@ on:
         description: 'Print candidate issues instead of filing them'
         type: boolean
         default: false
+      probe_only:
+        description: 'Only probe source reachability, do not scan (no quota cost)'
+        type: boolean
+        default: false
 
 concurrency:
   group: governance-scan
@@ -46,13 +50,30 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: npm install -g @anthropic-ai/claude-code@2.1.241
+      # Deterministic reachability check. No agent, no quota. Runs on every
+      # scan so a source that starts bot-blocking is visible, and can be run
+      # alone via probe_only to test candidate feed urls.
+      - name: Probe source reachability
+        id: probe
+        continue-on-error: true
+        run: node scripts/governance-scan/probe.mjs 2>&1 | tee probe.txt
+
+      - name: Stop here if probing only
+        if: ${{ inputs.probe_only }}
+        run: |
+          echo "probe_only requested — skipping the scan."
+          exit 0
+
+      - if: ${{ !inputs.probe_only }}
+        run: npm install -g @anthropic-ai/claude-code@2.1.241
 
       - name: Scan for untracked developments
+        if: ${{ !inputs.probe_only }}
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
+          MIN_SOURCES_OK: '5'
         run: |
           set -o pipefail
           claude -p "$(cat .github/prompts/governance-scan.md)"$'\n\nDRY_RUN='"$DRY_RUN" \
@@ -114,7 +135,31 @@ jobs:
               process.exit(1);
             }
 
-            console.log(j.result);
+            // Coverage gate. A source that 403s is not a permission denial and
+            // does not fail anything above — the first live run reported
+            // NO_NEW_LEADS while blind to 4 of 7 sources. Parse the block the
+            // prompt is required to emit and fail when coverage is too thin.
+            const text = j.result || "";
+            console.log(text);
+
+            const block = text.match(/```coverage\s*\n([\s\S]*?)```/);
+            if (!block) {
+              console.error("::error::Scan produced no ```coverage block, so per-source reachability is unknown. The prompt requires one.");
+              process.exit(1);
+            }
+            const rows = block[1].trim().split("\n").map((l) => l.trim()).filter(Boolean);
+            const ok = rows.filter((l) => /:\s*ok\s*$/i.test(l));
+            const bad = rows.filter((l) => !/:\s*ok\s*$/i.test(l));
+            const MIN_SOURCES_OK = Number(process.env.MIN_SOURCES_OK || "5");
+
+            console.log("Coverage: " + ok.length + "/" + rows.length + " sources read this run.");
+            if (bad.length) {
+              console.error("::warning::Unreachable this run: " + bad.join("; "));
+            }
+            if (ok.length < MIN_SOURCES_OK) {
+              console.error("::error::Only " + ok.length + " of " + rows.length + " sources were readable (minimum " + MIN_SOURCES_OK + "). A scan this blind cannot be trusted to report NO_NEW_LEADS \u2014 fix the source urls or lower MIN_SOURCES_OK deliberately.");
+              process.exit(1);
+            }
           '
 
       - name: Upload scan log
@@ -125,3 +170,4 @@ jobs:
           path: |
             scan.json
             scan.err
+            probe.txt

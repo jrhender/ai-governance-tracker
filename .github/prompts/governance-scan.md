@@ -70,5 +70,7 @@ Create issues with:
 
 ## Dry run
 
-If the environment variable `DRY_RUN` is `true`, do NOT create issues. Instead
-print each issue you would have created, prefixed with `WOULD FILE:`, then stop.
+A line `DRY_RUN=true` or `DRY_RUN=false` is appended to the end of this
+prompt by the workflow. If it says `DRY_RUN=true`, do NOT create issues.
+Instead print each issue you would have created, prefixed with `WOULD FILE:`,
+then stop.

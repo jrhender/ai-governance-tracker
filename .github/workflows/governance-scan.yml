@@ -42,7 +42,7 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: npm install -g @anthropic-ai/claude-code
+      - run: npm install -g @anthropic-ai/claude-code@2.1.241
 
       - name: Scan for untracked developments
         env:
@@ -51,9 +51,24 @@ jobs:
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
         run: |
           set -o pipefail
-          claude -p "$(cat .github/prompts/governance-scan.md)" \
-            --allowed-tools 'Bash(node scripts/governance-scan/context.mjs)' \
-            --allowed-tools 'Bash(node scripts/governance-scan/filter.mjs)' \
+          claude -p "$(cat .github/prompts/governance-scan.md)"$'\n\nDRY_RUN='"$DRY_RUN" \
+            --allowed-tools 'Bash(node scripts/governance-scan/context.mjs:*)' \
+            --allowed-tools 'Bash(node scripts/governance-scan/filter.mjs:*)' \
             --allowed-tools 'Bash(gh issue create:*)' \
-            --allowed-tools 'Read,WebFetch,WebSearch' \
+            --allowed-tools 'Read' \
+            --allowed-tools 'WebSearch' \
+            --allowed-tools 'WebFetch(domain:parl.ca)' \
+            --allowed-tools 'WebFetch(domain:canada.ca)' \
+            --allowed-tools 'WebFetch(domain:ourcommons.ca)' \
+            --allowed-tools 'WebFetch(domain:aigs.ca)' \
+            --allowed-tools 'WebFetch(domain:cigionline.org)' \
+            --allowed-tools 'WebFetch(domain:cifar.ca)' \
+            --max-turns 60 \
             2>&1 | tee scan.log
+
+      - name: Upload scan log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: governance-scan-log
+          path: scan.log

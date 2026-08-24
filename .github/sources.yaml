@@ -54,3 +54,13 @@ sources:
     look_for: strategy phases, funding, national AI institute news
     feeds:
       - https://cifar.ca/feed/  # verified reachable
+
+  - id: privacy-commissioner
+    name: Office of the Privacy Commissioner of Canada — news
+    url: https://www.priv.gc.ca/en/opc-news/news-and-announcements/
+    look_for: investigations, findings and guidance touching AI or automated decision-making
+
+  - id: pm-newsroom
+    name: Prime Minister of Canada — news releases
+    url: https://www.pm.gc.ca/en/news/news-releases
+    look_for: AI announcements, bilateral AI agreements, machinery-of-government changes

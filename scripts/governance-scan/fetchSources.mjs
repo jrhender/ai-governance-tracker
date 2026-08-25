@@ -8,6 +8,12 @@
 
 const MAX_CHARS = 150_000;
 
+// A 200 with a body is too weak a success bar. pm.gc.ca returned HTTP 200 and
+// 1071 characters of stripped text for a news-releases index — technically a
+// success, practically useless, and it counted toward coverage while carrying
+// no news. Anything under this is treated as a failed fetch.
+const MIN_CHARS = 2000;
+
 /** Strip markup down to readable text. Feeds and news pages are mostly chrome. */
 export function extractText(html, { maxChars = MAX_CHARS } = {}) {
   const text = html
@@ -32,8 +38,8 @@ export function extractText(html, { maxChars = MAX_CHARS } = {}) {
  * Try each candidate url in order, first success wins. A source may list
  * `feeds` (machine-readable, preferred) and always has `url` as the fallback.
  */
-export async function fetchWithFallback(source, { fetchImpl = fetch, timeoutMs = 20000 } = {}) {
-  const candidates = [...(source.feeds ?? []), source.url].filter(Boolean);
+export async function fetchWithFallback(source, { fetchImpl = fetch, timeoutMs = 20000, since = null, minChars = source.min_chars ?? MIN_CHARS } = {}) {
+  const candidates = [...(source.feeds ?? []), source.url].filter(Boolean).map((u) => expandPlaceholders(u, { since }));
   const attempts = [];
 
   for (const url of candidates) {
@@ -46,10 +52,12 @@ export async function fetchWithFallback(source, { fetchImpl = fetch, timeoutMs =
       // A 200 that redirected somewhere unrelated is not a success — CAISI's
       // stale url returned 200 while landing on a generic ISED splash page.
       const redirectedAway = finalUrl !== url && !finalUrl.startsWith(stripPath(url));
-      if (res.ok && body.trim().length > 0 && !redirectedAway) {
-        return { id: source.id, ok: true, usedUrl: url, finalUrl, status: res.status, text: extractText(body), attempts };
+      const text = extractText(body);
+      const tooThin = text.length < minChars;
+      if (res.ok && !redirectedAway && !tooThin) {
+        return { id: source.id, ok: true, usedUrl: url, finalUrl, status: res.status, text, attempts };
       }
-      attempts.push({ url, status: res.status, bytes: body.length, redirectedAway, finalUrl });
+      attempts.push({ url, status: res.status, bytes: body.length, chars: text.length, redirectedAway, tooThin, finalUrl });
     } catch (err) {
       attempts.push({ url, status: 0, error: err.name === "AbortError" ? "timeout" : err.message });
     } finally {
@@ -58,6 +66,19 @@ export async function fetchWithFallback(source, { fetchImpl = fetch, timeoutMs =
   }
 
   return { id: source.id, ok: false, usedUrl: null, status: 0, text: "", attempts };
+}
+
+/**
+ * Substitute `{since}` in a url with the lookback start date.
+ *
+ * Feeds hand back only their most recent N items, so a wide LOOKBACK_DAYS does
+ * not actually reach further back — the catch-up run asked for 180 days and
+ * still missed a May announcement sitting outside a `pick=25` feed. Sources
+ * whose API accepts a date filter can use `{since}` to genuinely widen.
+ */
+export function expandPlaceholders(url, { since }) {
+  if (!since) return url.replace(/[?&]publishedDate>=\{since\}/g, "").replace(/\{since\}/g, "");
+  return url.replace(/\{since\}/g, since);
 }
 
 /** "https://a.test/x/y" -> "https://a.test/x" — the parent the final url should stay under. */

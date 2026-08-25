@@ -68,6 +68,12 @@ jobs:
       # see most of its sources cannot be trusted to report NO_NEW_LEADS.
       - name: Check source coverage
         env:
+          # 6 sources are confirmed good: legisinfo, ised-newsroom,
+          # indu-committee, caisi, cifar, privacy-commissioner. aigs and cigi
+          # are Cloudflare-blocked and will never fetch; pm-newsroom's html is
+          # too thin and its feeds are unverified. A floor of 5 therefore
+          # tolerates ONE transient failure while still failing loudly if two
+          # or more of the good sources go dark.
           MIN_SOURCES_OK: '5'
         run: |
           node -e '
@@ -159,4 +165,4 @@ jobs:
             scan.json
             scan.err
             fetch.txt
-            sources-cache/coverage.json
+            sources-cache/

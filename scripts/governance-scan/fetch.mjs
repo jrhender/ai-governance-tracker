@@ -9,6 +9,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { parse } from "yaml";
 import { fetchWithFallback } from "./fetchSources.mjs";
+import { since } from "./github.mjs";
 
 const OUT = "sources-cache";
 const doc = parse(await readFile(".github/sources.yaml", "utf8"));
@@ -16,9 +17,12 @@ const sources = doc.sources ?? [];
 
 await mkdir(OUT, { recursive: true });
 
+const windowStart = since();
+process.stdout.write(`window starts ${windowStart}\n\n`);
+
 const coverage = [];
 for (const source of sources) {
-  const r = await fetchWithFallback(source);
+  const r = await fetchWithFallback(source, { since: windowStart });
   if (r.ok) {
     await writeFile(`${OUT}/${r.id}.txt`, `SOURCE: ${source.name}\nURL: ${r.usedUrl}\n\n${r.text}\n`);
   }
@@ -34,7 +38,7 @@ for (const source of sources) {
   process.stdout.write(
     r.ok
       ? `OK   ${String(r.text.length).padStart(7)} chars  ${r.id}  <- ${r.usedUrl}\n`
-      : `FAIL ${" ".repeat(7)}        ${r.id}  (${r.attempts.map((a) => a.error || a.status).join(", ")})\n`,
+      : `FAIL ${" ".repeat(7)}        ${r.id}  (${r.attempts.map((a) => a.error || (a.tooThin ? `${a.status} too thin: ${a.chars} chars` : a.status)).join(", ")})\n`,
   );
 }
 

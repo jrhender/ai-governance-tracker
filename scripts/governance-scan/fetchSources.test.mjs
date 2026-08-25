@@ -1,6 +1,6 @@
 // @vitest-environment node
 import { describe, it, expect } from "vitest";
-import { extractText, fetchWithFallback } from "./fetchSources.mjs";
+import { extractText, fetchWithFallback, expandPlaceholders } from "./fetchSources.mjs";
 
 const ok = (body, url) => async () => ({ ok: true, status: 200, url, text: async () => body });
 const code = (status, body = "blocked") => async () => ({ ok: status < 400, status, url: "", text: async () => body });
@@ -25,7 +25,7 @@ describe("extractText", () => {
 describe("fetchWithFallback", () => {
   it("prefers a feed over the page url", async () => {
     const src = { id: "s", url: "https://a.test/page", feeds: ["https://a.test/feed"] };
-    const r = await fetchWithFallback(src, { fetchImpl: ok("<item>hi</item>", "https://a.test/feed") });
+    const r = await fetchWithFallback(src, { fetchImpl: ok("<item>hi</item>", "https://a.test/feed"), minChars: 1 });
     expect(r).toMatchObject({ ok: true, usedUrl: "https://a.test/feed" });
   });
 
@@ -33,7 +33,7 @@ describe("fetchWithFallback", () => {
     const src = { id: "s", url: "https://a.test/page", feeds: ["https://a.test/feed"] };
     let n = 0;
     const fetchImpl = async (u) => (n++ === 0 ? code(403)() : ok("<p>real</p>", u)());
-    const r = await fetchWithFallback(src, { fetchImpl });
+    const r = await fetchWithFallback(src, { fetchImpl, minChars: 1 });
     expect(r.ok).toBe(true);
     expect(r.usedUrl).toBe("https://a.test/page");
     expect(r.attempts[0]).toMatchObject({ status: 403 });
@@ -49,7 +49,7 @@ describe("fetchWithFallback", () => {
 
   it("accepts a redirect that stays under the same path", async () => {
     const src = { id: "s", url: "https://x.test/a/b" };
-    const r = await fetchWithFallback(src, { fetchImpl: ok("<p>hi</p>", "https://x.test/a/b-final") });
+    const r = await fetchWithFallback(src, { fetchImpl: ok("<p>hi</p>", "https://x.test/a/b-final"), minChars: 1 });
     expect(r.ok).toBe(true);
   });
 
@@ -70,5 +70,51 @@ describe("fetchWithFallback", () => {
     const r = await fetchWithFallback({ id: "s", url: "https://a.test/" }, { fetchImpl });
     expect(r.ok).toBe(false);
     expect(r.attempts[0].error).toBe("ENOTFOUND");
+  });
+});
+
+describe("minimum content threshold", () => {
+  const long = (n) => "<p>" + "word ".repeat(n) + "</p>";
+
+  it("rejects a 200 whose stripped text is too thin — the pm.gc.ca case", async () => {
+    const r = await fetchWithFallback({ id: "pm", url: "https://pm.test/news" }, { fetchImpl: ok(long(100), "https://pm.test/news") });
+    expect(r.ok).toBe(false);
+    expect(r.attempts[0].tooThin).toBe(true);
+  });
+
+  it("accepts a page above the threshold", async () => {
+    const r = await fetchWithFallback({ id: "x", url: "https://x.test/" }, { fetchImpl: ok(long(1000), "https://x.test/") });
+    expect(r.ok).toBe(true);
+  });
+
+  it("honours a per-source override for a legitimately terse feed", async () => {
+    const src = { id: "x", url: "https://x.test/", min_chars: 100 };
+    const r = await fetchWithFallback(src, { fetchImpl: ok(long(40), "https://x.test/") });
+    expect(r.ok).toBe(true);
+  });
+
+  it("falls through to the next candidate when the first is too thin", async () => {
+    const src = { id: "x", url: "https://x.test/page", feeds: ["https://x.test/feed"] };
+    let n = 0;
+    const fetchImpl = async (u) => (n++ === 0 ? ok(long(10), u)() : ok(long(1000), u)());
+    const r = await fetchWithFallback(src, { fetchImpl });
+    expect(r.ok).toBe(true);
+    expect(r.usedUrl).toBe("https://x.test/page");
+  });
+});
+
+describe("expandPlaceholders", () => {
+  it("substitutes the lookback start date", () => {
+    expect(expandPlaceholders("https://a.test/?publishedDate>={since}&pick=100", { since: "2026-03-01" }))
+      .toBe("https://a.test/?publishedDate>=2026-03-01&pick=100");
+  });
+
+  it("strips the whole date filter when no since is given, rather than leaving a broken url", () => {
+    expect(expandPlaceholders("https://a.test/?dept=x&publishedDate>={since}&pick=100", { since: null }))
+      .toBe("https://a.test/?dept=x&pick=100");
+  });
+
+  it("leaves a url without placeholders untouched", () => {
+    expect(expandPlaceholders("https://a.test/feed", { since: "2026-03-01" })).toBe("https://a.test/feed");
   });
 });

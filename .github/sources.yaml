@@ -24,7 +24,11 @@ sources:
     feeds:
       # dept slugs use the department's legal name; ISED is the Department of
       # Industry. Candidate — falls back to the page url, which probes OK.
-      - https://api.io.canada.ca/io-server/gc/news/en/v2?dept=departmentofindustry&sort=publishedDate&orderBy=desc&pick=25&format=atom
+      # `{since}` expands to the lookback start date, so a wide LOOKBACK_DAYS
+      # genuinely reaches further back. Without it the feed returns only its
+      # most recent items — a 180-day catch-up run still missed a May
+      # announcement sitting outside a pick=25 window.
+      - https://api.io.canada.ca/io-server/gc/news/en/v2?dept=departmentofindustry&sort=publishedDate&orderBy=desc&publishedDate>={since}&pick=100&format=atom
 
   - id: indu-committee
     name: INDU — Standing Committee on Industry and Technology
@@ -62,5 +66,11 @@ sources:
 
   - id: pm-newsroom
     name: Prime Minister of Canada — news releases
+    # The html index yields ~1000 chars of stripped text (JS-rendered), so it
+    # now fails the content threshold. These feed candidates are UNVERIFIED —
+    # the fetch step will say which, if any, work.
+    feeds:
+      - https://api.io.canada.ca/io-server/gc/news/en/v2?dept=pmo&sort=publishedDate&orderBy=desc&publishedDate>={since}&pick=100&format=atom
+      - https://www.pm.gc.ca/en/news/news-releases.rss
     url: https://www.pm.gc.ca/en/news/news-releases
     look_for: AI announcements, bilateral AI agreements, machinery-of-government changes

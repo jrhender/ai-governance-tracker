@@ -61,6 +61,12 @@ sources:
 
   - id: privacy-commissioner
     name: Office of the Privacy Commissioner of Canada — news
+    # The html index carries only ~10 items, oldest June 2026 — which is why a
+    # 180-day catch-up missed the May and June AI investigations. The site
+    # advertises RSS; these candidates are UNVERIFIED.
+    feeds:
+      - https://www.priv.gc.ca/en/opc-news/news-and-announcements/rss/
+      - https://www.priv.gc.ca/rss/news-and-announcements-eng.xml
     url: https://www.priv.gc.ca/en/opc-news/news-and-announcements/
     look_for: investigations, findings and guidance touching AI or automated decision-making
 
@@ -70,7 +76,9 @@ sources:
     # now fails the content threshold. These feed candidates are UNVERIFIED —
     # the fetch step will say which, if any, work.
     feeds:
-      - https://api.io.canada.ca/io-server/gc/news/en/v2?dept=pmo&sort=publishedDate&orderBy=desc&publishedDate>={since}&pick=100&format=atom
-      - https://www.pm.gc.ca/en/news/news-releases.rss
+      # dept=pmo returned 136 chars; the .rss path returned the same thin html
+      # as the page. Both dead. This candidate is the last try — if it also
+      # fails, drop this source and let WebSearch cover pm.gc.ca.
+      - https://api.io.canada.ca/io-server/gc/news/en/v2?dept=primeministersoffice&sort=publishedDate&orderBy=desc&publishedDate>={since}&pick=100&format=atom
     url: https://www.pm.gc.ca/en/news/news-releases
     look_for: AI announcements, bilateral AI agreements, machinery-of-government changes

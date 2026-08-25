@@ -46,6 +46,12 @@ jobs:
   scan:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    # Job-level so BOTH the fetch step and the scan step see the same window.
+    # These previously sat only on the scan step, so a 180-day catch-up run
+    # fetched 14 days of content and then judged it against a 180-day window.
+    env:
+      LOOKBACK_DAYS: ${{ inputs.lookback_days || '' }}
+      MAX_ISSUES: ${{ inputs.max_issues || '' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -104,8 +110,6 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
-          LOOKBACK_DAYS: ${{ inputs.lookback_days || '' }}
-          MAX_ISSUES: ${{ inputs.max_issues || '' }}
         run: |
           set -o pipefail
           claude -p "$(cat .github/prompts/governance-scan.md)"$'\n\nDRY_RUN='"$DRY_RUN" \

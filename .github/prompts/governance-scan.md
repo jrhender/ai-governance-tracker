@@ -14,6 +14,7 @@ The JSON contains:
   If a development is here it has already been raised, possibly by a human, and
   is NOT a lead. Closed means handled or deliberately declined — still not a lead.
 - `since` — only consider developments published on or after this date.
+- `maxIssues` — the most issues you may file this run. Read it; do not assume.
 
 ## Task
 
@@ -49,7 +50,10 @@ The JSON contains:
 
 - **Never file a lead without a source URL.** If you cannot point at the page
   that documents it, drop it. A wrong lead costs more trust than a missed one.
-- **Maximum 5 issues per run.** If you have more, file the 5 most significant.
+- **File at most `maxIssues` issues**, the number in `coverage`/context JSON.
+  It is normally 5, and deliberately higher for a catch-up run. Do NOT assume
+  5 — read the value. If you have more candidates than that, file the most
+  significant ones up to the limit.
 - **Never edit, close, or comment on an existing issue.** You only create.
 - **Do not modify anything in `data/`.** You have no write access; do not try.
 - **If `context.mjs` or `filter.mjs` exits non-zero, stop immediately, report

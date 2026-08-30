@@ -54,4 +54,10 @@ describe("agent prompt", () => {
   it("still requires a source url on every filed issue", () => {
     expect(prompt).toMatch(/Never file a lead without a source URL/i);
   });
+
+  it("tells the agent to copy feed dates verbatim rather than infer them", () => {
+    // Regression: dates were read out of stripped prose and got misreported.
+    expect(prompt).toMatch(/published/);
+    expect(prompt).toMatch(/verbatim/i);
+  });
 });

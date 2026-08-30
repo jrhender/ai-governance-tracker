@@ -21,9 +21,21 @@ The JSON contains:
 1. Read `sources-cache/coverage.json`. It lists every source, whether it was
    fetched, and the file holding its content.
 2. For each source with `"ok": true`, read its `file` — the content is already
-   downloaded, so do NOT try to fetch anything yourself. For each source with
-   `"ok": false`, use WebSearch to look for recent items from that organisation
-   instead. Look for developments published on or after `since`.
+   downloaded, so do NOT try to fetch anything yourself. Two shapes exist, and
+   `coverage.json` names which via `format`:
+
+   - **`format: "feed"`** — a `.json` file holding `items`, each with `title`,
+     `url`, `published` and `summary`. **Copy `published` verbatim as the
+     date.** Do not re-derive it from the title or summary, and do not
+     reformat it. These dates are authoritative and are checked against the
+     feed after you hand candidates over.
+   - **`format: "html"`** — a `.txt` file of stripped page text. Dates here
+     have to be read from the text; be careful, and prefer a date stated
+     explicitly on the page over one you infer from context.
+
+   For each source with `"ok": false`, use WebSearch to look for recent items
+   from that organisation instead. Look for developments published on or after
+   `since`.
 3. Drop any candidate that describes something already in `tracked`, even when
    the wording differs — e.g. "Add AIDA bill" describes the same event as a
    tracked record titled "Bill C-27 introduced." Matching by meaning, not just

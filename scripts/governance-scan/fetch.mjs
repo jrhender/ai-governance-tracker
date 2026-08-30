@@ -23,7 +23,10 @@ process.stdout.write(`window starts ${windowStart}\n\n`);
 const coverage = [];
 for (const source of sources) {
   const r = await fetchWithFallback(source, { since: windowStart });
-  if (r.ok) {
+  if (r.ok && r.format === "feed") {
+    // Structured items, so dates never pass through inference.
+    await writeFile(`${OUT}/${r.id}.json`, JSON.stringify({ source: source.name, url: r.usedUrl, items: r.items }, null, 1));
+  } else if (r.ok) {
     await writeFile(`${OUT}/${r.id}.txt`, `SOURCE: ${source.name}\nURL: ${r.usedUrl}\n\n${r.text}\n`);
   }
   coverage.push({
@@ -31,13 +34,15 @@ for (const source of sources) {
     name: source.name,
     ok: r.ok,
     usedUrl: r.usedUrl,
-    file: r.ok ? `${OUT}/${r.id}.txt` : null,
+    file: r.ok ? `${OUT}/${r.id}.${r.format === "feed" ? "json" : "txt"}` : null,
+    format: r.format,
+    items: r.items.length,
     chars: r.text.length,
     attempts: r.attempts,
   });
   process.stdout.write(
     r.ok
-      ? `OK   ${String(r.text.length).padStart(7)} chars  ${r.id}  <- ${r.usedUrl}\n`
+      ? `OK   ${r.format === "feed" ? `${String(r.items.length).padStart(7)} items` : `${String(r.text.length).padStart(7)} chars`}  ${r.id}  <- ${r.usedUrl}\n`
       : `FAIL ${" ".repeat(7)}        ${r.id}  (${r.attempts.map((a) => a.error || (a.tooThin ? `${a.status} too thin: ${a.chars} chars` : a.status)).join(", ")})\n`,
   );
 }

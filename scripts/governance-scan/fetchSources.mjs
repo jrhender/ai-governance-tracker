@@ -6,7 +6,12 @@
 // fetch tool at all — which also removes any path for an injected page to
 // direct an arbitrary outbound request.
 
+import { looksLikeFeed, parseFeed } from "./parseFeed.mjs";
+
 const MAX_CHARS = 150_000;
+// Feed sources are truncated by dropping whole items, never by slicing
+// characters, so the emitted json is always valid.
+const MAX_ITEMS = 200;
 
 // A 200 with a body is too weak a success bar. pm.gc.ca returned HTTP 200 and
 // 1071 characters of stripped text for a news-releases index — technically a
@@ -52,10 +57,22 @@ export async function fetchWithFallback(source, { fetchImpl = fetch, timeoutMs =
       // A 200 that redirected somewhere unrelated is not a success — CAISI's
       // stale url returned 200 while landing on a generic ISED splash page.
       const redirectedAway = finalUrl !== url && !finalUrl.startsWith(stripPath(url));
+      const contentType = res.headers?.get?.("content-type") ?? "";
+
+      if (!redirectedAway && res.ok && looksLikeFeed(body, contentType)) {
+        const items = parseFeed(body).slice(0, MAX_ITEMS);
+        if (items.length > 0) {
+          return { id: source.id, ok: true, usedUrl: url, finalUrl, status: res.status, format: "feed", items, text: "", attempts };
+        }
+        // A feed we cannot parse is a failed fetch, not a thin page — say so.
+        attempts.push({ url, status: res.status, bytes: body.length, unparseableFeed: true, finalUrl });
+        continue;
+      }
+
       const text = extractText(body);
       const tooThin = text.length < minChars;
       if (res.ok && !redirectedAway && !tooThin) {
-        return { id: source.id, ok: true, usedUrl: url, finalUrl, status: res.status, text, attempts };
+        return { id: source.id, ok: true, usedUrl: url, finalUrl, status: res.status, format: "html", items: [], text, attempts };
       }
       attempts.push({ url, status: res.status, bytes: body.length, chars: text.length, redirectedAway, tooThin, finalUrl });
     } catch (err) {
@@ -65,7 +82,7 @@ export async function fetchWithFallback(source, { fetchImpl = fetch, timeoutMs =
     }
   }
 
-  return { id: source.id, ok: false, usedUrl: null, status: 0, text: "", attempts };
+  return { id: source.id, ok: false, usedUrl: null, status: 0, format: null, items: [], text: "", attempts };
 }
 
 /**

@@ -65,9 +65,15 @@ jobs:
 
           # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
           # or https://code.claude.com/docs/en/cli-reference for available options.
+          #
+          # --model takes the `opus` alias rather than a pinned id like
+          # claude-opus-5, so the CLI resolves the latest Opus at run time and
+          # this file needs no edit when the next one ships.
+          #
           # Paths come from step outputs, not $RUNNER_TEMP: the action parses
           # claude_args without an environment, so $VARS would expand to "".
           claude_args: |
+            --model opus
             --allowedTools "${{ steps.web.outputs.allowed_tools }}"
             --append-system-prompt 'Web access is limited to the governance scan source sites in .github/sources.yaml. Use WebFetch for those sites. If WebFetch fails (canada.ca often returns 403 to it), run: ${{ steps.web.outputs.fetch_command }} <url> which does a plain GET to the same sites and prints the page text. curl and other network commands are not available. Dependencies are already installed, so verify your work before pushing: pnpm test for the unit suite and pnpm build for the site. Run pnpm exec playwright install --with-deps chromium before pnpm test:e2e, as no browser is installed up front. Report any suite you did not run.'
 

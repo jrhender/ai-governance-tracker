@@ -1,0 +1,17 @@
+# organizations/lawzero.yaml
+
+id: lawzero
+type: Organization
+schema_type: Organization
+country: ca
+
+name: "LawZero"
+
+tags:
+  - non-profit
+  - ai-safety
+  - research
+  - scientist-ai
+  - yoshua-bengio
+  - montreal
+  - canadian

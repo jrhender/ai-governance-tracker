@@ -30,6 +30,24 @@ jobs:
         with:
           fetch-depth: 1
 
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # Web access for Claude, limited to the governance scan's source hosts
+      # (.github/sources.yaml): WebFetch per host, plus a plain-HTTP wrapper for
+      # when WebFetch is refused (canada.ca has 403'd it). The wrapper and its
+      # host list are staged under runner.temp because the action auto-approves
+      # Claude's edits inside the workspace, and they must not be editable.
+      - name: Stage web access for source hosts
+        id: web
+        run: node scripts/fetch-url/stage.mjs "${{ runner.temp }}/fetch-url" >> "$GITHUB_OUTPUT"
+
       - name: Run Claude Code
         id: claude
         uses: anthropics/claude-code-action@v1
@@ -43,8 +61,11 @@ jobs:
           # Optional: Give a custom prompt to Claude. If this is not specified, Claude will perform the instructions specified in the comment that tagged it.
           # prompt: 'Update the pull request description to include a summary of changes.'
 
-          # Optional: Add claude_args to customize behavior and configuration
           # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
-          # or https://code.claude.com/docs/en/cli-reference for available options
-          # claude_args: '--allowed-tools Bash(gh pr *)'
+          # or https://code.claude.com/docs/en/cli-reference for available options.
+          # Paths come from step outputs, not $RUNNER_TEMP: the action parses
+          # claude_args without an environment, so $VARS would expand to "".
+          claude_args: |
+            --allowedTools "${{ steps.web.outputs.allowed_tools }}"
+            --append-system-prompt 'Web access is limited to the governance scan source sites in .github/sources.yaml. Use WebFetch for those sites. If WebFetch fails (canada.ca often returns 403 to it), run: ${{ steps.web.outputs.fetch_command }} <url> which does a plain GET to the same sites and prints the page text. curl and other network commands are not available.'
 

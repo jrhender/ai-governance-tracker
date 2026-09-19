@@ -1,0 +1,20 @@
+# organizations/amii.yaml
+
+id: amii
+type: ResearchOrganization
+schema_type: Organization
+country: ca
+
+name: "Alberta Machine Intelligence Institute"
+short_name: "Amii"
+url: https://www.amii.ca
+wikipedia: https://en.wikipedia.org/wiki/Alberta_Machine_Intelligence_Institute
+
+tags:
+  - research
+  - national-ai-institute
+  - pan-canadian-ai-strategy
+  - ai-literacy
+  - edmonton
+  - alberta
+  - canadian

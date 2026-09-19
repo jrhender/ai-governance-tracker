@@ -109,6 +109,23 @@ describe("buildTimelineItems", () => {
     expect(item.href).toBe("/events/a/");
     expect(item.orgIds).toEqual(["ised-canada", "cigi"]);
   });
+
+  it("prefers summary over description when both are present", () => {
+    const withSummary: EventInput = {
+      ...event("a", "2017-03-22", ["ised-canada"]),
+      data: {
+        ...event("a", "2017-03-22", ["ised-canada"]).data,
+        summary: "short summary",
+      },
+    };
+    const [item] = buildTimelineItems([withSummary], orgs);
+    expect(item.description).toBe("short summary");
+  });
+
+  it("falls back to description when summary is absent", () => {
+    const [item] = buildTimelineItems([event("a", "2017-03-22", ["ised-canada"])], orgs);
+    expect(item.description).toBe("desc");
+  });
 });
 
 describe("filterByOrg", () => {

@@ -53,6 +53,7 @@ const events = defineCollection({
       })
       .optional(),
     status: z.enum(["upcoming", "completed", "cancelled"]).optional(),
+    summary: z.string().max(300).optional(),
     description: z.string().optional(),
     organizations: z.array(orgRoleSchema).default([]),
     tags: z.array(z.string()).default([]),

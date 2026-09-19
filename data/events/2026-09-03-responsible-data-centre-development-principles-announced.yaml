@@ -16,26 +16,15 @@ organizations:
   - id: ised-canada
     role: organizer
 
-summary: >
-  Minister Evan Solomon and FCM President Tim Tierney announce Canada's
-  Responsible Data Centre Development Principles in Toronto — a national
-  framework covering electricity ratepayer protection, water use, local
-  transparency, and community benefits for data centre projects, backed by
-  23 industry signatories.
-
 description: >
   In Toronto, Evan Solomon, Minister of Artificial Intelligence and Digital
-  Innovation, joined by Tim Tierney, President of the Federation of Canadian
-  Municipalities, announces Canada's Responsible Data Centre Development
-  Principles — a national framework setting five expectations for data centre
-  projects: creating lasting local benefits, not shifting electricity costs to
-  Canadians, minimizing water use and environmental impacts, being transparent
-  about local impacts, and bringing strategic value to Canada. The principles
-  are intended to complement provincial, territorial, municipal, and
-  Indigenous regulatory processes with a nationally recognized baseline. The
-  framework is backed by 23 signatories from Canada's data centre, cloud, AI,
-  and technology sectors, including Amazon Web Services, Anthropic, Bell
-  Canada, Cohere, Google, Meta, Microsoft, OpenAI, and TELUS.
+  Innovation, joined by Federation of Canadian Municipalities President Tim
+  Tierney, launches Canada's Responsible Data Centre Development Principles —
+  a national framework setting five expectations for data centre projects:
+  lasting local benefits, electricity costs, water use and environmental
+  impacts, transparency, and strategic value to Canada. Backed by 23 industry
+  signatories, it sets a nationally recognized baseline alongside provincial,
+  territorial, municipal, and Indigenous regulatory processes.
 
 tags:
   - data-centres

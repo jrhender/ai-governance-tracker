@@ -30,7 +30,6 @@ export type EventInput = {
   data: {
     title: string;
     date: Date;
-    summary?: string;
     description?: string;
     tags: string[];
     type: string;
@@ -69,8 +68,7 @@ export function buildTimelineItems(
       kind: "event" as const,
       title: e.data.title,
       date: e.data.date.toISOString(),
-      // Timeline cards favor a short summary over the full event description.
-      description: e.data.summary ?? e.data.description,
+      description: e.data.description,
       tags: e.data.tags,
       href: `/events/${e.id}/`,
       badge: e.data.type,

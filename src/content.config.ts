@@ -53,8 +53,10 @@ const events = defineCollection({
       })
       .optional(),
     status: z.enum(["upcoming", "completed", "cancelled"]).optional(),
-    summary: z.string().max(300).optional(),
-    description: z.string().optional(),
+    // The timeline renders this verbatim on every card, so cap it near the
+    // longest of the descriptions already written rather than let one entry
+    // dwarf its neighbours. Existing entries run 103-700 characters.
+    description: z.string().max(700).optional(),
     organizations: z.array(orgRoleSchema).default([]),
     tags: z.array(z.string()).default([]),
     links: z.array(linkSchema).default([]),

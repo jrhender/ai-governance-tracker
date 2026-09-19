@@ -30,6 +30,31 @@ Non-trivial changes land on `main` via pull request, not direct pushes. **`main`
 
 Small doc-only or data-only edits to `main` directly are fine when there is nothing to test and no architectural choice to review.
 
+### Talking to GitHub over HTTPS
+
+`origin` is configured as an SSH remote (`git@github.com:...`). SSH keys are not
+available in the sandbox, so `git fetch`/`git push` against `origin` fail with
+`Connection closed ... fatal: Could not read from remote repository`. The sandbox
+proxy injects credentials for **HTTPS** Git traffic instead.
+
+Use the HTTPS URL explicitly rather than reconfiguring the remote (the remote
+config is shared with the host):
+
+```bash
+git fetch https://github.com/jrhender/ai-governance-tracker.git main
+git merge --ff-only FETCH_HEAD          # in place of `git pull`
+git push https://github.com/jrhender/ai-governance-tracker.git <branch>
+```
+
+`gh` works normally for issues, PRs, and merges. Two caveats:
+
+- `gh pr merge --delete-branch` still shells out to `git` against `origin`, so it
+  reports `Could not read from remote repository` **after** the merge has already
+  succeeded on GitHub. Confirm with `gh pr view <n> --json state` before retrying —
+  a retry would fail as already-merged.
+- `gh issue view <n>` (no flags) can fail on a Projects-classic GraphQL
+  deprecation error. Pass `--json title,body,comments,state,labels` instead.
+
 ### Commits
 
 - Commit messages describe the change in the imperative mood and explain *why* on the subject line when possible (e.g. "Exclude e2e/ from Vitest so Playwright specs don't clash").

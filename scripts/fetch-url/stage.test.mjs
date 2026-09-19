@@ -5,7 +5,7 @@ import { readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { parse } from "yaml";
-import { allowedHosts, allowedTools, stage } from "./stage.mjs";
+import { VERIFY_TOOLS, allowedHosts, allowedTools, stage } from "./stage.mjs";
 
 const sources = parse(readFileSync(".github/sources.yaml", "utf8")).sources;
 
@@ -30,12 +30,25 @@ describe("allowedHosts", () => {
 describe("allowedTools", () => {
   const tools = allowedTools(["cifar.ca", "www.canada.ca"], "/runner/_temp/fetch-url/fetch-url.mjs").split(",");
 
-  it("grants WebFetch per host and the staged wrapper, nothing broader", () => {
+  it("grants WebFetch per host, the staged wrapper and the build, nothing broader", () => {
     expect(tools).toEqual([
       "WebFetch(domain:cifar.ca)",
       "WebFetch(domain:www.canada.ca)",
       "Bash(node /runner/_temp/fetch-url/fetch-url.mjs:*)",
+      ...VERIFY_TOOLS,
     ]);
+  });
+
+  it("lets Claude build and test its own work, since the action grants no Bash by default", () => {
+    expect(tools).toContain("Bash(pnpm build:*)");
+    expect(tools).toContain("Bash(pnpm test:*)");
+    expect(tools).toContain("Bash(pnpm test:e2e:*)");
+  });
+
+  it("keeps the build grants scoped to package scripts, not arbitrary commands", () => {
+    // `pnpm exec <anything>` and `pnpm dlx` would be a general shell.
+    for (const t of VERIFY_TOOLS) expect(t).not.toMatch(/pnpm (exec:|dlx)/);
+    expect(VERIFY_TOOLS).not.toContain("Bash(pnpm exec:*)");
   });
 
   it("never grants bare WebFetch, bare Bash, or curl", () => {

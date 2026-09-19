@@ -1,0 +1,139 @@
+# artifacts/2024-12-05-canadian-sovereign-ai-compute-strategy.yaml
+
+id: canadian-sovereign-ai-compute-strategy
+type: GovernmentProgram
+schema_type: CreativeWork
+
+title: "Canadian Sovereign AI Compute Strategy"
+published_date: 2024-12-05
+
+organizations:
+  - id: ised-canada
+    role: lead
+
+lifecycle_status: active
+current_stage: "Active; supercomputer call for applications closed 1 June 2026, AI Compute Access Fund disbursing"
+
+derives_from:
+  - id: ai-compute-consultation-launched-2024
+    relationship: informed_by
+
+summary: "ISED's $2-billion plan to build domestic AI computing capacity — private-sector data centres, a publicly owned national AI supercomputer, and subsidized compute access for Canadian SMEs."
+description: |
+  The **Canadian Sovereign AI Compute Strategy** is Innovation, Science and
+  Economic Development Canada's plan for spending the $2 billion over five
+  years that **Budget 2024** allocated to domestic AI computing capacity. It
+  was announced in Ottawa on 5 December 2024 by François-Philippe Champagne,
+  then Minister of Innovation, Science and Industry, following a public
+  consultation that ran from 26 June to 6 September 2024 and drew input from
+  more than 1,000 stakeholders across research, industry, and civil society.
+
+  The stated aim is *sovereignty* over compute: capacity that is physically
+  located in Canada, Canadian-owned or Canadian-operated, and governed by
+  Canadian law, so that Canadian researchers and firms are not dependent on
+  foreign infrastructure to train and run their models. It is the
+  infrastructure counterpart to the governance and safety measures tracked
+  elsewhere in this timeline, and the foundation later built on by the
+  sovereign-AI pillar of **AI for All**, Canada's 2026 national AI strategy.
+
+  The $2 billion is split across three pillars:
+
+  - **Mobilizing private-sector investment — up to $700 million.** The
+    **AI Compute Challenge** co-invests in new or expanded commercial AI data
+    centres in Canada, prioritizing projects that can start quickly, show a
+    high return on public investment, and meet sustainability and
+    Canadian-supply-chain criteria. Its first recipient was Toronto-based
+    **Cohere**, offered up to $240 million in December 2024 toward a
+    $725-million data centre project; the investment was finalized in
+    March 2025.
+  - **Public computing infrastructure — up to $1 billion.** Up to
+    $705 million funds a new, publicly owned and Canadian-operated AI
+    supercomputing system, delivered through the **AI Sovereign Compute
+    Infrastructure Program (SCIP)**, with up to $200 million for near-term
+    augmentation of existing public compute so researchers are not left
+    waiting for the new system.
+  - **AI Compute Access Fund — up to $300 million.** Subsidizes access to
+    existing commercial compute for Canadian small and medium-sized
+    enterprises, so that firms without capital for their own hardware can
+    still train models and ship AI products.
+
+  SCIP, the strategy's flagship, opened for applications on 15 April 2026 and
+  closed on 1 June 2026. Its program guide makes up to roughly $890 million
+  available over seven fiscal years beginning in 2026–27 — combining the
+  Budget 2024 allocation with further investment from Budget 2025 — to design,
+  build, and operate a national Canada AI supercomputer. Proposals had to be
+  led by a Canadian not-for-profit or post-secondary institution (or a
+  consortium led by one), and the program is structured in two layers: an
+  Infrastructure Build Layer that constructs and operates the system, and a
+  National Service Layer handling user support and integration with Canada's
+  existing digital research infrastructure.
+
+stages:
+  - date: 2024-06-26
+    stage: "Public consultation on AI compute launched"
+    note: "ISED consults on the design of both the Sovereign AI Compute Strategy and the AI Compute Access Fund; closes 6 September 2024 with input from more than 1,000 stakeholders"
+  - date: 2024-12-05
+    stage: "Strategy announced by Minister Champagne"
+    note: "Ottawa announcement setting out the three pillars and the $2B Budget 2024 envelope; Cohere named the first AI Compute Challenge recipient with an offer of up to $240M toward a $725M data centre, finalized in March 2025"
+    links:
+      - label: "Canada.ca — Canada to drive billions in investments to build domestic AI compute capacity at home"
+        url: https://www.canada.ca/en/innovation-science-economic-development/news/2024/12/canada-to-drive-billions-in-investments-to-build-domestic-ai-compute-capacity-at-home.html
+        icon: document
+  - date: 2025-03-07
+    stage: "AI Compute Access Fund introduced"
+    note: "Up to $300M to subsidize compute access for Canadian SMEs; applications opened in June 2025"
+    links:
+      - label: "Canada.ca — Government of Canada introduces AI Compute Access Fund"
+        url: https://www.canada.ca/en/innovation-science-economic-development/news/2025/03/government-of-canada-introduces-ai-compute-access-fund-to-support-canadian-innovators.html
+        icon: document
+  - date: 2026-04-15
+    stage: "AI SCIP call for applications opened"
+    note: "Competitive call to design, build, and operate a Canadian-owned and Canadian-operated large-scale AI supercomputer; applications closed 1 June 2026"
+    links:
+      - label: "Canada.ca — Canada launches national initiative to build large-scale AI supercomputing capacity"
+        url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/04/canada-launches-national-initiative-to-build-large-scale-ai-supercomputing-capacity.html
+        icon: document
+  - date: 2026-05-11
+    stage: "Non-binding MOU with TELUS on a British Columbia data centre"
+    note: "Follows a Budget 2025-mandated call for proposals (15 January – 15 February 2026) to identify promising sovereign AI infrastructure projects; no funding committed at the time of the announcement"
+    links:
+      - label: "Canada.ca — Government of Canada and TELUS advance work to build sovereign AI infrastructure"
+        url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/05/government-of-canada-and-telus-advance-work-to-build-sovereign-ai-infrastructure.html
+        icon: document
+  - date: 2026-05-12
+    stage: "First 44 AI Compute Access Fund recipients announced"
+    note: "$66M of the $300M fund offered to projects across life sciences, health care, energy, advanced manufacturing, agriculture, finance, natural resources, and transportation"
+  - date: 2026-06-04
+    stage: "Carried into Canada's national AI strategy"
+    note: "AI for All makes a national public AI supercomputer and sovereign compute and cloud infrastructure a headline measure of its sovereign-AI pillar"
+
+links:
+  - label: "ISED — Canadian Sovereign AI Compute Strategy"
+    url: https://ised-isde.canada.ca/site/ised/en/canadian-sovereign-ai-compute-strategy
+    icon: document
+  - label: "ISED — AI Sovereign Compute Infrastructure Program"
+    url: https://ised-isde.canada.ca/site/ised/en/ai-sovereign-compute-infrastructure-program
+    icon: document
+  - label: "ISED — AI Compute Challenge"
+    url: https://ised-isde.canada.ca/site/ised/en/canadian-sovereign-ai-compute-strategy/ai-compute-challenge
+    icon: document
+  - label: "ISED — AI Compute Access Fund"
+    url: https://ised-isde.canada.ca/site/ised/en/canadian-sovereign-ai-compute-strategy/ai-compute-access-fund
+    icon: document
+  - label: "Canada.ca — Canada to drive billions in investments to build domestic AI compute capacity at home"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2024/12/canada-to-drive-billions-in-investments-to-build-domestic-ai-compute-capacity-at-home.html
+    icon: document
+
+tags:
+  - sovereign-ai-compute-strategy
+  - ai-compute-access-fund
+  - compute
+  - ai-infrastructure
+  - data-centres
+  - sovereign-ai
+  - cohere
+  - federal-budget
+  - francois-philippe-champagne
+  - evan-solomon
+  - ised
+  - federal-government

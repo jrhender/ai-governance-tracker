@@ -1,0 +1,49 @@
+# events/2026-04-15-ai-scip-call-for-applications-opened.yaml
+
+id: ai-scip-call-for-applications-opened-2026
+type: GovernmentAnnouncement
+schema_type: Event
+
+title: "Canada opens applications to build a national AI supercomputer"
+date: 2026-04-15
+status: completed
+
+location:
+  name: "Ottawa, Ontario"
+  schema_type: Place
+
+organizations:
+  - id: ised-canada
+    role: organizer
+
+description: >
+  Evan Solomon, Minister of Artificial Intelligence and Digital Innovation,
+  opens the call for applications under the AI Sovereign Compute
+  Infrastructure Program (SCIP) — the public supercomputing pillar of the
+  Canadian Sovereign AI Compute Strategy. Eligible Canadian not-for-profits,
+  post-secondary institutions, and consortia they lead are invited to design,
+  build, operate, and maintain a large-scale, AI-optimized, Canadian-owned and
+  Canadian-operated high-performance computing system for Canadian researchers
+  and innovators. Applications closed on 1 June 2026.
+
+related_artifacts:
+  - id: canadian-sovereign-ai-compute-strategy
+
+tags:
+  - sovereign-ai-compute-strategy
+  - supercomputing
+  - compute
+  - ai-infrastructure
+  - sovereign-ai
+  - research
+  - evan-solomon
+  - ised
+  - federal-government
+
+links:
+  - label: "Canada.ca — Canada launches national initiative to build large-scale AI supercomputing capacity"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/04/canada-launches-national-initiative-to-build-large-scale-ai-supercomputing-capacity.html
+    icon: document
+  - label: "ISED — AI Sovereign Compute Infrastructure Program"
+    url: https://ised-isde.canada.ca/site/ised/en/ai-sovereign-compute-infrastructure-program
+    icon: document

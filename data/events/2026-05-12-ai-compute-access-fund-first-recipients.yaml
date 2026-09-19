@@ -27,6 +27,9 @@ description: >
   finance, natural resources, and transportation, with further funding offers
   to follow as assessments are finalized.
 
+related_artifacts:
+  - id: canadian-sovereign-ai-compute-strategy
+
 tags:
   - ai-compute-access-fund
   - sovereign-ai-compute-strategy

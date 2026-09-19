@@ -28,6 +28,9 @@ description: >
   Centre Development Principles, with project specifics awaiting community
   engagement.
 
+related_artifacts:
+  - id: canadian-sovereign-ai-compute-strategy
+
 tags:
   - data-centres
   - ai-infrastructure

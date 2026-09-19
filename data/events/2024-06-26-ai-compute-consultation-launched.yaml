@@ -1,0 +1,42 @@
+# events/2024-06-26-ai-compute-consultation-launched.yaml
+
+id: ai-compute-consultation-launched-2024
+type: GovernmentAnnouncement
+schema_type: Event
+
+title: "ISED launches public consultation on AI computing infrastructure"
+date: 2024-06-26
+status: completed
+
+organizations:
+  - id: ised-canada
+    role: organizer
+
+description: >
+  François-Philippe Champagne, Minister of Innovation, Science and Industry,
+  opens a public consultation on how Canada should spend the $2 billion
+  Budget 2024 set aside for AI compute — seeking input from researchers,
+  innovators, businesses, civil society, and Indigenous groups on the design
+  of both the AI Compute Access Fund and a Canadian Sovereign AI Compute
+  Strategy. The consultation closes on 6 September 2024, drawing input from
+  more than 1,000 stakeholders, and shapes the strategy announced that
+  December.
+
+related_artifacts:
+  - id: canadian-sovereign-ai-compute-strategy
+
+tags:
+  - sovereign-ai-compute-strategy
+  - ai-compute-access-fund
+  - compute
+  - ai-infrastructure
+  - public-consultation
+  - federal-budget
+  - francois-philippe-champagne
+  - ised
+  - federal-government
+
+links:
+  - label: "Canada.ca — Government of Canada launches public consultation on artificial intelligence computing infrastructure"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2024/06/government-of-canada-launches-public-consultation-on-artificial-intelligence-computing-infrastructure.html
+    icon: document

@@ -1,0 +1,55 @@
+# events/2024-12-05-sovereign-ai-compute-strategy-announced.yaml
+
+id: sovereign-ai-compute-strategy-announced-2024
+type: GovernmentAnnouncement
+schema_type: Event
+
+title: "Minister Champagne announces the Canadian Sovereign AI Compute Strategy"
+date: 2024-12-05
+status: completed
+
+location:
+  name: "Ottawa, Ontario"
+  schema_type: Place
+
+organizations:
+  - id: ised-canada
+    role: organizer
+
+description: >
+  In Ottawa, François-Philippe Champagne, Minister of Innovation, Science and
+  Industry, announces the Canadian Sovereign AI Compute Strategy, setting out
+  how the $2 billion from Budget 2024 will be spent on domestic AI computing
+  capacity: up to $700 million to co-invest in commercial AI data centres
+  through an AI Compute Challenge, up to $1 billion for public computing
+  infrastructure including a new publicly owned AI supercomputer, and up to
+  $300 million to subsidize compute access for small and medium-sized
+  enterprises. Cohere is named the first recipient, offered up to
+  $240 million toward a $725-million Canadian data centre.
+
+related_artifacts:
+  - id: canadian-sovereign-ai-compute-strategy
+
+tags:
+  - sovereign-ai-compute-strategy
+  - ai-compute-access-fund
+  - compute
+  - ai-infrastructure
+  - data-centres
+  - sovereign-ai
+  - cohere
+  - federal-budget
+  - francois-philippe-champagne
+  - ised
+  - federal-government
+
+links:
+  - label: "Canada.ca — Canada to drive billions in investments to build domestic AI compute capacity at home"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2024/12/canada-to-drive-billions-in-investments-to-build-domestic-ai-compute-capacity-at-home.html
+    icon: document
+  - label: "Canada.ca — Deputy Prime Minister announces $240 million for Cohere to scale up AI compute capacity"
+    url: https://www.canada.ca/en/department-finance/news/2024/12/deputy-prime-minister-announces-240-million-for-cohere-to-scale-up-ai-compute-capacity.html
+    icon: document
+  - label: "ISED — Canadian Sovereign AI Compute Strategy"
+    url: https://ised-isde.canada.ca/site/ised/en/canadian-sovereign-ai-compute-strategy
+    icon: document

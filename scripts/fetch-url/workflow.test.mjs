@@ -34,3 +34,10 @@ describe("claude.yml web access", () => {
     expect(claudeArgs).not.toMatch(/\$RUNNER_TEMP|\$\{RUNNER_TEMP\}/);
   });
 });
+
+describe("claude.yml model", () => {
+  it("asks for Opus by alias, so the latest one is picked up without editing this repo", () => {
+    expect(claudeArgs).toMatch(/--model\s+opus(\s|$)/);
+    expect(claudeArgs).not.toMatch(/--model\s+claude-/);
+  });
+});

@@ -9,5 +9,12 @@ description: >
 mitigation_type: operational-process
 addresses_risks: []
 status: untracked
-implemented_by: []
-tags: []
+implemented_by:
+  - artifact: canadian-sovereign-ai-compute-strategy
+    relationship: partially_implements
+    note: >
+      The $2B Canadian Sovereign AI Compute Strategy addresses the compute
+      half of this recommendation — commercial data centres, a public AI
+      supercomputer, and subsidized compute access for SMEs — but not the
+      skills and data components.
+tags: [compute, ai-infrastructure]

@@ -1,0 +1,55 @@
+# events/2026-09-09-national-ai-literacy-initiative-launched.yaml
+
+id: national-ai-literacy-initiative-launched-2026
+type: GovernmentAnnouncement
+schema_type: Event
+
+title: "Government of Canada launches the National AI Literacy Initiative"
+date: 2026-09-09
+status: completed
+
+location:
+  name: "Edmonton, Alberta"
+  schema_type: Place
+
+organizations:
+  - id: ised-canada
+    role: organizer
+  - id: amii
+    role: delivery_partner
+
+description: >
+  At Amii's headquarters in Edmonton, Evan Solomon, Minister of Artificial
+  Intelligence and Digital Innovation, launches the National AI Literacy
+  Initiative — a $13-million national partnership with the Alberta Machine
+  Intelligence Institute delivering the AI for All commitment to build AI
+  literacy. Free courses run in three streams — Essentials for Students,
+  Essentials for Educators, and Essentials for Canadians — targeting up to one
+  million post-secondary students and more than 50,000 K-12 educators. From
+  21 September 2026 post-secondary institutions can join the consortium and
+  the first Educators chapter opens, with five more chapters through the fall.
+
+related_artifacts:
+  - id: canada-national-ai-strategy-ai-for-all
+
+tags:
+  - ai-literacy
+  - national-ai-literacy-initiative
+  - ai-for-all
+  - national-ai-strategy
+  - education
+  - amii
+  - evan-solomon
+  - ised
+  - federal-government
+
+links:
+  - label: "Canada.ca — Government of Canada launches National AI Literacy Initiative"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/09/government-of-canada-launches-national-ai-literacy-initiative.html
+    icon: document
+  - label: "Amii — Amii leads National AI Literacy Initiative to empower 1 million learners"
+    url: https://www.amii.ca/updates-insights/amii-leads-national-ai-literacy-initiative
+    icon: document
+  - label: "CBC — Free course covering basics of AI to be available to all Canadians by end of the year"
+    url: https://www.cbc.ca/news/politics/ai-essentials-government-courses-solomon-9.7337417
+    icon: document

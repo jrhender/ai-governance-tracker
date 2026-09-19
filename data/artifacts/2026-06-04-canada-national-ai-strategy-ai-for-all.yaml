@@ -12,7 +12,7 @@ organizations:
     role: sponsor
 
 lifecycle_status: active
-current_stage: "Launched 4 June 2026; implementation underway"
+current_stage: "Launched 4 June 2026; deliverables rolling out (AI literacy initiative launched 9 September 2026)"
 
 derives_from:
   - id: ai-strategy-summary-of-inputs-published-2026
@@ -66,6 +66,13 @@ stages:
   - date: 2026-06-04
     stage: "Strategy launched by Prime Minister Carney"
     note: "Released in Toronto; ~$2B in new federal investment over five years"
+  - date: 2026-09-09
+    stage: "National AI Literacy Initiative launched"
+    note: "First of the strategy's literacy commitments to be stood up: a $13M partnership with Amii delivering free courses for post-secondary students, K-12 educators, and the general public"
+    links:
+      - label: "Canada.ca — Government of Canada launches National AI Literacy Initiative"
+        url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/09/government-of-canada-launches-national-ai-literacy-initiative.html
+        icon: document
 
 links:
   - label: "ISED — Canada's National AI Strategy: AI for All"

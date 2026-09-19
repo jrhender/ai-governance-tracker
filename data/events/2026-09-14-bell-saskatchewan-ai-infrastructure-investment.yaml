@@ -1,0 +1,51 @@
+# events/2026-09-14-bell-saskatchewan-ai-infrastructure-investment.yaml
+
+id: bell-saskatchewan-ai-infrastructure-investment-2026
+type: GovernmentAnnouncement
+schema_type: Event
+
+title: "Government of Canada welcomes Bell's sovereign AI infrastructure investment in Saskatchewan"
+date: 2026-09-14
+status: completed
+
+location:
+  name: "Ottawa, Ontario"
+  schema_type: Place
+
+organizations:
+  - id: ised-canada
+    role: organizer
+
+description: >
+  The Government of Canada welcomes Bell Canada's planned expansion of its Bell
+  AI Fabric capacity in Saskatchewan: up to 900 megawatts of new capacity,
+  charting a path to a 1.2-gigawatt AI infrastructure hub, with capital
+  investment of up to $52.5 billion and 4,500 jobs — the largest capital
+  investment in the province's history. Ministers Solomon, Hodgson, and Joly
+  frame it as sovereign computing governed by Canadian laws, part of federal
+  work with provinces and energy providers exploring up to six gigawatts of
+  new data centre capacity. Development is to follow Canada's Responsible Data
+  Centre Development Principles, with project specifics awaiting community
+  engagement.
+
+tags:
+  - data-centres
+  - ai-infrastructure
+  - sovereign-ai
+  - sovereign-ai-compute-strategy
+  - compute
+  - electricity
+  - community-impact
+  - bell-canada
+  - saskatchewan
+  - evan-solomon
+  - ised
+  - federal-government
+
+links:
+  - label: "Canada.ca — Government of Canada welcomes major new investment in sovereign AI infrastructure in Saskatchewan"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/09/government-of-canada-welcomes-major-new-investment-in-sovereign-ai-infrastructure-in-saskatchewan.html
+    icon: document
+  - label: "ISED — Canadian Sovereign AI Compute Strategy"
+    url: https://ised-isde.canada.ca/site/ised/en/canadian-sovereign-ai-compute-strategy
+    icon: document

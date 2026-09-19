@@ -1,0 +1,52 @@
+# events/2026-09-16-canada-germany-lawzero-investment-announced.yaml
+
+id: canada-germany-lawzero-investment-announced-2026
+type: GovernmentAnnouncement
+schema_type: Event
+
+title: "Canada and Germany announce investment in LawZero for safe, sovereign AI"
+date: 2026-09-16
+status: completed
+
+location:
+  name: "Montréal, Quebec"
+  schema_type: Place
+
+organizations:
+  - id: ised-canada
+    role: organizer
+  - id: lawzero
+    role: subject
+
+description: >
+  At the ALL IN conference in Montréal, Minister Evan Solomon and Germany's
+  Minister Karsten Wildberger announce plans to invest CAD 150 million and EUR
+  100 million respectively in LawZero, the Montréal non-profit founded by
+  Yoshua Bengio. Canada's funding, through the Strategic Response Fund,
+  supports research talent and computing capacity for LawZero's safe-by-design
+  Scientist AI methodology, creating 360 jobs and sovereign compute with
+  Hypertec and 5C. Germany's share, subject to European Commission
+  notification, funds a new German office. The investment builds on the
+  Canada-Germany AI Joint Declaration and Sovereign Technology Alliance.
+
+tags:
+  - international-cooperation
+  - sovereign-ai
+  - sovereign-technology-alliance
+  - ai-safety
+  - safe-by-design
+  - scientist-ai
+  - lawzero
+  - yoshua-bengio
+  - strategic-response-fund
+  - ai-for-all
+  - compute
+  - evan-solomon
+  - germany
+  - ised
+  - federal-government
+
+links:
+  - label: "Canada.ca — Canada and Germany invest in LawZero to build a new approach to safe, sovereign AI"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/09/canada-and-germany-invest-in-lawzero-to-build-a-new-approach-to-safe-sovereign-ai.html
+    icon: document

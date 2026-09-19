@@ -1,0 +1,44 @@
+# events/2026-09-03-responsible-data-centre-development-principles-announced.yaml
+
+id: responsible-data-centre-development-principles-announced-2026
+type: GovernmentAnnouncement
+schema_type: Event
+
+title: "Government of Canada launches Canada's Responsible Data Centre Development Principles"
+date: 2026-09-03
+status: completed
+
+location:
+  name: "Toronto, Ontario"
+  schema_type: Place
+
+organizations:
+  - id: ised-canada
+    role: organizer
+
+description: >
+  In Toronto, Evan Solomon, Minister of Artificial Intelligence and Digital
+  Innovation, joined by Federation of Canadian Municipalities President Tim
+  Tierney, launches Canada's Responsible Data Centre Development Principles —
+  a national framework setting five expectations for data centre projects:
+  lasting local benefits, electricity costs, water use and environmental
+  impacts, transparency, and strategic value to Canada. Backed by 23 industry
+  signatories, it sets a nationally recognized baseline alongside provincial,
+  territorial, municipal, and Indigenous regulatory processes.
+
+tags:
+  - data-centres
+  - ai-infrastructure
+  - sovereign-ai-compute-strategy
+  - electricity
+  - water-use
+  - community-impact
+  - industry-collaboration
+  - evan-solomon
+  - ised
+  - federal-government
+
+links:
+  - label: "Canada.ca — Government of Canada launches Canada's Responsible Data Centre Development Principles"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/09/government-of-canada-launches-canadas-responsible-data-centre-development-principles.html
+    icon: document

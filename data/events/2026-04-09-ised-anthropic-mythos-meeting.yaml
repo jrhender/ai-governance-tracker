@@ -13,18 +13,15 @@ organizations:
     role: participant
 
 description: >
-  After Anthropic decided not to release its powerful new Claude Mythos model
-  to the general public — citing its ability to detect and exploit software
-  vulnerabilities, and instead offering a preview to a select group of critical
-  infrastructure operators under a program dubbed "Project Glasswing" — the
-  Canadian government engages with the company. Officials from Innovation,
-  Science and Economic Development Canada meet Anthropic on April 8, and
-  Minister of Artificial Intelligence and Digital Innovation Evan Solomon meets
-  Anthropic on April 9, 2026. Solomon calls Anthropic's "defenders first"
-  approach the responsible path and says the company and the government are in
-  constructive, ongoing discussions. Canada later joins Project Glasswing
-  through the Canadian Centre for Cybersecurity, giving some Canadian
-  organizations access to the model to strengthen their cyber defences.
+  After Anthropic withheld its new Claude Mythos model from general release —
+  citing its ability to detect and exploit software vulnerabilities, offering
+  instead a preview to select critical infrastructure operators under a program
+  dubbed "Project Glasswing" — the Canadian government engages the company.
+  ISED officials meet Anthropic on April 8, and Minister of Artificial
+  Intelligence and Digital Innovation Evan Solomon does so on April 9, 2026.
+  Solomon calls Anthropic's "defenders first" approach the responsible path and
+  the discussions constructive and ongoing. Canada later joins Project
+  Glasswing through the Canadian Centre for Cybersecurity.
 
 tags:
   - anthropic

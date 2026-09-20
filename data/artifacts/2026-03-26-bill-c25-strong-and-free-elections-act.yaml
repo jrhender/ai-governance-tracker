@@ -35,13 +35,13 @@ description: |
   contests, and the impersonation, disinformation, and computer-misuse offences
   now apply outside the election period and to conduct outside Canada.
 
-  Before this amendment the offence reached only someone who falsely represented
-  themselves or another person *as* an electoral actor. It did not reach the
-  case where a party leader's image or voice is synthesised to make them appear
-  to say or do something they never did, because the person producing the
-  deepfake was not themselves claiming to be the candidate. That is the gap the
-  Act closes. There is a defence where the material was manifestly for the
-  purpose of parody or satire.
+  Before this amendment the offence turned on misrepresenting *identity*: it
+  reached someone who falsely represented themselves, or another person, to be
+  an electoral actor. A deepfake of a real party leader falsifies nothing about
+  identity — the person depicted genuinely is the leader — and instead fabricates
+  the words and conduct attributed to them, which an identity-focused offence did
+  not reach. That is the gap the Act closes. There is a defence where the
+  material was manifestly for the purpose of parody or satire.
 
   The Act's reach stops at impersonation of a named electoral actor. AI-generated
   political content that does not imitate a real electoral actor remains

@@ -1,0 +1,37 @@
+# events/2026-03-26-bill-c25-introduced.yaml
+
+id: bill-c25-introduced-2026
+type: LegislativeAction
+schema_type: Event
+
+title: "Bill C-25 (Strong and Free Elections Act) introduced in the House of Commons (first reading)"
+date: 2026-03-26
+status: completed
+
+description: >
+  The Strong and Free Elections Act (Bill C-25) is introduced and receives first
+  reading in the House of Commons, tabled by Steven MacKinnon, Leader of the
+  Government in the House of Commons. The bill is tracked here for its extension
+  of the Canada Elections Act impersonation offence to realistic deepfakes of
+  electoral actors — manipulated images, voices, or recordings likely to be
+  mistaken for the Chief Electoral Officer, election officers, party leaders,
+  candidates, or contestants — with a defence for parody and satire.
+
+related_artifacts:
+  - id: bill-c25-strong-and-free-elections-act
+
+tags:
+  - bill-c-25
+  - strong-and-free-elections-act
+  - canada-elections-act
+  - deepfakes
+  - elections
+  - house-of-commons
+
+links:
+  - label: "LEGISinfo — Bill C-25 (45-1)"
+    url: https://www.parl.ca/legisinfo/en/bill/45-1/c-25
+    icon: document
+  - label: "Government of Canada — Strong and Free Elections Act introduced"
+    url: https://www.canada.ca/en/democratic-institutions/news/2026/03/government-of-canada-introduces-measures-to-further-protect-canadas-electoral-processes-and-strengthen-democracy.html
+    icon: document

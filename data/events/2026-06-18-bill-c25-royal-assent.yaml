@@ -1,0 +1,38 @@
+# events/2026-06-18-bill-c25-royal-assent.yaml
+
+id: bill-c25-royal-assent-2026
+type: LegislativeAction
+schema_type: Event
+
+title: "Bill C-25 (Strong and Free Elections Act) receives royal assent"
+date: 2026-06-18
+status: completed
+
+description: >
+  Bill C-25, the Strong and Free Elections Act, receives royal assent and is
+  enacted as Statutes of Canada 2026, c. 20. The Canada Elections Act
+  impersonation offence now expressly covers realistic deepfakes of electoral
+  actors made or distributed with intent to mislead, subject to a parody and
+  satire defence. AI-generated political content that does not imitate a real
+  electoral actor remains outside the Act, and there is no labelling requirement
+  for synthetic election material.
+
+related_artifacts:
+  - id: bill-c25-strong-and-free-elections-act
+
+tags:
+  - bill-c-25
+  - strong-and-free-elections-act
+  - canada-elections-act
+  - deepfakes
+  - elections
+  - royal-assent
+  - parliament
+
+links:
+  - label: "LEGISinfo — Bill C-25 (45-1)"
+    url: https://www.parl.ca/legisinfo/en/bill/45-1/c-25
+    icon: document
+  - label: "Government of Canada — Election protections strengthened following royal assent of Bill C-25"
+    url: https://www.canada.ca/en/democratic-institutions/news/2026/06/government-of-canada-strengthens-election-protections-following-royal-assent-of-bill-c-25-the-strong-and-free-elections-act.html
+    icon: document

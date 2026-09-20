@@ -1,0 +1,158 @@
+# artifacts/2026-03-26-bill-c25-strong-and-free-elections-act.yaml
+
+id: bill-c25-strong-and-free-elections-act
+type: Legislation
+schema_type: CreativeWork
+
+title: "Bill C-25 — Strong and Free Elections Act"
+published_date: 2026-03-26  # introduction / first reading date
+
+lifecycle_status: enacted
+current_stage: "Received royal assent on 18 June 2026 (S.C. 2026, c. 20)"
+
+organizations:
+  - id: privy-council-office-canada
+    role: sponsor
+
+summary: "Elections bill enacted in June 2026, tracked here because it extends the Canada Elections Act impersonation offence to realistic AI deepfakes of electoral actors — while leaving other AI-generated political content unregulated."
+description: |
+  Bill C-25, the Strong and Free Elections Act, amends the Canada Elections Act
+  with a package of measures on foreign interference, political-party privacy,
+  nomination and leadership contests, political financing, and enforcement. It
+  was introduced on 26 March 2026 by Steven MacKinnon, Leader of the Government
+  in the House of Commons, and received royal assent on 18 June 2026 as Statutes
+  of Canada 2026, c. 20.
+
+  It is tracked here for its deepfake measure. The Act extends the impersonation
+  offence in section 480.1 of the Canada Elections Act so that it clearly covers
+  false representations made by technological means — a manipulated image, voice
+  imitation, or audio recording of an electoral actor that is likely to be
+  mistaken for the real person and is made or distributed with intent to
+  mislead. "Electoral actors" here means the Chief Electoral Officer and
+  Elections Canada staff, election officers, leaders of registered and eligible
+  parties, candidates and prospective candidates, and nomination and leadership
+  contestants. Equivalent protections were added for nomination and leadership
+  contests, and the impersonation, disinformation, and computer-misuse offences
+  now apply outside the election period and to conduct outside Canada.
+
+  Before this amendment the offence reached only someone who falsely represented
+  themselves or another person *as* an electoral actor. It did not reach the
+  case where a party leader's image or voice is synthesised to make them appear
+  to say or do something they never did, because the person producing the
+  deepfake was not themselves claiming to be the candidate. That is the gap the
+  Act closes. There is a defence where the material was manifestly for the
+  purpose of parody or satire.
+
+  The Act's reach stops at impersonation of a named electoral actor. AI-generated
+  political content that does not imitate a real electoral actor remains
+  unregulated by the Canada Elections Act — including synthetic footage of
+  fictitious scenes and people used in party advertising, which entered Canadian
+  federal politics during the bill's passage when a June 2026 attack ad used
+  AI-generated video of invented food-bank lineups. Nor does the Act require
+  AI-generated election material to be labelled as such. Commentators have
+  described it as a first step that will need revisiting as the technology
+  moves.
+
+  The Act's remaining measures — anonymous and foreign contribution bans,
+  political-party privacy policies and breach notification, higher
+  administrative monetary penalties, expanded powers for the Commissioner of
+  Canada Elections, and changes to ballot length — fall outside this tracker's
+  AI-governance scope and are summarized only in passing.
+
+stages:
+  - date: 2026-03-26
+    stage: "Introduction and first reading (House of Commons)"
+    note: "Tabled by Steven MacKinnon, Leader of the Government in the House of Commons."
+  - date: 2026-04-24
+    stage: "Second reading passed; referred to PROC"
+    note: "Referred to the Standing Committee on Procedure and House Affairs."
+  - date: 2026-06-03
+    stage: "Committee reports the bill back to the House (PROC)"
+  - date: 2026-06-04
+    stage: "Senate pre-study completed"
+    note: >
+      The Standing Senate Committee on Legal and Constitutional Affairs
+      completed its pre-study before the bill reached the Senate, shortening
+      the Senate stage later in June.
+  - date: 2026-06-10
+    stage: "Report stage (House of Commons)"
+  - date: 2026-06-11
+    stage: "Third reading passed (House of Commons)"
+  - date: 2026-06-15
+    stage: "First reading (Senate)"
+  - date: 2026-06-16
+    stage: "Second reading passed (Senate); referred to Legal and Constitutional Affairs"
+  - date: 2026-06-18
+    stage: "Committee report, third reading (Senate) and royal assent"
+    note: "Enacted as Statutes of Canada 2026, c. 20."
+
+provisions:
+  - id: deepfake-impersonation-offence
+    title: "Impersonation offence covers realistic deepfakes of electoral actors"
+    summary: >
+      Extend the section 480.1 impersonation offence to false representations
+      made by technological means — a manipulated or synthesised image, voice
+      imitation, or audio recording likely to be mistaken for an electoral actor
+      — where it is made or distributed with intent to mislead.
+  - id: electoral-actors-protected
+    title: "Scope of protected electoral actors"
+    summary: >
+      Protect the Chief Electoral Officer and Elections Canada staff, election
+      officers, leaders of registered and eligible parties, candidates and
+      prospective candidates, and nomination and leadership contestants.
+  - id: parody-satire-defence
+    title: "Parody and satire defence"
+    summary: >
+      Provide a defence where the accused establishes that the image, imitation,
+      audio recording, or representation was manifestly for the purpose of
+      parody or satire.
+  - id: nomination-leadership-contest-deepfakes
+    title: "Equivalent protections for nomination and leadership contests"
+    summary: >
+      Apply the deepfake, bribery, intimidation, foreign-influence, and
+      computer-misuse protections to nomination and leadership contests, inside
+      and outside Canada.
+  - id: election-disinformation-offence
+    title: "Election disinformation offence"
+    summary: >
+      Make it an offence to knowingly spread false information about the voting
+      process or election activities in order to disrupt an election, with
+      carve-outs for good-faith opinion and satire.
+  - id: extended-application
+    title: "Application outside election periods and outside Canada"
+    summary: >
+      Extend the impersonation, disinformation, and computer-misuse offences so
+      they apply at all times rather than only during an election period, and to
+      conduct occurring outside Canada.
+
+links:
+  - label: "LEGISinfo — Bill C-25 (45-1)"
+    url: https://www.parl.ca/legisinfo/en/bill/45-1/c-25
+    icon: document
+  - label: "Government of Canada — Strong and Free Elections Act introduced (26 March 2026)"
+    url: https://www.canada.ca/en/democratic-institutions/news/2026/03/government-of-canada-introduces-measures-to-further-protect-canadas-electoral-processes-and-strengthen-democracy.html
+    icon: document
+  - label: "Government of Canada — Amendments to the Canada Elections Act (backgrounder)"
+    url: https://www.canada.ca/en/democratic-institutions/news/2026/03/strong-and-free-elections-act---amendments-to-the-canada-elections-act.html
+    icon: document
+  - label: "Department of Justice — Charter Statement on Bill C-25"
+    url: https://www.justice.gc.ca/eng/csj-sjc/pl/charter-charte/c25_2.html
+    icon: document
+  - label: "BetaKit — Canada bans \"sophisticated deepfakes\" of political figures"
+    url: https://betakit.com/canada-bans-sophisticated-deepfakes-of-political-figures/
+    icon: document
+  - label: "CBC — The Conservative Party recently released an AI-generated ad. How do voters feel about this kind of content?"
+    url: https://www.cbc.ca/news/politics/conservative-ai-ad-targets-carney-9.7240936
+    icon: document
+
+tags:
+  - bill-c-25
+  - strong-and-free-elections-act
+  - canada-elections-act
+  - deepfakes
+  - synthetic-media
+  - elections
+  - electoral-integrity
+  - disinformation
+  - foreign-interference
+  - royal-assent

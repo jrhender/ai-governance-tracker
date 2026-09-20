@@ -1,0 +1,14 @@
+# organizations/g20.yaml
+
+id: g20
+type: IntergovernmentalForum
+schema_type: GovernmentOrganization
+country: international
+
+name: "Group of Twenty"
+short_name: "G20"
+wikipedia: https://en.wikipedia.org/wiki/G20
+
+tags:
+  - intergovernmental
+  - international

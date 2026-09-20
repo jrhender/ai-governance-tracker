@@ -1,0 +1,45 @@
+# data/events/2026-09-01-g20-innovation-ministerial.yaml
+
+id: g20-innovation-ministerial-2026
+type: GovernmentAnnouncement
+schema_type: Event
+
+title: "Canada takes part in the G20 Innovation Ministerial"
+date: 2026-09-01
+status: completed
+
+location:
+  name: "Chapel Hill, North Carolina, United States"
+  schema_type: Place
+
+organizations:
+  - id: g20
+    role: convener
+  - id: ised-canada
+    role: participant
+
+description: >
+  Parliamentary Secretary Karim Bardeesy attends the G20 Innovation Ministerial
+  on September 1-2 on behalf of Industry Minister Mélanie Joly and AI and
+  Digital Innovation Minister Evan Solomon. Discussions cover innovation
+  policy, public sector AI adoption, technical workforce development,
+  intellectual property, standards for AI, and industrial supply chains. On the
+  margins, Bardeesy meets representatives of Mexico, the United Kingdom,
+  Australia and the European Union on science, technology, AI and innovation
+  collaboration, and sets out Canada's view of AI's role in innovation to the
+  American hosts. ISED announced Canada's participation on September 3, 2026.
+
+tags:
+  - international-cooperation
+  - g20
+  - standards
+  - intellectual-property
+  - evan-solomon
+  - ised
+  - federal-government
+  - united-states
+
+links:
+  - label: "Canada.ca — Canada advances international collaboration at the G20 Innovation Ministerial"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/09/canada-advances-international-collaboration-at-the-g20-innovation-ministerial.html
+    icon: document

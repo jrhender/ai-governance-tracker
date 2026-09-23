@@ -26,6 +26,9 @@ description: >
   signatories, it sets a nationally recognized baseline alongside provincial,
   territorial, municipal, and Indigenous regulatory processes.
 
+related_artifacts:
+  - id: responsible-data-centre-development-principles
+
 tags:
   - data-centres
   - ai-infrastructure

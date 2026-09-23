@@ -1,0 +1,87 @@
+# artifacts/2026-09-03-responsible-data-centre-development-principles.yaml
+
+id: responsible-data-centre-development-principles
+type: PolicyDocument
+schema_type: CreativeWork
+
+title: "Canada's Responsible Data Centre Development Principles"
+published_date: 2026-09-03
+
+organizations:
+  - id: ised-canada
+    role: publisher
+
+lifecycle_status: active
+current_stage: "Active; 42 signatories as of 22 September 2026"
+
+derives_from:
+  - id: responsible-data-centre-development-principles-announced-2026
+    relationship: announced_at
+
+summary: "ISED's voluntary national framework setting five expectations for data centre projects — local benefits, no electricity costs shifted to Canadians, minimal water and environmental impact, transparency, and strategic value to Canada. 42 signatories."
+description: |
+  **Canada's Responsible Data Centre Development Principles** are a voluntary
+  national framework published by Innovation, Science and Economic
+  Development Canada and launched in Toronto on 3 September 2026 by Evan
+  Solomon, Minister of Artificial Intelligence and Digital Innovation,
+  alongside Federation of Canadian Municipalities President Tim Tierney.
+  Industry signatories commit to building data centres in line with five
+  expectations:
+
+  1. **Create lasting local benefits** — jobs, training, local and Indigenous
+     procurement, tax contributions, and compute access for host communities
+     and Indigenous rights holders, identified through early engagement.
+  2. **Do not shift electricity costs to Canadians** — proponents pay the
+     generation, transmission, and grid-upgrade costs attributable to their
+     projects and must not compromise grid reliability.
+  3. **Minimize water use and environmental impacts** — protect local water
+     supplies, prefer closed-loop cooling, waste-heat recovery, and
+     low-emission energy, and report impacts using recognized standards.
+  4. **Be transparent about local impacts** — engage early with local
+     governments and Indigenous communities, respect local approvals, and
+     provide independently verifiable information on power, water, sound,
+     and emissions, tracked over time.
+  5. **Bring strategic value to Canada** — investment, Canadian supply-chain
+     participation, research partnerships, and digital resilience; facilities
+     handling sensitive data or critical systems must meet Canadian legal
+     protection, cybersecurity, and access requirements.
+
+  The principles are intended to complement, not replace, provincial,
+  territorial, municipal, and Indigenous regulatory processes by giving
+  communities a nationally recognized baseline for assessing proposals. They
+  support the sovereign-AI pillar of **AI for All**, Canada's national AI
+  strategy, and the **Canadian Sovereign AI Compute Strategy**. There is no
+  enforcement mechanism beyond the signatories' public commitment.
+
+stages:
+  - date: 2026-09-03
+    stage: "Principles launched with 23 signatories"
+    note: "Amazon Web Services, Anthropic, Beacon Data Centers, Bell Canada (BCE), BUZZ HPC, Cohere, Cologix, Denvr Dataworks, Equinix, eStruxture, Google, Hypertec Group, Meta, Micrologic, Microsoft, OpenAI, OVHcloud, Prologis, QScale, Sovereign Digital Infrastructure, TELUS, ThinkOn, Urbacon Data Centre Solutions"
+    links:
+      - label: "Canada.ca — Government of Canada launches Canada's Responsible Data Centre Development Principles"
+        url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/09/government-of-canada-launches-canadas-responsible-data-centre-development-principles.html
+        icon: document
+  - date: 2026-09-22
+    stage: "19 more organizations sign (42 total)"
+    note: "AMD, Clearway Group of Companies, EllisDon, Energy Storage Canada, Enwave Energy Corporation, Global Relay, IBM, Intel, Kyndryl, Lenovo, NVIDIA, OnX, Potentia Renewables Inc., Qu Data Centres, Red Jar Energy Partners, Schneider Electric, Slate Asset Management, STACK Infrastructure, Vantage Data Centers"
+    links:
+      - label: "Canada.ca — Government of Canada welcomes 19 additional signatories"
+        url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/09/government-of-canada-welcomes-19-additional-signatories-to-canadas-responsible-data-centre-development-principles.html
+        icon: document
+
+links:
+  - label: "ISED — Canada's Responsible Data Centre Development Principles"
+    url: https://ised-isde.canada.ca/site/ised/en/data-centres-powering-canadas-digital-future-responsibly/canadas-responsible-data-centre-development-principles
+    icon: document
+
+tags:
+  - data-centres
+  - ai-infrastructure
+  - sovereign-ai-compute-strategy
+  - electricity
+  - water-use
+  - community-impact
+  - industry-collaboration
+  - voluntary-code
+  - ised
+  - federal-government

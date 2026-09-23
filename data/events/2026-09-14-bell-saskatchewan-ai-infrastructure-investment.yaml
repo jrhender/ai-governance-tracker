@@ -30,6 +30,7 @@ description: >
 
 related_artifacts:
   - id: canadian-sovereign-ai-compute-strategy
+  - id: responsible-data-centre-development-principles
 
 tags:
   - data-centres

@@ -1,0 +1,43 @@
+# data/events/2026-09-16-sovereign-technology-alliance-co-chairs-first-meeting.yaml
+
+id: sovereign-technology-alliance-co-chairs-first-meeting-2026
+type: GovernmentAnnouncement
+schema_type: Event
+
+title: "First meeting of the Sovereign Technology Alliance co-chairs"
+date: 2026-09-16
+status: completed
+
+location:
+  name: "Montréal, Quebec"
+  schema_type: Place
+
+organizations:
+  - id: ised-canada
+    role: participant
+
+description: >
+  On the margins of the ALL IN conference in Montréal, where Germany is the
+  2026 Country of Honour, Minister Evan Solomon and Germany's Minister Karsten
+  Wildberger hold the first co-chairs' meeting of the Sovereign Technology
+  Alliance, launched in Munich in February 2026. In a joint statement issued
+  the next day, the ministers describe the meeting as a milestone in
+  operationalizing the alliance as a platform for Canada, Germany and trusted
+  partners to strengthen sovereign AI capabilities. They took stock of
+  interest from prospective members and agreed to work towards a launch with
+  founding members in the coming months.
+
+links:
+  - label: "Canada.ca — First Meeting of the Co-Chairs of the Sovereign Technology Alliance (statement)"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/09/first-meeting-of-the-co-chairs-of-the-sovereign-technology-alliance.html
+    icon: document
+
+tags:
+  - international-cooperation
+  - sovereign-technology
+  - sovereign-technology-alliance
+  - sovereign-ai
+  - ised
+  - federal-government
+  - evan-solomon
+  - germany

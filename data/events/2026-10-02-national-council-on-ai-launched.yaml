@@ -1,0 +1,35 @@
+# events/2026-10-02-national-council-on-ai-launched.yaml
+
+id: national-council-on-ai-launched-2026
+type: GovernmentAnnouncement
+schema_type: Event
+
+title: "Prime Minister Carney launches the National Council on Artificial Intelligence"
+date: 2026-10-02
+status: completed
+
+description: >
+  Prime Minister Mark Carney launches a new 13-member National Council on
+  Artificial Intelligence, bringing together academics and private-sector
+  leaders — including Yoshua Bengio, Valerie Pisano and Michelle Zatlyn — to
+  advise the government on the evolution of its AI for All strategy, covering
+  AI adoption, sovereign AI infrastructure, safety, and democratic
+  protections.
+
+related_artifacts:
+  - id: canada-national-ai-strategy-ai-for-all
+
+tags:
+  - national-council-on-ai
+  - ai-for-all
+  - national-ai-strategy
+  - ai-safety
+  - sovereign-ai
+  - mark-carney
+  - yoshua-bengio
+  - federal-government
+
+links:
+  - label: "PMO — Prime Minister Carney launches new National Council on Artificial Intelligence"
+    url: https://www.pm.gc.ca/en/news/news-releases/2026/10/02/prime-minister-carney-launches-new-national-council-artificial
+    icon: document

@@ -1,0 +1,18 @@
+# organizations/privacy-commissioner-of-canada.yaml
+
+id: privacy-commissioner-of-canada
+type: GovernmentOrganization
+schema_type: GovernmentOrganization
+country: ca
+
+name: "Office of the Privacy Commissioner of Canada"
+short_name: "OPC"
+url: https://www.priv.gc.ca
+wikipedia: https://en.wikipedia.org/wiki/Privacy_Commissioner_of_Canada
+
+tags:
+  - federal-government
+  - canadian
+  - agent-of-parliament
+  - privacy
+  - regulator

@@ -1,0 +1,50 @@
+# events/2026-09-16-fpt-privacy-information-regulators-annual-meeting.yaml
+
+id: fpt-privacy-information-regulators-annual-meeting-2026
+type: GovernmentAnnouncement
+schema_type: Event
+
+title: "Canada's privacy and information regulators hold annual meeting on transparency and emerging technologies"
+date: 2026-09-16
+status: completed
+
+location:
+  name: "Ottawa, Ontario"
+  schema_type: Place
+
+organizations:
+  - id: privacy-commissioner-of-canada
+    role: host
+  - id: information-commissioner-of-canada
+    role: host
+
+description: >
+  Canada's federal, provincial and territorial privacy and information
+  commissioners and ombuds meet in Ottawa for their annual meeting, hosted by
+  Privacy Commissioner Philippe Dufresne and Information Commissioner Caroline
+  Maynard. Privacy discussions focus on the opportunities and risks of
+  emerging technologies, including AI, quantum computing and advanced
+  data-processing systems, and how privacy intersects with cross-border data
+  flows, digital sovereignty and national resilience. On access to
+  information, participants explore how new technologies are changing how
+  government records are created and managed, and what that means for access
+  rights.
+
+links:
+  - label: "OPC — Canada's privacy and information regulators collaborate to advance transparency, privacy and accountability (news release)"
+    url: https://www.priv.gc.ca/en/opc-news/news-and-announcements/2026/nr-c_260916/
+    icon: document
+  - label: "Newswire — joint news release"
+    url: https://www.newswire.ca/news-releases/canada-s-information-and-privacy-regulators-collaborate-to-advance-transparency-privacy-and-accountability-amid-rapid-technological-change-860254311.html
+    icon: document
+
+tags:
+  - privacy
+  - access-to-information
+  - transparency
+  - regulators
+  - fpt-collaboration
+  - digital-sovereignty
+  - privacy-commissioner
+  - information-commissioner
+  - federal-government

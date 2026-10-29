@@ -1,0 +1,18 @@
+# organizations/information-commissioner-of-canada.yaml
+
+id: information-commissioner-of-canada
+type: GovernmentOrganization
+schema_type: GovernmentOrganization
+country: ca
+
+name: "Office of the Information Commissioner of Canada"
+short_name: "OIC"
+url: https://www.oic-ci.gc.ca
+wikipedia: https://en.wikipedia.org/wiki/Information_Commissioner_of_Canada
+
+tags:
+  - federal-government
+  - canadian
+  - agent-of-parliament
+  - access-to-information
+  - regulator

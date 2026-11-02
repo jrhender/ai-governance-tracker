@@ -1,0 +1,97 @@
+# artifacts/2026-09-23-opc-ai-transparency-submission.yaml
+
+id: opc-ai-transparency-submission-2026
+type: PolicyDocument
+schema_type: CreativeWork
+
+title: "Submission of the Office of the Privacy Commissioner of Canada on Enhancing trust in artificial intelligence through increased transparency"
+published_date: 2026-09-23
+
+organizations:
+  - id: opc-canada
+    role: author
+
+derives_from:
+  - id: ised-ai-transparency-consultation-launched-2026
+    relationship: submission_to
+
+summary: "The Privacy Commissioner's comments on ISED's AI transparency discussion paper, arguing that AI disclosures must give individuals understandable information at the point it matters to their decisions."
+description: >
+  The OPC's submission to ISED's 2026 consultation on AI transparency, sent on
+  September 23, 2026 by Deputy Commissioner and Senior General Counsel Marc
+  Chénier and published on October 23, 2026. The OPC agrees with the five
+  areas ISED identified (AI-generated content, AI interaction, information
+  about AI systems, AI incidents, and AI agents) and argues that transparency
+  should give individuals the information they need for informed decisions,
+  in an understandable form and at the moment it is relevant. It ties AI
+  disclosures to existing privacy obligations and its meaningful-consent
+  guidance. It also cites the 2025 G7 Data Protection and Privacy Authorities
+  Roundtable statement and the February 2026 joint statement on AI-generated
+  imagery. The OPC says its work on agentic AI is ongoing.
+
+policy_recommendations:
+  - id: rec-opc-2026-001
+    title: "Make decision-relevant transparency an explicit objective"
+    summary: >
+      Make it an explicit objective of AI transparency measures to give
+      individuals the information they need to make informed decisions, in an
+      understandable format and at the time it is relevant.
+  - id: rec-opc-2026-002
+    title: "Share AI-generated content duties across developers and deployers"
+    summary: >
+      Assign transparency responsibilities for AI-generated content to both
+      developers and organizations that use generative AI, following the
+      February 2026 joint statement on AI-generated imagery: disclose
+      capabilities and the consequences of misuse, provide accessible removal
+      mechanisms, and add safeguards and age-appropriate information for
+      children.
+  - id: rec-opc-2026-003
+    title: "Notify people of automated decisions and AI data collection"
+    summary: >
+      Inform individuals when automated decision systems make or inform
+      significant decisions about them, and when AI systems collect or use
+      their personal information, including through indirect collection.
+  - id: rec-opc-2026-004
+    title: "Align AI disclosures with existing privacy notices"
+    summary: >
+      Base AI disclosures on the OPC's meaningful-consent guidance (what
+      personal information is collected, who it is shared with, why, and the
+      risks) and keep them consistent with existing privacy notices, avoiding
+      over-disclosure that overwhelms individuals.
+  - id: rec-opc-2026-005
+    title: "Disclose AI system limitations and intended uses"
+    summary: >
+      Require disclosure of AI systems' intended uses and limitations, including
+      accuracy limits, training data sources and categories, how models
+      function, and limits on explainability.
+    mitigation: transparency-whistleblower-protections
+  - id: rec-opc-2026-006
+    title: "Enable AI incident reporting with practical timelines"
+    summary: >
+      Create mechanisms for users to report AI failures, supported by developer
+      testing, and set practical timelines for reporting AI-related privacy
+      breaches, given past delays in breach reporting under PIPEDA.
+    mitigation: ai-incident-monitoring
+
+links:
+  - label: "OPC — Submission on Enhancing trust in AI through increased transparency"
+    url: https://www.priv.gc.ca/en/opc-actions-and-decisions/submissions-to-consultations/sub_ised_20260923/
+    icon: document
+  - label: "OPC — News release (October 23, 2026)"
+    url: https://www.priv.gc.ca/en/opc-news/news-and-announcements/2026/nr-c_261023/
+    icon: document
+  - label: "ISED — Discussion paper: Enhancing trust in AI through increased transparency"
+    url: https://ised-isde.canada.ca/site/ised/en/have-your-say-advancing-ai-transparency-canada/enhancing-trust-artificial-intelligence-through-increased-transparency
+    icon: document
+
+tags:
+  - opc
+  - privacy
+  - transparency
+  - public-consultation
+  - ai-generated-content
+  - automated-decision-making
+  - ai-incidents
+  - ai-agents
+  - policy-recommendations
+  - federal-government

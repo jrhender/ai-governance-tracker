@@ -1,0 +1,48 @@
+# data/events/2026-10-30-canada-eu-digital-partnership-announced.yaml
+#
+# Sourced from ISED's October 29 media advisory. As of 2026-11-02 neither ISED
+# nor any other canada.ca department has published a release describing what
+# the partnership contains, so this record states only what the advisory and
+# the summit-dates confirmation support. Add the release (and an artifact, if
+# a joint statement or agreement text appears) once one is published.
+
+id: canada-eu-digital-partnership-announced-2026
+type: GovernmentAnnouncement
+schema_type: Event
+title: "Minister Solomon and EU Executive Vice-President Virkkunen announce new Canada–EU digital cooperation partnership"
+date: 2026-10-30
+
+location:
+  name: "Montréal, Quebec"
+  schema_type: Place
+
+organizations:
+  - id: ised-canada
+    role: participant
+  - id: european-commission
+    role: participant
+
+description: >
+  During the Canada–EU Summit in Montréal (October 29–30), Minister Evan
+  Solomon and Henna Virkkunen, the European Commission's Executive
+  Vice-President for Tech Sovereignty, Security and Democracy, were scheduled
+  to announce a new partnership to strengthen Canada–EU digital cooperation.
+  ISED's media advisory gives no detail of what the partnership covers. On the
+  summit's margins, Canada and the EU also concluded negotiations on a
+  separate digital trade agreement.
+
+links:
+  - label: "ISED — Media advisory: Solomon and Virkkunen to announce new partnership"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/10/minister-solomon-and-executive-vice-president-virkkunen-to-announce-new-partnership-at-canadaeuropean-union-summit.html
+    icon: document
+  - label: "Global Affairs Canada — Conclusion of Canada–EU digital trade agreement negotiations"
+    url: https://www.canada.ca/en/global-affairs/news/2026/10/minister-sidhu-and-eu-commissioner-for-trade-and-economic-security-welcome-conclusion-of-canada-eu-digital-trade-agreement-negotiations.html
+    icon: document
+
+tags:
+  - international-cooperation
+  - sovereign-technology
+  - ised
+  - federal-government
+  - evan-solomon
+  - european-union

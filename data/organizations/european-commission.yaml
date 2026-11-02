@@ -1,0 +1,17 @@
+# organizations/european-commission.yaml
+
+id: european-commission
+type: IntergovernmentalOrganization
+schema_type: GovernmentOrganization
+country: international
+
+name: "European Commission"
+short_name: "EC"
+url: https://commission.europa.eu
+wikipedia: https://en.wikipedia.org/wiki/European_Commission
+
+tags:
+  - intergovernmental
+  - international
+  - european-union
+  - ai-policy

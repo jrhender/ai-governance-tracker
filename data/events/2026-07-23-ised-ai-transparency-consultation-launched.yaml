@@ -1,0 +1,43 @@
+# events/2026-07-23-ised-ai-transparency-consultation-launched.yaml
+
+id: ised-ai-transparency-consultation-launched-2026
+type: GovernmentAnnouncement
+schema_type: Event
+
+title: "ISED opens public consultation on advancing AI transparency"
+date: 2026-07-23
+status: completed
+
+organizations:
+  - id: ised-canada
+    role: organizer
+
+description: >
+  ISED opens a public consultation, running July 23 to September 23, 2026, on
+  increasing AI transparency under the AI for All national strategy. Its
+  discussion paper, "Enhancing trust in artificial intelligence through
+  increased transparency," seeks views on five areas: AI-generated content,
+  knowing when one is interacting with AI, information about AI systems,
+  tracking serious AI incidents, and tracking the activity of AI agents. ISED
+  plans to publish a What We Heard report.
+
+related_artifacts:
+  - id: canada-national-ai-strategy-ai-for-all
+  - id: opc-ai-transparency-submission-2026
+
+tags:
+  - ised
+  - public-consultation
+  - transparency
+  - ai-generated-content
+  - ai-incidents
+  - ai-agents
+  - federal-government
+
+links:
+  - label: "ISED — Have your say on advancing AI transparency in Canada"
+    url: https://ised-isde.canada.ca/site/ised/en/have-your-say-advancing-ai-transparency-canada
+    icon: document
+  - label: "ISED — Discussion paper: Enhancing trust in AI through increased transparency"
+    url: https://ised-isde.canada.ca/site/ised/en/have-your-say-advancing-ai-transparency-canada/enhancing-trust-artificial-intelligence-through-increased-transparency
+    icon: document

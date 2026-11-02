@@ -1,0 +1,39 @@
+# events/2026-10-23-opc-ai-transparency-submission-published.yaml
+
+id: opc-ai-transparency-submission-published-2026
+type: Publication
+schema_type: Event
+
+title: "Privacy Commissioner publishes comments on ISED's AI transparency consultation"
+date: 2026-10-23
+status: completed
+
+organizations:
+  - id: opc-canada
+    role: publisher
+
+description: >
+  The Office of the Privacy Commissioner of Canada publishes its submission to
+  ISED's consultation on AI transparency. The OPC backs action across the five
+  areas ISED identified (AI-generated content, AI interaction, information
+  about AI systems, AI incidents, and AI agents), arguing that disclosures must
+  be understandable and available when they matter to an individual's
+  decisions.
+
+related_artifacts:
+  - id: opc-ai-transparency-submission-2026
+
+tags:
+  - opc
+  - privacy
+  - transparency
+  - public-consultation
+  - federal-government
+
+links:
+  - label: "OPC — News release"
+    url: https://www.priv.gc.ca/en/opc-news/news-and-announcements/2026/nr-c_261023/
+    icon: document
+  - label: "OPC — Submission"
+    url: https://www.priv.gc.ca/en/opc-actions-and-decisions/submissions-to-consultations/sub_ised_20260923/
+    icon: document

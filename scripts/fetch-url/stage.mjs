@@ -6,7 +6,8 @@
 // Runs before Claude does, so the staged copy and its host list are fixed
 // before Claude could edit anything (see the header of fetch-url.mjs). The
 // hosts come from .github/sources.yaml, so adding a scan source also opens it
-// to the @claude workflow.
+// to the @claude workflow. `fetch_only_hosts` there lists hosts the @claude
+// workflow may fetch that the scan does not walk.
 
 import { copyFile, mkdir, readFile, writeFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
@@ -42,7 +43,8 @@ export function allowedTools(hosts, script) {
 }
 
 export async function stage(dir, { sourcesPath = ".github/sources.yaml" } = {}) {
-  const hosts = allowedHosts(parse(await readFile(sourcesPath, "utf8")).sources ?? []);
+  const doc = parse(await readFile(sourcesPath, "utf8"));
+  const hosts = [...new Set([...allowedHosts(doc.sources ?? []), ...(doc.fetch_only_hosts ?? []).map((h) => h.toLowerCase())])].sort();
   const script = join(resolve(dir), "fetch-url.mjs");
   await mkdir(dir, { recursive: true });
   await copyFile(fileURLToPath(new URL("./fetch-url.mjs", import.meta.url)), script);

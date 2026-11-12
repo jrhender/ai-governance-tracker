@@ -11,6 +11,12 @@
 #   blocked    aigs, cigi — Cloudflare 403 on both page and feed, so nothing
 #              fetches them; the agent uses WebSearch for these instead.
 
+# Hosts the @claude workflow may fetch but the scan does not walk: sites whose
+# index pages are unscannable but whose individual pages may read fine. Read
+# only by scripts/fetch-url/stage.mjs; the scan reads `sources:` alone.
+fetch_only_hosts:
+  - www.pm.gc.ca  # PMO statements; index is JS-rendered (see pm-newsroom note below)
+
 sources:
   - id: legisinfo
     name: LEGISinfo — bills before Parliament

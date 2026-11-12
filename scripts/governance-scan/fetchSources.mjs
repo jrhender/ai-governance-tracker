@@ -19,6 +19,17 @@ const MAX_ITEMS = 200;
 // no news. Anything under this is treated as a failed fetch.
 const MIN_CHARS = 2000;
 
+// Node's fetch sends `User-Agent: node` and `Accept: */*`, which bot filters
+// treat as a script. From 2026-11-03 ourcommons.ca (indu-committee) and
+// cifar.ca began answering that with a ~670-char 403 page, dropping coverage
+// below MIN_SOURCES_OK. Identify the scan honestly and ask for html or feeds
+// the way a reader would.
+export const REQUEST_HEADERS = {
+  "User-Agent": "ai-governance-tracker-scan/1.0 (+https://github.com/jrhender/ai-governance-tracker)",
+  Accept: "text/html,application/xhtml+xml,application/atom+xml,application/rss+xml,application/xml;q=0.9,*/*;q=0.8",
+  "Accept-Language": "en-CA,en;q=0.9",
+};
+
 /** Strip markup down to readable text. Feeds and news pages are mostly chrome. */
 export function extractText(html, { maxChars = MAX_CHARS } = {}) {
   const text = html
@@ -51,7 +62,7 @@ export async function fetchWithFallback(source, { fetchImpl = fetch, timeoutMs =
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
-      const res = await fetchImpl(url, { signal: controller.signal, redirect: "follow" });
+      const res = await fetchImpl(url, { signal: controller.signal, redirect: "follow", headers: REQUEST_HEADERS });
       const body = await res.text();
       const finalUrl = res.url || url;
       // A 200 that redirected somewhere unrelated is not a success — CAISI's

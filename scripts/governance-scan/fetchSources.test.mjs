@@ -171,4 +171,12 @@ describe("feed sources", () => {
     expect(r.format).toBe("html");
     expect(r.items).toEqual([]);
   });
+
+  it("sends an identifying User-Agent instead of Node's default", async () => {
+    let init;
+    const fetchImpl = async (u, i) => { init = i; return ok("<p>" + "word ".repeat(1000) + "</p>", u)(); };
+    await fetchWithFallback({ id: "h", url: "https://a.test/" }, { fetchImpl });
+    expect(init.headers["User-Agent"]).toMatch(/^ai-governance-tracker-scan\//);
+    expect(init.headers.Accept).toMatch(/text\/html/);
+  });
 });

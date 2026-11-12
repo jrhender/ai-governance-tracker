@@ -37,9 +37,14 @@ export const VERIFY_TOOLS = [
   "Bash(pnpm exec playwright install:*)",
 ];
 
-/** The --allowedTools value: WebFetch per host, the staged wrapper, the build and nothing else. */
+// Lets Claude open the PR itself after pushing its branch, instead of leaving a
+// "Create PR" link. Scoped to `gh pr create`: no merge, close, or other gh use.
+// gh authenticates with the GITHUB_TOKEN the action exports for the run.
+export const PR_TOOLS = ["Bash(gh pr create:*)"];
+
+/** The --allowedTools value: WebFetch per host, the staged wrapper, the build, PR creation and nothing else. */
 export function allowedTools(hosts, script) {
-  return [...hosts.map((h) => `WebFetch(domain:${h})`), `Bash(node ${script}:*)`, ...VERIFY_TOOLS].join(",");
+  return [...hosts.map((h) => `WebFetch(domain:${h})`), `Bash(node ${script}:*)`, ...VERIFY_TOOLS, ...PR_TOOLS].join(",");
 }
 
 export async function stage(dir, { sourcesPath = ".github/sources.yaml" } = {}) {

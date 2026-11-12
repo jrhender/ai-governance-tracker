@@ -5,7 +5,7 @@ import { readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { parse } from "yaml";
-import { VERIFY_TOOLS, allowedHosts, allowedTools, stage } from "./stage.mjs";
+import { PR_TOOLS, VERIFY_TOOLS, allowedHosts, allowedTools, stage } from "./stage.mjs";
 
 const doc = parse(readFileSync(".github/sources.yaml", "utf8"));
 const sources = doc.sources;
@@ -38,7 +38,13 @@ describe("allowedTools", () => {
       "WebFetch(domain:www.canada.ca)",
       "Bash(node /runner/_temp/fetch-url/fetch-url.mjs:*)",
       ...VERIFY_TOOLS,
+      ...PR_TOOLS,
     ]);
+  });
+
+  it("lets Claude open a PR but not merge or otherwise drive gh", () => {
+    expect(tools).toContain("Bash(gh pr create:*)");
+    expect(tools.join(",")).not.toMatch(/gh pr merge|Bash\(gh:|Bash\(gh \*/);
   });
 
   it("lets Claude build and test its own work, since the action grants no Bash by default", () => {

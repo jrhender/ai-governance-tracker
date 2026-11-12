@@ -19,9 +19,9 @@ jobs:
       (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')))
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      pull-requests: read
-      issues: read
+      contents: write
+      pull-requests: write
+      issues: write
       id-token: write
       actions: read # Required for Claude to read CI results on PRs
     steps:
@@ -75,5 +75,5 @@ jobs:
           claude_args: |
             --model opus
             --allowedTools "${{ steps.web.outputs.allowed_tools }}"
-            --append-system-prompt 'Web access is limited to the governance scan source sites in .github/sources.yaml. Use WebFetch for those sites. If WebFetch fails (canada.ca often returns 403 to it), run: ${{ steps.web.outputs.fetch_command }} <url> which does a plain GET to the same sites and prints the page text. curl and other network commands are not available. Dependencies are already installed, so verify your work before pushing: pnpm test for the unit suite and pnpm build for the site. Run pnpm exec playwright install --with-deps chromium before pnpm test:e2e, as no browser is installed up front. Report any suite you did not run.'
+            --append-system-prompt 'Web access is limited to the governance scan source sites in .github/sources.yaml. Use WebFetch for those sites. If WebFetch fails (canada.ca often returns 403 to it), run: ${{ steps.web.outputs.fetch_command }} <url> which does a plain GET to the same sites and prints the page text. curl and other network commands are not available. Dependencies are already installed, so verify your work before pushing: pnpm test for the unit suite and pnpm build for the site. Run pnpm exec playwright install --with-deps chromium before pnpm test:e2e, as no browser is installed up front. Report any suite you did not run. After pushing a branch, open the pull request yourself with gh pr create --base main (title and body following CLAUDE.md), then link it in your reply; do not leave a Create PR link instead.'
 

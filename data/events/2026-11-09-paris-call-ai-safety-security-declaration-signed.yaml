@@ -1,0 +1,37 @@
+# data/events/2026-11-09-paris-call-ai-safety-security-declaration-signed.yaml
+
+id: paris-call-ai-safety-security-declaration-signed-2026
+type: GovernmentAnnouncement
+schema_type: Event
+title: "Canada signs Joint Declaration on the Paris Call for AI Safety and Security"
+date: 2026-11-09
+
+organizations:
+  - id: pmo-canada
+    role: participant
+  - id: lawzero
+    role: participant
+
+description: >
+  Canada, Bahrain, Finland, France, Norway and the Netherlands sign a joint
+  declaration with ten AI companies (including Anthropic, Cohere, OpenAI and
+  Mistral AI) and four civil-society groups (including LawZero). It commits
+  them to common frontier-model evaluation, developer accountability, and
+  incident reporting and early-warning systems. The declaration remains open
+  to new endorsements.
+
+related_artifacts:
+  - id: paris-call-ai-safety-security-declaration-2026
+
+links:
+  - label: "PM's Office — Joint declaration"
+    url: https://www.pm.gc.ca/en/news/statements/2026/11/09/joint-declaration-paris-call-ai-safety-and-security
+    icon: document
+
+tags:
+  - international-cooperation
+  - ai-safety
+  - frontier-ai
+  - federal-government
+  - france
+  - lawzero

@@ -1,0 +1,92 @@
+# artifacts/2026-11-09-paris-call-ai-safety-security-declaration.yaml
+
+id: paris-call-ai-safety-security-declaration-2026
+type: JointStatement
+schema_type: CreativeWork
+
+title: "Joint Declaration on the Paris Call for AI Safety and Security"
+published_date: 2026-11-09
+
+organizations:
+  - id: pmo-canada
+    role: publisher
+  - id: lawzero
+    role: signatory
+
+summary: "Multistakeholder declaration signed by Canada, five other governments, ten AI companies and four civil-society organizations, committing to common frontier-model evaluation, developer accountability, and incident reporting and early-warning systems."
+description: |
+  Joint declaration signed on November 9, 2026 by heads of state and government,
+  AI company CEOs, and civil-society representatives, and published by the
+  Office of the Prime Minister of Canada. The statement remains open to new
+  endorsements.
+
+  **Initial signatories.** Governments: Bahrain, Canada, Finland, France,
+  Norway, and the Netherlands. Companies: Anthropic, Black Forest Labs, Cohere,
+  Domyn, Hugging Face, Microsoft, Mistral AI, OpenAI, Sakana AI, and Synthesia.
+  Civil society: LawZero (Yoshua Bengio), SaferAI (Henry Papadatos), AI Safety
+  Connect (Nicolas Miailhe), and Ifri (Laure de Roucy-Rochegonde).
+
+  **Context.** The declaration says that frontier models' risks are inherently
+  global and that no single state, company or international organization can
+  manage them alone. It builds on the Hiroshima process, the Frontier Safety
+  Commitments of the Seoul AI Summit, the G7 Evian AI meeting, the UN Security
+  Council meeting on AI of September 23, and the "Call for Control of Frontier
+  AI Models". It names three areas of consensus: a clear, predictable
+  regulatory framework; immediate results on transparency, incident reporting
+  and risk management; and rigorous evaluation standards.
+
+  **Three commitments.**
+
+  1. *Common evaluation and risk-management framework.* Policy makers,
+  researchers and developers commit to a common framework for evaluating
+  frontier models, backed by shared technical standards and tools. It focuses
+  on dangerous misuse (including cyber and CBRN) and on risks from growing
+  autonomy or misalignment, including loss of control. The declaration points
+  to the International Network for Advanced AI Measurement, Evaluation and
+  Science (NAAIMES). Signatories agree to publish non-sensitive evaluation
+  findings in a standardized format and to create a publicly accessible shared
+  repository.
+
+  2. *Responsibility and accountability.* Signatories commit to strict
+  compliance with safety standards set or recognized by competent national
+  authorities, with independent third-party evaluation. Policy makers
+  recognize the need for legal frameworks that clarify liability for
+  large-scale, including cross-border, harms. Frontier developers commit to
+  disclose model capabilities, limitations and known risks; support
+  independent evaluation where appropriate; implement fail-safe mechanisms to
+  restrict, pause or shut down models within their control, including during
+  training and internal use; address safeguard removal (including
+  "abliteration") while preserving open-weight benefits; and maintain internal
+  governance with risk management, red-teaming, independent oversight, and
+  reporting lines that protect internal researchers.
+
+  3. *Information sharing, reporting and early warning.* Signatories commit to
+  rapid alert systems that build on existing incident-response arrangements,
+  to align incident classification, and to share timely information on serious
+  cyber and AI control incidents and precursor signals. They will also explore
+  whether a cooperation mechanism would help. Policy makers commit to secure,
+  confidential channels for whistleblowers to raise concerns about systemic
+  risks without fear of retaliation.
+
+derives_from:
+  - id: paris-call-ai-safety-security-declaration-signed-2026
+    relationship: issued_at
+
+links:
+  - label: "PM's Office — Joint declaration"
+    url: https://www.pm.gc.ca/en/news/statements/2026/11/09/joint-declaration-paris-call-ai-safety-and-security
+    icon: document
+
+tags:
+  - international-cooperation
+  - ai-safety
+  - frontier-ai
+  - model-evaluation
+  - incident-reporting
+  - whistleblower-protection
+  - loss-of-control
+  - federal-government
+  - france
+  - finland
+  - lawzero
+  - yoshua-bengio

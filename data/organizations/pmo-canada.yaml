@@ -1,0 +1,15 @@
+# organizations/pmo-canada.yaml
+
+id: pmo-canada
+type: GovernmentOrganization
+schema_type: GovernmentOrganization
+country: ca
+
+name: "Office of the Prime Minister of Canada"
+short_name: "PMO"
+url: https://www.pm.gc.ca/en
+wikipedia: https://en.wikipedia.org/wiki/Office_of_the_Prime_Minister_(Canada)
+
+tags:
+  - federal-government
+  - canadian

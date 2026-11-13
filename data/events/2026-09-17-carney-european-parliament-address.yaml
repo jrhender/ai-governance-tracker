@@ -1,0 +1,39 @@
+# events/2026-09-17-carney-european-parliament-address.yaml
+
+id: carney-european-parliament-address-2026
+type: GovernmentAnnouncement
+schema_type: Event
+title: "Carney proposes Canada-EU cooperation on AI safety protocols and compute in European Parliament address"
+date: 2026-09-17
+status: completed
+
+location:
+  name: "Strasbourg, France"
+  schema_type: Place
+
+organizations:
+  - id: pmo-canada
+    role: organizer
+
+description: >
+  Prime Minister Mark Carney addresses the European Parliament in Strasbourg
+  and proposes deep Canada-EU cooperation on strategic capabilities, including
+  AI and compute, critical minerals, defence and energy security. On AI, he
+  says the two can pool new sovereign compute capacity and "join forces to
+  develop AI safety protocols, coordinate common standards, and strengthen
+  transparency." This is a stated proposal, not a signed agreement.
+
+tags:
+  - international-cooperation
+  - ai-safety
+  - sovereign-ai
+  - compute
+  - standards
+  - european-union
+  - mark-carney
+  - federal-government
+
+links:
+  - label: "PM's Office — Address to the European Parliament"
+    url: https://www.pm.gc.ca/en/news/speeches/2026/09/17/prime-minister-carney-delivers-address-european-parliament
+    icon: document

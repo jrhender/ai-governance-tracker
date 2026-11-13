@@ -1,0 +1,66 @@
+# artifacts/2026-09-22-call-for-control-of-frontier-ai-models.yaml
+
+id: call-for-control-of-frontier-ai-models-2026
+type: JointStatement
+schema_type: CreativeWork
+jurisdiction: international
+
+title: "A Call for Control of Frontier AI Models"
+published_date: 2026-09-22
+
+organizations:
+  - id: pmo-canada
+    role: signatory
+
+summary: "Joint statement by 20 heads of state and government and the European Commission president calling for mandatory pre-deployment testing, shared incident reporting, and an international institution able to set standards and verify compliance for frontier AI."
+description: |
+  Joint statement published by the Dutch Ministry of General Affairs on
+  September 22, 2026, following its launch at the UN General Assembly. It is
+  signed by Prime Minister Mark Carney for Canada. The statement remains open
+  for endorsement by leaders of other countries.
+
+  **Signatories.** Leaders of Australia, Bahrain, Canada, Denmark, Estonia,
+  Finland, Germany, Iceland, Ireland, Kazakhstan, Kenya, Latvia, Moldova, the
+  Netherlands, Norway, Singapore, South Africa, Spain, Türkiye and the United
+  Arab Emirates, plus the President of the European Commission.
+
+  **Principle.** AI must remain under human direction, oversight and control,
+  and be developed and used in line with international law.
+
+  **What it calls for.**
+
+  1. *Companies:* transparent safety protocols, including mandatory
+  pre-deployment testing and independent evaluation, with qualified
+  evaluators given enough access to assess risks.
+
+  2. *Governments and regional organisations:* coordinate common standards,
+  strengthen transparency including shared reporting of serious safety
+  incidents, and ensure countries in all regions have access to scientific
+  capacity, expertise and trusted evaluation.
+
+  3. *UN member states:* build on existing international mechanisms and
+  explore an international institution able to set standards, enable
+  verification, and convene states when capability thresholds are crossed.
+
+derives_from:
+  - id: frontier-ai-control-call-signed-2026
+    relationship: issued_at
+
+links:
+  - label: "Government of the Netherlands — A Call for Control of Frontier AI Models"
+    url: https://www.government.nl/documents/2026/09/22/a-call-for-control-of-frontier-ai-models
+    icon: document
+  - label: "ISED — Canada and the United Kingdom renew their partnership on AI security (notes Carney's signature)"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/10/canada-and-the-united-kingdom-renew-their-partnership-on-artificial-intelligence-security.html
+    icon: document
+
+tags:
+  - international-cooperation
+  - ai-safety
+  - frontier-ai
+  - model-evaluation
+  - incident-reporting
+  - international-institution
+  - un
+  - mark-carney
+  - federal-government

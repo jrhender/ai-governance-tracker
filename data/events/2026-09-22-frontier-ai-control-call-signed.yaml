@@ -1,0 +1,37 @@
+# events/2026-09-22-frontier-ai-control-call-signed.yaml
+
+id: frontier-ai-control-call-signed-2026
+type: GovernmentAnnouncement
+schema_type: Event
+title: "Carney signs the Call for Control of Frontier AI Models"
+date: 2026-09-22
+
+organizations:
+  - id: pmo-canada
+    role: participant
+
+description: >
+  Prime Minister Mark Carney signs "A Call for Control of Frontier AI Models,"
+  a joint statement from 20 countries and the European Commission published by
+  the Dutch government and launched at the UN General Assembly. It calls for
+  mandatory pre-deployment testing and independent evaluation by developers,
+  coordinated standards and shared incident reporting among governments, and
+  an international institution able to set standards and verify compliance.
+  It remains open to other leaders.
+
+related_artifacts:
+  - id: call-for-control-of-frontier-ai-models-2026
+
+links:
+  - label: "Government of the Netherlands — A Call for Control of Frontier AI Models"
+    url: https://www.government.nl/documents/2026/09/22/a-call-for-control-of-frontier-ai-models
+    icon: document
+
+tags:
+  - international-cooperation
+  - ai-safety
+  - frontier-ai
+  - international-institution
+  - un
+  - mark-carney
+  - federal-government

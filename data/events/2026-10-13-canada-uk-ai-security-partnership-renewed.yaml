@@ -1,0 +1,46 @@
+# events/2026-10-13-canada-uk-ai-security-partnership-renewed.yaml
+
+id: canada-uk-ai-security-partnership-renewed-2026
+type: GovernmentAnnouncement
+schema_type: Event
+title: "Canada and the United Kingdom renew their partnership on AI security"
+date: 2026-10-13
+status: completed
+
+location:
+  name: "London, United Kingdom"
+  schema_type: Place
+
+organizations:
+  - id: ised-canada
+    role: organizer
+  - id: caisi
+    role: participant
+  - id: dsit-uk
+    role: participant
+
+description: >
+  During a visit to London, Minister Evan Solomon renews Canada's AI security
+  partnership with the United Kingdom, deepening the agreement first signed in
+  2024. It recommits the Canadian AI Safety Institute and the UK AI Security
+  Institute to cooperate, and sets three priorities: interoperable AI security
+  standards, information-sharing, and technical cooperation on frontier AI
+  risks and evaluation. The ISED release names no new signed document or
+  funding.
+
+tags:
+  - international-cooperation
+  - ai-safety
+  - ai-security
+  - frontier-ai
+  - standards
+  - united-kingdom
+  - caisi
+  - evan-solomon
+  - ised
+  - federal-government
+
+links:
+  - label: "ISED — Canada and the United Kingdom renew their partnership on AI security"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/10/canada-and-the-united-kingdom-renew-their-partnership-on-artificial-intelligence-security.html
+    icon: document

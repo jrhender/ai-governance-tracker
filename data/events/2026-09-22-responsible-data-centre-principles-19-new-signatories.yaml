@@ -1,0 +1,46 @@
+# events/2026-09-22-responsible-data-centre-principles-19-new-signatories.yaml
+
+id: responsible-data-centre-principles-19-new-signatories-2026
+type: GovernmentAnnouncement
+schema_type: Event
+
+title: "19 more organizations sign Canada's Responsible Data Centre Development Principles"
+date: 2026-09-22
+status: completed
+
+location:
+  name: "Ottawa, Ontario"
+  schema_type: Place
+
+organizations:
+  - id: ised-canada
+    role: organizer
+
+description: >
+  The Government of Canada announces that 19 more organizations have signed
+  Canada's Responsible Data Centre Development Principles, nearly doubling
+  support from 23 to 42 signatories less than three weeks after launch. New
+  signatories include chipmakers AMD, Intel, and NVIDIA; IBM, Kyndryl, and
+  Lenovo; data centre operators STACK Infrastructure, Vantage Data Centers,
+  and Qu Data Centres; builder EllisDon; and energy firms including Energy
+  Storage Canada, Enwave, and Schneider Electric.
+
+related_artifacts:
+  - id: responsible-data-centre-development-principles
+
+tags:
+  - data-centres
+  - ai-infrastructure
+  - sovereign-ai-compute-strategy
+  - industry-collaboration
+  - evan-solomon
+  - ised
+  - federal-government
+
+links:
+  - label: "Canada.ca — Government of Canada welcomes 19 additional signatories to Canada's Responsible Data Centre Development Principles"
+    url: https://www.canada.ca/en/innovation-science-economic-development/news/2026/09/government-of-canada-welcomes-19-additional-signatories-to-canadas-responsible-data-centre-development-principles.html
+    icon: document
+  - label: "ISED — Canada's Responsible Data Centre Development Principles"
+    url: https://ised-isde.canada.ca/site/ised/en/data-centres-powering-canadas-digital-future-responsibly/canadas-responsible-data-centre-development-principles
+    icon: document

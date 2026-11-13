@@ -8,8 +8,15 @@
 #
 # Verified by a probe run on a GitHub runner (2026-08-24):
 #   reachable  legisinfo, ised-newsroom, indu-committee, caisi, cifar
+#   (2026-11-12: indu-committee now 403s and was replaced by house-committees)
 #   blocked    aigs, cigi — Cloudflare 403 on both page and feed, so nothing
 #              fetches them; the agent uses WebSearch for these instead.
+
+# Hosts the @claude workflow may fetch but the scan does not walk: sites whose
+# index pages are unscannable but whose individual pages may read fine. Read
+# only by scripts/fetch-url/stage.mjs; the scan reads `sources:` alone.
+fetch_only_hosts:
+  - www.pm.gc.ca  # PMO statements; index is JS-rendered (see pm-newsroom note below)
 
 sources:
   - id: legisinfo
@@ -30,10 +37,18 @@ sources:
       # announcement sitting outside a pick=25 window.
       - https://api.io.canada.ca/io-server/gc/news/en/v2?dept=departmentofindustry&sort=publishedDate&orderBy=desc&publishedDate>={since}&pick=500&format=atom
 
-  - id: indu-committee
-    name: INDU — Standing Committee on Industry and Technology
-    url: https://www.ourcommons.ca/Committees/en/INDU/Meetings
-    look_for: meetings and reports touching AI
+  - id: house-committees
+    name: House of Commons — today's committee meetings (all committees, incl. INDU)
+    # Replaces indu-committee (https://www.ourcommons.ca/Committees/en/INDU/Meetings).
+    # Since 2026-11-03 every ourcommons.ca/Committees/... path (and the parl.ca
+    # equivalents) 403s from GitHub runners, whatever the User-Agent; robots.txt
+    # does not disallow them, so it is a firewall rule. This page and
+    # /documentviewer/ meeting notices still fetch (probe run, 2026-11-12). It
+    # lists the day's meetings for every committee, so a weekday scan sees each
+    # sitting day's INDU meetings, but not committee reports — WebSearch covers
+    # INDU reports.
+    url: https://www.ourcommons.ca/en/parliamentary-business
+    look_for: committee meetings touching AI — especially INDU, ETHI and SRSR studies
 
   - id: caisi
     name: Canadian AI Safety Institute

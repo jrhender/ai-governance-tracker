@@ -6,7 +6,8 @@
 // Runs before Claude does, so the staged copy and its host list are fixed
 // before Claude could edit anything (see the header of fetch-url.mjs). The
 // hosts come from .github/sources.yaml, so adding a scan source also opens it
-// to the @claude workflow.
+// to the @claude workflow. `fetch_only_hosts` there lists hosts the @claude
+// workflow may fetch that the scan does not walk.
 
 import { copyFile, mkdir, readFile, writeFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
@@ -36,13 +37,19 @@ export const VERIFY_TOOLS = [
   "Bash(pnpm exec playwright install:*)",
 ];
 
-/** The --allowedTools value: WebFetch per host, the staged wrapper, the build and nothing else. */
+// Lets Claude open the PR itself after pushing its branch, instead of leaving a
+// "Create PR" link. Scoped to `gh pr create`: no merge, close, or other gh use.
+// gh authenticates with the GITHUB_TOKEN the action exports for the run.
+export const PR_TOOLS = ["Bash(gh pr create:*)"];
+
+/** The --allowedTools value: WebFetch per host, the staged wrapper, the build, PR creation and nothing else. */
 export function allowedTools(hosts, script) {
-  return [...hosts.map((h) => `WebFetch(domain:${h})`), `Bash(node ${script}:*)`, ...VERIFY_TOOLS].join(",");
+  return [...hosts.map((h) => `WebFetch(domain:${h})`), `Bash(node ${script}:*)`, ...VERIFY_TOOLS, ...PR_TOOLS].join(",");
 }
 
 export async function stage(dir, { sourcesPath = ".github/sources.yaml" } = {}) {
-  const hosts = allowedHosts(parse(await readFile(sourcesPath, "utf8")).sources ?? []);
+  const doc = parse(await readFile(sourcesPath, "utf8"));
+  const hosts = [...new Set([...allowedHosts(doc.sources ?? []), ...(doc.fetch_only_hosts ?? []).map((h) => h.toLowerCase())])].sort();
   const script = join(resolve(dir), "fetch-url.mjs");
   await mkdir(dir, { recursive: true });
   await copyFile(fileURLToPath(new URL("./fetch-url.mjs", import.meta.url)), script);

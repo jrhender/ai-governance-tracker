@@ -10,5 +10,12 @@ mitigation_type: governance-oversight
 addresses_risks:
   - loss-of-control
 status: untracked
-implemented_by: []
+implemented_by:
+  - artifact: paris-call-ai-safety-security-declaration-2026
+    relationship: related
+    note: >
+      The Paris call declaration (Nov 2026) is signed by six governments, ten
+      AI companies and four civil-society groups, and commits them to a common
+      frontier-model evaluation framework with shared standards and a public
+      repository of non-sensitive findings. Voluntary and non-binding.
 tags: []

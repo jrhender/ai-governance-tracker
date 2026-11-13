@@ -10,5 +10,12 @@ mitigation_type: technical-security
 addresses_risks:
   - loss-of-control
 status: untracked
-implemented_by: []
+implemented_by:
+  - artifact: paris-call-ai-safety-security-declaration-2026
+    relationship: related
+    note: >
+      The Paris call declaration (Nov 2026) has frontier developers commit to
+      fail-safe mechanisms to restrict, pause or shut down models within their
+      control, including during training and internal use. Voluntary and
+      non-binding.
 tags: []

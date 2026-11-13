@@ -75,7 +75,7 @@ jobs:
       - name: Check source coverage
         env:
           # 6 sources are confirmed good: legisinfo, ised-newsroom,
-          # indu-committee, caisi, cifar, privacy-commissioner. aigs and cigi
+          # house-committees, caisi, cifar, privacy-commissioner. aigs and cigi
           # are Cloudflare-blocked and will never fetch; pm-newsroom's html is
           # too thin and its feeds are unverified. A floor of 5 therefore
           # tolerates ONE transient failure while still failing loudly if two

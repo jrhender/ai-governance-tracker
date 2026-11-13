@@ -9,5 +9,12 @@ description: >
 mitigation_type: operational-process
 addresses_risks: []
 status: untracked
-implemented_by: []
+implemented_by:
+  - artifact: paris-call-ai-safety-security-declaration-2026
+    relationship: related
+    note: >
+      The Paris call declaration (Nov 2026) has signatories commit to rapid
+      alert systems, aligned incident classification, and sharing timely
+      information on serious cyber and AI control incidents. Voluntary and
+      non-binding.
 tags: []

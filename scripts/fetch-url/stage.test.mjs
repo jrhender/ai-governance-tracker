@@ -5,9 +5,11 @@ import { readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { parse } from "yaml";
-import { VERIFY_TOOLS, allowedHosts, allowedTools, stage } from "./stage.mjs";
+import { PR_TOOLS, VERIFY_TOOLS, allowedHosts, allowedTools, stage } from "./stage.mjs";
 
-const sources = parse(readFileSync(".github/sources.yaml", "utf8")).sources;
+const doc = parse(readFileSync(".github/sources.yaml", "utf8"));
+const sources = doc.sources;
+const fetchOnly = doc.fetch_only_hosts ?? [];
 
 describe("allowedHosts", () => {
   it("takes the host of every source url and feed", () => {
@@ -36,7 +38,13 @@ describe("allowedTools", () => {
       "WebFetch(domain:www.canada.ca)",
       "Bash(node /runner/_temp/fetch-url/fetch-url.mjs:*)",
       ...VERIFY_TOOLS,
+      ...PR_TOOLS,
     ]);
+  });
+
+  it("lets Claude open a PR but not merge or otherwise drive gh", () => {
+    expect(tools).toContain("Bash(gh pr create:*)");
+    expect(tools.join(",")).not.toMatch(/gh pr merge|Bash\(gh:|Bash\(gh \*/);
   });
 
   it("lets Claude build and test its own work, since the action grants no Bash by default", () => {
@@ -63,11 +71,21 @@ describe("stage", () => {
     const dir = await mkdtemp(join(tmpdir(), "fetch-url-"));
     const out = await stage(dir, { sourcesPath: ".github/sources.yaml" });
 
-    expect(JSON.parse(await readFile(join(dir, "allowed-hosts.json"), "utf8"))).toEqual(allowedHosts(sources));
+    const staged = JSON.parse(await readFile(join(dir, "allowed-hosts.json"), "utf8"));
+    expect(staged).toEqual([...new Set([...allowedHosts(sources), ...fetchOnly])].sort());
     expect(await readFile(join(dir, "fetch-url.mjs"), "utf8")).toBe(
       await readFile(new URL("./fetch-url.mjs", import.meta.url), "utf8"),
     );
     expect(out.script).toBe(join(dir, "fetch-url.mjs"));
     expect(out.allowedTools).toContain(`Bash(node ${join(dir, "fetch-url.mjs")}:*)`);
+  });
+
+  it("allows www.pm.gc.ca for @claude via fetch_only_hosts without making it a scan source", async () => {
+    const dir = await mkdtemp(join(tmpdir(), "fetch-url-"));
+    const out = await stage(dir, { sourcesPath: ".github/sources.yaml" });
+
+    expect(out.hosts).toContain("www.pm.gc.ca");
+    expect(out.allowedTools).toContain("WebFetch(domain:www.pm.gc.ca)");
+    expect(allowedHosts(sources)).not.toContain("www.pm.gc.ca");
   });
 });

@@ -1,6 +1,8 @@
 ---
 import { getCollection, getEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import RelatedMitigations from "../../components/RelatedMitigations.astro";
+import { buildRelatedIndex } from "../../lib/relatedRiskMitigations";
 import { marked } from "marked";
 import { fmtDate, leadText } from "../../lib/format";
 import { jurisdictionLabels, jurisdictionIcons } from "../../lib/jurisdiction";
@@ -47,6 +49,23 @@ const categoryColors: Record<string, string> = {
   structural: "bg-orange-100 text-orange-800 border-orange-200",
   societal: "bg-blue-100 text-blue-800 border-blue-200",
 };
+
+const [allRisks, allMitigations, allArtifacts, allEvents] = await Promise.all([
+  getCollection("risks"),
+  getCollection("mitigations"),
+  getCollection("artifacts"),
+  getCollection("events"),
+]);
+const relatedIndex = buildRelatedIndex(
+  allRisks.map((r) => ({ id: r.id, data: r.data })),
+  allMitigations.map((m) => ({ id: m.id, data: m.data })),
+  allArtifacts.map((a) => ({ id: a.id, data: a.data })),
+  allEvents.map((e) => ({ id: e.id, data: e.data })),
+);
+const artifactTitles = Object.fromEntries(
+  allArtifacts.map((a) => [a.id, a.data.title]),
+);
+const related = relatedIndex.forArtifact(artifact.id);
 
 // Descriptions are authored as Markdown in trusted repo YAML, so rendering the
 // parsed HTML with set:html is safe here.
@@ -163,6 +182,8 @@ const jsonLd = buildCreativeWorkJsonLd({
       </ul>
     </section>
   )}
+
+  <RelatedMitigations related={related} artifactTitles={artifactTitles} />
 
   {data.policy_recommendations.length > 0 && (
     <section class="mt-8">

@@ -16,4 +16,18 @@ implemented_by:
     note: >
       AIDA (part of Bill C-27) attempted a risk-based framework and died on
       the Order Paper when Parliament was prorogued in January 2025.
+  - artifact: ised-voluntary-code-of-conduct-gen-ai
+    relationship: related
+    note: >
+      With AIDA dead, the voluntary code of conduct remains the main federal
+      accountability mechanism for generative AI. It is not legislation.
+  - artifact: liberal-convention-ai-act-resolution-2026
+    relationship: related
+    note: >
+      A party resolution calling for an AI act. Not government policy.
+  - artifact: bill-c36-ppcda
+    relationship: related
+    note: >
+      The government's privacy bill regulates automated decision-making
+      systems but does not reintroduce AIDA.
 tags: [legislation, aida, caia]

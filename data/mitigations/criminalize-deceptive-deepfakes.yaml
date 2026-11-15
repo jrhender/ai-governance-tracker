@@ -1,0 +1,28 @@
+# mitigations/criminalize-deceptive-deepfakes.yaml
+
+id: criminalize-deceptive-deepfakes
+schema_type: DefinedTerm
+title: "Criminalize deceptive and abusive deepfakes"
+description: >
+  Extend criminal and elections law to AI-generated impersonation: sexualized
+  deepfakes of real people, and realistic fabricated depictions of electoral
+  actors made to mislead. Narrow in scope; other AI-generated political
+  content is not covered and AI content is not required to be labelled.
+mitigation_type: governance-oversight
+addresses_risks:
+  - ai-enabled-crime-and-fraud
+  - ai-influence-operations
+status: adopted
+implemented_by:
+  - artifact: bill-c16-protecting-victims-act
+    relationship: implements
+    note: >
+      Royal assent June 2026. The Criminal Code's intimate-image offences now
+      cover images created or altered with AI.
+  - artifact: bill-c25-strong-and-free-elections-act
+    relationship: implements
+    note: >
+      Royal assent June 2026. The Canada Elections Act impersonation offence
+      now covers realistic deepfakes of electoral actors made with intent to
+      mislead, with a parody and satire defence.
+tags: [deepfakes, elections, criminal-law]

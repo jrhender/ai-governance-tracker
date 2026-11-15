@@ -1,0 +1,26 @@
+# mitigations/modernize-privacy-law-for-ai.yaml
+
+id: modernize-privacy-law-for-ai
+schema_type: DefinedTerm
+title: "Modernize federal privacy law for AI and automated decisions"
+description: >
+  Update federal privacy law so individuals are told when automated systems
+  decide about them or use their personal information, with a regulator able
+  to enforce.
+mitigation_type: transparency-accountability
+addresses_risks:
+  - ai-privacy-compromise
+status: under_review
+implemented_by:
+  - artifact: bill-c36-ppcda
+    relationship: partially_implements
+    note: >
+      Bill C-36 (first reading, June 2026) governs automated decision-making
+      systems and creates a Digital Safety and Data Protection Commission. Not
+      yet law.
+  - artifact: bill-c27-aida
+    relationship: related
+    note: >
+      Bill C-27's privacy reforms died with the bill on prorogation in
+      January 2025.
+tags: [privacy, legislation]

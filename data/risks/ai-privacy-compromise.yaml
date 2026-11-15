@@ -1,0 +1,12 @@
+# risks/ai-privacy-compromise.yaml
+
+id: ai-privacy-compromise
+schema_type: DefinedTerm
+title: "AI-driven privacy harms"
+description: >
+  Collection, inference and use of personal information by AI systems, and
+  automated decisions about individuals, without their knowledge or
+  meaningful consent.
+domain: privacy-security
+subdomain: privacy-compromise
+tags: [privacy, automated-decisions]

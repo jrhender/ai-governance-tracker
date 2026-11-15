@@ -11,6 +11,13 @@ mitigation_type: technical-security
 addresses_risks:
   - ai-enabled-cyberattacks
   - ai-biochemical-weapons-uplift
-status: untracked
-implemented_by: []
+status: under_review
+implemented_by:
+  - event: ised-anthropic-mythos-meeting-2026
+    relationship: partially_implements
+    note: >
+      After Anthropic limited its Mythos model to a defensive preview for
+      critical-infrastructure operators, ISED and Minister Solomon met the
+      company, and Canada later joined Project Glasswing through the Canadian
+      Centre for Cybersecurity. Covers the cyber half only.
 tags: []

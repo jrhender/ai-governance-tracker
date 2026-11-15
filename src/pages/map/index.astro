@@ -31,15 +31,26 @@ const { domains, general, unmapped, metrics } = buildRiskMap(
   </p>
 
   <p class="mt-4 rounded border border-border bg-body p-3 text-sm text-muted">
-    All risks on this page are drawn from the{" "}
+    Most risks on this page are drawn from the{" "}
     <a href="/artifacts/international-ai-safety-report-2026/" class="text-accent-dark hover:underline">
       International AI Safety Report 2026
-    </a>, the international expert assessment chaired by Yoshua Bengio. Risks and
-    mitigations are classified using the{" "}
+    </a>, the international expert assessment chaired by Yoshua Bengio. Three more
+    (privacy harms, data centre strain, and AI capability concentration and
+    foreign dependence) are added because Canadian government actions tracked
+    here address them. Risks and mitigations are classified using the{" "}
     <a href="https://airisk.mit.edu/" class="text-accent-dark hover:underline" target="_blank" rel="noopener noreferrer">
       MIT AI Risk Repository
     </a>{" "}
     taxonomies (Slattery et al.).
+  </p>
+
+  <p class="mt-3 text-sm text-muted">
+    <strong class="text-ink">Status:</strong> <em>Adopted</em> means a
+    government measure that substantially delivers the mitigation has been
+    enacted or launched. <em>Under review</em> means only part of it is in
+    place, the measure is voluntary or not yet in force, or a consultation is
+    open. <em>Untracked</em> means no Canadian government action is recorded,
+    or only loosely related action.
   </p>
 
   <section class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4" aria-label="Progress metrics">

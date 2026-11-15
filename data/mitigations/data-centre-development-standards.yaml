@@ -1,0 +1,21 @@
+# mitigations/data-centre-development-standards.yaml
+
+id: data-centre-development-standards
+schema_type: DefinedTerm
+title: "Set standards for responsible data centre development"
+description: >
+  Set national expectations for AI data centres on local benefit, who pays for
+  electricity and grid upgrades, water use, environmental reporting and
+  transparency to host communities.
+mitigation_type: governance-oversight
+addresses_risks:
+  - ai-infrastructure-environmental-strain
+status: under_review
+implemented_by:
+  - artifact: responsible-data-centre-development-principles
+    relationship: partially_implements
+    note: >
+      ISED's voluntary principles, with 42 signatories by 22 September 2026,
+      set five expectations. They have no enforcement mechanism beyond the
+      signatories' public commitment.
+tags: [data-centres, electricity, water]

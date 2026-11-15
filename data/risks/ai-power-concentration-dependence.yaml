@@ -1,0 +1,12 @@
+# risks/ai-power-concentration-dependence.yaml
+
+id: ai-power-concentration-dependence
+schema_type: DefinedTerm
+title: "Concentration of AI capability and foreign dependence"
+description: >
+  Dependence on a few foreign firms and jurisdictions for AI compute and
+  models, leaving a country exposed to loss of access and to decisions made
+  elsewhere.
+domain: socioeconomic-environmental
+subdomain: power-centralization
+tags: [sovereignty, compute]

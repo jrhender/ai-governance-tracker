@@ -11,5 +11,12 @@ description: >
 mitigation_type: governance-oversight
 addresses_risks: []
 status: untracked
-implemented_by: []
+implemented_by:
+  - artifact: canada-national-ai-strategy-ai-for-all
+    relationship: related
+    note: >
+      AI for All is led by ISED under a dedicated Minister of Artificial
+      Intelligence and Digital Innovation. Whether this meets the call for a
+      body separate from ISED's industry-promotion mandate is not assessed
+      here.
 tags: [government-machinery]

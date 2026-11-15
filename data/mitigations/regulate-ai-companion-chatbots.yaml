@@ -1,0 +1,19 @@
+# mitigations/regulate-ai-companion-chatbots.yaml
+
+id: regulate-ai-companion-chatbots
+schema_type: DefinedTerm
+title: "Regulate AI chatbots and companions, especially for children"
+description: >
+  Bring AI chatbot services within online-safety law, with duties on
+  operators to protect children from harmful interaction and dependence.
+mitigation_type: governance-oversight
+addresses_risks:
+  - erosion-of-human-autonomy
+status: under_review
+implemented_by:
+  - artifact: bill-c34-safe-social-media-act
+    relationship: partially_implements
+    note: >
+      Bill C-34 (first reading, June 2026) brings AI chatbot services into a
+      federal online-safety regime aimed at children. Not yet law.
+tags: [ai-chatbots, online-safety, children]

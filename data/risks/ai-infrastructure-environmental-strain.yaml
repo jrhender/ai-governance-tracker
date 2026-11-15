@@ -1,0 +1,11 @@
+# risks/ai-infrastructure-environmental-strain.yaml
+
+id: ai-infrastructure-environmental-strain
+schema_type: DefinedTerm
+title: "Environmental and grid strain from AI infrastructure"
+description: >
+  Electricity, water and land demands of AI data centres, and the shifting of
+  those costs onto local communities and ratepayers.
+domain: socioeconomic-environmental
+subdomain: environmental-harm
+tags: [data-centres, electricity, water]

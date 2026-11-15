@@ -11,4 +11,108 @@ addresses_risks:
   - loss-of-control
 status: untracked
 implemented_by: []
-tags: []
+
+# Technologies that could make claims about AI development and deployment
+# checkable rather than resting on assertions. Breakdown and example claims
+# follow the technology table in Thomas Milton (Amodo), "The UK's next AI bet
+# should be AI verification" (2 Aug 2026).
+approaches:
+  - id: recomputation
+    title: "Recomputation"
+    summary: >
+      Computation is redone on separate, hardened systems to check that the
+      original was done faithfully, while keeping the workload confidential.
+      Algorithms exist that let parties recompute parts of inference or
+      training.
+    example_claim: "Training is proceeding according to agreed training code and data."
+    why_it_matters: >
+      Verifies that a model was not trained using training strategies that have
+      been determined to be unsafe.
+    links:
+      - label: "The UK's next AI bet should be AI verification"
+        url: "https://tomsmilton.substack.com/p/the-uks-next-ai-bet-should-be"
+
+  - id: challenges
+    title: "Challenges"
+    also_known_as: ["Proof-of-memory"]
+    summary: >
+      Techniques that spot-check the prover's compute. For example, requiring a
+      GPU to prove it holds certain weights in its memory can be part of a
+      scheme where all memory is filled with the intended model weights.
+    example_claim: "The model being served on this compute is the specific model that passed certain evals."
+    why_it_matters: >
+      Verifies that an internal R&D loop is driven by an approved, eval-passed
+      model rather than a newer uncertified one.
+    links:
+      - label: "The UK's next AI bet should be AI verification"
+        url: "https://tomsmilton.substack.com/p/the-uks-next-ai-bet-should-be"
+
+  - id: secure-enclaves
+    title: "Secure enclaves"
+    also_known_as: ["Trusted Execution Environments (TEEs)"]
+    summary: >
+      Hardware that cryptographically reports the code and model being
+      executed. TEEs are already used in some AI clusters but are not yet
+      suitable for international coordination; brought up to standard, they
+      could help verify some rules.
+    example_claim: "X amount of FLOPs were used in this training run."
+    why_it_matters: >
+      Could strengthen claims that a pacing rule is being followed in real time
+      and with more granularity.
+    links:
+      - label: "The UK's next AI bet should be AI verification"
+        url: "https://tomsmilton.substack.com/p/the-uks-next-ai-bet-should-be"
+
+  - id: fingerprinting
+    title: "Fingerprinting"
+    also_known_as: ["Analogue sensors", "Network traffic", "Component utilisation"]
+    summary: >
+      Different workloads have distinctive network traffic, power draw, memory
+      access patterns and so on, which can be measured from outside the
+      workload.
+    example_claim: "This training run is proceeding differently from earlier approved runs."
+    why_it_matters: >
+      Allows low-trust monitoring that flags anomalies for deeper verification
+      by enclaves or recomputation.
+    links:
+      - label: "The UK's next AI bet should be AI verification"
+        url: "https://tomsmilton.substack.com/p/the-uks-next-ai-bet-should-be"
+
+  - id: hardware-enforced-limits
+    title: "Hardware-enforced limits"
+    summary: >
+      Some verification systems aim to verify an agreement by directly
+      enforcing it. A scheme meant to slow large-scale frontier training runs
+      could, for example, remove the high-bandwidth network between chips.
+    example_claim: "This compute cannot perform pre-training efficiently."
+    why_it_matters: >
+      Increases the friction of running workloads that are not allowed.
+    links:
+      - label: "The UK's next AI bet should be AI verification"
+        url: "https://tomsmilton.substack.com/p/the-uks-next-ai-bet-should-be"
+
+  - id: zero-knowledge-proofs
+    title: "Zero-knowledge proofs"
+    also_known_as: ["ZKPs"]
+    summary: >
+      Let a party prove a claim without sharing the underlying data, such as
+      proving that a specific model did a specific computation without
+      revealing the model or data to the verifier. Using ZKPs for inference
+      and training currently carries a high computational overhead.
+    example_claim: "Training followed the agreed code."
+    why_it_matters: >
+      Gives verifiers stronger evidence while keeping the model, data and
+      training details secret.
+    links:
+      - label: "The UK's next AI bet should be AI verification"
+        url: "https://tomsmilton.substack.com/p/the-uks-next-ai-bet-should-be"
+
+links:
+  - label: "The UK's next AI bet should be AI verification (Thomas Milton, Amodo)"
+    url: "https://tomsmilton.substack.com/p/the-uks-next-ai-bet-should-be"
+  - label: "Verification is needed for US & China (Amodo)"
+    url: "https://amodo.substack.com/p/verification-is-needed-for-us-china"
+  - label: "AI verification overview (Amodo)"
+    url: "https://amododesign.com/ai-verification"
+
+tags: [verification, superintelligence]

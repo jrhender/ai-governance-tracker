@@ -1,0 +1,197 @@
+---
+// src/pages/mitigations/[id].astro
+// Detail page for one canonical mitigation: what it is, the risks it
+// addresses, who recommends it, implementation evidence, and (when recorded)
+// the specific technologies or techniques it breaks down into.
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { buildRiskMap } from "../../lib/riskMap";
+import {
+  MITIGATION_CATEGORIES,
+  MITIGATION_STATUSES,
+} from "../../lib/mitigationTaxonomy";
+
+export async function getStaticPaths() {
+  const mitigations = await getCollection("mitigations");
+  return mitigations.map((mitigation) => ({
+    params: { id: mitigation.id },
+    props: { mitigation },
+  }));
+}
+
+const { mitigation } = Astro.props;
+const { data } = mitigation;
+
+const [risks, mitigations, artifacts, events] = await Promise.all([
+  getCollection("risks"),
+  getCollection("mitigations"),
+  getCollection("artifacts"),
+  getCollection("events"),
+]);
+
+const { mitigations: mapped } = buildRiskMap(
+  risks.map((r) => ({ id: r.id, data: r.data })),
+  mitigations.map((m) => ({ id: m.id, data: m.data })),
+  artifacts.map((a) => ({ id: a.id, data: a.data })),
+  events.map((e) => ({ id: e.id, data: e.data })),
+);
+const m = mapped.find((x) => x.id === mitigation.id)!;
+
+const statusColors: Record<string, string> = {
+  untracked: "bg-gray-100 text-gray-600 border-gray-200",
+  under_review: "bg-yellow-100 text-yellow-800 border-yellow-200",
+  adopted: "bg-green-100 text-green-800 border-green-200",
+  rejected: "bg-red-100 text-red-800 border-red-200",
+};
+
+const relationshipLabels: Record<string, string> = {
+  implements: "implements",
+  partially_implements: "partially implements",
+  related: "related",
+};
+
+const chip = "rounded-full bg-body px-2 py-0.5 text-xs text-muted border border-border-lt";
+const sectionHeading = "text-xs font-semibold uppercase tracking-wide text-faint mb-2";
+---
+
+<BaseLayout title={data.title} description={data.description?.trim()}>
+  <p class="text-sm text-faint">
+    <a href="/mitigations/" class="text-accent-dark hover:underline">← Mitigations</a>
+  </p>
+  <h1 class="mt-4 font-display text-3xl text-header">{data.title}</h1>
+  <div class="mt-2 flex flex-wrap gap-1">
+    {data.mitigation_type && (
+      <span class={chip}>{MITIGATION_CATEGORIES[data.mitigation_type]}</span>
+    )}
+    <span class={`rounded-full px-2 py-0.5 text-xs border ${statusColors[data.status]}`}>
+      {MITIGATION_STATUSES[data.status]}
+    </span>
+  </div>
+
+  {data.description && <p class="mt-6 text-ink">{data.description}</p>}
+
+  <section class="mt-8">
+    <h2 class={sectionHeading}>Risks addressed</h2>
+    {m.risks.length > 0 ? (
+      <ul class="space-y-1">
+        {m.risks.map((r) => (
+          <li>
+            <a href={`/map/#risk-${r.id}`} class="text-ink hover:text-accent-dark hover:underline">
+              {r.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="text-sm text-muted">Not tied to a single tracked risk.</p>
+    )}
+  </section>
+
+  {data.approaches.length > 0 && (
+    <section class="mt-8" aria-labelledby="approaches-heading">
+      <h2 id="approaches-heading" class={sectionHeading}>
+        Technologies &amp; approaches
+      </h2>
+      <ul class="space-y-3">
+        {data.approaches.map((a) => (
+          <li id={a.id} class="scroll-mt-4 rounded border border-border bg-surface p-4">
+            <h3 class="font-medium text-ink">{a.title}</h3>
+            {a.also_known_as.length > 0 && (
+              <p class="mt-0.5 text-xs text-faint">Also: {a.also_known_as.join(", ")}</p>
+            )}
+            <p class="mt-2 text-sm text-ink">{a.summary}</p>
+            {a.example_claim && (
+              <div class="mt-3 border-l-2 border-accent pl-3">
+                <p class="text-sm text-ink">
+                  <span class="text-xs font-semibold uppercase tracking-wide text-faint">Example claim </span>
+                  “{a.example_claim}”
+                </p>
+                {a.why_it_matters && (
+                  <p class="mt-1 text-sm text-muted">{a.why_it_matters}</p>
+                )}
+              </div>
+            )}
+            {a.links.length > 0 && (
+              <p class="mt-2 text-xs text-faint">
+                Source:{" "}
+                {a.links.map((l, i) => (
+                  <>
+                    {i > 0 && ", "}
+                    <a href={l.url} class="text-accent-dark hover:underline" target="_blank" rel="noopener noreferrer">
+                      {l.label} ↗
+                    </a>
+                  </>
+                ))}
+              </p>
+            )}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {m.recommendedBy.length > 0 && (
+    <section class="mt-8">
+      <h2 class={sectionHeading}>Recommended by</h2>
+      <ul class="space-y-1">
+        {m.recommendedBy.map((r) => (
+          <li>
+            <a href={`/artifacts/${r.artifactId}/`} class="text-ink hover:text-accent-dark hover:underline">
+              {r.artifactTitle}
+            </a>
+            {r.recTitle && r.recTitle !== data.title && (
+              <span class="text-faint"> — {r.recTitle}</span>
+            )}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <section class="mt-8">
+    <h2 class={sectionHeading}>Implementation in Canada</h2>
+    {m.implementations.length > 0 ? (
+      <ul class="space-y-1 text-sm">
+        {m.implementations.map((impl) => (
+          <li>
+            <span class="text-faint">{relationshipLabels[impl.relationship]}: </span>
+            <a
+              href={`/${impl.kind === "artifact" ? "artifacts" : "events"}/${impl.id}/`}
+              class="text-accent-dark hover:underline"
+            >
+              {impl.title}
+            </a>
+            {impl.note && <span class="text-faint"> — {impl.note}</span>}
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="text-sm text-muted">No implementation evidence tracked yet.</p>
+    )}
+  </section>
+
+  {data.links.length > 0 && (
+    <section class="mt-8">
+      <h2 class={sectionHeading}>Further reading</h2>
+      <ul class="space-y-1">
+        {data.links.map((l) => (
+          <li>
+            <a href={l.url} class="text-accent-dark hover:underline" target="_blank" rel="noopener noreferrer">
+              {l.label} ↗
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {data.tags.length > 0 && (
+    <section class="mt-8 flex flex-wrap gap-2">
+      {data.tags.map((t) => (
+        <span class="rounded bg-body px-2 py-0.5 text-xs text-muted border border-border-lt">
+          #{t}
+        </span>
+      ))}
+    </section>
+  )}
+</BaseLayout>

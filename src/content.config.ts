@@ -222,6 +222,26 @@ const mitigations = defineCollection({
           }),
       )
       .default([]),
+    // Concrete technologies or techniques that make up this mitigation —
+    // e.g. the individual verification technologies behind "AI verification".
+    // Optional; any mitigation can carry a breakdown.
+    approaches: z
+      .array(
+        z.object({
+          id: z.string(),
+          title: z.string(),
+          also_known_as: z.array(z.string()).default([]),
+          summary: z.string(),
+          // A concrete claim this approach could make checkable, and why
+          // that claim matters for governance.
+          example_claim: z.string().optional(),
+          why_it_matters: z.string().optional(),
+          links: z.array(linkSchema).default([]),
+        }),
+      )
+      .default([]),
+    // Further reading for the mitigation as a whole (explainers, overviews).
+    links: z.array(linkSchema).default([]),
     tags: z.array(z.string()).default([]),
   }),
 });

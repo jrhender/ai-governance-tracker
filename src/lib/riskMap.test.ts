@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import {
   buildRiskMap,
+  groupMitigationsByCategory,
   type RiskInput,
   type MitigationInput,
   type ArtifactInput,
@@ -36,6 +37,10 @@ const mitigations: MitigationInput[] = [
       mitigation_type: "governance-oversight",
       addresses_risks: [{ collection: "risks", id: "loss-of-control" }],
       implemented_by: [],
+      approaches: [
+        { id: "a1", title: "Approach one" },
+        { id: "a2", title: "Approach two" },
+      ],
     },
   },
   {
@@ -168,5 +173,37 @@ describe("buildRiskMap", () => {
       "Malicious actors & misuse",
     );
     expect(result.metrics.domainsWithoutAdopted).toContain("Misinformation");
+  });
+
+  it("lists every mitigation with the risks it addresses and its approach count", () => {
+    expect(result.mitigations.map((m) => m.id)).toEqual([
+      "asi-regime",
+      "watermarking",
+      "machinery",
+    ]);
+    const regime = result.mitigations.find((m) => m.id === "asi-regime")!;
+    expect(regime.risks).toEqual([{ id: "loss-of-control", title: "Loss of control" }]);
+    expect(regime.approachCount).toBe(2);
+    const machinery = result.mitigations.find((m) => m.id === "machinery")!;
+    expect(machinery.risks).toEqual([]);
+    expect(machinery.approachCount).toBe(0);
+  });
+});
+
+describe("groupMitigationsByCategory", () => {
+  const { mitigations: all } = buildRiskMap(risks, mitigations, artifacts, events);
+  const groups = groupMitigationsByCategory(all);
+
+  it("groups by MIT category in taxonomy order, uncategorized last, dropping empty groups", () => {
+    expect(groups.map((g) => g.category)).toEqual([
+      "governance-oversight",
+      "uncategorized",
+    ]);
+    expect(groups[0].label).toBe("Governance & Oversight");
+    expect(groups[0].mitigations.map((m) => m.id)).toEqual(["asi-regime"]);
+    expect(groups[1].mitigations.map((m) => m.id)).toEqual([
+      "watermarking",
+      "machinery",
+    ]);
   });
 });

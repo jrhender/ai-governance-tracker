@@ -1,0 +1,28 @@
+---
+// src/components/MapViewToggle.astro
+// Switches between the risk-first map and the mitigation-first index.
+interface Props {
+  current: "risk" | "mitigation";
+}
+
+const { current } = Astro.props;
+
+const views = [
+  { key: "risk", href: "/map/", label: "By risk" },
+  { key: "mitigation", href: "/mitigations/", label: "By mitigation" },
+] as const;
+---
+
+<nav aria-label="Map view" class="mt-4 inline-flex rounded border border-border bg-surface p-0.5 text-sm">
+  {views.map((v) =>
+    v.key === current ? (
+      <span aria-current="page" class="rounded bg-body px-3 py-1 font-medium text-ink">
+        {v.label}
+      </span>
+    ) : (
+      <a href={v.href} class="rounded px-3 py-1 text-accent-dark hover:underline">
+        {v.label}
+      </a>
+    ),
+  )}
+</nav>

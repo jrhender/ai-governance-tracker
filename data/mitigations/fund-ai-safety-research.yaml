@@ -12,14 +12,4 @@ addresses_risks:
   - loss-of-control
   - unreliable-ai-agents
 status: under_review
-implemented_by:
-  - artifact: canada-national-ai-strategy-ai-for-all
-    relationship: partially_implements
-    note: >
-      AI for All commits to an expanded Canadian AI Safety Institute. The strategy's funding for the Institute is not compared here against the recommended $500M+.
-  - event: canada-germany-lawzero-investment-announced-2026
-    relationship: partially_implements
-    note: >
-      Canada plans to invest CAD 150 million (with Germany's EUR 100 million)
-      in LawZero's safe-by-design Scientist AI research.
 tags: [research-funding, caisi]

@@ -20,6 +20,12 @@ const { data } = instrument;
 const graph = await loadPolicyGraph();
 const gi = graph.instruments.get(instrument.id)!;
 
+const relationshipLabels: Record<string, string> = {
+  implements: "implements",
+  partially_implements: "partially implements",
+  related: "related",
+};
+
 const chip = "rounded-full bg-body px-2 py-0.5 text-xs text-muted border border-border-lt";
 const sectionHeading = "text-xs font-semibold uppercase tracking-wide text-faint mb-2";
 ---
@@ -47,6 +53,28 @@ const sectionHeading = "text-xs font-semibold uppercase tracking-wide text-faint
         </li>
       ))}
     </ul>
+  </section>
+
+  <section class="mt-8">
+    <h2 class={sectionHeading}>Implementation in Canada</h2>
+    {gi.implementations.length > 0 ? (
+      <ul class="space-y-1 text-sm">
+        {gi.implementations.map((impl) => (
+          <li>
+            <span class="text-faint">{relationshipLabels[impl.relationship]}: </span>
+            <a
+              href={`/${impl.kind === "artifact" ? "artifacts" : "events"}/${impl.id}/`}
+              class="text-accent-dark hover:underline"
+            >
+              {impl.title}
+            </a>
+            {impl.note && <span class="text-faint"> — {impl.note}</span>}
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="text-sm text-muted">No Canadian implementation tracked yet.</p>
+    )}
   </section>
 
   <section class="mt-8" aria-labelledby="technologies-heading">

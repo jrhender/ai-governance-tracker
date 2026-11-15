@@ -1,0 +1,20 @@
+# instruments/workplace-ai-consultation-duty.yaml
+
+id: workplace-ai-consultation-duty
+schema_type: DefinedTerm
+title: "Duty to consult workers before introducing workplace AI"
+description: >
+  Canada Labour Code provisions requiring employers to consult and inform
+  employees before introducing AI systems.
+instrument_type: regulation
+advances:
+  - support-displaced-workers
+technologies: []
+implemented_by:
+  - event: unions-ai-workplace-consultation-2026
+    relationship: related
+    note: >
+      Unifor, UFCW and CUPE pressed for these clauses. The government
+      responded by announcing an AI and Labour Advisory Council rather than
+      legislation.
+tags: [labour, workplace-ai]

@@ -13,16 +13,4 @@ addresses_risks:
   - ai-enabled-crime-and-fraud
   - ai-influence-operations
 status: adopted
-implemented_by:
-  - artifact: bill-c16-protecting-victims-act
-    relationship: implements
-    note: >
-      Royal assent June 2026. The Criminal Code's intimate-image offences now
-      cover images created or altered with AI.
-  - artifact: bill-c25-strong-and-free-elections-act
-    relationship: implements
-    note: >
-      Royal assent June 2026. The Canada Elections Act impersonation offence
-      now covers realistic deepfakes of electoral actors made with intent to
-      mislead, with a parody and satire defence.
 tags: [deepfakes, elections, criminal-law]

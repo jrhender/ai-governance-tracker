@@ -1,0 +1,19 @@
+# instruments/ai-safety-research-funding.yaml
+
+id: ai-safety-research-funding
+schema_type: DefinedTerm
+title: "Public funding for AI safety research"
+description: >
+  Direct public investment in organizations doing technical AI safety
+  research.
+instrument_type: public_program
+advances:
+  - fund-ai-safety-research
+technologies: []
+implemented_by:
+  - event: canada-germany-lawzero-investment-announced-2026
+    relationship: implements
+    note: >
+      Canada plans to invest CAD 150 million (alongside Germany's EUR 100
+      million) in LawZero's safe-by-design Scientist AI research.
+tags: [research-funding]

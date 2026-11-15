@@ -11,11 +11,4 @@ addresses_risks:
   - erosion-of-human-autonomy
   - ai-influence-operations
 status: adopted
-implemented_by:
-  - event: national-ai-literacy-initiative-launched-2026
-    relationship: implements
-    note: >
-      A $13-million partnership with Amii delivers free courses for students,
-      educators and the public, targeting up to one million post-secondary
-      students.
 tags: [ai-literacy, education]

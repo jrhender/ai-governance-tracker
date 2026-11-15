@@ -29,15 +29,18 @@ const relatedArtifacts = await Promise.all(
   data.related_artifacts.map((a) => getEntry("artifacts", a.id.id)),
 );
 
-const [allRisks, allMitigations, allArtifacts, allEvents] = await Promise.all([
-  getCollection("risks"),
-  getCollection("mitigations"),
-  getCollection("artifacts"),
-  getCollection("events"),
-]);
+const [allRisks, allMitigations, allInstruments, allArtifacts, allEvents] =
+  await Promise.all([
+    getCollection("risks"),
+    getCollection("mitigations"),
+    getCollection("instruments"),
+    getCollection("artifacts"),
+    getCollection("events"),
+  ]);
 const relatedIndex = buildRelatedIndex(
   allRisks.map((r) => ({ id: r.id, data: r.data })),
   allMitigations.map((m) => ({ id: m.id, data: m.data })),
+  allInstruments.map((i) => ({ id: i.id, data: i.data })),
   allArtifacts.map((a) => ({ id: a.id, data: a.data })),
   allEvents.map((e) => ({ id: e.id, data: e.data })),
 );

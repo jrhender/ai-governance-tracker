@@ -10,34 +10,4 @@ mitigation_type: governance-oversight
 addresses_risks:
   - loss-of-control
 status: under_review
-implemented_by:
-  - artifact: paris-call-ai-safety-security-declaration-2026
-    relationship: related
-    note: >
-      The Paris call declaration (Nov 2026) is signed by six governments, ten
-      AI companies and four civil-society groups, and commits them to a common
-      frontier-model evaluation framework with shared standards and a public
-      repository of non-sensitive findings. Voluntary and non-binding.
-  - event: canada-uk-ai-security-partnership-renewed-2026
-    relationship: partially_implements
-    note: >
-      Canada and the UK renewed their AI security partnership, recommitting
-      the Canadian AI Safety Institute and UK AI Security Institute to
-      cooperate on interoperable standards, information-sharing and frontier
-      AI evaluation. No new signed document was named.
-  - artifact: caisi-question-period-note-2025
-    relationship: partially_implements
-    note: >
-      CAISI, created in November 2024, is a founding member of the
-      International Network of AI Safety Institutes.
-  - artifact: call-for-control-of-frontier-ai-models-2026
-    relationship: related
-    note: >
-      Carney signed a call for coordinated standards and an international
-      institution for frontier AI. Non-binding.
-  - event: carney-european-parliament-address-2026
-    relationship: related
-    note: >
-      Carney proposed Canada-EU cooperation on AI safety protocols and common
-      standards. A stated proposal, not an agreement.
 tags: []

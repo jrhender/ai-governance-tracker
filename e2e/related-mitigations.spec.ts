@@ -1,9 +1,12 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("related risks and mitigations on record pages", () => {
-  test("an enacted bill lists the mitigation it implements and the risks it addresses", async ({ page }) => {
+  test("an enacted bill lists the instrument it implements, its mitigation and risks", async ({ page }) => {
     await page.goto("/artifacts/bill-c16-protecting-victims-act/");
     const section = page.getByRole("region", { name: "Risks and mitigations" });
+    await expect(
+      section.getByRole("link", { name: "Criminal and elections offences for deceptive deepfakes" }),
+    ).toBeVisible();
     await expect(
       section.getByRole("link", { name: "Criminalize deceptive and abusive deepfakes" }),
     ).toBeVisible();
@@ -16,6 +19,14 @@ test.describe("related risks and mitigations on record pages", () => {
     const section = page.getByRole("region", { name: "Risks and mitigations" });
     await expect(
       section.getByRole("link", { name: "Criminalize deceptive and abusive deepfakes" }),
+    ).toBeVisible();
+  });
+
+  test("an instrument page lists its Canadian implementations", async ({ page }) => {
+    await page.goto("/instruments/deepfake-criminal-offences/");
+    await expect(page.getByRole("heading", { name: "Implementation in Canada" })).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: "Bill C-25 — Strong and Free Elections Act" }),
     ).toBeVisible();
   });
 

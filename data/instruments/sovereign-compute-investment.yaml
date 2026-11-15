@@ -1,0 +1,37 @@
+# instruments/sovereign-compute-investment.yaml
+
+id: sovereign-compute-investment
+schema_type: DefinedTerm
+title: "Public investment in sovereign AI compute"
+description: >
+  Public funding for compute located in Canada and governed by Canadian law:
+  a public supercomputer, co-investment in commercial data centres, and
+  subsidized access for small firms.
+instrument_type: public_program
+advances:
+  - skills-data-compute-investment
+  - national-ai-resilience
+technologies: []
+implemented_by:
+  - artifact: canadian-sovereign-ai-compute-strategy
+    relationship: implements
+    note: >
+      The $2-billion strategy (December 2024) funds all three: up to $1
+      billion for public compute, up to $700 million for data centre
+      co-investment and up to $300 million for SME access.
+  - event: ai-scip-call-for-applications-opened-2026
+    relationship: partially_implements
+    note: >
+      Applications for the national AI supercomputer opened in April 2026;
+      the system is not yet built.
+  - event: ai-compute-access-fund-first-recipients-2026
+    relationship: implements
+    note: >
+      The first 44 projects ($66 million of the $300-million fund) received
+      compute subsidies.
+  - event: bell-saskatchewan-ai-infrastructure-investment-2026
+    relationship: related
+    note: >
+      The government welcomed a private sovereign AI infrastructure
+      investment of up to $52.5 billion. Not a federal program.
+tags: [compute, sovereign-ai]

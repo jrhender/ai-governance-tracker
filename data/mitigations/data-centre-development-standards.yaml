@@ -11,11 +11,4 @@ mitigation_type: governance-oversight
 addresses_risks:
   - ai-infrastructure-environmental-strain
 status: under_review
-implemented_by:
-  - artifact: responsible-data-centre-development-principles
-    relationship: partially_implements
-    note: >
-      ISED's voluntary principles, with 42 signatories by 22 September 2026,
-      set five expectations. They have no enforcement mechanism beyond the
-      signatories' public commitment.
 tags: [data-centres, electricity, water]

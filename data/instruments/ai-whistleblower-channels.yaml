@@ -1,0 +1,20 @@
+# instruments/ai-whistleblower-channels.yaml
+
+id: ai-whistleblower-channels
+schema_type: DefinedTerm
+title: "Protected whistleblower channels for AI risks"
+description: >
+  Secure, confidential channels for AI company staff to raise systemic-risk
+  concerns, with protection from retaliation.
+instrument_type: regulation
+advances:
+  - transparency-whistleblower-protections
+technologies: []
+implemented_by:
+  - artifact: paris-call-ai-safety-security-declaration-2026
+    relationship: partially_implements
+    note: >
+      Policy makers commit to secure, confidential whistleblower channels,
+      and developers to reporting lines that protect internal researchers.
+      Voluntary; no Canadian channel yet.
+tags: [whistleblowers]

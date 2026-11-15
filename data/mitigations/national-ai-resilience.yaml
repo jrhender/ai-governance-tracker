@@ -14,17 +14,4 @@ addresses_risks:
   - labour-market-disruption
   - ai-power-concentration-dependence
 status: under_review
-implemented_by:
-  - artifact: canadian-sovereign-ai-compute-strategy
-    relationship: partially_implements
-    note: >
-      Domestic, Canadian-governed compute reduces exposure to loss of access
-      to foreign compute, one of the shocks this mitigation names. It does not
-      address cyber, supply-chain or fiscal shocks.
-  - artifact: responsible-data-centre-development-principles
-    relationship: related
-    note: >
-      The principles ask data centres handling sensitive data or critical
-      systems to meet Canadian protection, cybersecurity and access
-      requirements. Voluntary.
 tags: [resilience, critical-infrastructure]

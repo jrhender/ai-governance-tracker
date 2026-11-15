@@ -6,6 +6,7 @@ import {
   type MitigationInput,
   type ArtifactInput,
   type EventLikeInput,
+  type InstrumentImplInput,
 } from "./riskMap";
 
 const risks: RiskInput[] = [
@@ -36,7 +37,6 @@ const mitigations: MitigationInput[] = [
       status: "untracked",
       mitigation_type: "governance-oversight",
       addresses_risks: [{ collection: "risks", id: "loss-of-control" }],
-      implemented_by: [],
     },
   },
   {
@@ -45,13 +45,6 @@ const mitigations: MitigationInput[] = [
       title: "Watermarking",
       status: "adopted",
       addresses_risks: [{ collection: "risks", id: "fraud" }],
-      implemented_by: [
-        {
-          artifact: { collection: "artifacts", id: "bill-x" },
-          relationship: "implements",
-          note: "n",
-        },
-      ],
     },
   },
   {
@@ -60,7 +53,6 @@ const mitigations: MitigationInput[] = [
       title: "Machinery",
       status: "untracked",
       addresses_risks: [],
-      implemented_by: [],
     },
   },
 ];
@@ -97,8 +89,25 @@ const artifacts: ArtifactInput[] = [
 
 const events: EventLikeInput[] = [];
 
+const instruments: InstrumentImplInput[] = [
+  {
+    id: "label-law",
+    data: {
+      title: "Labelling law",
+      advances: [{ collection: "mitigations", id: "watermarking" }],
+      implemented_by: [
+        {
+          artifact: { collection: "artifacts", id: "bill-x" },
+          relationship: "implements",
+          note: "n",
+        },
+      ],
+    },
+  },
+];
+
 describe("buildRiskMap", () => {
-  const result = buildRiskMap(risks, mitigations, artifacts, events);
+  const result = buildRiskMap(risks, mitigations, artifacts, events, instruments);
 
   it("groups risks under their MIT domain with labels", () => {
     const domains = result.domains.map((d) => d.domain);
@@ -127,7 +136,7 @@ describe("buildRiskMap", () => {
     ]);
   });
 
-  it("resolves implementation references to titles", () => {
+  it("takes implementations from the instruments that advance a mitigation", () => {
     const fraud = result.domains
       .flatMap((d) => d.risks)
       .find((r) => r.id === "fraud")!;
@@ -138,6 +147,8 @@ describe("buildRiskMap", () => {
         title: "Bill X",
         relationship: "implements",
         note: "n",
+        instrumentId: "label-law",
+        instrumentTitle: "Labelling law",
       },
     ]);
   });
@@ -185,7 +196,7 @@ describe("buildRiskMap", () => {
 });
 
 describe("groupMitigationsByCategory", () => {
-  const { mitigations: all } = buildRiskMap(risks, mitigations, artifacts, events);
+  const { mitigations: all } = buildRiskMap(risks, mitigations, artifacts, events, instruments);
   const groups = groupMitigationsByCategory(all);
 
   it("groups by MIT category in taxonomy order, uncategorized last, dropping empty groups", () => {

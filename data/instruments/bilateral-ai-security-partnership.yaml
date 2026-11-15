@@ -1,0 +1,28 @@
+# instruments/bilateral-ai-security-partnership.yaml
+
+id: bilateral-ai-security-partnership
+schema_type: DefinedTerm
+title: "Bilateral AI safety and security partnership"
+description: >
+  A government-to-government agreement for safety institutes to cooperate on
+  standards, information-sharing and frontier-model evaluation.
+instrument_type: international_agreement
+advances:
+  - international-ai-safety-cooperation
+  - information-sharing-protocols
+  - frontier-model-evaluation
+technologies: []
+implemented_by:
+  - event: canada-uk-ai-security-partnership-renewed-2026
+    relationship: implements
+    note: >
+      Canada and the UK renewed their 2024 partnership in October 2026,
+      recommitting CAISI and the UK AI Security Institute to interoperable
+      standards, information-sharing and technical cooperation on frontier
+      AI evaluation.
+  - event: carney-european-parliament-address-2026
+    relationship: related
+    note: >
+      Carney proposed Canada-EU cooperation on AI safety protocols, common
+      standards and transparency. A stated proposal, not an agreement.
+tags: [international-cooperation, caisi]

@@ -10,10 +10,4 @@ mitigation_type: governance-oversight
 addresses_risks:
   - labour-market-disruption
 status: untracked
-implemented_by:
-  - event: unions-ai-workplace-consultation-2026
-    relationship: related
-    note: >
-      Unions pressed for Canada Labour Code consultation duties on workplace
-      AI. In response the government announced an AI and Labour Advisory Council.
 tags: []

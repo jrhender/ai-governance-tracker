@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { buildRelatedIndex } from "./relatedRiskMitigations";
+import { buildRelatedIndex, type RelInstrumentInput } from "./relatedRiskMitigations";
 
 const risks = [
   { id: "fraud", data: { title: "Fraud" } },
@@ -10,15 +10,7 @@ const risks = [
 const mitigations = [
   {
     id: "deepfakes",
-    data: {
-      title: "Criminalize deepfakes",
-      status: "adopted" as const,
-      addresses_risks: [{ id: "fraud" }],
-      implemented_by: [
-        { artifact: { id: "c16" }, relationship: "implements" as const, note: "n" },
-        { event: { id: "ev1" }, relationship: "related" as const },
-      ],
-    },
+    data: { title: "Criminalize deepfakes", status: "adopted" as const, addresses_risks: [{ id: "fraud" }] },
   },
   {
     id: "eval",
@@ -26,7 +18,28 @@ const mitigations = [
       title: "Evaluate models",
       status: "under_review" as const,
       addresses_risks: [{ id: "loc" }, { id: "missing" }],
-      implemented_by: [{ artifact: { id: "call" }, relationship: "related" as const }],
+    },
+  },
+];
+
+const instruments: RelInstrumentInput[] = [
+  {
+    id: "offence",
+    data: {
+      title: "Deepfake offence",
+      advances: [{ id: "deepfakes" }],
+      implemented_by: [
+        { artifact: { id: "c16" }, relationship: "implements", note: "n" },
+        { event: { id: "ev1" }, relationship: "related" },
+      ],
+    },
+  },
+  {
+    id: "testing",
+    data: {
+      title: "Mandatory testing",
+      advances: [{ id: "eval" }, { id: "unknown" }],
+      implemented_by: [{ artifact: { id: "call" }, relationship: "related" }],
     },
   },
 ];
@@ -40,64 +53,77 @@ const artifacts = [
     id: "report",
     data: {
       derives_from: [],
-      policy_recommendations: [{ mitigation: { id: "eval" } }, {}],
+      policy_recommendations: [{ mitigation: { id: "eval" } }, { mitigation: { id: "eval" } }, {}],
       risk_findings: [{ risk: { id: "bio" } }, { risk: { id: "loc" } }, {}],
     },
   },
-  { id: "call", data: { derives_from: [{ id: { id: "ev2" } }], policy_recommendations: [], risk_findings: [] } },
+  {
+    id: "call",
+    data: { derives_from: [{ id: { id: "ev2" } }], policy_recommendations: [], risk_findings: [] },
+  },
 ];
 
 const events = [
   { id: "ev1", data: { related_artifacts: [{ id: { id: "c16" } }] } },
   { id: "ev2", data: { related_artifacts: [] } },
   { id: "ev3", data: { related_artifacts: [] } },
+  { id: "ev9", data: { related_artifacts: [{ id: { id: "report" } }] } },
 ];
 
-const idx = buildRelatedIndex(risks, mitigations, artifacts, events);
+const idx = buildRelatedIndex(risks, mitigations, instruments, artifacts, events);
 
 describe("buildRelatedIndex", () => {
-  it("lists mitigations that an artifact implements, with the risks they address", () => {
-    const r = idx.forArtifact("c16");
-    expect(r.mitigations).toEqual([
+  it("lists the instruments a policy implements, with mitigations and risks", () => {
+    expect(idx.forArtifact("c16").instruments).toEqual([
       {
-        id: "deepfakes",
-        title: "Criminalize deepfakes",
-        status: "adopted",
+        id: "offence",
+        title: "Deepfake offence",
         relationship: "implements",
         note: "n",
-        risks: [{ id: "fraud", title: "Fraud" }],
+        mitigations: [
+          {
+            id: "deepfakes",
+            title: "Criminalize deepfakes",
+            status: "adopted",
+            risks: [{ id: "fraud", title: "Fraud" }],
+          },
+        ],
       },
     ]);
   });
 
-  it("includes mitigations a report recommends, and drops unknown risk ids", () => {
+  it("drops unknown mitigation and risk ids", () => {
+    const [testing] = idx.forArtifact("call").instruments;
+    expect(testing.mitigations.map((m) => m.id)).toEqual(["eval"]);
+    expect(testing.mitigations[0].risks).toEqual([{ id: "loc", title: "Loss of control" }]);
+  });
+
+  it("lists a report's recommended mitigations and identified risks, deduplicated", () => {
     const r = idx.forArtifact("report");
-    expect(r.mitigations).toHaveLength(1);
-    expect(r.mitigations[0]).toMatchObject({ id: "eval", relationship: "recommends" });
-    expect(r.mitigations[0].risks).toEqual([{ id: "loc", title: "Loss of control" }]);
+    expect(r.instruments).toEqual([]);
+    expect(r.recommends.map((m) => m.id)).toEqual(["eval"]);
+    expect(r.identifiedRisks).toEqual([
+      { id: "bio", title: "Bio" },
+      { id: "loc", title: "Loss of control" },
+    ]);
   });
 
-  it("lists identified risks not already covered by a listed mitigation", () => {
-    expect(idx.forArtifact("report").identifiedRisks).toEqual([{ id: "bio", title: "Bio" }]);
-  });
-
-  it("keeps the strongest relationship, whether direct or inherited from the artifact", () => {
-    const r = idx.forEvent("ev1");
-    expect(r.mitigations).toHaveLength(1);
-    expect(r.mitigations[0].relationship).toBe("implements");
-    expect(r.mitigations[0].viaArtifactId).toBe("c16");
+  it("keeps the strongest relationship, whether direct or through an artifact", () => {
+    const [offence] = idx.forEvent("ev1").instruments;
+    expect(offence.relationship).toBe("implements");
+    expect(offence.viaArtifactId).toBe("c16");
   });
 
   it("prefers the direct link when strengths tie", () => {
     const tie = buildRelatedIndex(
       risks,
+      mitigations,
       [
         {
-          id: "m",
+          id: "i",
           data: {
-            title: "M",
-            status: "untracked",
-            addresses_risks: [],
+            title: "I",
+            advances: [],
             implemented_by: [
               { artifact: { id: "a" }, relationship: "related" },
               { event: { id: "e" }, relationship: "related", note: "direct" },
@@ -108,24 +134,22 @@ describe("buildRelatedIndex", () => {
       [{ id: "a", data: { derives_from: [], policy_recommendations: [], risk_findings: [] } }],
       [{ id: "e", data: { related_artifacts: [{ id: { id: "a" } }] } }],
     );
-    expect(tie.forEvent("e").mitigations[0]).toMatchObject({ note: "direct" });
-    expect(tie.forEvent("e").mitigations[0].viaArtifactId).toBeUndefined();
+    const [i] = tie.forEvent("e").instruments;
+    expect(i.note).toBe("direct");
+    expect(i.viaArtifactId).toBeUndefined();
   });
 
-  it("inherits links from artifacts that derive from the event", () => {
+  it("inherits instruments from artifacts that derive from the event", () => {
     const r = idx.forEvent("ev2");
-    expect(r.mitigations.map((m) => m.id)).toEqual(["eval"]);
-    expect(r.mitigations[0].viaArtifactId).toBe("call");
+    expect(r.instruments.map((i) => i.id)).toEqual(["testing"]);
+    expect(r.instruments[0].viaArtifactId).toBe("call");
   });
 
   it("does not attribute a report's recommendations to its source event", () => {
-    const withRec = buildRelatedIndex(risks, mitigations, artifacts, [
-      { id: "ev9", data: { related_artifacts: [{ id: { id: "report" } }] } },
-    ]);
-    expect(withRec.forEvent("ev9").mitigations).toEqual([]);
+    expect(idx.forEvent("ev9")).toEqual({ instruments: [], recommends: [], identifiedRisks: [] });
   });
 
   it("returns nothing for records with no links", () => {
-    expect(idx.forEvent("ev3")).toEqual({ mitigations: [], identifiedRisks: [] });
+    expect(idx.forEvent("ev3")).toEqual({ instruments: [], recommends: [], identifiedRisks: [] });
   });
 });

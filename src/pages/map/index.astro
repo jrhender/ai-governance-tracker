@@ -7,11 +7,12 @@ import MitigationCard from "../../components/MitigationCard.astro";
 import ViewToggle from "../../components/MapViewToggle.astro";
 import { loadPolicyGraph } from "../../content/loadPolicyGraph";
 
-const [risks, mitigations, artifacts, events] = await Promise.all([
+const [risks, mitigations, artifacts, events, instruments] = await Promise.all([
   getCollection("risks"),
   getCollection("mitigations"),
   getCollection("artifacts"),
   getCollection("events"),
+  getCollection("instruments"),
 ]);
 
 const { domains, general, unmapped, metrics } = buildRiskMap(
@@ -19,6 +20,7 @@ const { domains, general, unmapped, metrics } = buildRiskMap(
   mitigations.map((m) => ({ id: m.id, data: m.data })),
   artifacts.map((a) => ({ id: a.id, data: a.data })),
   events.map((e) => ({ id: e.id, data: e.data })),
+  instruments.map((i) => ({ id: i.id, data: i.data })),
 );
 const graph = await loadPolicyGraph();
 const instrumentCount = (id: string) => graph.instrumentsByMitigation.get(id)?.length ?? 0;

@@ -50,6 +50,8 @@ export const INSTRUMENT_TYPES = {
   regulation: "Regulation",
   international_agreement: "International agreement",
   public_program: "Public program",
+  institution: "Institution",
+  voluntary_framework: "Voluntary framework",
 } as const;
 
 export type InstrumentType = keyof typeof INSTRUMENT_TYPES;

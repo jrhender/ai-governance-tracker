@@ -12,23 +12,4 @@ addresses_risks:
   - ai-influence-operations
   - ai-privacy-compromise
 status: under_review
-implemented_by:
-  - artifact: paris-call-ai-safety-security-declaration-2026
-    relationship: related
-    note: >
-      The Paris call declaration (Nov 2026) has policy makers commit to secure,
-      confidential channels for whistleblowers to raise systemic-risk concerns
-      without retaliation, and developers to protect internal researchers.
-      Voluntary and non-binding.
-  - event: ised-ai-transparency-consultation-launched-2026
-    relationship: related
-    note: >
-      ISED's 2026 consultation covers labelling AI-generated content,
-      disclosing AI interaction, information about AI systems, incident
-      tracking and AI agents. Outcome pending; no measure adopted yet.
-  - artifact: call-for-control-of-frontier-ai-models-2026
-    relationship: related
-    note: >
-      Carney signed a call for company safety protocols and stronger
-      transparency among governments. Non-binding.
 tags: []

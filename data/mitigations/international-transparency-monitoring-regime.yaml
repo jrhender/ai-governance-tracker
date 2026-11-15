@@ -11,11 +11,4 @@ mitigation_type: transparency-accountability
 addresses_risks:
   - loss-of-control
 status: untracked
-implemented_by:
-  - artifact: call-for-control-of-frontier-ai-models-2026
-    relationship: related
-    note: >
-      The call asks UN member states to explore an international institution
-      able to set standards, enable verification and convene states when
-      capability thresholds are crossed.
 tags: []

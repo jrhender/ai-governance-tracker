@@ -1,0 +1,21 @@
+# instruments/data-centre-development-principles.yaml
+
+id: data-centre-development-principles
+schema_type: DefinedTerm
+title: "Voluntary principles for data centre development"
+description: >
+  A national baseline that data centre developers sign up to, covering local
+  benefits, electricity and grid costs, water and environmental impact,
+  transparency to host communities, and strategic value. No enforcement
+  beyond the signatories' public commitment.
+instrument_type: voluntary_framework
+advances:
+  - data-centre-development-standards
+technologies: []
+implemented_by:
+  - artifact: responsible-data-centre-development-principles
+    relationship: implements
+    note: >
+      ISED's five principles, launched 3 September 2026 with 23 signatories
+      and 42 by 22 September 2026.
+tags: [data-centres, electricity, water]

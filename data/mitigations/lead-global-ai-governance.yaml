@@ -11,17 +11,4 @@ description: >
 mitigation_type: governance-oversight
 addresses_risks: []
 status: untracked
-implemented_by:
-  - artifact: paris-call-ai-safety-security-declaration-2026
-    relationship: related
-    note: >
-      Canada signed and the Prime Minister's office published the declaration.
-  - artifact: call-for-control-of-frontier-ai-models-2026
-    relationship: related
-    note: >
-      Carney is one of 20 leaders who signed the call.
-  - event: g20-innovation-ministerial-2026
-    relationship: related
-    note: >
-      Canada took part in G20 discussions that included standards for AI.
 tags: [international, diplomacy]

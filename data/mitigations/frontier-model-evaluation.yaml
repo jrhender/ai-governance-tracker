@@ -15,26 +15,4 @@ addresses_risks:
   - ai-biochemical-weapons-uplift
   - unreliable-ai-agents
 status: under_review
-implemented_by:
-  - artifact: canada-national-ai-strategy-ai-for-all
-    relationship: partially_implements
-    note: >
-      AI for All commits to an expanded Canadian AI Safety Institute to carry
-      out transparent evaluations of AI models. Evaluation is not mandatory.
-  - event: canada-uk-ai-security-partnership-renewed-2026
-    relationship: partially_implements
-    note: >
-      The renewed partnership commits CAISI and the UK AI Security Institute
-      to technical cooperation on frontier AI risks and evaluation.
-  - artifact: call-for-control-of-frontier-ai-models-2026
-    relationship: related
-    note: >
-      Carney signed a call for mandatory pre-deployment testing and
-      independent evaluation. Non-binding.
-  - artifact: paris-call-ai-safety-security-declaration-2026
-    relationship: related
-    note: >
-      Signatories commit to a common frontier-model evaluation framework with
-      shared standards and a public repository of non-sensitive findings.
-      Voluntary and non-binding.
 tags: [evaluation, caisi, pre-deployment-testing]

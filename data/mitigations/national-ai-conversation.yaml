@@ -11,16 +11,4 @@ description: >
 mitigation_type: governance-oversight
 addresses_risks: []
 status: under_review
-implemented_by:
-  - event: ai-strategy-sprint-launched-2025
-    relationship: partially_implements
-    note: >
-      The 30-day AI Sprint drew over 11,300 public responses. It covered AI
-      strategy broadly, not specifically jobs, wealth concentration or the
-      benefit-risk balance.
-  - event: ised-ai-transparency-consultation-launched-2026
-    relationship: related
-    note: >
-      A public consultation on AI transparency ran from 23 July to 23
-      September 2026.
 tags: [public-consultation]

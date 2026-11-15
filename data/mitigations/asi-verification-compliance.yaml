@@ -11,4 +11,13 @@ addresses_risks:
   - loss-of-control
 status: untracked
 implemented_by: []
-tags: []
+
+links:
+  - label: "The UK's next AI bet should be AI verification (Thomas Milton, Amodo)"
+    url: "https://tomsmilton.substack.com/p/the-uks-next-ai-bet-should-be"
+  - label: "Verification is needed for US & China (Amodo)"
+    url: "https://amodo.substack.com/p/verification-is-needed-for-us-china"
+  - label: "AI verification overview (Amodo)"
+    url: "https://amododesign.com/ai-verification"
+
+tags: [verification, superintelligence]

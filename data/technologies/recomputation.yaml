@@ -1,0 +1,21 @@
+# technologies/recomputation.yaml
+# Description and example claim follow the technology table in Thomas Milton
+# (Amodo), "The UK's next AI bet should be AI verification" (2 Aug 2026).
+
+id: recomputation
+schema_type: DefinedTerm
+title: "Recomputation"
+also_known_as: []
+domain: verification
+summary: >
+  Computation is redone on separate, hardened systems to check that the
+  original was done faithfully, while keeping the workload confidential.
+  Algorithms exist that let parties recompute parts of inference or training.
+example_claim: "Training is proceeding according to agreed training code and data."
+why_it_matters: >
+  Verifies that a model was not trained using training strategies that have
+  been determined to be unsafe.
+links:
+  - label: "The UK's next AI bet should be AI verification"
+    url: "https://tomsmilton.substack.com/p/the-uks-next-ai-bet-should-be"
+tags: [verification]

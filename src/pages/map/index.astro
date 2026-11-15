@@ -4,6 +4,8 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { buildRiskMap } from "../../lib/riskMap";
 import MitigationCard from "../../components/MitigationCard.astro";
+import ViewToggle from "../../components/MapViewToggle.astro";
+import { loadPolicyGraph } from "../../content/loadPolicyGraph";
 
 const [risks, mitigations, artifacts, events] = await Promise.all([
   getCollection("risks"),
@@ -18,6 +20,8 @@ const { domains, general, unmapped, metrics } = buildRiskMap(
   artifacts.map((a) => ({ id: a.id, data: a.data })),
   events.map((e) => ({ id: e.id, data: e.data })),
 );
+const graph = await loadPolicyGraph();
+const instrumentCount = (id: string) => graph.instrumentsByMitigation.get(id)?.length ?? 0;
 ---
 
 <BaseLayout
@@ -29,6 +33,7 @@ const { domains, general, unmapped, metrics } = buildRiskMap(
     Which AI risks have been identified, which mitigations have been proposed
     to address them, and whether the Canadian government has implemented them.
   </p>
+  <ViewToggle current="risk" />
 
   <p class="mt-4 rounded border border-border bg-body p-3 text-sm text-muted">
     All risks on this page are drawn from the{" "}
@@ -73,7 +78,7 @@ const { domains, general, unmapped, metrics } = buildRiskMap(
     <section class="mt-10">
       <h2 class="font-display text-2xl text-header">{group.label}</h2>
       {group.risks.map((risk) => (
-        <div class="mt-4 rounded border border-border bg-surface p-4">
+        <div id={`risk-${risk.id}`} class="mt-4 scroll-mt-4 rounded border border-border bg-surface p-4">
           <div class="flex items-start justify-between gap-3">
             <h3 class="font-medium text-ink">{risk.title}</h3>
             <span class="shrink-0 rounded-full bg-body px-2 py-0.5 text-xs text-muted border border-border-lt">
@@ -83,7 +88,7 @@ const { domains, general, unmapped, metrics } = buildRiskMap(
           {risk.description && <p class="mt-1 text-sm text-muted">{risk.description}</p>}
           <ul class="mt-3 space-y-2">
             {risk.mitigations.map((m) => (
-              <MitigationCard mitigation={m} variant="nested" />
+              <MitigationCard mitigation={m} variant="nested" instrumentCount={instrumentCount(m.id)} />
             ))}
           </ul>
         </div>
@@ -100,7 +105,7 @@ const { domains, general, unmapped, metrics } = buildRiskMap(
       </p>
       <ul class="mt-4 space-y-2">
         {general.map((m) => (
-          <MitigationCard mitigation={m} variant="top" />
+          <MitigationCard mitigation={m} variant="top" instrumentCount={instrumentCount(m.id)} />
         ))}
       </ul>
     </section>

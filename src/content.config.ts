@@ -9,6 +9,8 @@ import {
 import {
   MITIGATION_CATEGORY_SLUGS,
   MITIGATION_STATUS_SLUGS,
+  INSTRUMENT_TYPE_SLUGS,
+  TECHNOLOGY_DOMAIN_SLUGS,
 } from "./lib/mitigationTaxonomy";
 
 const dataDir = (sub: string) =>
@@ -222,6 +224,54 @@ const mitigations = defineCollection({
           }),
       )
       .default([]),
+    // Further reading for the mitigation as a whole (explainers, overviews).
+    links: z.array(linkSchema).default([]),
+    tags: z.array(z.string()).default([]),
+  }),
+});
+
+// Concrete policy designs that would advance one or more mitigations — e.g.
+// "compute allocation minimums" advances "slow or pause frontier AI".
+const instruments = defineCollection({
+  loader: yamlGlob({ pattern: "*.yaml", base: dataDir("instruments") }),
+  schema: z.object({
+    id: z.string(),
+    schema_type: z.literal("DefinedTerm"),
+    title: z.string(),
+    description: z.string().optional(),
+    instrument_type: z.enum(INSTRUMENT_TYPE_SLUGS),
+    advances: z.array(reference("mitigations")).min(1),
+    technologies: z
+      .array(
+        z.object({
+          technology: reference("technologies"),
+          note: z.string().optional(),
+        }),
+      )
+      .default([]),
+    // Tracked artifacts that propose this instrument.
+    proposed_in: z.array(reference("artifacts")).default([]),
+    links: z.array(linkSchema).default([]),
+    tags: z.array(z.string()).default([]),
+  }),
+});
+
+// Technologies that enable policy instruments — e.g. verification
+// technologies that make compliance with an agreement checkable.
+const technologies = defineCollection({
+  loader: yamlGlob({ pattern: "*.yaml", base: dataDir("technologies") }),
+  schema: z.object({
+    id: z.string(),
+    schema_type: z.literal("DefinedTerm"),
+    title: z.string(),
+    also_known_as: z.array(z.string()).default([]),
+    domain: z.enum(TECHNOLOGY_DOMAIN_SLUGS),
+    summary: z.string(),
+    // A concrete claim this technology could make checkable, and why that
+    // claim matters for governance.
+    example_claim: z.string().optional(),
+    why_it_matters: z.string().optional(),
+    links: z.array(linkSchema).default([]),
     tags: z.array(z.string()).default([]),
   }),
 });
@@ -232,4 +282,6 @@ export const collections = {
   organizations,
   risks,
   mitigations,
+  instruments,
+  technologies,
 };

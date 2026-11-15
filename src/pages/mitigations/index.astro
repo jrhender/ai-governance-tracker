@@ -1,0 +1,65 @@
+---
+// src/pages/mitigations/index.astro
+// Mitigation-first view of the risk map: mitigations grouped by MIT mitigation
+// category, each listing the risks it addresses.
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { buildRiskMap, groupMitigationsByCategory } from "../../lib/riskMap";
+import MitigationCard from "../../components/MitigationCard.astro";
+import ViewToggle from "../../components/MapViewToggle.astro";
+import { loadPolicyGraph } from "../../content/loadPolicyGraph";
+
+const [risks, mitigations, artifacts, events] = await Promise.all([
+  getCollection("risks"),
+  getCollection("mitigations"),
+  getCollection("artifacts"),
+  getCollection("events"),
+]);
+
+const { mitigations: all, metrics } = buildRiskMap(
+  risks.map((r) => ({ id: r.id, data: r.data })),
+  mitigations.map((m) => ({ id: m.id, data: m.data })),
+  artifacts.map((a) => ({ id: a.id, data: a.data })),
+  events.map((e) => ({ id: e.id, data: e.data })),
+);
+
+const graph = await loadPolicyGraph();
+
+const sorted = [...all].sort((a, b) => a.title.localeCompare(b.title));
+const groups = groupMitigationsByCategory(sorted);
+---
+
+<BaseLayout
+  title="Mitigations"
+  description="Proposed AI risk mitigations, the risks they address, and their implementation status in Canadian policy."
+>
+  <h1 class="font-display text-4xl text-header">Mitigation → Risk</h1>
+  <p class="mt-3 text-ink">
+    Every proposed mitigation, the risks it addresses, and whether the Canadian
+    government has implemented it. Open a mitigation to see the concrete policy
+    instruments that would advance it and the technologies that enable them.
+  </p>
+  <ViewToggle current="mitigation" />
+
+  <p class="mt-4 text-sm text-muted">
+    {metrics.mitigationCount} mitigations, grouped by the{" "}
+    <a href="https://airisk.mit.edu/ai-risk-mitigations" class="text-accent-dark hover:underline" target="_blank" rel="noopener noreferrer">
+      MIT AI Risk Mitigation Taxonomy</a>.
+  </p>
+
+  {groups.map((group) => (
+    <section class="mt-10">
+      <h2 class="font-display text-2xl text-header">{group.label}</h2>
+      <ul class="mt-4 space-y-2">
+        {group.mitigations.map((m) => (
+          <MitigationCard
+            mitigation={m}
+            variant="top"
+            showRisks
+            instrumentCount={graph.instrumentsByMitigation.get(m.id)?.length ?? 0}
+          />
+        ))}
+      </ul>
+    </section>
+  ))}
+</BaseLayout>

@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import {
   buildRiskMap,
+  groupMitigationsByCategory,
   type RiskInput,
   type MitigationInput,
   type ArtifactInput,
@@ -168,5 +169,35 @@ describe("buildRiskMap", () => {
       "Malicious actors & misuse",
     );
     expect(result.metrics.domainsWithoutAdopted).toContain("Misinformation");
+  });
+
+  it("lists every mitigation with the risks it addresses", () => {
+    expect(result.mitigations.map((m) => m.id)).toEqual([
+      "asi-regime",
+      "watermarking",
+      "machinery",
+    ]);
+    const regime = result.mitigations.find((m) => m.id === "asi-regime")!;
+    expect(regime.risks).toEqual([{ id: "loss-of-control", title: "Loss of control" }]);
+    const machinery = result.mitigations.find((m) => m.id === "machinery")!;
+    expect(machinery.risks).toEqual([]);
+  });
+});
+
+describe("groupMitigationsByCategory", () => {
+  const { mitigations: all } = buildRiskMap(risks, mitigations, artifacts, events);
+  const groups = groupMitigationsByCategory(all);
+
+  it("groups by MIT category in taxonomy order, uncategorized last, dropping empty groups", () => {
+    expect(groups.map((g) => g.category)).toEqual([
+      "governance-oversight",
+      "uncategorized",
+    ]);
+    expect(groups[0].label).toBe("Governance & Oversight");
+    expect(groups[0].mitigations.map((m) => m.id)).toEqual(["asi-regime"]);
+    expect(groups[1].mitigations.map((m) => m.id)).toEqual([
+      "watermarking",
+      "machinery",
+    ]);
   });
 });

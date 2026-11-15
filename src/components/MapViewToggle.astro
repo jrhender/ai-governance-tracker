@@ -1,0 +1,31 @@
+---
+// src/components/MapViewToggle.astro
+// Switches between the four entry points into the risk → mitigation →
+// policy instrument → technology graph.
+interface Props {
+  current: "risk" | "mitigation" | "instrument" | "technology";
+}
+
+const { current } = Astro.props;
+
+const views = [
+  { key: "risk", href: "/map/", label: "By risk" },
+  { key: "mitigation", href: "/mitigations/", label: "By mitigation" },
+  { key: "instrument", href: "/instruments/", label: "By policy instrument" },
+  { key: "technology", href: "/technologies/", label: "By technology" },
+] as const;
+---
+
+<nav aria-label="Map view" class="mt-4 inline-flex flex-wrap rounded border border-border bg-surface p-0.5 text-sm">
+  {views.map((v) =>
+    v.key === current ? (
+      <span aria-current="page" class="rounded bg-body px-3 py-1 font-medium text-ink">
+        {v.label}
+      </span>
+    ) : (
+      <a href={v.href} class="rounded px-3 py-1 text-accent-dark hover:underline">
+        {v.label}
+      </a>
+    ),
+  )}
+</nav>

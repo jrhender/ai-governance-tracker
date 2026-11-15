@@ -5,6 +5,7 @@ import {
   type RiskSubdomain,
 } from "./riskTaxonomy";
 import {
+  MITIGATION_CATEGORIES,
   MITIGATION_STATUS_SLUGS,
   type MitigationCategory,
   type MitigationStatus,
@@ -74,6 +75,7 @@ export type MapMitigation = {
   status: MitigationStatus;
   recommendedBy: { artifactId: string; artifactTitle: string; recTitle: string }[];
   implementations: Implementation[];
+  risks: { id: string; title: string }[];
 };
 
 export type MapRisk = {
@@ -111,6 +113,8 @@ export type RiskMapMetrics = {
 export type RiskMapResult = {
   domains: DomainGroup[];
   general: MapMitigation[];
+  // Every mitigation, in input order — for mitigation-first views.
+  mitigations: MapMitigation[];
   unmapped: UnmappedRec[];
   metrics: RiskMapMetrics;
 };
@@ -123,6 +127,7 @@ export function buildRiskMap(
 ): RiskMapResult {
   const artifactTitles = new Map(artifacts.map((a) => [a.id, a.data.title]));
   const eventTitles = new Map(events.map((e) => [e.id, e.data.title]));
+  const riskTitles = new Map(risks.map((r) => [r.id, r.data.title]));
 
   // Invert provenance edges: mitigation id → recommending reports,
   // risk id → identifying reports; collect unmapped recommendations.
@@ -177,13 +182,19 @@ export function buildRiskMap(
         ref.id;
       return { kind, id: ref.id, title, relationship: impl.relationship, note: impl.note };
     }),
+    risks: m.data.addresses_risks.map((r) => ({
+      id: r.id,
+      title: riskTitles.get(r.id) ?? r.id,
+    })),
   });
 
   // Risk id → mitigations addressing it; mitigations with no risks → general.
   const byRisk = new Map<string, MapMitigation[]>();
   const general: MapMitigation[] = [];
+  const allMitigations: MapMitigation[] = [];
   for (const m of mitigations) {
     const mapped = toMapMitigation(m);
+    allMitigations.push(mapped);
     if (m.data.addresses_risks.length === 0) {
       general.push(mapped);
       continue;
@@ -240,6 +251,7 @@ export function buildRiskMap(
   return {
     domains,
     general,
+    mitigations: allMitigations,
     unmapped,
     metrics: {
       riskCount: risks.length,
@@ -251,4 +263,30 @@ export function buildRiskMap(
       domainsWithoutAdopted,
     },
   };
+}
+
+export type CategoryGroup = {
+  category: MitigationCategory | "uncategorized";
+  label: string;
+  mitigations: MapMitigation[];
+};
+
+// Group mitigations by MIT mitigation category, in taxonomy order, with
+// uncategorized mitigations last. Empty groups are dropped.
+export function groupMitigationsByCategory(
+  mitigations: MapMitigation[],
+): CategoryGroup[] {
+  const groups: CategoryGroup[] = (
+    Object.entries(MITIGATION_CATEGORIES) as [MitigationCategory, string][]
+  ).map(([category, label]) => ({
+    category,
+    label,
+    mitigations: mitigations.filter((m) => m.mitigationType === category),
+  }));
+  groups.push({
+    category: "uncategorized",
+    label: "Uncategorized",
+    mitigations: mitigations.filter((m) => !m.mitigationType),
+  });
+  return groups.filter((g) => g.mitigations.length > 0);
 }

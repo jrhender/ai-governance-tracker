@@ -23,7 +23,8 @@ const navLinks = [
   { href: "/timeline/", label: "Timeline" },
   { href: "/orgs/", label: "Organizations" },
   { href: "/policy/", label: "Policy" },
-  { href: "/map/", label: "Map" },
+  // The map has four views; keep "Map" highlighted on all of them.
+  { href: "/map/", label: "Map", also: ["/mitigations/", "/instruments/", "/technologies/"] },
 ];
 ---
 
@@ -87,8 +88,8 @@ const navLinks = [
         </button>
         <!-- desktop nav -->
         <nav class="hidden sm:flex" aria-label="Main navigation">
-          {navLinks.map(({ href, label }) => {
-            const active = path.startsWith(href);
+          {navLinks.map(({ href, label, ...rest }) => {
+            const active = [href, ...("also" in rest ? rest.also : [])].some((p) => path.startsWith(p));
             return (
               <a
                 href={href}
@@ -112,8 +113,8 @@ const navLinks = [
         class="hidden border-t border-header-hover sm:hidden"
         aria-label="Mobile navigation"
       >
-        {navLinks.map(({ href, label }) => {
-          const active = path.startsWith(href);
+        {navLinks.map(({ href, label, ...rest }) => {
+          const active = [href, ...("also" in rest ? rest.also : [])].some((p) => path.startsWith(p));
           return (
             <a
               href={href}

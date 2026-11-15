@@ -1,0 +1,23 @@
+# instruments/temporary-frontier-pause.yaml
+
+id: temporary-frontier-pause
+schema_type: DefinedTerm
+title: "Temporary pause on frontier capability gains"
+description: >
+  Mandate a temporary pause on improving frontier model capabilities,
+  including internal models, as a stopgap until training can safely resume.
+  AI Futures suggests enforcing it with a 100% minimum share of compute for
+  external inference, checked by third-party auditors with employee-level
+  access and backed by whistleblower protections.
+instrument_type: regulation
+advances:
+  - slow-or-pause-frontier-ai
+technologies:
+  - technology: hardware-enforced-limits
+    note: Can make compute unable to run pre-training efficiently.
+  - technology: fingerprinting
+    note: Can flag training-like workloads for deeper checks.
+links:
+  - label: "How to pace the US frontier, option 1 (AI Futures Project)"
+    url: "https://blog.aifutures.org/p/how-to-pace-the-us-frontier"
+tags: [pacing, pause]

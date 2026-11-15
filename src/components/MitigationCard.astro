@@ -9,9 +9,14 @@ import {
 interface Props {
   mitigation: MapMitigation;
   variant: "nested" | "top";
+  // Mitigation-first views list the risks each mitigation addresses. They are
+  // already grouped by category, so the category chip is hidden.
+  showRisks?: boolean;
+  // Number of policy instruments that advance this mitigation.
+  instrumentCount?: number;
 }
 
-const { mitigation: m, variant } = Astro.props;
+const { mitigation: m, variant, showRisks = false, instrumentCount = 0 } = Astro.props;
 
 const statusColors: Record<string, string> = {
   untracked: "bg-gray-100 text-gray-600 border-gray-200",
@@ -39,9 +44,16 @@ const chipClass =
 
 <li class={outerClass}>
   <div class="flex items-start justify-between gap-3">
-    <span class="text-sm font-medium text-ink">{m.title}</span>
+    <a href={`/mitigations/${m.id}/`} class="text-sm font-medium text-ink hover:text-accent-dark hover:underline">
+      {m.title}
+    </a>
     <div class="flex shrink-0 flex-wrap gap-1">
-      {m.mitigationType && (
+      {instrumentCount > 0 && (
+        <span class={chipClass}>
+          {instrumentCount} policy {instrumentCount === 1 ? "instrument" : "instruments"}
+        </span>
+      )}
+      {m.mitigationType && !showRisks && (
         <span class={chipClass}>
           {MITIGATION_CATEGORIES[m.mitigationType]}
         </span>
@@ -51,6 +63,25 @@ const chipClass =
       </span>
     </div>
   </div>
+  {showRisks && (
+    <p class="mt-1 text-xs text-faint">
+      {m.risks.length > 0 ? (
+        <>
+          Addresses:{" "}
+          {m.risks.map((r, i) => (
+            <>
+              {i > 0 && ", "}
+              <a href={`/map/#risk-${r.id}`} class="text-accent-dark hover:underline">
+                {r.title}
+              </a>
+            </>
+          ))}
+        </>
+      ) : (
+        <>Not tied to a single tracked risk</>
+      )}
+    </p>
+  )}
   {m.recommendedBy.length > 0 && (
     <p class="mt-1 text-xs text-faint">
       Recommended by:{" "}

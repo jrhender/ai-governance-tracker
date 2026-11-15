@@ -44,3 +44,29 @@ export const MITIGATION_STATUS_SLUGS = Object.keys(MITIGATION_STATUSES) as [
   MitigationStatus,
   ...MitigationStatus[],
 ];
+
+// Kinds of policy instrument that can advance a mitigation.
+export const INSTRUMENT_TYPES = {
+  regulation: "Regulation",
+  international_agreement: "International agreement",
+  public_program: "Public program",
+} as const;
+
+export type InstrumentType = keyof typeof INSTRUMENT_TYPES;
+
+export const INSTRUMENT_TYPE_SLUGS = Object.keys(INSTRUMENT_TYPES) as [
+  InstrumentType,
+  ...InstrumentType[],
+];
+
+// What an enabling technology is for.
+export const TECHNOLOGY_DOMAINS = {
+  verification: "Verification",
+} as const;
+
+export type TechnologyDomain = keyof typeof TECHNOLOGY_DOMAINS;
+
+export const TECHNOLOGY_DOMAIN_SLUGS = Object.keys(TECHNOLOGY_DOMAINS) as [
+  TechnologyDomain,
+  ...TechnologyDomain[],
+];

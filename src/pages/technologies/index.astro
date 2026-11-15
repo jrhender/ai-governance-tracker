@@ -1,0 +1,83 @@
+---
+// src/pages/technologies/index.astro
+// Technology view of the map: enabling technologies grouped by domain, each
+// with the policy instruments it enables and the mitigations those advance.
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ViewToggle from "../../components/MapViewToggle.astro";
+import { loadPolicyGraph } from "../../content/loadPolicyGraph";
+import { TECHNOLOGY_DOMAINS, type TechnologyDomain } from "../../lib/mitigationTaxonomy";
+
+const technologies = await getCollection("technologies");
+const graph = await loadPolicyGraph();
+
+const groups = (Object.entries(TECHNOLOGY_DOMAINS) as [TechnologyDomain, string][])
+  .map(([domain, label]) => ({
+    domain,
+    label,
+    technologies: technologies
+      .filter((t) => t.data.domain === domain)
+      .sort((a, b) => a.data.title.localeCompare(b.data.title))
+      .map((t) => ({ entry: t, node: graph.technologies.get(t.id)! })),
+  }))
+  .filter((g) => g.technologies.length > 0);
+---
+
+<BaseLayout
+  title="Technologies"
+  description="Technologies that enable AI governance policy instruments, such as verification of compliance with AI agreements."
+>
+  <h1 class="font-display text-4xl text-header">Technology → Policy instrument</h1>
+  <p class="mt-3 text-ink">
+    Technologies that would make policy instruments workable or checkable, and
+    the instruments and mitigations they serve.
+  </p>
+  <ViewToggle current="technology" />
+
+  <p class="mt-4 text-sm text-muted">{technologies.length} technologies.</p>
+
+  {groups.map((group) => (
+    <section class="mt-10">
+      <h2 class="font-display text-2xl text-header">{group.label}</h2>
+      <ul class="mt-4 space-y-2">
+        {group.technologies.map(({ entry, node }) => (
+          <li class="rounded border border-border bg-surface p-3">
+            <a href={`/technologies/${entry.id}/`} class="text-sm font-medium text-ink hover:text-accent-dark hover:underline">
+              {entry.data.title}
+            </a>
+            {entry.data.also_known_as.length > 0 && (
+              <span class="text-xs text-faint"> · {entry.data.also_known_as.join(", ")}</span>
+            )}
+            <p class="mt-1 text-sm text-muted">{entry.data.summary}</p>
+            <p class="mt-1 text-xs text-faint">
+              {node.instruments.length > 0 ? (
+                <>
+                  Enables:{" "}
+                  {node.instruments.map((inst, i) => (
+                    <>
+                      {i > 0 && ", "}
+                      <a href={`/instruments/${inst.id}/`} class="text-accent-dark hover:underline">{inst.title}</a>
+                    </>
+                  ))}
+                </>
+              ) : (
+                <>Not yet linked to a policy instrument</>
+              )}
+            </p>
+            {node.mitigations.length > 0 && (
+              <p class="mt-1 text-xs text-faint">
+                Advances:{" "}
+                {node.mitigations.map((m, i) => (
+                  <>
+                    {i > 0 && ", "}
+                    <a href={`/mitigations/${m.id}/`} class="text-accent-dark hover:underline">{m.title}</a>
+                  </>
+                ))}
+              </p>
+            )}
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</BaseLayout>

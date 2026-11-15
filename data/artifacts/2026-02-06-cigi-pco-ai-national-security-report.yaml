@@ -246,6 +246,19 @@ policy_recommendations:
     robustness: contingent
     scenarios: [scenario-precarious-precipice]
 
+  # Scenario 2 policy responses (p. 22) — not repeated in the p. 37 summary list
+  - id: rec-s2-009
+    title: "Develop the ability to slow or pause AGI/ASI development"
+    summary: >
+      Monitor, verify and control AI research to prevent a sudden jump to
+      AGI/ASI, and develop mechanisms that would provide the ability to slow or
+      pause development of AGI/ASI if deemed necessary, including international
+      coordination mechanisms to ensure such an approach is implemented
+      universally.
+    mitigation: slow-or-pause-frontier-ai
+    robustness: contingent
+    scenarios: [scenario-precarious-precipice]
+
   # Scenario 3a: Hypercompetition — necessary bets
   - id: rec-s3a-001
     title: "Coordinate ASI use across countries to avoid conflict"

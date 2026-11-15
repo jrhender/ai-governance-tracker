@@ -17,6 +17,12 @@ export type InstrumentInput = {
     advances: Ref[];
     technologies: { technology: Ref; note?: string }[];
     proposed_in: Ref[];
+    implemented_by?: {
+      artifact?: Ref;
+      event?: Ref;
+      relationship: "implements" | "partially_implements" | "related";
+      note?: string;
+    }[];
   };
 };
 
@@ -33,6 +39,11 @@ export type GraphInstrument = Linked & {
   advances: Linked[];
   technologies: LinkedWithNote[];
   proposedIn: Linked[];
+  // Canadian policies and events that put this instrument into practice.
+  implementations: (LinkedWithNote & {
+    kind: "artifact" | "event";
+    relationship: "implements" | "partially_implements" | "related";
+  })[];
 };
 
 export type GraphTechnology = Linked & {
@@ -64,10 +75,12 @@ export function buildPolicyGraph(
   instruments: InstrumentInput[],
   technologies: TechnologyInput[],
   artifacts: TitledInput[],
+  events: TitledInput[] = [],
 ): PolicyGraph {
   const mitigationTitles = new Map(mitigations.map((m) => [m.id, m.data.title]));
   const technologyTitles = new Map(technologies.map((t) => [t.id, t.data.title]));
   const artifactTitles = new Map(artifacts.map((a) => [a.id, a.data.title]));
+  const eventTitles = new Map(events.map((e) => [e.id, e.data.title]));
   const resolve = (titles: Map<string, string>, ref: Ref): Linked => ({
     id: ref.id,
     title: titles.get(ref.id) ?? ref.id,
@@ -90,6 +103,21 @@ export function buildPolicyGraph(
         note: t.note,
       })),
       proposedIn: inst.data.proposed_in.map((r) => resolve(artifactTitles, r)),
+      implementations: (inst.data.implemented_by ?? []).map((impl) =>
+        impl.artifact
+          ? {
+              kind: "artifact" as const,
+              ...resolve(artifactTitles, impl.artifact),
+              relationship: impl.relationship,
+              note: impl.note,
+            }
+          : {
+              kind: "event" as const,
+              ...resolve(eventTitles, impl.event!),
+              relationship: impl.relationship,
+              note: impl.note,
+            },
+      ),
     };
     graphInstruments.set(gi.id, gi);
 

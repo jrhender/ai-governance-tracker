@@ -34,6 +34,16 @@ export type MitigationInput = {
     mitigation_type?: MitigationCategory;
     status: MitigationStatus;
     addresses_risks: Ref[];
+  };
+};
+
+// Instruments carry the implementation evidence; a mitigation's
+// implementations are those of the instruments that advance it.
+export type InstrumentImplInput = {
+  id: string;
+  data: {
+    title: string;
+    advances: Ref[];
     implemented_by: {
       artifact?: Ref;
       event?: Ref;
@@ -65,6 +75,8 @@ export type Implementation = {
   title: string;
   relationship: "implements" | "partially_implements" | "related";
   note?: string;
+  instrumentId: string;
+  instrumentTitle: string;
 };
 
 export type MapMitigation = {
@@ -124,6 +136,7 @@ export function buildRiskMap(
   mitigations: MitigationInput[],
   artifacts: ArtifactInput[],
   events: EventLikeInput[],
+  instruments: InstrumentImplInput[] = [],
 ): RiskMapResult {
   const artifactTitles = new Map(artifacts.map((a) => [a.id, a.data.title]));
   const eventTitles = new Map(events.map((e) => [e.id, e.data.title]));
@@ -167,6 +180,32 @@ export function buildRiskMap(
     }
   }
 
+  // Mitigation id → implementations of every instrument that advances it.
+  const implementationsByMitigation = new Map<string, Implementation[]>();
+  for (const inst of instruments) {
+    const impls: Implementation[] = inst.data.implemented_by.map((impl) => {
+      const kind = impl.artifact ? ("artifact" as const) : ("event" as const);
+      const ref = impl.artifact ?? impl.event!;
+      const title =
+        (kind === "artifact" ? artifactTitles.get(ref.id) : eventTitles.get(ref.id)) ??
+        ref.id;
+      return {
+        kind,
+        id: ref.id,
+        title,
+        relationship: impl.relationship,
+        note: impl.note,
+        instrumentId: inst.id,
+        instrumentTitle: inst.data.title,
+      };
+    });
+    for (const m of inst.data.advances) {
+      const list = implementationsByMitigation.get(m.id) ?? [];
+      list.push(...impls);
+      implementationsByMitigation.set(m.id, list);
+    }
+  }
+
   const toMapMitigation = (m: MitigationInput): MapMitigation => ({
     id: m.id,
     title: m.data.title,
@@ -174,14 +213,7 @@ export function buildRiskMap(
     mitigationType: m.data.mitigation_type,
     status: m.data.status,
     recommendedBy: recommendedBy.get(m.id) ?? [],
-    implementations: m.data.implemented_by.map((impl) => {
-      const kind = impl.artifact ? ("artifact" as const) : ("event" as const);
-      const ref = impl.artifact ?? impl.event!;
-      const title =
-        (kind === "artifact" ? artifactTitles.get(ref.id) : eventTitles.get(ref.id)) ??
-        ref.id;
-      return { kind, id: ref.id, title, relationship: impl.relationship, note: impl.note };
-    }),
+    implementations: implementationsByMitigation.get(m.id) ?? [],
     risks: m.data.addresses_risks.map((r) => ({
       id: r.id,
       title: riskTitles.get(r.id) ?? r.id,
@@ -258,7 +290,7 @@ export function buildRiskMap(
       mitigationCount: mitigations.length,
       statusCounts,
       unimplementedCount: mitigations.filter(
-        (m) => m.data.implemented_by.length === 0,
+        (m) => !implementationsByMitigation.has(m.id),
       ).length,
       domainsWithoutAdopted,
     },

@@ -10,6 +10,5 @@ mitigation_type: operational-process
 addresses_risks:
   - loss-of-control
   - unreliable-ai-agents
-status: untracked
-implemented_by: []
+status: under_review
 tags: []

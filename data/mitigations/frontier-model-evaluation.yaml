@@ -1,0 +1,18 @@
+# mitigations/frontier-model-evaluation.yaml
+
+id: frontier-model-evaluation
+schema_type: DefinedTerm
+title: "Evaluate frontier models for dangerous capabilities before deployment"
+description: >
+  Independent testing of frontier models for dangerous capabilities (cyber,
+  CBRN, autonomy and loss of control) before release, with shared standards
+  and evaluators who have enough access, run by public safety institutes
+  and developers.
+mitigation_type: operational-process
+addresses_risks:
+  - loss-of-control
+  - ai-enabled-cyberattacks
+  - ai-biochemical-weapons-uplift
+  - unreliable-ai-agents
+status: under_review
+tags: [evaluation, caisi, pre-deployment-testing]

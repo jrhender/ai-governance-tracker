@@ -12,7 +12,6 @@ mitigation_type: governance-oversight
 addresses_risks:
   - loss-of-control
 status: untracked
-implemented_by: []
 links:
   - label: "How to pace the US frontier (AI Futures Project)"
     url: "https://blog.aifutures.org/p/how-to-pace-the-us-frontier"

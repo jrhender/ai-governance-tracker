@@ -1,0 +1,14 @@
+# mitigations/modernize-privacy-law-for-ai.yaml
+
+id: modernize-privacy-law-for-ai
+schema_type: DefinedTerm
+title: "Modernize federal privacy law for AI and automated decisions"
+description: >
+  Update federal privacy law so individuals are told when automated systems
+  decide about them or use their personal information, with a regulator able
+  to enforce.
+mitigation_type: transparency-accountability
+addresses_risks:
+  - ai-privacy-compromise
+status: under_review
+tags: [privacy, legislation]

@@ -12,6 +12,6 @@ mitigation_type: operational-process
 addresses_risks:
   - ai-enabled-cyberattacks
   - labour-market-disruption
-status: untracked
-implemented_by: []
+  - ai-power-concentration-dependence
+status: under_review
 tags: [resilience, critical-infrastructure]

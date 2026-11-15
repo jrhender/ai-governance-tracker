@@ -52,6 +52,5 @@ plus `/mitigations/`, a mitigation-first index beside the risk-first `/map/`.
 - Instruments can come from non-Canadian sources (for example the AI Futures
   pacing options). Their `links` should always cite the source.
 - Mitigation `status` still tracks Canadian implementation. Instruments have
-  no status yet. If Canada adopts a specific instrument, record it with
-  `implemented_by` on the mitigation, and consider adding status to
-  instruments later.
+  no status yet. Superseded in part by ADR 0007: Canadian implementation is
+  recorded with `implemented_by` on the instrument, not the mitigation.

@@ -106,6 +106,10 @@ const chipClass =
           >
             {impl.title}
           </a>
+          {" "}through{" "}
+          <a href={`/instruments/${impl.instrumentId}/`} class="text-accent-dark hover:underline">
+            {impl.instrumentTitle}
+          </a>
           {impl.note && <span> — {impl.note}</span>}
         </li>
       ))}

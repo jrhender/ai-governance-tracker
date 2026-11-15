@@ -1,0 +1,14 @@
+# mitigations/build-public-ai-literacy.yaml
+
+id: build-public-ai-literacy
+schema_type: DefinedTerm
+title: "Build public AI literacy"
+description: >
+  Teach students, educators and the public how AI systems work and fail, so
+  people can judge AI outputs, spot manipulation and avoid over-reliance.
+mitigation_type: governance-oversight
+addresses_risks:
+  - erosion-of-human-autonomy
+  - ai-influence-operations
+status: adopted
+tags: [ai-literacy, education]

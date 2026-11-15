@@ -1,0 +1,25 @@
+# instruments/ai-transparency-disclosure-rules.yaml
+
+id: ai-transparency-disclosure-rules
+schema_type: DefinedTerm
+title: "AI transparency and disclosure rules"
+description: >
+  Rules requiring disclosure of AI-generated content, AI interactions, and
+  information about AI systems' uses and limitations.
+instrument_type: regulation
+advances:
+  - transparency-whistleblower-protections
+technologies: []
+implemented_by:
+  - event: ised-ai-transparency-consultation-launched-2026
+    relationship: related
+    note: >
+      ISED's 2026 consultation covered AI-generated content, AI interaction,
+      information about AI systems, incidents and AI agents. Outcome
+      pending.
+  - artifact: call-for-control-of-frontier-ai-models-2026
+    relationship: related
+    note: >
+      Carney signed a call for transparent company safety protocols.
+      Non-binding.
+tags: [transparency]

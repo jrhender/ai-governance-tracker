@@ -189,6 +189,31 @@ const risks = defineCollection({
     }),
 });
 
+// Where a tracked policy (artifact) or event puts an instrument into practice.
+// `related` covers statements, proposals and failed attempts that bear on the
+// instrument without implementing it.
+const implementedBySchema = z
+  .array(
+    z
+      .object({
+        artifact: reference("artifacts").optional(),
+        event: reference("events").optional(),
+        relationship: z.enum(["implements", "partially_implements", "related"]),
+        note: z.string().optional(),
+      })
+      .superRefine((val, ctx) => {
+        const refs = [val.artifact, val.event].filter(Boolean).length;
+        if (refs !== 1) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message:
+              "each implemented_by entry needs exactly one of artifact/event",
+          });
+        }
+      }),
+  )
+  .default([]);
+
 const mitigations = defineCollection({
   loader: yamlGlob({ pattern: "*.yaml", base: dataDir("mitigations") }),
   schema: z.object({
@@ -199,31 +224,6 @@ const mitigations = defineCollection({
     mitigation_type: z.enum(MITIGATION_CATEGORY_SLUGS).optional(),
     addresses_risks: z.array(reference("risks")).default([]),
     status: z.enum(MITIGATION_STATUS_SLUGS).default("untracked"),
-    implemented_by: z
-      .array(
-        z
-          .object({
-            artifact: reference("artifacts").optional(),
-            event: reference("events").optional(),
-            relationship: z.enum([
-              "implements",
-              "partially_implements",
-              "related",
-            ]),
-            note: z.string().optional(),
-          })
-          .superRefine((val, ctx) => {
-            const refs = [val.artifact, val.event].filter(Boolean).length;
-            if (refs !== 1) {
-              ctx.addIssue({
-                code: z.ZodIssueCode.custom,
-                message:
-                  "each implemented_by entry needs exactly one of artifact/event",
-              });
-            }
-          }),
-      )
-      .default([]),
     // Further reading for the mitigation as a whole (explainers, overviews).
     links: z.array(linkSchema).default([]),
     tags: z.array(z.string()).default([]),
@@ -251,6 +251,10 @@ const instruments = defineCollection({
       .default([]),
     // Tracked artifacts that propose this instrument.
     proposed_in: z.array(reference("artifacts")).default([]),
+    // Canadian implementation evidence. Mitigations have no implementation
+    // edges of their own; theirs come through the instruments that advance
+    // them.
+    implemented_by: implementedBySchema,
     links: z.array(linkSchema).default([]),
     tags: z.array(z.string()).default([]),
   }),

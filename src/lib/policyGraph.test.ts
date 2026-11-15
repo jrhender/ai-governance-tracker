@@ -36,12 +36,17 @@ const instruments: InstrumentInput[] = [
       advances: [ref("mitigations", "pause")],
       technologies: [{ technology: ref("technologies", "enclaves"), note: "counts FLOPs" }],
       proposed_in: [],
+      implemented_by: [
+        { artifact: ref("artifacts", "statement"), relationship: "related", note: "calls for it" },
+        { event: ref("events", "launch"), relationship: "implements" },
+      ],
     },
   },
 ];
+const events = [{ id: "launch", data: { title: "Launch event" } }];
 
 describe("buildPolicyGraph", () => {
-  const g = buildPolicyGraph(mitigations, instruments, technologies, artifacts);
+  const g = buildPolicyGraph(mitigations, instruments, technologies, artifacts, events);
 
   it("resolves instrument edges to titles", () => {
     const a = g.instruments.get("agreement")!;
@@ -54,6 +59,14 @@ describe("buildPolicyGraph", () => {
       "Secure enclaves",
     ]);
     expect(a.proposedIn).toEqual([{ id: "statement", title: "A statement" }]);
+  });
+
+  it("resolves implementation evidence on instruments to titles", () => {
+    expect(g.instruments.get("allocation")!.implementations).toEqual([
+      { kind: "artifact", id: "statement", title: "A statement", relationship: "related", note: "calls for it" },
+      { kind: "event", id: "launch", title: "Launch event", relationship: "implements", note: undefined },
+    ]);
+    expect(g.instruments.get("agreement")!.implementations).toEqual([]);
   });
 
   it("lists instruments per mitigation, sorted by title", () => {

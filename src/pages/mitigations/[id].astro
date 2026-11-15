@@ -25,11 +25,12 @@ export async function getStaticPaths() {
 const { mitigation } = Astro.props;
 const { data } = mitigation;
 
-const [risks, mitigations, artifacts, events] = await Promise.all([
+const [risks, mitigations, artifacts, events, allInstruments] = await Promise.all([
   getCollection("risks"),
   getCollection("mitigations"),
   getCollection("artifacts"),
   getCollection("events"),
+  getCollection("instruments"),
 ]);
 
 const { mitigations: mapped } = buildRiskMap(
@@ -37,6 +38,7 @@ const { mitigations: mapped } = buildRiskMap(
   mitigations.map((m) => ({ id: m.id, data: m.data })),
   artifacts.map((a) => ({ id: a.id, data: a.data })),
   events.map((e) => ({ id: e.id, data: e.data })),
+  allInstruments.map((i) => ({ id: i.id, data: i.data })),
 );
 const m = mapped.find((x) => x.id === mitigation.id)!;
 const graph = await loadPolicyGraph();
@@ -154,6 +156,12 @@ const sectionHeading = "text-xs font-semibold uppercase tracking-wide text-faint
             >
               {impl.title}
             </a>
+            <span class="text-faint">
+              {" "}through{" "}
+              <a href={`/instruments/${impl.instrumentId}/`} class="text-accent-dark hover:underline">
+                {impl.instrumentTitle}
+              </a>
+            </span>
             {impl.note && <span class="text-faint"> — {impl.note}</span>}
           </li>
         ))}

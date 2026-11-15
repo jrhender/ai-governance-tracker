@@ -1,0 +1,27 @@
+# instruments/international-incident-early-warning.yaml
+
+id: international-incident-early-warning
+schema_type: DefinedTerm
+title: "International AI incident reporting and early-warning system"
+description: >
+  Rapid alerts and shared reporting of serious AI incidents and precursor
+  signals between governments and developers, with aligned incident
+  classification.
+instrument_type: international_agreement
+advances:
+  - ai-incident-monitoring
+  - information-sharing-protocols
+technologies: []
+implemented_by:
+  - artifact: paris-call-ai-safety-security-declaration-2026
+    relationship: partially_implements
+    note: >
+      Signatories commit to rapid alert systems, aligned incident
+      classification and sharing information on serious cyber and AI control
+      incidents. Voluntary; the system is not yet built.
+  - artifact: call-for-control-of-frontier-ai-models-2026
+    relationship: related
+    note: >
+      Carney signed a call for shared reporting of serious AI safety
+      incidents among governments. Non-binding.
+tags: [incident-reporting, international-cooperation]

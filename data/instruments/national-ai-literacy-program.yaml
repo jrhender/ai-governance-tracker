@@ -1,0 +1,20 @@
+# instruments/national-ai-literacy-program.yaml
+
+id: national-ai-literacy-program
+schema_type: DefinedTerm
+title: "National AI literacy program"
+description: >
+  A publicly funded program of free AI courses for students, educators and
+  the public.
+instrument_type: public_program
+advances:
+  - build-public-ai-literacy
+  - skills-data-compute-investment
+technologies: []
+implemented_by:
+  - event: national-ai-literacy-initiative-launched-2026
+    relationship: implements
+    note: >
+      A $13-million partnership with Amii, targeting up to one million
+      post-secondary students and more than 3,000 educators.
+tags: [ai-literacy, education]

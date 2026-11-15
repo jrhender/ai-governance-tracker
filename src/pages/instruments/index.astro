@@ -1,0 +1,78 @@
+---
+// src/pages/instruments/index.astro
+// Policy-instrument view of the map: concrete policy designs grouped by type,
+// each with the mitigations it advances and the technologies that enable it.
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ViewToggle from "../../components/MapViewToggle.astro";
+import { loadPolicyGraph } from "../../content/loadPolicyGraph";
+import { INSTRUMENT_TYPES, type InstrumentType } from "../../lib/mitigationTaxonomy";
+
+const instruments = await getCollection("instruments");
+const graph = await loadPolicyGraph();
+
+const groups = (Object.entries(INSTRUMENT_TYPES) as [InstrumentType, string][])
+  .map(([type, label]) => ({
+    type,
+    label,
+    instruments: instruments
+      .filter((i) => i.data.instrument_type === type)
+      .map((i) => graph.instruments.get(i.id)!)
+      .sort((a, b) => a.title.localeCompare(b.title)),
+  }))
+  .filter((g) => g.instruments.length > 0);
+---
+
+<BaseLayout
+  title="Policy instruments"
+  description="Concrete policy designs that would advance proposed AI risk mitigations, and the technologies that enable them."
+>
+  <h1 class="font-display text-4xl text-header">Policy instrument → Mitigation</h1>
+  <p class="mt-3 text-ink">
+    Concrete policy designs, such as a regulation or a treaty, that would
+    advance one or more mitigations, and the technologies that would make them
+    workable or checkable.
+  </p>
+  <ViewToggle current="instrument" />
+
+  <p class="mt-4 text-sm text-muted">{instruments.length} policy instruments.</p>
+
+  {groups.map((group) => (
+    <section class="mt-10">
+      <h2 class="font-display text-2xl text-header">{group.label}</h2>
+      <ul class="mt-4 space-y-2">
+        {group.instruments.map((inst) => (
+          <li class="rounded border border-border bg-surface p-3">
+            <a href={`/instruments/${inst.id}/`} class="text-sm font-medium text-ink hover:text-accent-dark hover:underline">
+              {inst.title}
+            </a>
+            <p class="mt-1 text-xs text-faint">
+              Advances:{" "}
+              {inst.advances.map((m, i) => (
+                <>
+                  {i > 0 && ", "}
+                  <a href={`/mitigations/${m.id}/`} class="text-accent-dark hover:underline">{m.title}</a>
+                </>
+              ))}
+            </p>
+            <p class="mt-1 text-xs text-faint">
+              {inst.technologies.length > 0 ? (
+                <>
+                  Enabled by:{" "}
+                  {inst.technologies.map((t, i) => (
+                    <>
+                      {i > 0 && ", "}
+                      <a href={`/technologies/${t.id}/`} class="text-accent-dark hover:underline">{t.title}</a>
+                    </>
+                  ))}
+                </>
+              ) : (
+                <>No enabling technologies recorded</>
+              )}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</BaseLayout>

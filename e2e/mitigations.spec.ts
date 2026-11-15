@@ -17,6 +17,10 @@ test.describe("mitigations pages", () => {
     await page.goto("/map/");
     await page.getByRole("navigation", { name: "Map view" }).getByRole("link", { name: "By mitigation" }).click();
     await expect(page).toHaveURL(/\/mitigations\/$/);
+    await page.getByRole("navigation", { name: "Map view" }).getByRole("link", { name: "By policy instrument" }).click();
+    await expect(page).toHaveURL(/\/instruments\/$/);
+    await page.getByRole("navigation", { name: "Map view" }).getByRole("link", { name: "By technology" }).click();
+    await expect(page).toHaveURL(/\/technologies\/$/);
     await page.getByRole("navigation", { name: "Map view" }).getByRole("link", { name: "By risk" }).click();
     await expect(page).toHaveURL(/\/map\/$/);
   });
@@ -41,5 +45,17 @@ test.describe("mitigations pages", () => {
     await expect(
       page.getByRole("link", { name: "Prepare an international regime able to prohibit or pause superintelligence development" }),
     ).toBeVisible();
+  });
+
+  test("instrument and technology indexes list their links (requires current seed data)", async ({ page }) => {
+    await page.goto("/instruments/");
+    await expect(page.getByRole("heading", { name: "Policy instrument → Mitigation", level: 1 })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Regulation", level: 2 })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Compute allocation minimums for frontier labs" })).toBeVisible();
+
+    await page.goto("/technologies/");
+    await expect(page.getByRole("heading", { name: "Technology → Policy instrument", level: 1 })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Verification", level: 2 })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Zero-knowledge proofs" })).toBeVisible();
   });
 });

@@ -1,0 +1,23 @@
+# instruments/compute-allocation-minimums.yaml
+
+id: compute-allocation-minimums
+schema_type: DefinedTerm
+title: "Compute allocation minimums for frontier labs"
+description: >
+  Require frontier developers to spend minimum shares of their compute on
+  external inference (for example 70%) and on transparent safety work (for
+  example 25%), which caps how much can go to capability gains. AI Futures
+  proposes enforcement by third-party auditors with extensive internal access
+  plus government capability measurement.
+instrument_type: regulation
+advances:
+  - slow-or-pause-frontier-ai
+technologies:
+  - technology: secure-enclaves
+    note: Can attest how much compute a workload used.
+  - technology: fingerprinting
+    note: Can distinguish training from inference workloads from outside.
+links:
+  - label: "How to pace the US frontier, option 2 (AI Futures Project)"
+    url: "https://blog.aifutures.org/p/how-to-pace-the-us-frontier"
+tags: [pacing, compute]

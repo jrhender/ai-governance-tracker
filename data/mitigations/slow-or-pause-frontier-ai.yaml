@@ -1,0 +1,21 @@
+# mitigations/slow-or-pause-frontier-ai.yaml
+
+id: slow-or-pause-frontier-ai
+schema_type: DefinedTerm
+title: "Develop the ability to slow or pause frontier AI development"
+description: >
+  Monitor, verify and control AI research to prevent a sudden jump to AGI/ASI,
+  and develop mechanisms that can slow or pause frontier development if deemed
+  necessary, with international coordination so the approach applies
+  universally. Often discussed as "pacing the frontier."
+mitigation_type: governance-oversight
+addresses_risks:
+  - loss-of-control
+status: untracked
+implemented_by: []
+links:
+  - label: "How to pace the US frontier (AI Futures Project)"
+    url: "https://blog.aifutures.org/p/how-to-pace-the-us-frontier"
+  - label: "Pacing the Frontier open letter"
+    url: "https://www.pacingthefrontier.com/"
+tags: [pacing, superintelligence, international]

@@ -1,0 +1,28 @@
+# instruments/international-ai-verification-agreement.yaml
+
+id: international-ai-verification-agreement
+schema_type: DefinedTerm
+title: "International \"trust but verify\" agreement on frontier AI"
+description: >
+  A treaty-style agreement among states that limits frontier AI development
+  (up to prohibiting superintelligence) and backs the limits with technical
+  verification, so that parties can check each other's compliance rather than
+  rely on assertions. Modelled on nuclear arms-control verification.
+instrument_type: international_agreement
+advances:
+  - international-asi-prohibition-regime
+  - asi-verification-compliance
+  - slow-or-pause-frontier-ai
+technologies:
+  - technology: recomputation
+  - technology: challenges
+  - technology: secure-enclaves
+  - technology: fingerprinting
+  - technology: hardware-enforced-limits
+  - technology: zero-knowledge-proofs
+proposed_in:
+  - controlai-canada-superintelligence-statement-2026
+links:
+  - label: "The UK's next AI bet should be AI verification (Thomas Milton, Amodo)"
+    url: "https://tomsmilton.substack.com/p/the-uks-next-ai-bet-should-be"
+tags: [verification, international, treaty]

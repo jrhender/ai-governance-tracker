@@ -1,0 +1,18 @@
+# instruments/frontier-risk-threshold-regime.yaml
+
+id: frontier-risk-threshold-regime
+schema_type: DefinedTerm
+title: "Maximum-risk threshold enforced through safety cases"
+description: >
+  Set a maximum acceptable level of catastrophic risk for frontier
+  development and require developers to show, to third-party risk assessors
+  with employee-level access, that they stay under it. AI Futures calls this
+  its best guess at an ideal regime but the hardest to execute.
+instrument_type: regulation
+advances:
+  - slow-or-pause-frontier-ai
+technologies: []
+links:
+  - label: "How to pace the US frontier, option 4 (AI Futures Project)"
+    url: "https://blog.aifutures.org/p/how-to-pace-the-us-frontier"
+tags: [pacing, safety-cases]

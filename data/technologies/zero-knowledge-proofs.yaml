@@ -1,0 +1,22 @@
+# technologies/zero-knowledge-proofs.yaml
+# Description and example claim follow the technology table in Thomas Milton
+# (Amodo), "The UK's next AI bet should be AI verification" (2 Aug 2026).
+
+id: zero-knowledge-proofs
+schema_type: DefinedTerm
+title: "Zero-knowledge proofs"
+also_known_as: ["ZKPs"]
+domain: verification
+summary: >
+  Let a party prove a claim without sharing the underlying data, such as
+  proving that a specific model did a specific computation without revealing
+  the model or data to the verifier. Using ZKPs for inference and training
+  currently carries a high computational overhead.
+example_claim: "Training followed the agreed code."
+why_it_matters: >
+  Gives verifiers stronger evidence while keeping the model, data and training
+  details secret.
+links:
+  - label: "The UK's next AI bet should be AI verification"
+    url: "https://tomsmilton.substack.com/p/the-uks-next-ai-bet-should-be"
+tags: [verification]

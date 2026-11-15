@@ -5,6 +5,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { buildRiskMap } from "../../lib/riskMap";
 import MitigationCard from "../../components/MitigationCard.astro";
 import ViewToggle from "../../components/MapViewToggle.astro";
+import { loadPolicyGraph } from "../../content/loadPolicyGraph";
 
 const [risks, mitigations, artifacts, events] = await Promise.all([
   getCollection("risks"),
@@ -19,6 +20,8 @@ const { domains, general, unmapped, metrics } = buildRiskMap(
   artifacts.map((a) => ({ id: a.id, data: a.data })),
   events.map((e) => ({ id: e.id, data: e.data })),
 );
+const graph = await loadPolicyGraph();
+const instrumentCount = (id: string) => graph.instrumentsByMitigation.get(id)?.length ?? 0;
 ---
 
 <BaseLayout
@@ -85,7 +88,7 @@ const { domains, general, unmapped, metrics } = buildRiskMap(
           {risk.description && <p class="mt-1 text-sm text-muted">{risk.description}</p>}
           <ul class="mt-3 space-y-2">
             {risk.mitigations.map((m) => (
-              <MitigationCard mitigation={m} variant="nested" />
+              <MitigationCard mitigation={m} variant="nested" instrumentCount={instrumentCount(m.id)} />
             ))}
           </ul>
         </div>
@@ -102,7 +105,7 @@ const { domains, general, unmapped, metrics } = buildRiskMap(
       </p>
       <ul class="mt-4 space-y-2">
         {general.map((m) => (
-          <MitigationCard mitigation={m} variant="top" />
+          <MitigationCard mitigation={m} variant="top" instrumentCount={instrumentCount(m.id)} />
         ))}
       </ul>
     </section>

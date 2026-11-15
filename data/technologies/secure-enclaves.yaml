@@ -1,0 +1,22 @@
+# technologies/secure-enclaves.yaml
+# Description and example claim follow the technology table in Thomas Milton
+# (Amodo), "The UK's next AI bet should be AI verification" (2 Aug 2026).
+
+id: secure-enclaves
+schema_type: DefinedTerm
+title: "Secure enclaves"
+also_known_as: ["Trusted Execution Environments (TEEs)"]
+domain: verification
+summary: >
+  Hardware that cryptographically reports the code and model being executed.
+  TEEs are already used in some AI clusters but are not yet suitable for
+  international coordination; brought up to standard, they could help verify
+  some rules.
+example_claim: "X amount of FLOPs were used in this training run."
+why_it_matters: >
+  Could strengthen claims that a pacing rule is being followed in real time
+  and with more granularity.
+links:
+  - label: "The UK's next AI bet should be AI verification"
+    url: "https://tomsmilton.substack.com/p/the-uks-next-ai-bet-should-be"
+tags: [verification]

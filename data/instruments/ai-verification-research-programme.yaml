@@ -1,0 +1,28 @@
+# instruments/ai-verification-research-programme.yaml
+
+id: ai-verification-research-programme
+schema_type: DefinedTerm
+title: "Public AI verification research programme and testbeds"
+description: >
+  A government-backed programme that builds and stress-tests verification
+  technology before any agreement needs it: a dedicated team at the national
+  AI safety institute, grant rounds, joint verification experiments with
+  industry and other governments, and red-teaming on national compute such as
+  public data centres and supercomputers. Proposed for the UK; no Canadian
+  equivalent is tracked yet.
+instrument_type: public_program
+advances:
+  - asi-verification-compliance
+  - international-asi-prohibition-regime
+  - slow-or-pause-frontier-ai
+technologies:
+  - technology: recomputation
+  - technology: challenges
+  - technology: secure-enclaves
+  - technology: fingerprinting
+  - technology: hardware-enforced-limits
+  - technology: zero-knowledge-proofs
+links:
+  - label: "The UK's next AI bet should be AI verification (Thomas Milton, Amodo)"
+    url: "https://tomsmilton.substack.com/p/the-uks-next-ai-bet-should-be"
+tags: [verification, research]

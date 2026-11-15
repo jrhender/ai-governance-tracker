@@ -1,0 +1,20 @@
+# instruments/ai-rnd-model-lag.yaml
+
+id: ai-rnd-model-lag
+schema_type: DefinedTerm
+title: "Lag on models used for AI R&D"
+description: >
+  Allow AI research and development to be conducted or assisted only by
+  models that finished training some time ago (AI Futures suggests about nine
+  months), so automated AI R&D cannot compound on the newest, least-tested
+  systems.
+instrument_type: regulation
+advances:
+  - slow-or-pause-frontier-ai
+technologies:
+  - technology: challenges
+    note: Can show the R&D loop runs an approved, eval-passed model rather than a newer one.
+links:
+  - label: "How to pace the US frontier, option 3 (AI Futures Project)"
+    url: "https://blog.aifutures.org/p/how-to-pace-the-us-frontier"
+tags: [pacing, ai-rnd]

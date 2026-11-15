@@ -12,9 +12,11 @@ interface Props {
   // Mitigation-first views list the risks each mitigation addresses. They are
   // already grouped by category, so the category chip is hidden.
   showRisks?: boolean;
+  // Number of policy instruments that advance this mitigation.
+  instrumentCount?: number;
 }
 
-const { mitigation: m, variant, showRisks = false } = Astro.props;
+const { mitigation: m, variant, showRisks = false, instrumentCount = 0 } = Astro.props;
 
 const statusColors: Record<string, string> = {
   untracked: "bg-gray-100 text-gray-600 border-gray-200",
@@ -46,9 +48,9 @@ const chipClass =
       {m.title}
     </a>
     <div class="flex shrink-0 flex-wrap gap-1">
-      {m.approachCount > 0 && (
+      {instrumentCount > 0 && (
         <span class={chipClass}>
-          {m.approachCount} {m.approachCount === 1 ? "approach" : "approaches"}
+          {instrumentCount} policy {instrumentCount === 1 ? "instrument" : "instruments"}
         </span>
       )}
       {m.mitigationType && !showRisks && (

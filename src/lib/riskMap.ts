@@ -40,7 +40,6 @@ export type MitigationInput = {
       relationship: "implements" | "partially_implements" | "related";
       note?: string;
     }[];
-    approaches?: { id: string; title: string }[];
   };
 };
 
@@ -77,7 +76,6 @@ export type MapMitigation = {
   recommendedBy: { artifactId: string; artifactTitle: string; recTitle: string }[];
   implementations: Implementation[];
   risks: { id: string; title: string }[];
-  approachCount: number;
 };
 
 export type MapRisk = {
@@ -188,7 +186,6 @@ export function buildRiskMap(
       id: r.id,
       title: riskTitles.get(r.id) ?? r.id,
     })),
-    approachCount: m.data.approaches?.length ?? 0,
   });
 
   // Risk id → mitigations addressing it; mitigations with no risks → general.

@@ -2,13 +2,16 @@
 // src/pages/mitigations/[id].astro
 // Detail page for one canonical mitigation: what it is, the risks it
 // addresses, who recommends it, implementation evidence, and (when recorded)
-// the specific technologies or techniques it breaks down into.
+// the policy instruments that would advance it and the technologies that
+// enable those instruments.
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { buildRiskMap } from "../../lib/riskMap";
+import { loadPolicyGraph } from "../../content/loadPolicyGraph";
 import {
   MITIGATION_CATEGORIES,
   MITIGATION_STATUSES,
+  INSTRUMENT_TYPES,
 } from "../../lib/mitigationTaxonomy";
 
 export async function getStaticPaths() {
@@ -36,6 +39,8 @@ const { mitigations: mapped } = buildRiskMap(
   events.map((e) => ({ id: e.id, data: e.data })),
 );
 const m = mapped.find((x) => x.id === mitigation.id)!;
+const graph = await loadPolicyGraph();
+const instruments = graph.instrumentsByMitigation.get(mitigation.id) ?? [];
 
 const statusColors: Record<string, string> = {
   untracked: "bg-gray-100 text-gray-600 border-gray-200",
@@ -87,39 +92,25 @@ const sectionHeading = "text-xs font-semibold uppercase tracking-wide text-faint
     )}
   </section>
 
-  {data.approaches.length > 0 && (
-    <section class="mt-8" aria-labelledby="approaches-heading">
-      <h2 id="approaches-heading" class={sectionHeading}>
-        Technologies &amp; approaches
-      </h2>
+  <section class="mt-8" aria-labelledby="instruments-heading">
+    <h2 id="instruments-heading" class={sectionHeading}>Policy instruments</h2>
+    {instruments.length > 0 ? (
       <ul class="space-y-3">
-        {data.approaches.map((a) => (
-          <li id={a.id} class="scroll-mt-4 rounded border border-border bg-surface p-4">
-            <h3 class="font-medium text-ink">{a.title}</h3>
-            {a.also_known_as.length > 0 && (
-              <p class="mt-0.5 text-xs text-faint">Also: {a.also_known_as.join(", ")}</p>
-            )}
-            <p class="mt-2 text-sm text-ink">{a.summary}</p>
-            {a.example_claim && (
-              <div class="mt-3 border-l-2 border-accent pl-3">
-                <p class="text-sm text-ink">
-                  <span class="text-xs font-semibold uppercase tracking-wide text-faint">Example claim </span>
-                  “{a.example_claim}”
-                </p>
-                {a.why_it_matters && (
-                  <p class="mt-1 text-sm text-muted">{a.why_it_matters}</p>
-                )}
-              </div>
-            )}
-            {a.links.length > 0 && (
+        {instruments.map((inst) => (
+          <li class="rounded border border-border bg-surface p-4">
+            <div class="flex items-start justify-between gap-3">
+              <a href={`/instruments/${inst.id}/`} class="font-medium text-ink hover:text-accent-dark hover:underline">
+                {inst.title}
+              </a>
+              <span class={`shrink-0 ${chip}`}>{INSTRUMENT_TYPES[inst.instrumentType]}</span>
+            </div>
+            {inst.technologies.length > 0 && (
               <p class="mt-2 text-xs text-faint">
-                Source:{" "}
-                {a.links.map((l, i) => (
+                Enabled by:{" "}
+                {inst.technologies.map((t, i) => (
                   <>
                     {i > 0 && ", "}
-                    <a href={l.url} class="text-accent-dark hover:underline" target="_blank" rel="noopener noreferrer">
-                      {l.label} ↗
-                    </a>
+                    <a href={`/technologies/${t.id}/`} class="text-accent-dark hover:underline">{t.title}</a>
                   </>
                 ))}
               </p>
@@ -127,8 +118,10 @@ const sectionHeading = "text-xs font-semibold uppercase tracking-wide text-faint
           </li>
         ))}
       </ul>
-    </section>
-  )}
+    ) : (
+      <p class="text-sm text-muted">No policy instruments recorded yet.</p>
+    )}
+  </section>
 
   {m.recommendedBy.length > 0 && (
     <section class="mt-8">

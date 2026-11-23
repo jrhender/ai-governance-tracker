@@ -1,0 +1,50 @@
+# data/events/2026-11-18-carney-pitches-china-technology-stability-board.yaml
+
+id: carney-pitches-china-technology-stability-board-2026
+type: GovernmentAnnouncement
+schema_type: Event
+title: "Carney pitches Xi on a global AI body modelled on the Financial Stability Board"
+date: 2026-11-18
+status: completed
+
+location:
+  name: "Shenzhen, China"
+  schema_type: Place
+
+organizations:
+  - id: pmo-canada
+    role: organizer
+
+description: >
+  Speaking to reporters in Shenzhen on the sidelines of the APEC meetings,
+  Prime Minister Mark Carney says he pitched Chinese President Xi Jinping on a
+  "Technology Stability Board": a global, non-binding body of countries with AI
+  expertise that would monitor AI risks and, at a minimum, share lessons on AI
+  incidents. It is modelled on the Financial Stability Board, which Carney
+  chaired. Politico reports its structure and mandate are not finalized, that
+  Canada is seeking China's buy-in, and that Carney says there "can't be a
+  global solution without the countries that are developing the most advanced
+  systems — including China." A readout from his office says he and Xi "agreed
+  on the importance of strengthening cooperation on the global governance of
+  artificial intelligence." Carney also calls the absence of global AI
+  governance "an enormous risk" (economic, biohazard and to democracy). This is
+  a proposal; no Chinese response was reported. The board name comes from
+  Politico only; Euronews/AFP reports the call for "global governance
+  frameworks" without naming a board.
+
+tags:
+  - international-cooperation
+  - ai-safety
+  - frontier-ai
+  - global-governance
+  - china
+  - mark-carney
+  - federal-government
+
+links:
+  - label: "Politico — Canada PM pitches China on global AI board"
+    url: https://www.politico.com/news/2026/11/18/carney-china-global-ai-board-01173981
+    icon: website
+  - label: "Euronews/AFP — Carney warns lack of global governance on AI an 'enormous risk'"
+    url: https://www.euronews.com/2026/11/18/carney-warns-lack-of-global-governance-on-ai-an-enormous-risk
+    icon: website

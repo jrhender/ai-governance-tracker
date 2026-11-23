@@ -1,0 +1,26 @@
+# instruments/public-ai-safety-institute.yaml
+
+id: public-ai-safety-institute
+schema_type: DefinedTerm
+title: "Public AI safety institute that evaluates frontier models"
+description: >
+  A government institute that tests AI models for dangerous capabilities,
+  funds safety research and works with counterpart institutes abroad.
+instrument_type: institution
+advances:
+  - frontier-model-evaluation
+  - fund-ai-safety-research
+  - international-ai-safety-cooperation
+technologies: []
+implemented_by:
+  - artifact: caisi-question-period-note-2025
+    relationship: implements
+    note: >
+      The Canadian AI Safety Institute was created in November 2024 and is a
+      founding member of the International Network of AI Safety Institutes.
+  - artifact: canada-national-ai-strategy-ai-for-all
+    relationship: implements
+    note: >
+      AI for All commits to an expanded Canadian AI Safety Institute that
+      carries out transparent evaluations of AI models.
+tags: [caisi, evaluation]

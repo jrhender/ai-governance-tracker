@@ -1,0 +1,19 @@
+# instruments/chatbot-online-safety-duties.yaml
+
+id: chatbot-online-safety-duties
+schema_type: DefinedTerm
+title: "Online-safety duties for AI chatbot services"
+description: >
+  Bringing AI chatbot services within an online-safety regime, with operator
+  duties to protect children.
+instrument_type: regulation
+advances:
+  - regulate-ai-companion-chatbots
+technologies: []
+implemented_by:
+  - artifact: bill-c34-safe-social-media-act
+    relationship: partially_implements
+    note: >
+      Bill C-34 (first reading, June 2026) brings AI chatbot services into a
+      federal online-safety regime aimed at children. Not yet law.
+tags: [ai-chatbots, online-safety, children]

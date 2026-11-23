@@ -1,0 +1,13 @@
+# mitigations/regulate-ai-companion-chatbots.yaml
+
+id: regulate-ai-companion-chatbots
+schema_type: DefinedTerm
+title: "Regulate AI chatbots and companions, especially for children"
+description: >
+  Bring AI chatbot services within online-safety law, with duties on
+  operators to protect children from harmful interaction and dependence.
+mitigation_type: governance-oversight
+addresses_risks:
+  - erosion-of-human-autonomy
+status: under_review
+tags: [ai-chatbots, online-safety, children]

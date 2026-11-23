@@ -1,0 +1,19 @@
+# instruments/domestic-ai-incident-reporting.yaml
+
+id: domestic-ai-incident-reporting
+schema_type: DefinedTerm
+title: "Domestic serious AI incident reporting"
+description: >
+  A requirement for organizations to report serious AI incidents to a
+  federal authority within set timelines.
+instrument_type: regulation
+advances:
+  - ai-incident-monitoring
+technologies: []
+implemented_by:
+  - event: ised-ai-transparency-consultation-launched-2026
+    relationship: related
+    note: >
+      ISED's 2026 transparency consultation asked for views on tracking
+      serious AI incidents. Outcome pending.
+tags: [incident-reporting]

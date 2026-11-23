@@ -1,0 +1,20 @@
+# instruments/international-frontier-ai-institution.yaml
+
+id: international-frontier-ai-institution
+schema_type: DefinedTerm
+title: "International institution for frontier AI"
+description: >
+  An international body able to set standards, verify compliance and convene
+  states when frontier capability thresholds are crossed.
+instrument_type: international_agreement
+advances:
+  - international-transparency-monitoring-regime
+  - lead-global-ai-governance
+technologies: []
+implemented_by:
+  - artifact: call-for-control-of-frontier-ai-models-2026
+    relationship: related
+    note: >
+      The call asks UN member states to explore such an institution.
+      Non-binding.
+tags: [international-institution, un]

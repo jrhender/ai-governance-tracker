@@ -1,0 +1,16 @@
+# mitigations/criminalize-deceptive-deepfakes.yaml
+
+id: criminalize-deceptive-deepfakes
+schema_type: DefinedTerm
+title: "Criminalize deceptive and abusive deepfakes"
+description: >
+  Extend criminal and elections law to AI-generated impersonation: sexualized
+  deepfakes of real people, and realistic fabricated depictions of electoral
+  actors made to mislead. Narrow in scope; other AI-generated political
+  content is not covered and AI content is not required to be labelled.
+mitigation_type: governance-oversight
+addresses_risks:
+  - ai-enabled-crime-and-fraud
+  - ai-influence-operations
+status: adopted
+tags: [deepfakes, elections, criminal-law]

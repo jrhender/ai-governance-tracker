@@ -11,6 +11,5 @@ mitigation_type: technical-security
 addresses_risks:
   - ai-enabled-cyberattacks
   - ai-biochemical-weapons-uplift
-status: untracked
-implemented_by: []
+status: under_review
 tags: []

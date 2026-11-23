@@ -1,0 +1,21 @@
+# instruments/common-frontier-evaluation-framework.yaml
+
+id: common-frontier-evaluation-framework
+schema_type: DefinedTerm
+title: "Common international frontier-model evaluation framework"
+description: >
+  Shared standards, tools and a public repository of non-sensitive results
+  for evaluating frontier models across governments, labs and researchers.
+instrument_type: international_agreement
+advances:
+  - frontier-model-evaluation
+  - international-ai-safety-cooperation
+technologies: []
+implemented_by:
+  - artifact: paris-call-ai-safety-security-declaration-2026
+    relationship: partially_implements
+    note: >
+      Signatories commit to a common evaluation framework focused on cyber,
+      CBRN and loss-of-control risks, pointing to NAAIMES. A voluntary
+      commitment; the framework is not yet built.
+tags: [evaluation, international-cooperation]

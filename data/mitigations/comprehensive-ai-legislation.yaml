@@ -10,10 +10,4 @@ description: >
 mitigation_type: governance-oversight
 addresses_risks: []
 status: untracked
-implemented_by:
-  - artifact: bill-c27-aida
-    relationship: related
-    note: >
-      AIDA (part of Bill C-27) attempted a risk-based framework and died on
-      the Order Paper when Parliament was prorogued in January 2025.
 tags: [legislation, aida, caia]

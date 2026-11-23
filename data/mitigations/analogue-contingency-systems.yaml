@@ -11,5 +11,4 @@ mitigation_type: operational-process
 addresses_risks:
   - loss-of-control
 status: untracked
-implemented_by: []
 tags: []

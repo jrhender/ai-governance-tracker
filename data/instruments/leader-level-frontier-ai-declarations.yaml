@@ -1,0 +1,24 @@
+# instruments/leader-level-frontier-ai-declarations.yaml
+
+id: leader-level-frontier-ai-declarations
+schema_type: DefinedTerm
+title: "Leader-level declarations on frontier AI safety"
+description: >
+  Joint statements by heads of government setting shared expectations for
+  frontier AI safety, used to build international consensus ahead of binding
+  agreements.
+instrument_type: international_agreement
+advances:
+  - lead-global-ai-governance
+technologies: []
+implemented_by:
+  - artifact: paris-call-ai-safety-security-declaration-2026
+    relationship: implements
+    note: >
+      Canada signed, and the Prime Minister's Office published, the November
+      2026 declaration.
+  - artifact: call-for-control-of-frontier-ai-models-2026
+    relationship: implements
+    note: >
+      Carney is one of 20 leaders who signed the September 2026 call.
+tags: [international-cooperation, diplomacy]

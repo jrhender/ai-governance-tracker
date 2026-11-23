@@ -1,0 +1,21 @@
+# instruments/defenders-first-cyber-access.yaml
+
+id: defenders-first-cyber-access
+schema_type: DefinedTerm
+title: "Early defensive access to cyber-capable frontier models"
+description: >
+  Government cyber agencies get early access to frontier models with strong
+  vulnerability-finding abilities, so defenders can patch before wider
+  release.
+instrument_type: public_program
+advances:
+  - harden-digital-bio-defences
+technologies: []
+implemented_by:
+  - event: ised-anthropic-mythos-meeting-2026
+    relationship: implements
+    note: >
+      After Anthropic limited Claude Mythos to a defensive preview, Canada
+      joined Project Glasswing through the Canadian Centre for
+      Cybersecurity. Covers cyber only.
+tags: [cybersecurity, critical-infrastructure]

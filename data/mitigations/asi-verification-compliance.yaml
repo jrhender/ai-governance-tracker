@@ -10,7 +10,6 @@ mitigation_type: technical-security
 addresses_risks:
   - loss-of-control
 status: untracked
-implemented_by: []
 
 links:
   - label: "The UK's next AI bet should be AI verification (Thomas Milton, Amodo)"

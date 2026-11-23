@@ -1,0 +1,20 @@
+# instruments/developer-fail-safe-commitments.yaml
+
+id: developer-fail-safe-commitments
+schema_type: DefinedTerm
+title: "Developer commitments to restrict, pause or shut down models"
+description: >
+  Commitments by frontier developers to build mechanisms that can restrict,
+  pause or shut down models in their control, including during training and
+  internal use.
+instrument_type: voluntary_framework
+advances:
+  - asi-emergency-kill-switches
+technologies: []
+implemented_by:
+  - artifact: paris-call-ai-safety-security-declaration-2026
+    relationship: implements
+    note: >
+      Frontier developers among the signatories commit to these fail-safe
+      mechanisms. Voluntary and non-binding.
+tags: [fail-safes]

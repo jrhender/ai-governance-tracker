@@ -1,0 +1,45 @@
+# data/events/2026-11-17-carney-xi-agree-cooperation-global-ai-governance.yaml
+
+id: carney-xi-agree-cooperation-global-ai-governance-2026
+type: GovernmentAnnouncement
+schema_type: Event
+title: "Carney and Xi agree to strengthen cooperation on global AI governance"
+date: 2026-11-17
+status: completed
+
+location:
+  name: "Shenzhen, China"
+  schema_type: Place
+
+organizations:
+  - id: pmo-canada
+    role: organizer
+
+description: >
+  During his visit to Shenzhen, Prime Minister Mark Carney meets Chinese
+  President Xi Jinping. According to the Prime Minister's Office readout, the
+  two leaders agree on the importance of strengthening cooperation on the
+  global governance of artificial intelligence, recognising both its
+  transformative potential and the need to address its risks. They emphasise
+  the urgency of working together to promote the safe and responsible
+  development and use of AI, including through greater international
+  cooperation and dialogue.
+
+tags:
+  - international-cooperation
+  - ai-safety
+  - global-governance
+  - china
+  - mark-carney
+  - federal-government
+
+links:
+  - label: "PM's Office — Readout of meeting with Xi Jinping"
+    url: https://www.pm.gc.ca/en/news/readouts/2026/11/17/prime-minister-carney-meets-president-peoples-republic-china-xi-jinping
+    icon: document
+  - label: "Politico — Canada PM pitches China on global AI board"
+    url: https://www.politico.com/news/2026/11/18/carney-china-global-ai-board-01173981
+    icon: website
+  - label: "Euronews/AFP — Carney warns lack of global governance on AI an 'enormous risk'"
+    url: https://www.euronews.com/2026/11/18/carney-warns-lack-of-global-governance-on-ai-an-enormous-risk
+    icon: website

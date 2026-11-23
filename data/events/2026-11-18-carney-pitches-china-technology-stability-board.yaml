@@ -21,8 +21,8 @@ description: >
   non-binding global body of AI-expert countries that would monitor AI risks
   and share lessons on incidents, modelled on the Financial Stability Board.
   He says there "can't be a global solution" without China. His office's
-  readout says he and Xi agreed on the importance of cooperation on AI
-  governance. A proposal only; no Chinese response reported. The board name is
+  readout of their 17 Nov meeting says they agreed on the importance of
+  cooperation on AI governance, but does not name the board. A proposal only; no Chinese response reported. The board name is
   from Politico; Euronews/AFP cites only "global governance frameworks".
 
 tags:
@@ -35,6 +35,9 @@ tags:
   - federal-government
 
 links:
+  - label: "PM's Office — Readout of meeting with Xi Jinping (17 Nov)"
+    url: https://www.pm.gc.ca/en/news/readouts/2026/11/17/prime-minister-carney-meets-president-peoples-republic-china-xi-jinping
+    icon: document
   - label: "Politico — Canada PM pitches China on global AI board"
     url: https://www.politico.com/news/2026/11/18/carney-china-global-ai-board-01173981
     icon: website
